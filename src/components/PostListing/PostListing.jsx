@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import styled from 'styled-components';
 
 function PostListing({ postEdges }) {
   const postList = [];
@@ -20,13 +21,26 @@ function PostListing({ postEdges }) {
       {
         /* Your post list here. */
         postList.map((post) => (
-          <Link to={post.path} key={post.title}>
-            <h1>{post.title}</h1>
-          </Link>
+          <PostItem>
+            <Link to={post.path} key={post.title}>
+              <p>{post.title}</p>
+            </Link>
+          </PostItem>
         ))
       }
     </div>
   );
 }
+
+const PostItem = styled.div`
+  a, a:visited{
+    color: ${p => p.theme.text.heading};
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    text-decoration: none;
+}
+`;
+
 
 export default PostListing;

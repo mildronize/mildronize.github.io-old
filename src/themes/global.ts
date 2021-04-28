@@ -29,4 +29,9 @@ export const GlobalStyles = createGlobalStyle`
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     transition: font-size 0.25s var(--ease-in-out-quad), background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad);
   }
+
+  a, a:visited{
+    color: ${({ theme }) => theme.colors.blue};
+    text-decoration: none;
+  }
   `;

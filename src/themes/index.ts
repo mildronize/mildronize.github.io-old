@@ -8,60 +8,70 @@ const colorModeTransition =
 export const lightTheme: DefaultTheme = {
 
   colorModeTransition,
+  text: {
+    heading: '#2d3748',
+    body: '#2d3748',
+    subtitle: '#a0aec0',
+  },
   colors: {
     default: '#363537',
-    gray: '#ffffff',
-    brown: '#ffffff',
-    orange: '#ffffff',
-    yellow: '#ffffff',
-    green: '#ffffff',
-    blue: '#ffffff',
-    purple: '#ffffff',
-    pink: '#ffffff',
-    red: '#ffffff'
+    gray: 'gray',
+    brown: 'brown',
+    orange: 'orange',
+    yellow: 'yellow',
+    green: 'green',
+    blue: 'blue',
+    purple: 'purple',
+    pink: 'pink',
+    red: 'red'
   },
   background: {
     default: '#ffffff',
-    gray: '#ffffff',
-    brown: '#ffffff',
-    orange: '#ffffff',
-    yellow: '#ffffff',
-    green: '#ffffff',
-    blue: '#ffffff',
-    purple: '#ffffff',
-    pink: '#ffffff',
-    red: '#ffffff'
+    gray: 'gray',
+    brown: 'brown',
+    orange: 'orange',
+    yellow: 'yellow',
+    green: 'green',
+    blue: 'blue',
+    purple: 'purple',
+    pink: 'pink',
+    red: 'red'
   }
 }
 
 export const darkTheme: DefaultTheme = {
 
   colorModeTransition,
+  text: {
+    heading: '#ffffff',
+    body: '#cbd5e0',
+    subtitle: '#a0aec0',
+  },
   colors: {
 
     default: '#FAFAFA',
-    gray: '#ffffff',
-    brown: '#ffffff',
-    orange: '#ffffff',
-    yellow: '#ffffff',
-    green: '#ffffff',
-    blue: '#ffffff',
-    purple: '#ffffff',
-    pink: '#ffffff',
-    red: '#ffffff'
+    gray: 'gray',
+    brown: 'brown',
+    orange: 'orange',
+    yellow: 'yellow',
+    green: 'green',
+    blue: 'blue',
+    purple: 'purple',
+    pink: 'pink',
+    red: 'red'
   },
 
   background: {
-    default: '#363537',
-    gray: '#ffffff',
-    brown: '#ffffff',
-    orange: '#ffffff',
-    yellow: '#ffffff',
-    green: '#ffffff',
-    blue: '#ffffff',
-    purple: '#ffffff',
-    pink: '#ffffff',
-    red: '#ffffff'
+    default: '#1A202C',
+    gray: 'gray',
+    brown: 'brown',
+    orange: 'orange',
+    yellow: 'yellow',
+    green: 'green',
+    blue: 'blue',
+    purple: 'purple',
+    pink: 'pink',
+    red: 'red'
   }
 }
 
