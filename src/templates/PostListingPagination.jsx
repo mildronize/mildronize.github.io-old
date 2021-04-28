@@ -2,10 +2,10 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../layout";
+import PageLayout from "../layout/PageLayout";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
-import "./listing.css";
 
 import styled from "styled-components"
 
@@ -13,7 +13,7 @@ const Container = styled.div`
   color: hotpink;
 `;
 
-function Listing({ pageContext, data }) {
+function PostListingPagination({ pageContext, data }) {
   function renderPaging() {
     const { currentPageNum, pageCount } = pageContext;
     const prevPage = currentPageNum - 1 === 1 ? "/" : `/${currentPageNum - 1}/`;
@@ -47,7 +47,7 @@ function Listing({ pageContext, data }) {
   const postEdges = data.allMarkdownRemark.edges;
 
   return (
-    <Layout>
+    <PageLayout>
       <div className="listing-container">
         <div className="posts-container">
           <Helmet title={config.siteTitle} />
@@ -56,11 +56,11 @@ function Listing({ pageContext, data }) {
         </div>
         {renderPaging()}
       </div>
-    </Layout>
+    </PageLayout>
   );
 }
 
-export default Listing;
+export default PostListingPagination;
 
 /* eslint no-undef: "off" */
 export const listingQuery = graphql`

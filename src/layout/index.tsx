@@ -19,7 +19,7 @@ export default function MainLayout({ children }: any) {
   };
 
   return (
-    <div className="layout-container">
+    <>
       <Helmet>
         <meta name="description" content={config.siteDescription} />
         <html lang="en" />
@@ -28,10 +28,9 @@ export default function MainLayout({ children }: any) {
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
         <ToggleDarkMode theme={theme} toggleTheme={toggleTheme} />
-      Hello React App
 
-      {children}
+         {children}
       </ThemeProvider>
-    </div>
+    </>
   );
 }
