@@ -22,8 +22,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.background.default};
+    color: ${({ theme }) => theme.colors.default};
     margin: 0;
     padding: 0;
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;

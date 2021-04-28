@@ -6,28 +6,68 @@ const colorModeTransition =
   'background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad)';
 
 export const lightTheme: DefaultTheme = {
-  text: '#363537',
+
   colorModeTransition,
   colors: {
     primary: '#363537',
-    accent: 'red',
     background: '#ffffff',
+
+    default: '#363537',
+    gray: '#ffffff',
+    brown: '#ffffff',
+    orange: '#ffffff',
+    yellow: '#ffffff',
+    green: '#ffffff',
+    blue: '#ffffff',
+    purple: '#ffffff',
+    pink: '#ffffff',
+    red: '#ffffff'
+  },
+  background: {
+    default: '#ffffff',
+    gray: '#ffffff',
+    brown: '#ffffff',
+    orange: '#ffffff',
+    yellow: '#ffffff',
+    green: '#ffffff',
+    blue: '#ffffff',
+    purple: '#ffffff',
+    pink: '#ffffff',
+    red: '#ffffff'
   }
 }
 
-export const darkTheme: DefaultTheme = {  
-  text: '#FAFAFA',
+export const darkTheme: DefaultTheme = {
+
   colorModeTransition,
   colors: {
     primary: '#FAFAFA',
-    accent: 'hotpink',
     background: '#363537',
+
+    default: '#FAFAFA',
+    gray: '#ffffff',
+    brown: '#ffffff',
+    orange: '#ffffff',
+    yellow: '#ffffff',
+    green: '#ffffff',
+    blue: '#ffffff',
+    purple: '#ffffff',
+    pink: '#ffffff',
+    red: '#ffffff'
+  },
+
+  background: {
+    default: '#363537',
+    gray: '#ffffff',
+    brown: '#ffffff',
+    orange: '#ffffff',
+    yellow: '#ffffff',
+    green: '#ffffff',
+    blue: '#ffffff',
+    purple: '#ffffff',
+    pink: '#ffffff',
+    red: '#ffffff'
   }
 }
 
-export const theme = {
-  colors: {
-    primary: 'hotpink'
-  }
-}
 

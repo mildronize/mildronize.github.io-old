@@ -6,13 +6,38 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
    
-    text: string;
     colorModeTransition: string;
 
     colors: {
       primary: string;
-      accent: string;
       background: string; 
+
+      default: string;
+      gray: string;
+      brown: string;
+      orange: string;
+      yellow: string;
+      green: string;
+      blue: string;
+      purple: string;
+      pink: string;
+      red: string;
     }
+
+    background: {
+      default: string;
+      gray: string;
+      brown: string;
+      orange: string;
+      yellow: string;
+      green: string;
+      blue: string;
+      purple: string;
+      pink: string;
+      red: string;
+    }
+
+
   }
+
 }
