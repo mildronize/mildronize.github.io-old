@@ -7,6 +7,12 @@ import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 import "./listing.css";
 
+import styled from "styled-components"
+
+const Container = styled.div`
+  color: hotpink;
+`;
+
 function Listing({ pageContext, data }) {
   function renderPaging() {
     const { currentPageNum, pageCount } = pageContext;
@@ -16,6 +22,7 @@ function Listing({ pageContext, data }) {
     const isLastPage = currentPageNum === pageCount;
 
     return (
+      <Container >
       <div className="paging-container">
         {!isFirstPage && <Link to={prevPage}>Previous</Link>}
         {[...Array(pageCount)].map((_val, index) => {
@@ -31,6 +38,9 @@ function Listing({ pageContext, data }) {
         })}
         {!isLastPage && <Link to={nextPage}>Next</Link>}
       </div>
+      
+        test
+      </Container>
     );
   }
 

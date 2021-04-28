@@ -22,6 +22,7 @@ module.exports = {
     },
   },
   plugins: [
+    "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
     {
@@ -109,16 +110,6 @@ module.exports = {
       },
     },
     "gatsby-plugin-offline",
-    {
-      resolve: "gatsby-plugin-netlify-cms",
-      options: {
-        modulePath: path.resolve("src/netlifycms/index.js"), // default: undefined
-        enableIdentityWidget: true,
-        publicPath: "admin",
-        htmlTitle: "Content Manager",
-        includeRobots: false,
-      },
-    },
     {
       resolve: "gatsby-plugin-feed",
       options: {
