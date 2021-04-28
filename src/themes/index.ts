@@ -9,9 +9,6 @@ export const lightTheme: DefaultTheme = {
 
   colorModeTransition,
   colors: {
-    primary: '#363537',
-    background: '#ffffff',
-
     default: '#363537',
     gray: '#ffffff',
     brown: '#ffffff',
@@ -41,8 +38,6 @@ export const darkTheme: DefaultTheme = {
 
   colorModeTransition,
   colors: {
-    primary: '#FAFAFA',
-    background: '#363537',
 
     default: '#FAFAFA',
     gray: '#ffffff',

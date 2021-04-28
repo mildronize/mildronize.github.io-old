@@ -9,9 +9,6 @@ declare module 'styled-components' {
     colorModeTransition: string;
 
     colors: {
-      primary: string;
-      background: string; 
-
       default: string;
       gray: string;
       brown: string;
