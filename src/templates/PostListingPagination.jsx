@@ -8,6 +8,7 @@ import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
 import styled from "styled-components"
+import Header from "../components/Header";
 
 const Container = styled.div`
   color: hotpink;
@@ -52,6 +53,7 @@ function PostListingPagination({ pageContext, data }) {
         <div className="posts-container">
           <Helmet title={config.siteTitle} />
           <SEO />
+          <Header />
           <PostListing postEdges={postEdges} />
         </div>
         {renderPaging()}
