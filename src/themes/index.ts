@@ -1,11 +1,11 @@
 import React from 'react';
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { ThemeProvider, createGlobalStyle, DefaultTheme } from 'styled-components'
 export { GlobalStyles } from './global';
 
 const colorModeTransition =
   'background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad)';
 
-export const lightTheme = {
+export const lightTheme: DefaultTheme = {
   text: '#363537',
   colorModeTransition,
   colors: {
@@ -15,7 +15,7 @@ export const lightTheme = {
   }
 }
 
-export const darkTheme = {  
+export const darkTheme: DefaultTheme = {  
   text: '#FAFAFA',
   colorModeTransition,
   colors: {
@@ -24,3 +24,10 @@ export const darkTheme = {
     background: '#363537',
   }
 }
+
+export const theme = {
+  colors: {
+    primary: 'hotpink'
+  }
+}
+

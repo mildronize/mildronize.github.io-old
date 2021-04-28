@@ -2,10 +2,28 @@ import React from 'react'
 import { func, string } from 'prop-types';
 import styled from 'styled-components';
 
-const ToggleDarkMode = ({ theme, toggleTheme }) => {
+const ToggleDarkMode = ({ theme, toggleTheme }: any) => {
   const isDark = theme === 'dark';
-
-  const IconWrapper = styled.button`
+  return (
+    <>
+      <IconWrapper
+      isDark={isDark}
+      onClick={toggleTheme}
+      data-a11y="false"
+      aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
+      title={isDark ? "Activate light mode" : "Activate dark mode"}
+    >
+      <MoonOrSun isDark={isDark} />
+      <MoonMask isDark={isDark} />
+    </IconWrapper>
+    {/* <button onClick={toggleTheme} >
+      {isLight? <div>MOON</div>: <div>SUN</div> }
+    </button> */}
+    </>
+   
+  );
+};
+const IconWrapper = styled.button<{ isDark: boolean }>`
 cursor: pointer;
   opacity: 0.5;
   position: relative;
@@ -38,8 +56,8 @@ cursor: pointer;
 
 `;
 
-  // This is based off a codepen! Much appreciated to: https://codepen.io/aaroniker/pen/KGpXZo
-  const MoonOrSun = styled.div`
+// This is based off a codepen! Much appreciated to: https://codepen.io/aaroniker/pen/KGpXZo
+const MoonOrSun = styled.div<{ isDark: boolean }>`
   position: relative;
   width: 24px;
   height: 24px;
@@ -85,7 +103,7 @@ cursor: pointer;
   }
 `;
 
-  const MoonMask = styled.div`
+const MoonMask = styled.div<{ isDark: boolean }>`
   position: absolute;
   right: -1px;
   top: -8px;
@@ -100,23 +118,5 @@ cursor: pointer;
   /* transition: ${p => p.theme.colorModeTransition}, transform 0.45s ease; */
   transition: background 0.25s  var(--ease-in-out-quad), transform 0.45s ease; 
 `;
-
-
-  return (
-    <>
-      <IconWrapper
-        isDark={isDark}
-        onClick={toggleTheme}
-        data-a11y="false"
-        aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
-        title={isDark ? "Activate light mode" : "Activate dark mode"}
-      >
-        <MoonOrSun isDark={isDark} />
-        <MoonMask isDark={isDark} />
-      </IconWrapper>
-    </>
-
-  );
-};
 
 export default ToggleDarkMode;

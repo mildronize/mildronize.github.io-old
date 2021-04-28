@@ -9,7 +9,7 @@ import { useDarkMode } from '../hooks';
 
 import ToggleDarkMode from '../components/ToggleDarkMode';
 
-export default function MainLayout({ children }) {
+export default function MainLayout({ children }: any) {
 
   const [theme, toggleTheme, componentMounted] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
