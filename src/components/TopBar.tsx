@@ -31,7 +31,8 @@ const TopBar = (props: any) => {
 const FixedTopContainer = styled.div`
 
   margin: 0;
-  padding: 15px 0 10px 0;
+  margin-left: -20px;
+  padding: 15px 20px 10px 20px;
   overflow: hidden;
   background: var(--background-default);
   position: fixed;

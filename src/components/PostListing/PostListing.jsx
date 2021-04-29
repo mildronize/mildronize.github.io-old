@@ -32,25 +32,26 @@ function PostListing({ postEdges }) {
         /* Your post list here. */
         postList.map((post) => (
           <PostItem>
-            <Flex container justify="flex-start" >
-              <Flex width="150px">
-                <PostDate >
-                  {format(parseISO(post.date), "yyyy MMM, d")}
-                </PostDate>
+            <Link to={post.path} key={post.title} >
+              {/* <a className="post-item-link"> */}
+              <Flex container justify="flex-start" >
+                <Flex width="150px">
+                  <PostDate >
+                    {format(parseISO(post.date), "yyyy MMM, d")}
+                  </PostDate>
 
-              </Flex>
-              <Flex >
-                <Link to={post.path} key={post.title}>
+                </Flex>
+                <Flex >
                   <h4>{post.title}</h4>
-                </Link>
-                <TagContainer>
-                  {post.tags.map((tag) => (
-                    <Tag>#{tag} </Tag>
-                  ))}
-                </TagContainer>
+                  {/* <TagContainer>
+                    {post.tags.map((tag) => (
+                      <Tag>#{tag} </Tag>
+                    ))}
+                  </TagContainer> */}
+                </Flex>
               </Flex>
-            </Flex>
-
+              {/* </a> */}
+            </Link>
           </PostItem>
         ))
       }
@@ -65,14 +66,22 @@ const PostDate = styled.time`
 `;
 
 const PostItem = styled.div`
-margin-bottom:60px;
+  margin-bottom:10px;
 
   a, a:visited{
+    display: inline-block;
       color: var(--text-heading);
       font-weight: 400;
       font-size: 1.2rem;
       line-height: 1.5;
       text-decoration: none;
+      width:100%;
+      padding: 20px 15px 20px 15px;
+      border-radius: 10px;
+  }
+
+  a:hover{
+    background: var(--colors-hover-0);
   }
 
   /* a:hover{
@@ -85,14 +94,14 @@ h4{
 `;
 
 const TagContainer = styled.div`
-margin-top: -5px;
-/* padding */
+  margin-top: -5px;
+  margin-bottom:20px;
 `;
 
 const Tag = styled.span`
-color: var(--colors-text-3);
-font-size: 0.8rem;
-margin-right: 20px;
+  color: var(--colors-text-3);
+  font-size: 0.8rem;
+  margin-right: 20px;
 `;
 
 
