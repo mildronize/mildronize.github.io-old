@@ -2,25 +2,19 @@ import React from "react";
 import styled from 'styled-components';
 import Layout from ".";
 import TopBar from "../components/TopBar";
+import CenterContainer from "../components/CenterContainer";
 
 const PageLayout = (props: any) => {
-    const { children, ...restProps } = props;
+    const { children } = props;
 
     return (
         <Layout>
-
-            <Container {...restProps}>
-                <TopBar />
+            <TopBar />
+            <CenterContainer>
                 {children}
-            </Container>
+            </CenterContainer>
         </Layout>
     );
 };
-
-const Container = styled.div`
-  max-width: 700px;
-  margin: 0 auto;
-`;
-
 
 export default PageLayout;

@@ -34,7 +34,7 @@ cursor: pointer;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s ease;
-  margin-left: 30px;
+  /* margin-top: 5px; */
   border: 0;
   background: rgba(255, 255, 255, 0.01);
   &:hover {

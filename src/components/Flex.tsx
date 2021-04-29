@@ -25,6 +25,8 @@ interface PropsType {
   className?: string,
   children?: React.ReactNode,
   role?: string,
+  width?: number;
+  container?: boolean;
 };
 
 const Flex = (props: PropsType) => {
@@ -46,15 +48,17 @@ const Container = styled.div<{
     className?: string,
     children?: React.ReactNode,
     role?: string, 
+    width?: number,
+    container?: boolean;
 }>`
-  display: flex;
+  display: ${({ container }) => (container ? "flex" : "block-inline")};
   flex: ${({ auto }) => (auto ? "1 1 auto" : "initial")};
   flex-direction: ${({ column }) => (column ? "column" : "row")};
   align-items: ${({ align }) => align};
   justify-content: ${({ justify }) => justify};
   flex-shrink: ${({ shrink }) => (shrink ? 1 : "initial")};
   min-height: 0;
-  min-width: 0;
+  min-width: ${({ width }) => (width ? width : 0)};
 `;
 
 export default Flex;
