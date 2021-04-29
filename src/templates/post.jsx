@@ -57,11 +57,11 @@ export default function PostTemplate({ data, pageContext }) {
             </TagContainer>
 
 
-            <SocialLinks postPath={slug} postNode={postNode} />
+            {/* <SocialLinks postPath={slug} postNode={postNode} /> */}
           </div>
-          <UserInfo config={config} />
+          {/* <UserInfo config={config} /> */}
           {/* <Disqus postNode={postNode} /> */}
-          <Footer config={config} />
+          {/* <Footer config={config} /> */}
         </Container>
       </div>
     </Layout>

@@ -25,19 +25,34 @@ const config = {
   userLinks: [
     {
       label: "GitHub",
-      url: "https://github.com/Vagr9K/gatsby-advanced-starter",
-      iconClassName: "fa fa-github",
+      url: "https://github.com/mildronize",
+      iconClassName: "fab fa-github",
     },
     {
       label: "Twitter",
-      url: "https://twitter.com/Vagr9K",
-      iconClassName: "fa fa-twitter",
+      url: "https://twitter.com/mildronize",
+      iconClassName: "fab fa-twitter",
     },
     {
       label: "Email",
-      url: "mailto:vagr9k@gmail.com",
-      iconClassName: "fa fa-envelope",
+      url: "mailto:mildronize@gmail.com",
+      iconClassName: "fas fa-envelope",
     },
+    {
+      label: "Linkedin",
+      url: "mailto:https://www.linkedin.com/in/thada-wangthammang-281894a6/",
+      iconClassName: "fab fa-linkedin",
+    },
+    {
+      label: "Medium",
+      url: "https://medium.com/@mildronize",
+      iconClassName: "fab fa-medium",
+    },
+    {
+      label: "RSS",
+      url: "/rss.xml",
+      iconClassName: "fas fa-rss",
+    }
   ],
   copyright: "Copyright © 2020. Advanced User", // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.
