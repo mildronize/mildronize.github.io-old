@@ -49,23 +49,25 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Get a full list of markdown posts
   const markdownQueryResult = await graphql(`
-    {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              tags
-              category
-              date
-            }
+  {
+    allMarkdownRemark() {
+      edges {
+        node {
+          fields {
+            slug
+            date
+          }
+          frontmatter {
+            title
+            tags
+            category
+            date
           }
         }
       }
     }
+  }
+  
   `);
 
   if (markdownQueryResult.errors) {

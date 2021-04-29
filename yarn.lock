@@ -6314,6 +6314,11 @@ gatsby-plugin-page-creator@^3.4.0:
     globby "^11.0.3"
     lodash "^4.17.21"
 
+gatsby-plugin-pathdata@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-pathdata/-/gatsby-plugin-pathdata-1.1.0.tgz#78a4c00d8198c8c4581fdb0ed3b2d11ec2d18f24"
+  integrity sha512-ZR5KBdQLZ+LUSKFOJS8AD9wWCXF9qx9ns1l7Uab9Nt7aw6aWr//8haJ0gTmrLcH0wrZA0/jIrhXF/Ao3EJOl7g==
+
 gatsby-plugin-react-helmet@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-4.4.0.tgz#5878cb1b5b85a635ef388716c034cef5fbd2936f"

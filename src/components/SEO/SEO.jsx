@@ -25,6 +25,7 @@ function SEO({ postNode, postPath, postSEO }) {
   }
 
   const getImagePath = (imageURI) => {
+    if(!imageURI) return;
     if (
       !imageURI.match(
         `(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]`

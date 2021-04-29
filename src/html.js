@@ -1,3 +1,4 @@
+// https://github.com/thundermiracle/gatsby-simple-blog/blob/ae77d3301b1ea1f8479a86aedf67f57385dd93ea/src/html.js
 import React from "react"
 import PropTypes from "prop-types"
 import { themeOper } from './utils/IIFE';
@@ -15,14 +16,6 @@ export default function HTML(props) {
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes} className="dark">
-        <script
-          key="mildronize-theme" 
-          dangerouslySetInnerHTML={{
-            __html: `(function() { try {
-              console.log('Hello ');
-            })();`,
-          }}
-        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

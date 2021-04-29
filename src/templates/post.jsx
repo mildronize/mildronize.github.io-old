@@ -21,6 +21,7 @@ export default function PostTemplate({ data, pageContext }) {
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
+  const date = data.markdownRemark.fields.date;
   if (!post.id) {
     post.id = slug;
   }
@@ -35,7 +36,7 @@ export default function PostTemplate({ data, pageContext }) {
         <Container>
           <h1>{post.title}</h1>
           <div >
-            {format(parseISO(post.date), "MMM d, yyyy")}
+            {format(parseISO(date), "MMM d, yyyy")}
           </div>
           <HorizontalDivider />
           {/* eslint-disable-next-line react/no-danger */}

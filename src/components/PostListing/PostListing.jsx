@@ -18,7 +18,7 @@ function PostListing({ postEdges }) {
       tags: tags,
       cover: postEdge.node.frontmatter.cover,
       title: postEdge.node.frontmatter.title,
-      date: postEdge.node.fields.date,
+      date: postEdge.node.fields.date?postEdge.node.fields.date: "2021-01-01",
       excerpt: postEdge.node.excerpt,
       timeToRead: postEdge.node.timeToRead,
     });

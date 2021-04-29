@@ -27,6 +27,19 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
     {
+      resolve: 'gatsby-plugin-pathdata',
+      options: {
+        matchNodeType: 'MarkdownRemark',
+        extract: [
+          {
+            name: 'date',
+            selector: /.+\/(\d+-\d+-\d+)-[\w-]+\.md$/,
+            replacer: '$1'
+          }
+        ]
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "assets",
