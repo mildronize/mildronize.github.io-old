@@ -25,6 +25,7 @@ function UserLinks({ config, labeled }) {
 export default UserLinks;
 
 const Container = styled.div`
+  font-size: 1rem;
   a, a:visited{
     color: var(--colors-text-3);
   }
@@ -34,5 +35,5 @@ const Container = styled.div`
 `;
 
 const SocialLink = styled.a`
-  margin: 0 5px;
+  margin: 0 7px;
 `;
