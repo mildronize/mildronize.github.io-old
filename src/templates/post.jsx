@@ -97,11 +97,17 @@ const PostContent = styled.div`
     }
 
     p {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
     li p{
       margin-bottom: 10px;
+    }
+
+    img{
+      margin: 20px 0 20px 0;
+      max-width: 100%;
+      height: auto;
     }
 `;
 
