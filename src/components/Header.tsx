@@ -5,7 +5,7 @@ import { graphql, Link } from "gatsby";
 
 import Flex from './Flex';
 import { lightTheme, darkTheme, GlobalStyles } from '../themes';
-import { useDarkMode } from '../hooks';
+// import { useDarkMode } from '../hooks';
 
 import ToggleDarkMode from './ToggleDarkModeWrapper';
 import { useSelector, useDispatch } from "react-redux";
@@ -23,9 +23,9 @@ const Header = (props: any) => {
   const setLightMode = () => {
     dispatch(Theme.actions.setIsDark(false));
   }
-  const [theme, toggleTheme, componentMounted] = useDarkMode(
-    // setDarkMode, setLightMode
-  );
+  // const [theme, toggleTheme, componentMounted] = useDarkMode(
+  //   // setDarkMode, setLightMode
+  // );
 
   // useEffect(() => {
   //   // console.log(theme);
@@ -36,9 +36,7 @@ const Header = (props: any) => {
   // }, [theme]);
 
 
-  if (!componentMounted) {
-    return <div />
-  };
+
 
   return (
     <Container {...restProps}>
@@ -49,7 +47,7 @@ const Header = (props: any) => {
         </Flex>
         <Flex >
           {/* <ToggleDarkMode theme={theme} toggleTheme={toggleTheme} /> */}
-          <ToggleDarkMode theme={theme} toggleTheme={toggleTheme} />
+          <ToggleDarkMode />
         </Flex>
       </Flex>
       <HorizontalLine />

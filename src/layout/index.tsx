@@ -5,7 +5,7 @@ import "../themes/global.css";
 
 import { ThemeProvider } from 'styled-components'
 import { lightTheme, darkTheme } from '../themes';
-import { useDarkMode } from '../hooks';
+// import { useDarkMode } from '../hooks';
 
 // import ToggleDarkMode from '../components/ToggleDarkMode';
 
@@ -15,8 +15,7 @@ import { useDarkMode } from '../hooks';
 export default function MainLayout({ children }: any) {
 
   // const themeSelector: Theme.ThemeType = useSelector(Theme.selector);
-  const [theme, toggleTheme, componentMounted] = useDarkMode();
-  let themeMode = darkTheme;
+  // let themeMode = darkTheme;
 
   // if (themeSelector.isDark === undefined) {
   //   console.log(theme);
