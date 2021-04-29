@@ -8,7 +8,7 @@
 /* @import url('https://fonts.googleapis.com/css?family=Bai+Jamjuree:300,400,500,600&display=swap'); */
 
 @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
  :root {
     /* Pallate: https://blog.maximeheckel.com/ */
     --base-hue: 222;
@@ -92,6 +92,7 @@ body.light {
     --text-heading: #222;
     --textNormal: #222;
     /* Color */
+    --colors-logo: hsla(var(--palette-blue-70), 100%);
     --colors-brand: hsla(var(--palette-blue-50), 100%);
     --colors-body: hsla(var(--palette-gray-00), 100%);
     --colors-emphasis: hsla(var(--palette-blue-50), 8%);
@@ -115,6 +116,7 @@ body.dark {
     --background-default: #1A202C;
     --text-heading: #FAFAFA;
     --textNormal: #FAFAFA;
+    --colors-logo: hsla(var(--palette-blue-30), 100%);
     --colors-brand: hsla(var(--palette-blue-40), 100%);
     --colors-body: hsla(var(--palette-gray-95), 100%);
     --colors-emphasis: hsla(var(--palette-blue-40), 8%);
@@ -148,6 +150,19 @@ h6 {
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 0.3px;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.5rem;
+}
+h4{
+    font-size: 1.25rem;
 }
 
 p {

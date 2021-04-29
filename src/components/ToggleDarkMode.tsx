@@ -24,11 +24,13 @@ const ToggleDarkMode = ({ theme, toggleTheme }: any) => {
   );
 };
 const IconWrapper = styled.button<{ isDark: boolean }>`
-cursor: pointer;
+
+
+  cursor: pointer;
   opacity: 0.5;
   position: relative;
   border-radius: 5px;
-  width: 40px;
+  width: 45px;
   height: 25px;
   display: flex;
   align-items: center;

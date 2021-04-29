@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 
 const Hero = (props: any) => {
   const { ...restProps } = props;
@@ -18,6 +19,12 @@ const Container = styled.div`
 
   h2{
     font-family: var(--font-family-inter);
+    font-size: 1.6rem;
+
+    ${breakpoint('tablet')`
+      font-size: 2rem;
+    `}
+
   }
 `;
 

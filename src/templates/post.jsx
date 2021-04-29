@@ -11,6 +11,7 @@ import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 // import "./post.css";
 import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
 
 import _ from "lodash";
@@ -31,7 +32,7 @@ export default function PostTemplate({ data, pageContext }) {
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
-        <div>
+        <Container>
           <h1>{post.title}</h1>
           <div >
             {format(parseISO(post.date), "MMM d, yyyy")}
@@ -61,14 +62,14 @@ export default function PostTemplate({ data, pageContext }) {
           <UserInfo config={config} />
           {/* <Disqus postNode={postNode} /> */}
           <Footer config={config} />
-        </div>
+        </Container>
       </div>
     </Layout>
   );
 }
 
 const HorizontalDivider = styled.div`
-margin-bottom: 100px;
+margin-bottom: 70px;
 `;
 
 const PostContent = styled.div`
@@ -78,7 +79,20 @@ const PostContent = styled.div`
     h4,
     h5,
     h6 {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+    }
+
+    h1{
+      font-size: 2rem;
+    }
+    h2{
+        font-size: 1.5rem;
+    }
+    h3{
+        font-size: 1.25rem;
+    }
+    h4{
+        font-size: 1.15rem;
     }
 
     p {
@@ -88,6 +102,16 @@ const PostContent = styled.div`
     li p{
       margin-bottom: 10px;
     }
+`;
+
+const Container = styled.div`
+ h1{
+  font-size: 2rem;
+  
+  ${breakpoint('tablet')`
+    font-size: 2.5rem;
+  `}
+}
 `;
 
 const TagContainer = styled.div`

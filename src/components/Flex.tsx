@@ -51,7 +51,7 @@ const Container = styled.div<{
     width?: number,
     container?: boolean;
 }>`
-  display: ${({ container }) => (container ? "flex" : "block-inline")};
+  display: ${({ container }) => (container ? "flex" : "inline-block")};
   flex: ${({ auto }) => (auto ? "1 1 auto" : "initial")};
   flex-direction: ${({ column }) => (column ? "column" : "row")};
   align-items: ${({ align }) => align};

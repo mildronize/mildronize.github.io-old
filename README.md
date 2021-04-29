@@ -1,5 +1,10 @@
 - styled-components-breakpoints
 
+Build Hooks
+
+```bash
+curl -X POST -d '{}' https://api.netlify.com/build_hooks/XX
+```
 
 # Gatsby Advanced Starter
 

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
-import Flex from '../Flex';
 
 function PostListing({ postEdges }) {
   const postList = [];
@@ -34,22 +34,21 @@ function PostListing({ postEdges }) {
           <PostItem>
             <Link to={post.path} key={post.title} >
               {/* <a className="post-item-link"> */}
-              <Flex container justify="flex-start" >
-                <Flex width="150px">
+              <FlexContainer>
+                <FlexItem width="150px">
                   <PostDate >
                     {format(parseISO(post.date), "yyyy MMM, d")}
                   </PostDate>
-
-                </Flex>
-                <Flex >
+                </FlexItem>
+                <FlexItem >
                   <h4>{post.title}</h4>
                   {/* <TagContainer>
                     {post.tags.map((tag) => (
                       <Tag>#{tag} </Tag>
                     ))}
                   </TagContainer> */}
-                </Flex>
-              </Flex>
+                </FlexItem>
+              </FlexContainer>
               {/* </a> */}
             </Link>
           </PostItem>
@@ -70,23 +69,20 @@ const PostItem = styled.div`
 
   a, a:visited{
     display: inline-block;
-      color: var(--text-heading);
-      font-weight: 400;
-      font-size: 1.2rem;
-      line-height: 1.5;
-      text-decoration: none;
-      width:100%;
-      padding: 20px 15px 20px 15px;
-      border-radius: 10px;
+    color: var(--text-heading);
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-decoration: none;
+    width:100%;
+    padding: 20px 15px 20px 15px;
+    border-radius: 10px;
   }
 
   a:hover{
     background: var(--colors-hover-0);
   }
 
-  /* a:hover{
-    background: var(--colors-hover-0);
-  } */
 h4{
   margin:0;
   padding:0;
@@ -104,5 +100,21 @@ const Tag = styled.span`
   margin-right: 20px;
 `;
 
+const FlexContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  ${breakpoint('tablet')`
+    flex-wrap: nowrap;
+  `}
+`;
+
+const FlexItem = styled.div`
+  min-width: 100%;
+
+  ${breakpoint('tablet')`
+    min-width: ${({ width }) => (width ? width : 0)};
+  `}
+`;
 
 export default PostListing;
