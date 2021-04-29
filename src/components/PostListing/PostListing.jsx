@@ -23,7 +23,7 @@ function PostListing({ postEdges }) {
         postList.map((post) => (
           <PostItem>
             <Link to={post.path} key={post.title}>
-              <p>{post.title}</p>
+              <h4>{post.title}</h4>
             </Link>
           </PostItem>
         ))
@@ -34,8 +34,8 @@ function PostListing({ postEdges }) {
 
 const PostItem = styled.div`
   a, a:visited{
-    color: var(--textHeading);
-    font-weight: 600;
+    color: var(--text-heading);
+    font-weight: 400;
     font-size: 1.3rem;
     line-height: 1.5;
     text-decoration: none;

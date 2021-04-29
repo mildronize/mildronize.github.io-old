@@ -1,53 +1,150 @@
- /**
+/**
    * Thanks to Benjamin De Cock
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
    */
- 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css?family=Bai+Jamjuree:300,400,500,600&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;500&display=swap');
  :root {
-     --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-     --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
-     --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-     --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
-     --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-     --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
- }
- 
- *,
- *::after,
- *::before {
-     box-sizing: border-box;
- }
- 
- body {
-     --pink: rgb(255, 167, 196);
-     background-color: var(--bg);
-     color: var(--textNormal);
-     margin: 0;
-     padding: 0;
-     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-     transition: font-size 0.25s var(--ease-in-out-quad), background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad);
- }
- 
- body.light {
-     --textHeading: #2d3748;
-     --colorDefault: #363537;
-     --backgroundDefault: #ffffff;
-     --bg: #ffffff;
-     --textHeading: #222;
-     --textNormal: #222;
- }
- 
- body.dark {
-     --textHeading: #222;
-     --colorDefault: #FAFAFA;
-     --backgroundDefault: #1A202C;
-     --bg: #1A202C;
-     --textHeading: #FAFAFA;
-     --textNormal: #FAFAFA;
- }
- 
- a,
- a:visited {
-     color: var(--textNormal);
-     text-decoration: none;
- }
+    /* Pallate: https://blog.maximeheckel.com/ */
+    --base-hue: 222;
+    --base-saturation: 89;
+    --base-gray: var(--base-hue), 8%;
+    --palette-gray-00: var(--base-gray), 100%;
+    --palette-gray-10: var(--base-gray), 95%;
+    --palette-gray-15: var(--base-gray), 90%;
+    --palette-gray-20: var(--base-gray), 85%;
+    --palette-gray-30: var(--base-gray), 75%;
+    --palette-gray-40: var(--base-gray), 65%;
+    --palette-gray-50: var(--base-gray), 55%;
+    --palette-gray-60: var(--base-gray), 45%;
+    --palette-gray-70: var(--base-gray), 35%;
+    --palette-gray-80: var(--base-gray), 25%;
+    --palette-gray-90: var(--base-gray), 15%;
+    --palette-gray-95: var(--base-gray), 10%;
+    --palette-gray-100: var(--base-gray), 5%;
+    --base-blue: var(--base-hue), calc(var(--base-saturation) * 1%);
+    --palette-blue-10: var(--base-blue), 95%;
+    --palette-blue-20: var(--base-blue), 85%;
+    --palette-blue-30: var(--base-blue), 75%;
+    --palette-blue-40: var(--base-blue), 65%;
+    --palette-blue-50: var(--base-blue), 55%;
+    --palette-blue-60: var(--base-blue), 45%;
+    --palette-blue-70: var(--base-blue), 35%;
+    --palette-blue-80: var(--base-blue), 25%;
+    --palette-blue-90: var(--base-blue), 15%;
+    --base-red: 353, 100%;
+    --palette-red-10: var(--base-red), 95%;
+    --palette-red-20: var(--base-red), 85%;
+    --palette-red-30: var(--base-red), 75%;
+    --palette-red-40: var(--base-red), 65%;
+    --palette-red-50: var(--base-red), 55%;
+    /* Animation */
+    --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+    /* Font Family */
+    --font-family-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-heading: "Prompt", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    /* Font Family */
+    --paragraph-margin-bottom: 1.2rem;
+    /* Line Height */
+    --line-height-base: 1.8;
+    /* --line-height-mobile: 2;
+    --line-height-desktop: 1.25; */
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    /* -webkit-font-smoothing: antialiased; */
+    --pink: rgb(255, 167, 196);
+    background-color: var(--background-default);
+    color: var(--colors-text-1);
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family-body);
+    font-weight: 300;
+    font-size: 13pt;
+    line-height: var(--line-height-base);
+    transition: font-size 0.25s var(--ease-in-out-quad), background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad);
+}
+
+
+/* @media (min-width: 576px) {
+    body {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        font-size: 1.3rem;
+    }
+} */
+
+body.light {
+    --text-heading: #2d3748;
+    --text-link: #0B6E99;
+    --color-default: #363537;
+    --background-default: #ffffff;
+    --text-heading: #222;
+    --textNormal: #222;
+    /* Color */
+    --colors-brand: hsla(var(--palette-blue-50), 100%);
+    --colors-body: hsla(var(--palette-gray-00), 100%);
+    --colors-emphasis: hsla(var(--palette-blue-50), 8%);
+    --colors-foreground: hsla(var(--palette-gray-10), 45%);
+    --colors-danger: hsla(var(--palette-red-40), 100%);
+    --colors-danger-emphasis: hsla(var(--palette-red-40), 8%);
+    --colors-text-0: hsla(var(--palette-gray-90), 100%);
+    --colors-text-1: hsla(var(--palette-gray-70), 100%);
+    --colors-text-2: hsla(var(--palette-gray-60), 100%);
+    --shadow-1: 0 0px 12px -6px rgba(0, 24, 40, 0.3);
+    --shadow-2: 0 0px 15px -6px rgba(0, 24, 40, 0.4);
+    --shadow-3: 0 0px 20px -6px rgba(0, 24, 40, 0.5);
+}
+
+body.dark {
+    --text-heading: #222;
+    --text-link: #529CCA;
+    --color-default: #FAFAFA;
+    --background-default: #1A202C;
+    --text-heading: #FAFAFA;
+    --textNormal: #FAFAFA;
+}
+
+a,
+a:visited {
+    color: var(--text-link);
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--colors-text-0);
+    font-family: var(--font-family-heading);
+    font-weight: 500;
+    line-height: 1.2;
+    /* letter-spacing: 1px; */
+}
+
+p {
+    margin-bottom: var(--paragraph-margin-bottom);
+    letter-spacing: 0.1px;
+}

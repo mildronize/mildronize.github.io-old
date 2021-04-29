@@ -62,7 +62,7 @@ const Container = styled.div`
 
 const HorizontalLine = styled.hr`
   border: 0px;
-  border-bottom: 1px solid var(--colorDefault);
+  border-bottom: 1px solid var(--color-default);
 `;
 
 
