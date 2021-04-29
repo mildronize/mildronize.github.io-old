@@ -133,7 +133,7 @@ body.dark {
 
 a,
 a:visited {
-    color: var(--text-link);
+    color: var(--colors-brand);
     text-decoration: none;
 }
 
