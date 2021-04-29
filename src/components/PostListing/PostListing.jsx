@@ -34,7 +34,7 @@ function PostListing({ postEdges }) {
 
 const PostItem = styled.div`
   a, a:visited{
-    color: ${p => p.theme.text.heading};
+    color: var(--textHeading);
     font-weight: 600;
     font-size: 1.3rem;
     line-height: 1.5;

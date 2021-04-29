@@ -47,7 +47,7 @@ cursor: pointer;
     top: -30%;
     width: 100%;
     height: 160%;
-    border: 2px solid ${p => p.theme.colors.default};
+    border: 2px solid var(--colorDefault);
     background: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
   }
@@ -63,8 +63,8 @@ const MoonOrSun = styled.div<{ isDark: boolean }>`
   height: 24px;
   border-radius: 50%;
   border: ${p => (p.isDark ? "4px" : "2px")} solid
-    ${p => p.theme.colors.default};
-  background: ${p => p.theme.colors.default};
+    var(--colorDefault);
+  background: var(--colorDefault);
   transform: scale(${p => (p.isDark ? 0.55 : 1)});
   transition: all 0.45s ease;
   overflow: ${p => (p.isDark ? "visible" : "hidden")};
@@ -75,7 +75,7 @@ const MoonOrSun = styled.div<{ isDark: boolean }>`
     top: -9px;
     height: 24px;
     width: 24px;
-    border: 2px solid ${p => p.theme.colors.default};
+    border: 2px solid var(--colorDefault);
     border-radius: 50%;
     transform: translate(${p => (p.isDark ? "14px, -14px" : "0, 0")});
     opacity: ${p => (p.isDark ? 0 : 1)};
@@ -90,14 +90,14 @@ const MoonOrSun = styled.div<{ isDark: boolean }>`
     position: absolute;
     top: 50%;
     left: 50%;
-    box-shadow: 0 -23px 0 ${p => p.theme.colors.default},
-      0 23px 0 ${p => p.theme.colors.default},
-      23px 0 0 ${p => p.theme.colors.default},
-      -23px 0 0 ${p => p.theme.colors.default},
-      15px 15px 0 ${p => p.theme.colors.default},
-      -15px 15px 0 ${p => p.theme.colors.default},
-      15px -15px 0 ${p => p.theme.colors.default},
-      -15px -15px 0 ${p => p.theme.colors.default};
+    box-shadow: 0 -23px 0 var(--colorDefault),
+      0 23px 0 var(--colorDefault),
+      23px 0 0 var(--colorDefault),
+      -23px 0 0 var(--colorDefault),
+      15px 15px 0 var(--colorDefault),
+      -15px 15px 0 var(--colorDefault),
+      15px -15px 0 var(--colorDefault),
+      -15px -15px 0 var(--colorDefault);
     transform: scale(${p => (p.isDark ? 1 : 0)});
     transition: all 0.35s ease;
   }
@@ -111,7 +111,7 @@ const MoonMask = styled.div<{ isDark: boolean }>`
   width: 24px;
   border-radius: 50%;
   border: 0;
-  background: ${p => p.theme.background.default};
+  background: var(--backgroundDefault);
   transform: translate(${p => (p.isDark ? "14px, -14px" : "0, 0")});
   opacity: ${p => (p.isDark ? 0 : 1)};
   /* background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad) */

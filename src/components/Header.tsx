@@ -7,7 +7,7 @@ import Flex from './Flex';
 import { lightTheme, darkTheme, GlobalStyles } from '../themes';
 import { useDarkMode } from '../hooks';
 
-import ToggleDarkMode from './ToggleDarkMode';
+import ToggleDarkMode from './ToggleDarkModeWrapper';
 import { useSelector, useDispatch } from "react-redux";
 import * as Theme from '../slices/theme.slice';
 
@@ -48,6 +48,7 @@ const Header = (props: any) => {
           <Link to="/" >Mildronize</Link>
         </Flex>
         <Flex >
+          {/* <ToggleDarkMode theme={theme} toggleTheme={toggleTheme} /> */}
           <ToggleDarkMode theme={theme} toggleTheme={toggleTheme} />
         </Flex>
       </Flex>
@@ -63,7 +64,7 @@ const Container = styled.div`
 
 const HorizontalLine = styled.hr`
   border: 0px;
-  border-bottom: 1px solid ${p => p.theme.colors.gray};
+  border-bottom: 1px solid var(--colorDefault);
 `;
 
 

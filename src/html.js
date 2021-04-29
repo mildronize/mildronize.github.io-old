@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { themeOper } from './utils/IIFE';
 
 export default function HTML(props) {
   return (
@@ -13,19 +14,20 @@ export default function HTML(props) {
         />
         {props.headComponents}
       </head>
-      <body {...props.bodyAttributes} className="theme-dark">
+      <body {...props.bodyAttributes} className="dark">
         <script
           key="mildronize-theme" 
           dangerouslySetInnerHTML={{
             __html: `(function() { try {
-                var mode = localStorage.getItem('theme');
-                var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-                if (!mode && supportDarkMode)  document.body.classList.add('theme-dark');
-                if (!mode) return
-                document.body.classList.add('theme-' + mode);
-              } catch (e) {} 
               console.log('Hello ');
             })();`,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (${themeOper.toString()})();
+            `,
           }}
         />
         {props.preBodyComponents}

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
+import withThemeFlag from '../utils/withThemeFlag';
 
 interface PropsType {
   setDarkMode: Function;
   setLightMode: Function;
 }
 
-export default () => {
+const useDarkMode = () => {
   const [theme, setTheme] = useState('dark');
   const [componentMounted, setComponentMounted] = useState(false);
 
@@ -22,6 +23,8 @@ export default () => {
       document.body.classList.remove('theme-dark');
       
     }
+
+    // window.__setPreferredTheme('dark');
   };
 
   const toggleTheme = () => {
@@ -44,3 +47,5 @@ export default () => {
 
   return [theme, toggleTheme, componentMounted]
 };
+
+export default useDarkMode;
