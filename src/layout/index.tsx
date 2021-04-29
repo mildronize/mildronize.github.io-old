@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import config from "../../data/SiteConfig";
 // import "./index.css";
@@ -14,14 +14,21 @@ import * as Theme from '../slices/theme.slice';
 
 export default function MainLayout({ children }: any) {
 
-  const theme: Theme.ThemeType = useSelector(Theme.selector);
-  // const [theme, toggleTheme, componentMounted] = useDarkMode();
-  const themeMode = theme.isDark ? darkTheme : lightTheme;
+  const themeSelector: Theme.ThemeType = useSelector(Theme.selector);
+  const [theme, toggleTheme, componentMounted] = useDarkMode();
+  let themeMode = darkTheme;
 
-  // if (!componentMounted) {
-  //   return <div />
-  // };
+  // if (themeSelector.isDark === undefined) {
+  //   console.log(theme);
+  // useEffect(() => {
+    // themeMode = theme === 'dark' ? darkTheme : lightTheme;
+  // }, [theme]);
 
+  // } else {
+
+  // if (themeSelector.isDark !== undefined) {
+  //   themeMode = themeSelector.isDark ? darkTheme : lightTheme;
+  // }
 
   return (
     <>

@@ -1,7 +1,75 @@
 
 import { createGlobalStyle } from 'styled-components'
+import { lightTheme, darkTheme } from './colorMode';
 
+// export const lightTheme = {
+//   text: {
+//     heading: '#2d3748',
+//     body: '#2d3748',
+//     subtitle: '#a0aec0',
+//   },
+//   colors: {
+//     default: '#363537',
+//     gray: 'gray',
+//     brown: 'brown',
+//     orange: 'orange',
+//     yellow: 'yellow',
+//     green: 'green',
+//     blue: '#0B6E99',
+//     purple: 'purple',
+//     pink: 'pink',
+//     red: 'red'
+//   },
+//   background: {
+//     default: '#ffffff',
+//     gray: 'gray',
+//     brown: 'brown',
+//     orange: 'orange',
+//     yellow: 'yellow',
+//     green: 'green',
+//     blue: 'blue',
+//     purple: 'purple',
+//     pink: 'pink',
+//     red: 'red'
+//   }
+// }
+
+// export const darkTheme  = {
+
+//   text: {
+//     heading: '#ffffff',
+//     body: '#cbd5e0',
+//     subtitle: '#a0aec0',
+//   },
+//   colors: {
+
+//     default: '#FAFAFA',
+//     gray: 'gray',
+//     brown: 'brown',
+//     orange: 'orange',
+//     yellow: 'yellow',
+//     green: 'green',
+//     blue: '#529CCA',
+//     purple: 'purple',
+//     pink: 'pink',
+//     red: 'red'
+//   },
+
+//   background: {
+//     default: '#1A202C',
+//     gray: 'gray',
+//     brown: 'brown',
+//     orange: 'orange',
+//     yellow: 'yellow',
+//     green: 'green',
+//     blue: 'blue',
+//     purple: 'purple',
+//     pink: 'pink',
+//     red: 'red'
+//   }
+// }
 export const GlobalStyles = createGlobalStyle`
+
   *,
   *::after,
   *::before {
@@ -22,12 +90,20 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.background.default};
-    color: ${({ theme }) => theme.colors.default};
     margin: 0;
     padding: 0;
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     transition: font-size 0.25s var(--ease-in-out-quad), background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad);
+
+    &.theme-light{
+      background: ${lightTheme.background.default};
+      color: ${lightTheme.colors.default};
+    }
+
+    &.theme-dark{
+      background: ${darkTheme.background.default};
+      color: ${darkTheme.colors.default};
+    }
   }
 
   a, a:visited{

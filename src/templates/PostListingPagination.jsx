@@ -10,10 +10,6 @@ import config from "../../data/SiteConfig";
 import styled from "styled-components"
 import Header from "../components/Header";
 
-const Container = styled.div`
-  color: hotpink;
-`;
-
 function PostListingPagination({ pageContext, data }) {
   function renderPaging() {
     const { currentPageNum, pageCount } = pageContext;
@@ -23,7 +19,6 @@ function PostListingPagination({ pageContext, data }) {
     const isLastPage = currentPageNum === pageCount;
 
     return (
-      <Container >
       <div className="paging-container">
         {!isFirstPage && <Link to={prevPage}>Previous</Link>}
         {[...Array(pageCount)].map((_val, index) => {
@@ -39,9 +34,7 @@ function PostListingPagination({ pageContext, data }) {
         })}
         {!isLastPage && <Link to={nextPage}>Next</Link>}
       </div>
-      
-        test
-      </Container>
+    
     );
   }
 
@@ -53,7 +46,6 @@ function PostListingPagination({ pageContext, data }) {
         <div className="posts-container">
           <Helmet title={config.siteTitle} />
           <SEO />
-          <Header />
           <PostListing postEdges={postEdges} />
         </div>
         {renderPaging()}

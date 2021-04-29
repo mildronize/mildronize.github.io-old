@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import { lighten, darken } from 'polished';
+import { graphql, Link } from "gatsby";
 
 import Flex from './Flex';
 import { lightTheme, darkTheme, GlobalStyles } from '../themes';
@@ -14,25 +15,37 @@ import * as Theme from '../slices/theme.slice';
 const Header = (props: any) => {
   const { ...restProps } = props;
   const dispatch = useDispatch();
-  const [theme, toggleTheme, componentMounted] = useDarkMode();
+  
+  const setDarkMode = () => {
+    dispatch(Theme.actions.setIsDark(true));
+  }
 
-  useEffect(() => {
-    if (theme === 'light')
-      dispatch(Theme.actions.setIsDark(false));
-    else
-      dispatch(Theme.actions.setIsDark(true));
-  }, [theme]);
+  const setLightMode = () => {
+    dispatch(Theme.actions.setIsDark(false));
+  }
+  const [theme, toggleTheme, componentMounted] = useDarkMode(
+    // setDarkMode, setLightMode
+  );
 
-  // if (!componentMounted) {
-  //   return <div />
-  // };
+  // useEffect(() => {
+  //   // console.log(theme);
+  //   if (theme === 'light')
+  //     dispatch(Theme.actions.setIsDark(false));
+  //   else
+  //     dispatch(Theme.actions.setIsDark(true));
+  // }, [theme]);
+
+
+  if (!componentMounted) {
+    return <div />
+  };
 
   return (
     <Container {...restProps}>
 
       <Flex justify="space-between" >
         <Flex >
-          Mildronize
+          <Link to="/" >Mildronize</Link>
         </Flex>
         <Flex >
           <ToggleDarkMode theme={theme} toggleTheme={toggleTheme} />

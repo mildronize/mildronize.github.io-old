@@ -11,7 +11,7 @@ export type ThemeType = {
 };
 
 const initialState: ThemeType = {
-    isDark: false
+    isDark: undefined,
 };
 
 /**

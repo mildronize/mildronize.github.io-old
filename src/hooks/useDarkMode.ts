@@ -1,17 +1,27 @@
 import { useEffect, useState } from 'react';
 
 interface PropsType {
-  setDarkMode: () => void,
-  setLightMode: () => void,
+  setDarkMode: Function;
+  setLightMode: Function;
 }
 
 export default () => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [componentMounted, setComponentMounted] = useState(false);
 
   const setMode = (mode:any) => {
     window.localStorage.setItem('theme', mode)
-    setTheme(mode)
+    setTheme(mode);
+
+    if(mode === 'dark') {
+      document.body.classList.add('theme-dark');
+      document.body.classList.remove('theme-light');
+      
+    } else {
+      document.body.classList.add('theme-light');
+      document.body.classList.remove('theme-dark');
+      
+    }
   };
 
   const toggleTheme = () => {
@@ -27,7 +37,7 @@ export default () => {
     if (localTheme) {
       setTheme(localTheme);
     } else {
-      setMode('light');
+      setMode('dark');
     }
     setComponentMounted(true);
   }, []);
