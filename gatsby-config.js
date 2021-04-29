@@ -35,6 +35,11 @@ module.exports = {
             name: 'date',
             selector: /.+\/(\d+-\d+-\d+)-[\w-]+\.md$/,
             replacer: '$1'
+          },
+          {
+            name: 'filename',
+            selector: /.+\/(\d+-\d+-\d+)-([\w-]+)\.md$/,
+            replacer: '$2'
           }
         ]
       }

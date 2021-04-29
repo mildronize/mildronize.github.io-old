@@ -3,13 +3,13 @@
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
    */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
 /* @import url('https://fonts.googleapis.com/css?family=Bai+Jamjuree:300,400,500,600&display=swap'); */
 
-@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
- :root {
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+:root {
     /* Pallate: https://blog.maximeheckel.com/ */
     --base-hue: 222;
     --base-saturation: 89;
@@ -51,11 +51,14 @@
     --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
     --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
     /* Theme Transition */
-    --theme-transition: font-size 0.25s var(--ease-in-out-quad), background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad);
+    --theme-transition: font-size 0.25s var(--ease-in-out-quad), background 0.25s var(--ease-in-out-quad),
+        color 0.25s var(--ease-in-out-quad);
     /* Font Family */
-    --font-family-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-family-body: var(--font-family-inter);
-    --font-family-heading: "Sarabun", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-heading: "Sarabun", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     /* Font Family */
     --paragraph-margin-bottom: 1.2rem;
     /* Line Height */
@@ -69,7 +72,6 @@
 *::before {
     box-sizing: border-box;
 }
-
 
 body {
     /* -webkit-font-smoothing: antialiased; */
@@ -86,7 +88,7 @@ body {
 
 body.light {
     --text-heading: #2d3748;
-    --text-link: #0B6E99;
+    --text-link: #0b6e99;
     --color-default: #363537;
     --background-default: #ffffff;
     --text-heading: #222;
@@ -99,6 +101,8 @@ body.light {
     --colors-foreground: hsla(var(--palette-gray-10), 45%);
     --colors-danger: hsla(var(--palette-red-40), 100%);
     --colors-danger-emphasis: hsla(var(--palette-red-40), 8%);
+    --colors-blockquote: rgba(254, 235, 200, 1);
+    --colors-background: hsla(var(--palette-gray-20), 20%);
     --colors-text-0: hsla(var(--palette-gray-90), 100%);
     --colors-text-1: hsla(var(--palette-gray-70), 100%);
     --colors-text-2: hsla(var(--palette-gray-60), 100%);
@@ -111,11 +115,11 @@ body.light {
 
 body.dark {
     --text-heading: #222;
-    --text-link: #529CCA;
-    --color-default: #FAFAFA;
-    --background-default: #1A202C;
-    --text-heading: #FAFAFA;
-    --textNormal: #FAFAFA;
+    --text-link: #529cca;
+    --color-default: #fafafa;
+    --background-default: #1a202c;
+    --text-heading: #fafafa;
+    --textNormal: #fafafa;
     --colors-logo: hsla(var(--palette-blue-30), 100%);
     --colors-brand: hsla(var(--palette-blue-40), 100%);
     --colors-body: hsla(var(--palette-gray-95), 100%);
@@ -123,6 +127,8 @@ body.dark {
     --colors-foreground: hsla(var(--palette-gray-100), 55%);
     --colors-danger: hsla(var(--palette-red-30), 100%);
     --colors-danger-emphasis: hsla(var(--palette-red-30), 8%);
+    --colors-blockquote: rgba(255,220,73,0.5);
+    --colors-background:  hsla(var(--palette-gray-80), 100%);
     --colors-text-0: hsla(var(--palette-gray-00), 100%);
     --colors-text-1: hsla(var(--palette-gray-20), 100%);
     --colors-text-2: hsla(var(--palette-gray-40), 100%);
@@ -132,6 +138,29 @@ body.dark {
     --shadow-2: 0 0px 25px -6px rgba(0, 0, 0, 0.8);
     --shadow-3: 0 0px 30px -6px rgba(0, 0, 0, 0.9);
 }
+
+blockquote {
+   margin: 0;
+}
+
+/* Inline code */
+/* :not(pre) code {
+    padding: 0.2em;
+    border-radius: 0.3em;
+    white-space: normal;
+    color: var(--colors-text-0);
+    background: #eee;
+} */
+
+:not(pre) > code[class*="language-"] {
+    /* padding: 0.1em;
+    border-radius: 0.3em; */
+    padding: 0.2em;
+    border-radius: 0.3em;
+    white-space: normal;
+    color: var(--colors-text-0);
+    background: var(--colors-background);
+  }
 
 a,
 a:visited {
@@ -152,16 +181,16 @@ h6 {
     letter-spacing: 0.3px;
 }
 
-h1{
+h1 {
     font-size: 2.5rem;
 }
-h2{
+h2 {
     font-size: 2rem;
 }
-h3{
+h3 {
     font-size: 1.5rem;
 }
-h4{
+h4 {
     font-size: 1.25rem;
 }
 

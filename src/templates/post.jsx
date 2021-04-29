@@ -8,8 +8,8 @@ import SocialLinks from "../components/SocialLinks/SocialLinks";
 import SEO from "../components/SEO/SEO";
 import Footer from "../components/Footer/Footer";
 import config from "../../data/SiteConfig";
-import "./b16-tomorrow-dark.css";
-// import "./post.css";
+// import "./dracula.css";
+import "./prism-template.css";
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
@@ -104,11 +104,30 @@ const PostContent = styled.div`
       margin-bottom: 10px;
     }
 
+    pre > code {
+      font-size: 0.9rem;
+    }
+
+    .gatsby-highlight{
+      margin: 30px 0;
+    }
+
     img{
       margin: 20px 0 20px 0;
       max-width: 100%;
       height: auto;
     }
+
+    
+    blockquote p {
+      background-color: var(--colors-blockquote);
+      padding: 1rem 1.2rem;
+      margin: 0rem 0;
+      border-radius: 0.3em;
+      margin-block-start: 0;
+    }
+
+
 `;
 
 const Container = styled.div`
