@@ -1,2 +1,2 @@
-export { lightTheme, darkTheme} from './colorMode';
+export { GlobalStyle } from './global';
 

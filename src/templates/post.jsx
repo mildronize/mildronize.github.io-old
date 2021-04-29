@@ -4,13 +4,17 @@ import { graphql } from "gatsby";
 import Layout from "../layout/PageLayout";
 import UserInfo from "../components/UserInfo/UserInfo";
 import Disqus from "../components/Disqus/Disqus";
-import PostTags from "../components/PostTags/PostTags";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
 import SEO from "../components/SEO/SEO";
 import Footer from "../components/Footer/Footer";
 import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 // import "./post.css";
+import styled from 'styled-components';
+import { parseISO, format } from "date-fns";
+
+import _ from "lodash";
+import { Link } from "gatsby";
 
 export default function PostTemplate({ data, pageContext }) {
   const { slug } = pageContext;
@@ -29,10 +33,29 @@ export default function PostTemplate({ data, pageContext }) {
         <SEO postPath={slug} postNode={postNode} postSEO />
         <div>
           <h1>{post.title}</h1>
+          <div >
+            {format(parseISO(post.date), "MMM d, yyyy")}
+          </div>
+          <HorizontalDivider />
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+          <PostContent dangerouslySetInnerHTML={{ __html: postNode.html }} />
+
           <div className="post-meta">
-            <PostTags tags={post.tags} />
+            <TagContainer>
+
+              {post.tags &&
+                post.tags.map((tag) => (
+                  <Link
+                    key={tag}
+                    style={{ textDecoration: "none" }}
+                    to={`/tags/${_.kebabCase(tag)}`}
+                  >
+                    <Tag>#{tag}</Tag>
+                  </Link>
+                ))}
+            </TagContainer>
+
+
             <SocialLinks postPath={slug} postNode={postNode} />
           </div>
           <UserInfo config={config} />
@@ -43,6 +66,41 @@ export default function PostTemplate({ data, pageContext }) {
     </Layout>
   );
 }
+
+const HorizontalDivider = styled.div`
+margin-bottom: 100px;
+`;
+
+const PostContent = styled.div`
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 40px;
+    }
+
+    p {
+        margin-bottom: 50px;
+    }
+
+    li p{
+      margin-bottom: 10px;
+    }
+`;
+
+const TagContainer = styled.div`
+  /* margin-top: -5px; */
+  /* padding */
+`;
+
+const Tag = styled.span`
+  color: var(--colors-text-3);
+  font-size: 1rem;
+  margin-right: 30px;
+`;
+
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`

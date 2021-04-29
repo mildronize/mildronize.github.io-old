@@ -60,6 +60,8 @@ function PostListing({ postEdges }) {
 
 const PostDate = styled.time`
   color: var(--colors-text-3);
+  font-weight: 400;
+  font-size: 1rem;
 `;
 
 const PostItem = styled.div`
