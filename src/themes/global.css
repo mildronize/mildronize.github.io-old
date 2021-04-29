@@ -7,8 +7,8 @@
 
 /* @import url('https://fonts.googleapis.com/css?family=Bai+Jamjuree:300,400,500,600&display=swap'); */
 
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;500&display=swap');
  :root {
     /* Pallate: https://blog.maximeheckel.com/ */
     --base-hue: 222;
@@ -52,7 +52,7 @@
     --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
     /* Font Family */
     --font-family-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-heading: "Prompt", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-heading: "Sarabun", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     /* Font Family */
     --paragraph-margin-bottom: 1.2rem;
     /* Line Height */
@@ -123,6 +123,18 @@ body.dark {
     --background-default: #1A202C;
     --text-heading: #FAFAFA;
     --textNormal: #FAFAFA;
+    --colors-brand: hsla(var(--palette-blue-40), 100%);
+    --colors-body: hsla(var(--palette-gray-95), 100%);
+    --colors-emphasis: hsla(var(--palette-blue-40), 8%);
+    --colors-foreground: hsla(var(--palette-gray-100), 55%);
+    --colors-danger: hsla(var(--palette-red-30), 100%);
+    --colors-danger-emphasis: hsla(var(--palette-red-30), 8%);
+    --colors-text-0: hsla(var(--palette-gray-00), 100%);
+    --colors-text-1: hsla(var(--palette-gray-20), 100%);
+    --colors-text-2: hsla(var(--palette-gray-40), 100%);
+    --shadow-1: 0 0px 20px -6px rgba(0, 0, 0, 0.7);
+    --shadow-2: 0 0px 25px -6px rgba(0, 0, 0, 0.8);
+    --shadow-3: 0 0px 30px -6px rgba(0, 0, 0, 0.9);
 }
 
 a,
@@ -140,8 +152,8 @@ h6 {
     color: var(--colors-text-0);
     font-family: var(--font-family-heading);
     font-weight: 500;
-    line-height: 1.2;
-    /* letter-spacing: 1px; */
+    line-height: 1.5;
+    letter-spacing: 0.3px;
 }
 
 p {

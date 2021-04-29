@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import Layout from ".";
-import Header from "../components/Header";
+import TopBar from "../components/TopBar";
 
 const PageLayout = (props: any) => {
     const { children, ...restProps } = props;
@@ -10,7 +10,7 @@ const PageLayout = (props: any) => {
         <Layout>
 
             <Container {...restProps}>
-                <Header />
+                <TopBar />
                 {children}
             </Container>
         </Layout>
