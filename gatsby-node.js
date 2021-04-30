@@ -83,12 +83,12 @@ exports.createPages = async ({ graphql, actions }) => {
   // Sort posts
   postsEdges.sort((postA, postB) => {
     const dateA = moment(
-      postA.node.frontmatter.date,
+      postA.node.fields.date,
       siteConfig.dateFromFormat
     );
 
     const dateB = moment(
-      postB.node.frontmatter.date,
+      postB.node.fields.date,
       siteConfig.dateFromFormat
     );
 
