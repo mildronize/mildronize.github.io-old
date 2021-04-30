@@ -19,16 +19,15 @@ toc: true
 ได้ 99 คะแนนจาก Google Insights & เรียนรู้การทำ web optimization ผ่านการพัฒนาเว็บบล็อกให้ทันสมัย
 จากการพัฒนา [blog version แรก](<https://mildronize.com/notes/my-blog-dev/>)  ซึ่ง clone theme Hyde ของ [Jekyll](https://jekyllrb.com/) มาแล้วปรับแก้มาเรื่อยๆ
 
-- ![old web design](https://www.dropbox.com/s/sqk4d1no2xi4os0/2018-09-17-99-score-google-insight-web-optimization-1.jpg?raw=1) {.col-md}
-- ![new web deisgn](https://www.dropbox.com/s/gt0p9ta4da7t6gs/2018-09-17-99-score-google-insight-web-optimization-2.jpg?raw=1) {.col-md}
-{.row .two-columns}
+![old web design](https://www.dropbox.com/s/sqk4d1no2xi4os0/2018-09-17-99-score-google-insight-web-optimization-1.jpg?raw=1)
+![new web deisgn](https://www.dropbox.com/s/gt0p9ta4da7t6gs/2018-09-17-99-score-google-insight-web-optimization-2.jpg?raw=1)
 
 ตอนแรกไปลองใช้ [GatsbyJS](https://gatsbyjs.org/) อยู่สักพัก ซึ่งใช้ React ทั้งระบบเลย แต่สุดท้ายก็ย้ายจาก Gatsby กลับมาใช้ Jekyll เหมือนเดิม เท่าที่ลองใช้งานดู Gatsby เร็วกว่าในหลายๆ ด้านเลย ทั้งด้าน dev และ รันขึ้น production เป็น pwa ด้วย
 
 แต่ดูเหมือนต้องปรับจูนเยอะกว่าจะได้ blog แบบที่เราต้องการ เลยไม่เอาดีกว่า ยอมใช้ Jekyll ที่ compile ช้ากว่า แต่ เราถนัดกว่า ( เทคโนโลยี แบบดั้งเดิมดี ไม่ต้องเปลี่ยนเยอะ)
 
 > ตรงนี้จากประสบการณ์ตัวเอง เนื่องจากว่าเว็บบล็อกไม่ได้เขียนโค้ด หรือพัฒนาอยู่บ่อยๆ ส่วนใหญ่เน้นไปที่เขียนบทความใหม่ๆ มากกว่า ดังนั้น เมื่อเวลาผ่านไปนานๆ และเทคโนโลยีฝั่งเว็บไปเร็วมาก จนบางครั้งอาจจะทำให้เทคโนโลยีเว็บเดิมที่เคยใช้อยู่ทำงานไม่ได้ ใน browser สมัยใหม่ หรือการปรับเปลี่ยนให้ทันยุคทันสมัยต้องมานั่งแก้เว็บใหม่อีก
->
+> 
 > **ดังนั้น** ผมเลยตัดสินใจใช้เทคโนโลยีเก่าหน่อย ที่ยังคงเป็น long term support แต่ก็ยังคงสามารถทำให้ดูทันสมัยได้ และไม่ได้ทำงานช้าด้วยซึ่งก็เหมาะสมกับเว็บบล็อกดี
 
 สุดท้ายก็ตัดสินใจจูน frontend ของบล็อกเดิม ที่เป็น Jekyll ใหม่ให้เป็น Responsive มากขึ้น ทั้งแง่ของ typography ด้วย
@@ -38,9 +37,8 @@ toc: true
 ## ผลการทดสอบจาก google insights
 จากการทดสอบ google insights ก็ได้ 99 คะแนนบน mobile และ 97 คะแนนบน desktop
 
-- ![99 score on Mobile](https://www.dropbox.com/s/2irrnt11wei4aq7/2018-09-17-99-score-google-insight-web-optimization-3.jpg?raw=1) {.col-md}
-- ![97 score on Desktop](https://www.dropbox.com/s/k6ib5pfgunc6dr0/2018-09-17-99-score-google-insight-web-optimization-4.jpg?raw=1) {.col-md}
-{.row .two-columns}
+- ![99 score on Mobile](https://www.dropbox.com/s/2irrnt11wei4aq7/2018-09-17-99-score-google-insight-web-optimization-3.jpg?raw=1)
+- ![97 score on Desktop](https://www.dropbox.com/s/k6ib5pfgunc6dr0/2018-09-17-99-score-google-insight-web-optimization-4.jpg?raw=1)
 
 ## ปรับปรุงเว็บเทคโนโลยีเก่าให้ทันสมัย
 

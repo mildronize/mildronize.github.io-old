@@ -80,7 +80,9 @@ const PostContent = styled.div`
     h4,
     h5,
     h6 {
-      margin-bottom: 30px;
+      /* margin-bottom: 20px; */
+      margin-top: 30px;
+      margin-bottom: 0px;
     }
 
     h1{
@@ -97,11 +99,11 @@ const PostContent = styled.div`
     }
 
     p {
-        margin-bottom: 30px;
+        margin: 25px 0;
     }
 
-    li p{
-      margin-bottom: 10px;
+    ol > li, ul > li{
+      margin: 7px 0;
     }
 
     pre > code {
@@ -119,13 +121,13 @@ const PostContent = styled.div`
     }
 
     
-    blockquote p {
+    blockquote {
       background-color: var(--colors-blockquote);
-      padding: 1rem 1.2rem;
-      margin: 0rem 0;
+      padding: 10px 25px;
+      margin: 10px 0 10px 0;
       border-radius: 0.3em;
       margin-block-start: 0;
-    }
+    } 
 
 
 `;
