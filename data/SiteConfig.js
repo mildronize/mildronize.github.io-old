@@ -9,7 +9,7 @@ const config = {
   siteRss: "/rss.xml", // Path to the RSS file.
   siteRssTitle: "Mildronize.com RSS feed", // Title of the RSS feed
   siteFBAppID: "xxxxx", // FB Application ID for using app insights
-  googleAnalyticsID: "xxxxxxx", // GA tracking ID.
+  googleAnalyticsID: "1614923", // GA tracking ID.
   disqusShortname: "https-vagr9k-github-io-gatsby-advanced-starter", // Disqus shortname.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "DD/MM/YYYY", // Date format for display.
