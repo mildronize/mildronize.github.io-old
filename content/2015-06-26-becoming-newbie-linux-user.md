@@ -1,6 +1,7 @@
 ---
 layout: post
 title: มือใหม่หัดใช้ลินุกซ์ครั้งแรก
+slug: becoming-newbie-linux-user
 description: ความพยายามของผมที่จะหัดใช้ลินุกซ์มามากกว่า 10 ครั้ง, ลินุกซ์คืออะไร, การแก้ปัญหาต่างๆ, Linux distrubtion, Debian, การบำรุงรักษา
 tags: [linux, debian, newbie]
 categories: [th]

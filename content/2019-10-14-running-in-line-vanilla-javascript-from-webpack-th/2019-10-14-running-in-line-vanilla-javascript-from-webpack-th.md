@@ -1,6 +1,7 @@
 ---
 layout: post
 title: วิธีการรัน JavaScript ข้างนอก Bundle ของ Webpack และการเรียกใช้ jQuery ภายใน Webpack
+slug: running-in-line-vanilla-javascript-from-webpack-th
 categories: [Web]
 tags:	
 - webpack

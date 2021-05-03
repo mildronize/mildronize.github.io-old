@@ -1,6 +1,7 @@
 ---
 layout: post
 title: เปิด Hotspot WiFi เองโดยที่ต้องไม่พึ่งโปรแกรมใดๆ บน Windows
+slug: script-for-creating-a-wifi-hotspot-without-install-wifi-hotspot-tools-th
 description: อธิบายการใช้งาน script สำหรับสร้าง WiFi Hotspot ใช้งานเองโดยไม่ต้องพึ่งโปรแกรมอื่นๆ
 tags: [hotspot, wifi, windows]
 categories: [th]

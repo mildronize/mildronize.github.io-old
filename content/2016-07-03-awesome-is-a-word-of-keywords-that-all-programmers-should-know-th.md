@@ -1,6 +1,7 @@
 ---
 layout: "post"
 title: "Awesome หนึ่งในคำสำคัญ (Keyword) ที่โปรแกรมเมอร์ทุกคนควรจะรู้จักไว้"
+slug: awesome-is-a-word-of-keywords-that-all-programmers-should-know-th
 categories: [th]
 tags: [programmer, tip, trick, awesome, programmer, keyword]
 language: th

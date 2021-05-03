@@ -1,5 +1,6 @@
 ---
 title: "สิ่งที่ได้รับจากการเรียนวิศวกรรมคอมพิวเตอร์ปริญญาโท"
+slug: what-i-get-from-master-degree
 tags:
 - experience 
 - study

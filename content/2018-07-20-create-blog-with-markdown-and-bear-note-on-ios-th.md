@@ -1,6 +1,7 @@
 ---
 layout: "post"
 title: "เขียนบล็อกด้วยภาษา Markdown ด้วยแอพจดโน๊ต Bear บน iOS"
+slug: create-blog-with-markdown-and-bear-note-on-ios-th
 description: "เขียนบล็อกด้วย Bear อัพโหลดรูปภาพขึ้น Dropbox โดยใช้แอพ workflow"
 categories: [th]
 tags:

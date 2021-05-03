@@ -1,5 +1,6 @@
 ---
 layout: post
+slug: quickly-use-thai-for-xelatex-th
 title: ใช้งานภาษาไทยบน XeLaTeX ฉบับรีบร้อน
 description: "อยากจะพิมพ์ภาษาไทยบนภาษา latex จะทำอย่างไรมาดูกัน"
 tags: [xelatex, thai, miktek, latex, xetex]
