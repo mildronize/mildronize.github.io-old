@@ -35,7 +35,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         createNodeField({ node, name: "date", value: date.toISOString() });
       }
     }
-    createNodeField({ node, name: "slug", value: slug });
+    createNodeField({ node, name: "slug", value: `${siteConfig.nodePrefix}${slug}` });
   }
 };
 
