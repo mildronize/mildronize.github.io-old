@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
+import "../themes/font-awesome-all-5.2.0.css";
 
 const Hero = (props: any) => {
   const { ...restProps } = props;
 
   return (
     <Container {...restProps}>
-      <h2>Hi 👋 I'm Thada, welcome to my blog. <Subtitle>You can find almost stuff about me: 
-        sharing ideas, programming techniques, web technology and others.</Subtitle></h2>
+      <h2>Hi 👋 I'm Thada, Software Engineer, welcome to my blog. <Subtitle>
+        Sharing ideas, programming techniques, web technology and others.</Subtitle></h2>
+
+        <Button href="https://www.notion.so/Thada-Wangthammang-bd5e0b4d05964bd288e7cb5109465ee8" target="_blank">📄&nbsp; About</Button>
+        <Button href="https://github.com/mildronize" target="_blank"><i className="fab fa-github"></i>&nbsp; Github</Button>
     </Container>
   );
 };
@@ -25,6 +29,19 @@ const Container = styled.div`
       font-size: 2rem;
     `}
 
+  }
+`;
+
+const Button = styled.a`
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  :hover{
+    background: var(--colors-hover-0);
+  }
+  i{
+    color: var(--color-default);
+    font-size: 1.2em;
   }
 `;
 
