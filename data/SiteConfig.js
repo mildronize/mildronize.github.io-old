@@ -41,7 +41,7 @@ const config = {
     },
     {
       label: "Linkedin",
-      url: "mailto:https://www.linkedin.com/in/thada-wangthammang-281894a6/",
+      url: "https://www.linkedin.com/in/thada-wangthammang-281894a6/",
       iconClassName: "fab fa-linkedin",
     },
     {
