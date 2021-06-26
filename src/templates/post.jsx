@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useRef} from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../layout/PageLayout";
 import UserInfo from "../components/UserInfo/UserInfo";
 import Disqus from "../components/Disqus/Disqus";
+// import TableOfContents from "../components/TableOfContents";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
 import SEO from "../components/SEO/SEO";
 import Footer from "../components/Footer/Footer";
@@ -17,7 +18,41 @@ import { parseISO, format } from "date-fns";
 import _ from "lodash";
 import { Link } from "gatsby";
 
+// const mock = [
+//   {
+//     "url": "#first-h2",
+//     "title": "First h2",
+//     "items": [
+//       {
+//         "url": "#first-h3-under-first-h2",
+//         "title": "First h3 under first h2",
+//         "items": [
+//           {
+//             "url": "#first-h4-under-first-h3",
+//             "title": "First h4 under first h3"
+//           }
+//         ]
+//       },
+//       {
+//         "url": "#second-h3-under-first-h2",
+//         "title": "Second h3 under first h2"
+//       }
+//     ]
+//   },
+//   {
+//     "url": "#second-h2",
+//     "title": "Second h2",
+//     "items": [
+//       {
+//         "url": "#first-h3-under-second-h2",
+//         "title": "First h3 under second h2"
+//       }
+//     ]
+//   }
+// ];
+
 export default function PostTemplate({ data, pageContext }) {
+  const contentRef = useRef(null);
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
@@ -34,13 +69,16 @@ export default function PostTemplate({ data, pageContext }) {
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <Container>
-          <h1>{post.title}</h1>
+          <h1 className="post-title">{post.title}</h1>
           <div >
             {format(parseISO(date), "MMM d, yyyy")}
           </div>
           <HorizontalDivider />
+
           {/* eslint-disable-next-line react/no-danger */}
-          <PostContent dangerouslySetInnerHTML={{ __html: postNode.html }} />
+          <PostContent ref={contentRef} 
+            dangerouslySetInnerHTML={{ __html: postNode.html }} 
+          />
 
           <div className="post-meta">
             <TagContainer>
@@ -63,6 +101,11 @@ export default function PostTemplate({ data, pageContext }) {
           {/* <UserInfo config={config} /> */}
           {/* <Disqus postNode={postNode} /> */}
           {/* <Footer config={config} /> */}
+          {/* <TableOfContents
+            headings={mock}
+            disableTOC={false}
+            contentRef={contentRef}
+          /> */}
         </Container>
       </div>
     </Layout>
@@ -86,7 +129,7 @@ const PostContent = styled.div`
     }
 
     h1{
-      font-size: 2rem;
+      font-size: 1.7rem;
     }
     h2{
         font-size: 1.5rem;
@@ -104,6 +147,10 @@ const PostContent = styled.div`
 
     ol > li, ul > li{
       margin: 7px 0;
+    }
+
+    ol > li > p {
+      margin: 10px 0;
     }
 
     pre > code {
@@ -133,7 +180,7 @@ const PostContent = styled.div`
 `;
 
 const Container = styled.div`
- h1{
+ .post-title{
   font-size: 2rem;
   
   ${breakpoint('tablet')`

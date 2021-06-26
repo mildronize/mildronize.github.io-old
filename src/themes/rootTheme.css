@@ -230,3 +230,17 @@ p {
     margin-bottom: var(--paragraph-margin-bottom);
     letter-spacing: 0.1px;
 }
+
+/* -------- */
+
+/* Helper */
+
+/* Word Wrap add word wrap to code block */
+
+.word-wrap pre[class*="language-"],
+.word-wrap code[class*="language-"]{
+	white-space: pre-wrap;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+

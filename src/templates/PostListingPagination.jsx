@@ -8,7 +8,6 @@ import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
 import styled from "styled-components"
-import Header from "../components/Header";
 
 function PostListingPagination({ pageContext, data }) {
   function renderPaging() {

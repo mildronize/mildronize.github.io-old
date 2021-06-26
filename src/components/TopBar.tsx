@@ -14,7 +14,7 @@ const TopBar = (props: any) => {
         <CenterContainer>
           <FlexContainer>
             <FlexItem>
-              <Logo><Link to="/" >Mildronize</Link></Logo>
+              <Logo><Link to="/" >Thada W.</Link></Logo>
             </FlexItem>
             <FlexItem >
               <ToggleOffset>
