@@ -6,6 +6,11 @@ Build Hooks
 curl -X POST -d '{}' https://api.netlify.com/build_hooks/XX
 ```
 
+# Todo 
+- [ ] Migrate to TS
+- [ ] Search
+- [ ] SEO Support
+
 # Gatsby Advanced Starter
 
 A starter skeleton with advanced features for [Gatsby](https://github.com/gatsbyjs/gatsby/).
