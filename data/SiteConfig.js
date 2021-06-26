@@ -1,14 +1,14 @@
 const config = {
-  siteTitle: "Mildronize", // Site title.
-  siteTitleShort: "Mildronize", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: "Mildronize", // Alternative site title for SEO.
+  siteTitle: "Thada W.", // Site title.
+  siteTitleShort: "Thada W", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  siteTitleAlt: "Thada W.", // Alternative site title for SEO.
   siteLogo: "/logos/android-chrome-512x512.png", // Logo used for SEO and manifest.
-  siteUrl: "https://mildronize.com", // Domain of your website without pathPrefix.
+  siteUrl: "https://thadaw.com", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   nodePrefix: "/b", // Prefixes for only post created by createNodeField from `gastby-node.js`
   siteDescription: "You can find almost stuff about me: sharing ideas, programming techniques, web technology and others.", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
-  siteRssTitle: "Mildronize.com RSS feed", // Title of the RSS feed
+  siteRssTitle: "Thadaw.com RSS feed", // Title of the RSS feed
   siteFBAppID: "xxxxx", // FB Application ID for using app insights
   googleAnalyticsID: "UA-62565035-1", // GA tracking ID.
   disqusShortname: "https-vagr9k-github-io-gatsby-advanced-starter", // Disqus shortname.
@@ -55,7 +55,7 @@ const config = {
       iconClassName: "fas fa-rss",
     }
   ],
-  copyright: "Copyright © 2020. Advanced User", // Copyright string for the footer of the website and RSS feed.
+  copyright: "Copyright © 2021. Thada W.", // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.
   backgroundColor: "#e0e0e0", // Used for setting manifest background color.
 };

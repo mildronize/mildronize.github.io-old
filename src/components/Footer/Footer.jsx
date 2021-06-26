@@ -16,9 +16,9 @@ function Footer({ config }) {
     <FooterContainer>
 
       <center>
-        <div className="footer-copyright">© 2015 - 2021 mildronize.com </div>
+        <div className="footer-copyright">© 2015 - 2021 thadaw.com </div>
         <div className="footer-info">
-          <a href="https://github.com/mildronize/site">V 5.0.0</a> Built with ❤️ by Thada Wangthammang
+          <a href="https://github.com/mildronize/thadaw.com">V 5.0.0</a> Built with ❤️ by Thada Wangthammang
          </div>
          <UserLinks config={config} labeled />
      
