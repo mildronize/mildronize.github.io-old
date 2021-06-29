@@ -166,12 +166,16 @@ const PostContent = styled.div`
     
     blockquote {
       background-color: var(--colors-blockquote);
-      padding: 10px 25px;
+      padding: 15px 25px;
       margin: 10px 0 10px 0;
-      border-radius: 0.3em;
+      border-radius: 0.5em;
       margin-block-start: 0;
     } 
 
+    blockquote p {
+      margin: 0;
+      padding: 0;
+    } 
 
 `;
 
