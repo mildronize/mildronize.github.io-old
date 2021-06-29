@@ -1,6 +1,6 @@
 ---
 layout: post
-slug: server-side-render-from-the-past-to-present
+slug: server-side-rendering-in-spa-and-seo
 title: เราควรเพิ่มประสิทธิภาพของให้ Single Page Application (React) โดยใช้ Server-side Rendering (SSR) หรือไม่
 tags: [
     SSR, 

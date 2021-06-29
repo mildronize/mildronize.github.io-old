@@ -1,3 +1,6 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c16d8689-d407-4623-b290-5dc0b7b79722/deploy-status)](https://app.netlify.com/sites/mildronize-v5/deploys)
+
+
 - styled-components-breakpoints
 
 Build Hooks
