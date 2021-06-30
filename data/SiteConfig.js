@@ -16,7 +16,7 @@ const config = {
   dateFormat: "DD/MM/YYYY", // Date format for display.
   // postsPerPage: 4, // Amount of posts displayed per listing page.
   userName: "Thada Wangthammang", // Username to display in the author segment.
-  userEmail: "mildronize@gmail.com", // Email used for RSS feed's author segment
+  userEmail: "thada.wth@gmail.com", // Email used for RSS feed's author segment
   userTwitter: "mildronize", // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: "Songkhla, Thailand", // User location to display in the author segment.
   userAvatar: "https://api.adorable.io/avatars/150/test.png", // User avatar to display in the author segment.
@@ -36,7 +36,7 @@ const config = {
     },
     {
       label: "Email",
-      url: "mailto:mildronize@gmail.com",
+      url: "mailto:thada.wth@gmail.com",
       iconClassName: "fas fa-envelope",
     },
     {
@@ -46,7 +46,7 @@ const config = {
     },
     {
       label: "Medium",
-      url: "https://medium.com/@mildronize",
+      url: "https://thadaw.medium.com/",
       iconClassName: "fab fa-medium",
     },
     {
