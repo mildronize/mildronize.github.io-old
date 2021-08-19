@@ -1,12 +1,22 @@
 ---
 layout: post
-title: "Mildy: My Debian customization"
-description: "Debian desktop customization for look good desktop in my
-style. It contains many applications such as Xfce, Plank and terminal
-customization."
-categories: [en]
-tags: [debian, xfce, plank, linux, customization, desktop-environment,
-terminal, theme, style]
+title: 'Mildy: My Debian customization'
+description: >-
+  Debian desktop customization for look good desktop in my style. It contains
+  many applications such as Xfce, Plank and terminal customization.
+categories:
+  - en
+tags:
+  - debian
+  - xfce
+  - plank
+  - linux
+  - customization
+  - desktop-environment
+  - terminal
+  - theme
+  - style
+uuid: gtg6emr
 ---
 
 Are you boring in Desktop of Debian. Here are some configurations for

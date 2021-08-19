@@ -1,16 +1,18 @@
 ---
-layout: "post"
-title: "รู้จักกับฐานข้อมูลอนุกรมเวลา OpenTSDB กันเถอะ"
+layout: post
+title: รู้จักกับฐานข้อมูลอนุกรมเวลา OpenTSDB กันเถอะ
 slug: introduction-to-open-time-series-database-th
-categories: [th]
+categories:
+  - th
 tags:
-    - opentsdb
-    - hbase
-    - time-series
-    - database
-image: https://www.dropbox.com/s/3qn79g1jnrhat0h/2018-08-13-%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%90%E0%B8%B2%E0%B8%99%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B9%80%E0%B8%A7%E0%B8%A5%E0%B8%B2%20OpenTSDB%20%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%96%E0%B8%AD%E0%B8%B0-cover2.jpeg?raw=1
+  - opentsdb
+  - hbase
+  - time-series
+  - database
+image: >-
+  https://www.dropbox.com/s/3qn79g1jnrhat0h/2018-08-13-%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%88%E0%B8%B1%E0%B8%81%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%90%E0%B8%B2%E0%B8%99%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5%E0%B8%AD%E0%B8%99%E0%B8%B8%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B9%80%E0%B8%A7%E0%B8%A5%E0%B8%B2%20OpenTSDB%20%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%96%E0%B8%AD%E0%B8%B0-cover2.jpeg?raw=1
 toc: true
-
+uuid: jmm9qn9
 ---
 
 สวัสดีครับ ผมชื่อมายนะคับ เนื่องจากผมทำวิทยานพินธ์ปริญญาโท เกี่ยวกับการปรับปรุงประสิทธิภาพของฐานข้อมูลอนุกรมเวลา OpenTSDB และบ้านเราก็ยังไม่ค่อยมีคนพูดถึงเรื่องนี้เท่าไหร่นัก ถือว่าเป็นโอกาสดีที่จะนำความรู้มาแบ่งปันกันครับ

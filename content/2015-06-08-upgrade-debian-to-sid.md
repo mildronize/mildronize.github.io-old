@@ -1,10 +1,24 @@
 ---
 layout: post
 title: How to upgrade Debian to SID
-description: Instruction for upgrading debian from stable to SID, sudo command setup, installing non-free packages(non open source)
-tags: ['upgrade', 'debian', 'linux', 'how-to', 'font-thai', 'firmware-linux', 'sudo', 'update', 'sorces.list', 'non-free' ]
-categories: [en]
-last_modified_at: 2016-02-16
+description: >-
+  Instruction for upgrading debian from stable to SID, sudo command setup,
+  installing non-free packages(non open source)
+tags:
+  - upgrade
+  - debian
+  - linux
+  - how-to
+  - font-thai
+  - firmware-linux
+  - sudo
+  - update
+  - sorces.list
+  - non-free
+categories:
+  - en
+last_modified_at: 2016-02-16T00:00:00.000Z
+uuid: l0ywmex
 ---
 
 **Optional:** Add `sudo` into your user

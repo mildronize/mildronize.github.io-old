@@ -3,36 +3,32 @@ import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../layout/PageLayout";
 import PostListing from "../components/PostListing/PostListing";
+import Hero from "../components/Hero";
+import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
+import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 
-export default function TagTemplate({ pageContext, data }) {
-  const { tag } = pageContext;
+function Search({ data }) {
   const postEdges = data.allMarkdownRemark.edges;
   return (
-    <Layout>
-      <div className="tag-container">
-        <Helmet title={`Posts tagged as "${tag}" | ${config.siteTitle}`} />
-        <PostListing postEdges={postEdges} />
-      </div>
-    </Layout>
+    <>
+       <PostListing postEdges={postEdges} />
+    </>
   );
 }
 
+export default Search;
+
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query TagPage($tag: String) {
-    allMarkdownRemark(
-      limit: 1000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
-    ) {
-      totalCount
+  query SearchQuery {
+    allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
       edges {
         node {
           fields {
             slug
             date
-            readableSlug
           }
           excerpt
           timeToRead

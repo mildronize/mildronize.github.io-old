@@ -1,10 +1,18 @@
 ---
-layout: "post"
-title: "Awesome หนึ่งในคำสำคัญ (Keyword) ที่โปรแกรมเมอร์ทุกคนควรจะรู้จักไว้"
+layout: post
+title: Awesome หนึ่งในคำสำคัญ (Keyword) ที่โปรแกรมเมอร์ทุกคนควรจะรู้จักไว้
 slug: awesome-is-a-word-of-keywords-that-all-programmers-should-know-th
-categories: [th]
-tags: [programmer, tip, trick, awesome, programmer, keyword]
+categories:
+  - th
+tags:
+  - programmer
+  - tip
+  - trick
+  - awesome
+  - programmer
+  - keyword
 language: th
+uuid: utkfndt
 ---
 
 สวัสดีครับ วันนี้ผมจะมานำเสนอคำๆ หนึ่งที่โปรแกรมเมอร์ทุกคนควรที่จะรู้จักไว้ ซึ่ง อยากจะบอกว่ามันมีประโยชน์มากๆ ในการเขียนโปรแกรม ผมว่าหลายๆ คนที่กำลังอ่านบทความนี้อาจจะเคยรู้จักหรือ เคยได้ยินมาบ้าง แต่สำหรับคนที่ไม่เคยได้ยินมาก่อน ลองมาทำความรู้จักกับมันดูนะครับ มันมีประโยชน์ต่อชีวิตมากๆ เลย

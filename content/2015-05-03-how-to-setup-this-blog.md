@@ -1,10 +1,23 @@
 ---
 layout: post
 title: How to setup this blog?
-description: This blog created by Jekyll that is ruby scripts to transforms plain text into static html website and blogs and hosted on Github Page that free hosting support Jekyll.
-categories: [en]
-tags: [how-to, blog, github-page, jekyll, guide, website, github, markdown]
-cover: "8.jpg"
+description: >-
+  This blog created by Jekyll that is ruby scripts to transforms plain text into
+  static html website and blogs and hosted on Github Page that free hosting
+  support Jekyll.
+categories:
+  - en
+tags:
+  - how-to
+  - blog
+  - github-page
+  - jekyll
+  - guide
+  - website
+  - github
+  - markdown
+cover: 8.jpg
+uuid: we3xr8r
 ---
 
 I'm following [botbotbot 's blog](http://dev.im-bot.com/2014/06/16/how-to-set-up-this-blog/) to setup this blog. Some contents of this post is original from him.

@@ -1,16 +1,17 @@
 ---
 layout: post
-title: React Design Patterns 
-tags:	
-- react
-- pattern
-- javascript
-- es6
-
-categories: [en]
+title: React Design Patterns
+tags:
+  - react
+  - pattern
+  - javascript
+  - es6
+categories:
+  - en
 language: en
-image: https://www.dropbox.com/s/9u7jxihxp12n06w/2019-03-13-react-pattern.jpg?raw=1
+image: 'https://www.dropbox.com/s/9u7jxihxp12n06w/2019-03-13-react-pattern.jpg?raw=1'
 toc: true
+uuid: ho462dz
 ---
 
 

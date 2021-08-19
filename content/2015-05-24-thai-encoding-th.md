@@ -1,11 +1,23 @@
 ---
 layout: post
-title: การแทนตัวอักษรภาษาไทยในระบบการเข้ารหัสแบบต่างๆ 
+title: การแทนตัวอักษรภาษาไทยในระบบการเข้ารหัสแบบต่างๆ
 slug: thai-encoding-th
-description: การแทนตัวอักษรภาษาไทย ระบบ ASCII, TIS-620, Windows-874, unicode(UTF-8, UTF-16) รวมถึงการอธิบายประวัติความเป็นมา ถึงการเข้ารหัสในแบบต่างๆ และคำแนะนำในการเลือกใช้ การเข้ารหัสที่เหมาะสมสำหรับภาษาไทย
-
-categories: [th]
-tags: [thai, unicode, ascii, tis-620, windows-874, encode, utf-8, utf-16]
+description: >-
+  การแทนตัวอักษรภาษาไทย ระบบ ASCII, TIS-620, Windows-874, unicode(UTF-8, UTF-16)
+  รวมถึงการอธิบายประวัติความเป็นมา ถึงการเข้ารหัสในแบบต่างๆ
+  และคำแนะนำในการเลือกใช้ การเข้ารหัสที่เหมาะสมสำหรับภาษาไทย
+categories:
+  - th
+tags:
+  - thai
+  - unicode
+  - ascii
+  - tis-620
+  - windows-874
+  - encode
+  - utf-8
+  - utf-16
+uuid: 928lrr0
 ---
 
 ## ASCII

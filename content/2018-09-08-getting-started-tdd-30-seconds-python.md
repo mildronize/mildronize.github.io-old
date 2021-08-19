@@ -1,13 +1,16 @@
 ---
 layout: post
 title: Getting Started TDD in 30 Seconds with Python
-tags:	
-- python
-- tdd
-- pipenv
-- pytest
-categories: [en]
-image: https://www.dropbox.com/s/ai9dub2ym6qv5pb/Getting%20Started%20TDD%20in%2030%20Seconds%20with%20Python.jpg?raw=1
+tags:
+  - python
+  - tdd
+  - pipenv
+  - pytest
+categories:
+  - en
+image: >-
+  https://www.dropbox.com/s/ai9dub2ym6qv5pb/Getting%20Started%20TDD%20in%2030%20Seconds%20with%20Python.jpg?raw=1
+uuid: lm28n32
 ---
 
 Quick start to setup python script for Test Driven Development in 30 seconds

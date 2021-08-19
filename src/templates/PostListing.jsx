@@ -29,7 +29,7 @@ function Landing({ data }) {
 export default Landing;
 
 const Header = styled.h4`
-  font-family: var(--font-family-inter);  
+  font-family: var(--font-family-inter);
   /* font-weight: 500; */
   font-size: 1.4rem;
 
@@ -47,6 +47,7 @@ export const pageQuery = graphql`
           fields {
             slug
             date
+            readableSlug
           }
           excerpt
           timeToRead

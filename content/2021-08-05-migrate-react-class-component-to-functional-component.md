@@ -2,15 +2,16 @@
 layout: post
 title: ย้ายจาก React Class Component มาเป็น Functional Component
 slug: migrate-react-class-component-to-functional-component
-tags:	
-- react
-- pattern
-- class-component
-- functional-component
-
-categories: [en]
+tags:
+  - react
+  - pattern
+  - class-component
+  - functional-component
+categories:
+  - en
 language: th
 toc: true
+uuid: a7ng95o
 ---
 
 

@@ -2,10 +2,20 @@
 layout: post
 title: ทำไม mount volume ของ Docker บน Windows แล้วมองไม่เห็นไฟล์
 slug: why-does-not-see-folder-files-of-mounted-volume-on-docker-from-windows-host-th
-description: "จะแก้ปัญหาอย่างไร เมื่อมองไม่เห็นไฟล์ หลังจาก mount volume บน Docker แล้ว"
-categories: [th]
-tags: [docker, windows, boot2docker, docker-machine, virtualbox, vm, virtual-machine, mount-volume]
+description: จะแก้ปัญหาอย่างไร เมื่อมองไม่เห็นไฟล์ หลังจาก mount volume บน Docker แล้ว
+categories:
+  - th
+tags:
+  - docker
+  - windows
+  - boot2docker
+  - docker-machine
+  - virtualbox
+  - vm
+  - virtual-machine
+  - mount-volume
 featured_image: logo/docker.png
+uuid: deb407s
 ---
 
 ## เกริ่นนำ สักนิด...

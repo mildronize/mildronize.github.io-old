@@ -2,15 +2,17 @@
 layout: post
 title: ได้ 99 คะแนนจาก Google Insights & เรียนรู้การทำ web optimization
 slug: 99-score-google-insight-web-optimization
-tags:	
-- optimization
-- google-insights
-- responsive-web-design
-- webpack
-- jekyll
-categories: [th]
-image: https://www.dropbox.com/s/lxir9pr41qsc9eu/cover.jpg?raw=1
+tags:
+  - optimization
+  - google-insights
+  - responsive-web-design
+  - webpack
+  - jekyll
+categories:
+  - th
+image: 'https://www.dropbox.com/s/lxir9pr41qsc9eu/cover.jpg?raw=1'
 toc: true
+uuid: i4kssit
 ---
 
 

@@ -1,8 +1,12 @@
 ---
 layout: post
 title: My blog development for Jekyll site
-description: Tools, structure, extension and everything for building this blog
-tags: [jekyll, github-page, angularjs]
+description: 'Tools, structure, extension and everything for building this blog'
+tags:
+  - jekyll
+  - github-page
+  - angularjs
+uuid: hm371bt
 ---
 
 > This post is involving the old version site, built with [Jekyll](http://jekyllrb.com). 

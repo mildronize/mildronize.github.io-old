@@ -1,10 +1,18 @@
 ---
-layout: "post"
-title: "การเดินทางของ Xiaomi Mi2s และแนวทางแก้ปัญหาเซนเซอร์แนบหู (Proximity Sensor) ไม่ทำงาน"
+layout: post
+title: >-
+  การเดินทางของ Xiaomi Mi2s และแนวทางแก้ปัญหาเซนเซอร์แนบหู (Proximity Sensor)
+  ไม่ทำงาน
 slug: my-xiaomi-mi2s-journey
-categories: [th]
-tags: [mi2s, xposed, proximity-sensor, root]
+categories:
+  - th
+tags:
+  - mi2s
+  - xposed
+  - proximity-sensor
+  - root
 language: th
+uuid: 92rs1lc
 ---
 
 ผมซื้อเจ้า [Xiaomi Mi2s](http://www.gsmarena.com/xiaomi_mi_2s-5397.php) เมื่อวันที่ 11 กรกฎาคม 2556 ถ้านับเวลาจากวันนั้นถึงวันนี้ก็รวมๆ แล้ว 3 ปีครึ่งที่อยู่บนมือผม มือถือเครื่องนี้เป็นมือถือเครื่องที่ 3 ในชีวิตผมล่ะ เครื่องแรกก็ [Sony Ericsson W200i](http://www.gsmarena.com/sony_ericsson_w200-1824.php) ในสมัยนั้นยังไม่มี smart phone อะไรเลย กว่าราคามือถือที่สามารถฟังเพลงได้ ถ่ายรูปได้ ราคาจะลงมาในระดับที่เด็กนักเรียนคนนึงสามารถเก็บเงินซื้อได้ ตอนนั้นซื้อราคา 4 พันกว่าๆ 

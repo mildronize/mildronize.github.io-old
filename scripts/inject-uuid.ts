@@ -11,7 +11,7 @@ import { getAllMarkdownPaths, generateUUID } from './utils';
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
-const databasePath = 'scripts/used-uuid.json';
+const databasePath = 'uuid-store.json';
 const targetPath = "content";
 const defaultUnicode = 'utf8';
 
