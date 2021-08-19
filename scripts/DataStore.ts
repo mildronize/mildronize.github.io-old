@@ -4,6 +4,7 @@ import { promisify } from 'util';
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
 
+const defaultUnicode = 'utf8';
 
 class DataStore {
 
@@ -13,29 +14,39 @@ class DataStore {
     this.path = path;
   }
 
-  async getAll() {
-    const data = await readFile(this.path, "utf8");
-    if(data === '') return {};
-    if(!this.isValidJSON(data)){
-      throw new Error('Invalid data');
+  async safeReadFile() {
+    try {
+      return await readFile(this.path, defaultUnicode);
+    } catch (e) {
+      console.log(`Creating the store file: ${this.path}`)
+      await writeFile(this.path, '',  defaultUnicode);
+      return '';
     }
-    return data;
   }
 
-  isValidJSON(string) {
+  async getAll() {
+    const data = await this.safeReadFile();
+    if (data === '') return {};
+    if (!this.isValidJSON(data)) {
+      throw new Error('Invalid data');
+    }
+    return JSON.parse(data);
+  }
+
+  isValidJSON(text) {
     try {
-      JSON.parse(string);
+      JSON.parse(text);
     } catch (e) {
       return false;
     }
     return true;
   }
 
-  async isExist(data, uuid) {
+  isExist(data, uuid: string) {
     return uuid in data;
   }
 
-  async add(uuid, refPath) {
+  async add(uuid: string, refPath: string) {
     /**
      * DATA:
      *  {
@@ -43,13 +54,13 @@ class DataStore {
      *    '3ugsgkg': '2015-05-04-simple-soap-client-and-simple-server-via-flask.md'
      *  }
      */
-    const loadedData = this.getAll();
+    const loadedData = await this.getAll();
     if (this.isExist(loadedData, uuid)) {
       console.warn(`The '${uuid}' key is existing, please try again.`);
       return;
     }
     loadedData[uuid] = refPath;
-    await writeFile(this.path, JSON.stringify(loadedData), "utf8");
+    await writeFile(this.path, JSON.stringify(loadedData), defaultUnicode);
   }
 }
 
