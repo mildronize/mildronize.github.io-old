@@ -1,14 +1,15 @@
 ---
 layout: post
 slug: tdd-formula-in-notion-thousand-comma
-title: มาเขียน Notion Formula with Confidence ด้วย TDD กัน (แจก Formula Thousand Comma ด้วยนะ)
-tags: [
-    Notion, 
-    Notion Formula,
-    TDD
-    ]
+title: >-
+  มาเขียน Notion Formula with Confidence ด้วย TDD กัน (แจก Formula Thousand
+  Comma ด้วยนะ)
+tags:
+  - Notion
+  - Notion Formula
+  - TDD
 category: notion
-
+uuid: fk36d30
 ---
 
 สวัสดีครับ วันนี้ผมมาแชร์เทคนิคการเขียน สูตรแบบ ยังไงก็ไม่พลาดแน่ๆ กันครับ เทคนิคที่ใช้ TDD (Test-Driven Development) คือ โดยผมประยุกต์ใช้ใน Notion โดย

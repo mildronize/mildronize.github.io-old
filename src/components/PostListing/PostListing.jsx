@@ -13,8 +13,9 @@ function PostListing({ postEdges }) {
         tags.push(tag);
       });
     }
+    const { slug, readableSlug } =  postEdge.node.fields;
     postList.push({
-      path: postEdge.node.fields.slug,
+      path: `${slug}?id=${readableSlug}`,
       tags: tags,
       cover: postEdge.node.frontmatter.cover,
       title: postEdge.node.frontmatter.title,

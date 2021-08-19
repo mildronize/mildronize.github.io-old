@@ -1,15 +1,17 @@
 ---
 layout: post
-title: Promise, Async, Await ของ JS ES6+ ฉบับสั้นๆ ไม่พูดเยอะ เจ็บคอ แถม RxJS
+title: 'Promise, Async, Await ของ JS ES6+ ฉบับสั้นๆ ไม่พูดเยอะ เจ็บคอ แถม RxJS'
 slug: promise-async-await-rxjs-js-es6
-tags:	
-- promise
-- javascript
-- es6
-- async
-- await
-categories: [th]
-image: https://www.dropbox.com/s/53ds3aqow09hl0g/cover.jpeg?raw=1
+tags:
+  - promise
+  - javascript
+  - es6
+  - async
+  - await
+categories:
+  - th
+image: 'https://www.dropbox.com/s/53ds3aqow09hl0g/cover.jpeg?raw=1'
+uuid: leu0374
 ---
 
 > **อ่านฉันหน่อย**:  บทความนี้ใช้ javascript ES6 นะครับ ใครยังไม่ชินไปตามอ่านได้ใน Cheat sheet นี้เลย มีภาษาไทยด้วย

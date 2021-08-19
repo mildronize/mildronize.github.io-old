@@ -1,18 +1,20 @@
 ---
-title: "สิ่งที่ได้รับจากการเรียนวิศวกรรมคอมพิวเตอร์ปริญญาโท"
+title: สิ่งที่ได้รับจากการเรียนวิศวกรรมคอมพิวเตอร์ปริญญาโท
 slug: what-i-get-from-master-degree
 tags:
-- experience 
-- study
-- research
-- opentsdb
-- master-degree
-
+  - experience
+  - study
+  - research
+  - opentsdb
+  - master-degree
 layout: post
-categories: [th]
+categories:
+  - th
 language: th
-image: https://www.dropbox.com/s/mophblmhv1psxua/2019-03-17-what-i-get-from-master-degree.jpg?raw=1
+image: >-
+  https://www.dropbox.com/s/mophblmhv1psxua/2019-03-17-what-i-get-from-master-degree.jpg?raw=1
 toc: true
+uuid: 9tdymnn
 ---
 
 สวัสดีคับ ผมชื่อมายด์คับ ห่างหายจากการเขียนบล็อกมานานแสนนานมาก เนื่องจากต้องไปรับราชการทหารอยู่ 6 เดือนระหว่างตอนที่เรียนโทอยู่ครับ วันนี้ก็มีเรื่องเล่ามาแชร์ ให้ฟังคับว่า เป็นอย่างไรบ้างระหว่างการเรียน และได้อะไรมาบ้าง (อาจจะไม่ครบถ้วน ถ้านึกออกจะมาใส่เพิ่มนะครับ) ถือว่าเป็นการแบ่งปันนะคับ

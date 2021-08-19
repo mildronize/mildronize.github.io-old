@@ -35,7 +35,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         createNodeField({ node, name: "date", value: date.toISOString() });
       }
     }
-    createNodeField({ node, name: "slug", value: `${siteConfig.nodePrefix}${slug}` });
+
+    if(!Object.prototype.hasOwnProperty.call(node.frontmatter, "uuid")){
+      throw new Error('No field `uuid`, please run `npm run uuid `');
+    }
+
+    createNodeField({ node, name: "slug", value: `/${node.frontmatter.uuid}` });
+    createNodeField({ node, name: "readableSlug", value: `${slug.replace(/^\//,'')}` });
   }
 };
 
@@ -56,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
           fields {
             filename
             slug
+            readableSlug
           }
           frontmatter {
             title
@@ -67,7 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   }
-  
+
   `);
 
   if (markdownQueryResult.errors) {

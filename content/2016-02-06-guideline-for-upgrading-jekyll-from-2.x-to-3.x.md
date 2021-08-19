@@ -1,10 +1,18 @@
 ---
 layout: post
 title: Guideline for Upgrading Jekyll from 2.x to 3.x
-description: "If you are a Jekyll user. You may be heard some news about announcement Jekyll 3. Then, GitHub announced to use the Jekyll 3. So, there are many changes for Jekyll 3. It describes in the Jekyll Official page."
-categories: [en]
-date: "2016-02-06"
-tags: [jekyll,jekyll-3,guideline]
+description: >-
+  If you are a Jekyll user. You may be heard some news about announcement Jekyll
+  3. Then, GitHub announced to use the Jekyll 3. So, there are many changes for
+  Jekyll 3. It describes in the Jekyll Official page.
+categories:
+  - en
+date: '2016-02-06'
+tags:
+  - jekyll
+  - jekyll-3
+  - guideline
+uuid: z578nvw
 ---
 
 > Note: **This guideline is not suitable for default engine of GitHub (Jekyll)**. Because it doesn't allow to install any plugin. On the other hand, we can't use Jekyll 2 plugin. It must uses in Jekyll 3 way.

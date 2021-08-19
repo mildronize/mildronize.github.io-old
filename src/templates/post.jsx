@@ -72,8 +72,8 @@ export default function PostTemplate({ data, pageContext }) {
           <HorizontalDivider />
 
           {/* eslint-disable-next-line react/no-danger */}
-          <PostContent ref={contentRef} 
-            dangerouslySetInnerHTML={{ __html: postNode.html }} 
+          <PostContent ref={contentRef}
+            dangerouslySetInnerHTML={{ __html: postNode.html }}
           />
 
           <div className="post-meta">
@@ -163,26 +163,26 @@ const PostContent = styled.div`
       height: auto;
     }
 
-    
+
     blockquote {
       background-color: var(--colors-blockquote);
       padding: 15px 25px;
       margin: 10px 0 10px 0;
       border-radius: 0.5em;
       margin-block-start: 0;
-    } 
+    }
 
     blockquote p {
       margin: 0;
       padding: 0;
-    } 
+    }
 
 `;
 
 const Container = styled.div`
  .post-title{
   font-size: 2rem;
-  
+
   ${breakpoint('tablet')`
     font-size: 2.5rem;
   `}
@@ -218,6 +218,7 @@ export const pageQuery = graphql`
       fields {
         slug
         date
+        readableSlug
       }
     }
   }

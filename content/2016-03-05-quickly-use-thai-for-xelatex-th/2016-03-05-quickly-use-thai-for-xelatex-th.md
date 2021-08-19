@@ -2,10 +2,17 @@
 layout: post
 slug: quickly-use-thai-for-xelatex-th
 title: ใช้งานภาษาไทยบน XeLaTeX ฉบับรีบร้อน
-description: "อยากจะพิมพ์ภาษาไทยบนภาษา latex จะทำอย่างไรมาดูกัน"
-tags: [xelatex, thai, miktek, latex, xetex]
-categories: [th]
+description: อยากจะพิมพ์ภาษาไทยบนภาษา latex จะทำอย่างไรมาดูกัน
+tags:
+  - xelatex
+  - thai
+  - miktek
+  - latex
+  - xetex
+categories:
+  - th
 featured_image: logo/latex.png
+uuid: 1esbgon
 ---
 
 เนื่องจากผมได้สืบค้นการพิมพ์ไทย ปรากฎว่าหลายๆ แหล่งข้อมูลยังใช้งานยากอยู่ จึงนำมาประยุกต์ เพื่อให้สามารถพิมพ์ได้โดยเร็ว โดยที่ไม่ต้องกระทบส่วนอื่นๆ ของไฟล์ `.tex` ครับ

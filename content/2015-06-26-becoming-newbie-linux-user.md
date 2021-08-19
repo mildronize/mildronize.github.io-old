@@ -2,9 +2,16 @@
 layout: post
 title: มือใหม่หัดใช้ลินุกซ์ครั้งแรก
 slug: becoming-newbie-linux-user
-description: ความพยายามของผมที่จะหัดใช้ลินุกซ์มามากกว่า 10 ครั้ง, ลินุกซ์คืออะไร, การแก้ปัญหาต่างๆ, Linux distrubtion, Debian, การบำรุงรักษา
-tags: [linux, debian, newbie]
-categories: [th]
+description: >-
+  ความพยายามของผมที่จะหัดใช้ลินุกซ์มามากกว่า 10 ครั้ง, ลินุกซ์คืออะไร,
+  การแก้ปัญหาต่างๆ, Linux distrubtion, Debian, การบำรุงรักษา
+tags:
+  - linux
+  - debian
+  - newbie
+categories:
+  - th
+uuid: it3xlde
 ---
 
 โพสนี้เป็นการรวมเรื่องราวกันหัดใช้ linux ครั้งแรกของผมโดย จะแบ่งเป็นข้อๆ และก็จะค่อยๆ ทยอยเขียน

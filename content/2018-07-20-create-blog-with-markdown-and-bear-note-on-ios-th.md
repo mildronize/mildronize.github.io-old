@@ -1,16 +1,19 @@
 ---
-layout: "post"
-title: "เขียนบล็อกด้วยภาษา Markdown ด้วยแอพจดโน๊ต Bear บน iOS"
+layout: post
+title: เขียนบล็อกด้วยภาษา Markdown ด้วยแอพจดโน๊ต Bear บน iOS
 slug: create-blog-with-markdown-and-bear-note-on-ios-th
-description: "เขียนบล็อกด้วย Bear อัพโหลดรูปภาพขึ้น Dropbox โดยใช้แอพ workflow"
-categories: [th]
+description: เขียนบล็อกด้วย Bear อัพโหลดรูปภาพขึ้น Dropbox โดยใช้แอพ workflow
+categories:
+  - th
 tags:
-    - automate
-    - ios
-    - bear-writer
-    - dropbox
-    - workflow
-image: https://www.dropbox.com/s/ctdl5fr7c7cplbb/2018-07-20-%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%9A%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%81%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%20Markdown%20%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B9%81%E0%B8%AD%E0%B8%9E%E0%B8%88%E0%B8%94%E0%B9%82%E0%B8%99%E0%B9%8A%E0%B8%95%20Bear%20%E0%B8%9A%E0%B8%99%20iOS-0.jpg?raw=1
+  - automate
+  - ios
+  - bear-writer
+  - dropbox
+  - workflow
+image: >-
+  https://www.dropbox.com/s/ctdl5fr7c7cplbb/2018-07-20-%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%9A%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%81%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%20Markdown%20%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B9%81%E0%B8%AD%E0%B8%9E%E0%B8%88%E0%B8%94%E0%B9%82%E0%B8%99%E0%B9%8A%E0%B8%95%20Bear%20%E0%B8%9A%E0%B8%99%20iOS-0.jpg?raw=1
+uuid: nbqw9e1
 ---
 
 > ย้าย blog กลับมาใช้ Jekyll เหมือนเดิมแล้วคับ 

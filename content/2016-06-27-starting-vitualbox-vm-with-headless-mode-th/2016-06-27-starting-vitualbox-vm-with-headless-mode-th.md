@@ -3,9 +3,14 @@ layout: post
 title: วิธีการเริ่มการทำงาน VM ของ VirtualBox แบบทำงานเบื้องหลัง
 slug: starting-vitualbox-vm-with-headless-mode-th
 description: รวมวิธีการเริ่มการทำงาน VM ของ VirtualBox ทั้งแบบ GUI และ Command mode
-tags: [virtualbox, vm, cli, command-line]
+tags:
+  - virtualbox
+  - vm
+  - cli
+  - command-line
 category: th
 featured_image: logo/virtual.png
+uuid: 5v44hmt
 ---
 
 > สำหรับความสามารถนี้รองรับเฉพาะ **VirtualBox รุ่น 5.0** เป็นต้นไปนะครับ สามารถดูรายละเอียดเพิ่มเติมได้ที่[บล็อกของ oracle](https://blogs.oracle.com/virtualization/entry/oracle_vm_virtualbox_5_07) เลยครับ

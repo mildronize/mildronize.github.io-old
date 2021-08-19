@@ -1,10 +1,19 @@
 ---
 layout: post
-title: "A very short Ubuntu/Debian packages installation sheet"
-categories: [en]
-tags: [ubuntu, debian, ppa, chrome, docker, vscode, zotero]
+title: A very short Ubuntu/Debian packages installation sheet
+categories:
+  - en
+tags:
+  - ubuntu
+  - debian
+  - ppa
+  - chrome
+  - docker
+  - vscode
+  - zotero
 featured: true
 toc: true
+uuid: 0967oym
 ---
 
 ## Docker

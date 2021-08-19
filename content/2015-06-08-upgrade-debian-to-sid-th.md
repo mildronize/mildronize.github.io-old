@@ -2,10 +2,25 @@
 layout: post
 title: มาอัพเดท Debian จากเวอร์ชั่น stable มาเป็น sid กันเถอะ
 slug: upgrade-debian-to-sid-th
-description: ขั้นตอนการอัพเกรดระบบ Debian จาก stable sid, การทำให้ user สามารถใช้สิทธิผู้ดูแลระบบได้(root) และการติดตั้ง non-free packages(non open source)
-tags: ['upgrade', 'debian', 'linux', 'how-to', 'font-thai', 'firmware-linux', 'sudo', 'update', 'sorces.list', 'non-free']
-categories: [th]
-last_modified_at: 2016-02-16
+description: >-
+  ขั้นตอนการอัพเกรดระบบ Debian จาก stable sid, การทำให้ user
+  สามารถใช้สิทธิผู้ดูแลระบบได้(root) และการติดตั้ง non-free packages(non open
+  source)
+tags:
+  - upgrade
+  - debian
+  - linux
+  - how-to
+  - font-thai
+  - firmware-linux
+  - sudo
+  - update
+  - sorces.list
+  - non-free
+categories:
+  - th
+last_modified_at: 2016-02-16T00:00:00.000Z
+uuid: e52fdze
 ---
 
 โดยปกติแล้ว เวลาลง Debian ใหม่ๆ จะไม่สามารถใช้ คำสั่ง sudo ได้ ไม่เหมือนกับ Ubuntu ที่ตอนติดตั้งจะให้ user แรกที่สร้างตอนติดตั้งสามารถใช้ คำสั่ง sudo ได้เลย 
