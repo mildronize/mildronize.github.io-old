@@ -32,6 +32,8 @@ export default function PostTemplate({ data, pageContext }) {
       if(query.get('id') !== readableSlug){
         window.location.search = `?id=${readableSlug}`;
       }
+    } else {
+      window.location.search = `?id=${readableSlug}`;
     }
   }, []);
 
