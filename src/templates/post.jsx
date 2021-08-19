@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef} from "react";
 import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import _ from "lodash";
@@ -12,41 +12,7 @@ import Layout from "../layout/PageLayout";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
-// import "./dracula.css";
 import "./prism-template.css";
-
-// const mock = [
-//   {
-//     "url": "#first-h2",
-//     "title": "First h2",
-//     "items": [
-//       {
-//         "url": "#first-h3-under-first-h2",
-//         "title": "First h3 under first h2",
-//         "items": [
-//           {
-//             "url": "#first-h4-under-first-h3",
-//             "title": "First h4 under first h3"
-//           }
-//         ]
-//       },
-//       {
-//         "url": "#second-h3-under-first-h2",
-//         "title": "Second h3 under first h2"
-//       }
-//     ]
-//   },
-//   {
-//     "url": "#second-h2",
-//     "title": "Second h2",
-//     "items": [
-//       {
-//         "url": "#first-h3-under-second-h2",
-//         "title": "First h3 under second h2"
-//       }
-//     ]
-//   }
-// ];
 
 export default function PostTemplate({ data, pageContext }) {
   const contentRef = useRef(null);
@@ -54,10 +20,20 @@ export default function PostTemplate({ data, pageContext }) {
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
   const { timeToRead } = data.markdownRemark;
-  const { date } = data.markdownRemark.fields;
+  const { date, readableSlug } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
   }
+
+  useEffect(()=> {
+    if(!window) return;
+    const query = new URLSearchParams(window.location.search);
+    if(query.has('id')){
+      if(query.get('id') !== readableSlug){
+        window.location.search = `?id=${readableSlug}`;
+      }
+    }
+  }, []);
 
   return (
     <Layout>

@@ -25,8 +25,6 @@ function PostListing({ postEdges }) {
     });
   });
 
-  console.log(postList);
-
   return (
     <div>
       {
