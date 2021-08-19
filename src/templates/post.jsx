@@ -5,6 +5,7 @@ import _ from "lodash";
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
+import Person from '../components/Person';
 
 import Layout from "../layout/PageLayout";
 // import TableOfContents from "../components/TableOfContents";
@@ -52,7 +53,8 @@ export default function PostTemplate({ data, pageContext }) {
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
-  const date = data.markdownRemark.fields.date;
+  const { timeToRead } = data.markdownRemark;
+  const { date } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
   }
@@ -66,9 +68,19 @@ export default function PostTemplate({ data, pageContext }) {
         <SEO postPath={slug} postNode={postNode} postSEO />
         <Container>
           <h1 className="post-title">{post.title}</h1>
-          <div >
-            {format(parseISO(date), "MMM d, yyyy")}
-          </div>
+
+          <Wrapper>
+            <div className='page-metadata'>
+              {format(parseISO(date), "MMM d, yyyy")}
+            </div>
+            {timeToRead !== 0 && <div className='page-metadata'>{timeToRead} minutes to read</div>}
+            <Person author={{
+              username: config.userGithub,
+              name: config.userName,
+              profileUrl: '/about',
+              avatarUrl: config.userAvatar
+            }} />
+          </Wrapper>
           <HorizontalDivider />
 
           {/* eslint-disable-next-line react/no-danger */}
@@ -179,13 +191,24 @@ const PostContent = styled.div`
 
 `;
 
+const Wrapper = styled.span`
+  display: flex;
+  align-items:center;
+`;
+
 const Container = styled.div`
- .post-title{
+.post-title{
   font-size: 2rem;
 
   ${breakpoint('tablet')`
     font-size: 2.5rem;
   `}
+}
+
+.page-metadata:after{
+  padding-left: 6px;
+  padding-right: 6px;
+  content: "•";
 }
 `;
 

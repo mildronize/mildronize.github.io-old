@@ -11,7 +11,7 @@ const Hero = (props: any) => {
       <h2>Hi 👋 I'm Thada, Software Engineer, welcome to my blog. <Subtitle>
         Sharing ideas, programming techniques, web technology and others.</Subtitle></h2>
 
-        <Button href="https://bit.ly/mildthada-notion-cv-v3" target="_blank">📄&nbsp; About</Button>
+        <Button href="/about" target="_blank">📄&nbsp; About</Button>
         <Button href="https://github.com/mildronize" target="_blank"><i className="fab fa-github"></i>&nbsp; Github</Button>
     </Container>
   );

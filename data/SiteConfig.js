@@ -18,8 +18,9 @@ const config = {
   userName: "Thada Wangthammang", // Username to display in the author segment.
   userEmail: "thada.wth@gmail.com", // Email used for RSS feed's author segment
   userTwitter: "mildronize", // Optionally renders "Follow Me" in the UserInfo segment.
+  userGithub: "mildronize",
   userLocation: "Songkhla, Thailand", // User location to display in the author segment.
-  userAvatar: "https://api.adorable.io/avatars/150/test.png", // User avatar to display in the author segment.
+  userAvatar: "https://avatars.githubusercontent.com/u/3647850?v=4", // User avatar to display in the author segment.
   userDescription:
     "Yeah, I like animals better than people sometimes... Especially dogs. Dogs are the best. Every time you come home, they act like they haven't seen you in a year. And the good thing about dogs... is they got different dogs for different people.", // User description to display in the author segment.
   // Links to social profiles/projects you want to display in the author segment/navigation bar.
