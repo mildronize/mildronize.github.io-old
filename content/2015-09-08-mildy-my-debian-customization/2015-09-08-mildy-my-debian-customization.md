@@ -1,5 +1,4 @@
 ---
-layout: post
 title: 'Mildy: My Debian customization'
 description: >-
   Debian desktop customization for look good desktop in my style. It contains

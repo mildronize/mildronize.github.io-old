@@ -1,7 +1,5 @@
 ---
-layout: post
 title: 'วิธีติดตั้งเกม Hearthstone: Heroes of Warcraft บน Debian'
-slug: how-to-install-hearthstone-heroes-of-warcraft-on-debian-th
 description: >-
   อธิบายขั้นตอนการลงเกม Hearthstone: Heroes of Warcraft ผ่านโปรแกรม wine
   พร้อมวิธีแก้ปัญหา

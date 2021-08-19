@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to Use Vim with Clipboard on Debian
 description: Shortly steps for using Vim Clipboard and breifly vim register Vim usage
 categories:

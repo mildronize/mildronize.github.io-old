@@ -1,7 +1,5 @@
 ---
-layout: post
 title: ปัญหาการพิมพ์ภาษาไทยบน Atom Editor
-slug: thai-typing-in-atom-editor-th
 description: >-
   อธิบายปัญหาของการพิมพ์ภาษาไทย หรือภาษาที่เป็นตัวอักษรแบบ Unicode
   หรือภาษาที่มีหลายตัว(Ascii code) ต่อตัวอักษรในภาษานั้นๆ ซึ่งก็คือ cursor

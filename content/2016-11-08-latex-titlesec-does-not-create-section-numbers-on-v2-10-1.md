@@ -1,5 +1,4 @@
 ---
-layout: post
 title: titlesec (Latex package) doesn't create section numbers on version 2.10.1
 categories:
   - en

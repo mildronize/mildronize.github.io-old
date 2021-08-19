@@ -1,9 +1,7 @@
 ---
-layout: post
 title: >-
   การเดินทางของ Xiaomi Mi2s และแนวทางแก้ปัญหาเซนเซอร์แนบหู (Proximity Sensor)
   ไม่ทำงาน
-slug: my-xiaomi-mi2s-journey
 categories:
   - th
 tags:

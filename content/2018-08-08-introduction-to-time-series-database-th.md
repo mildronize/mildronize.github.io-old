@@ -1,9 +1,7 @@
 ---
-layout: post
 title: >-
   ทำไมเราถึงควรใช้ฐานข้อมูลอนุกรมเวลาสำหรับ ข้อมูลอนุกรมเวลา (Time Series
   Database)
-slug: introduction-to-open-time-series-database-th
 categories:
   - th
 tags:

@@ -1,7 +1,5 @@
 ---
-layout: post
 title: ได้ 99 คะแนนจาก Google Insights & เรียนรู้การทำ web optimization
-slug: 99-score-google-insight-web-optimization
 tags:
   - optimization
   - google-insights

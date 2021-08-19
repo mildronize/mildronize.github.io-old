@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to Install Google Chrome on Debian
 description: >-
   Installation instuction by using Google repository, and troubleshooting a

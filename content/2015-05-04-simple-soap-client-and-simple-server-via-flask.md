@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Simple soap client and simple server via flask
 description: >-
   Using python to get current oil price in Thailand via SOAP and response in

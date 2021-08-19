@@ -1,6 +1,4 @@
 ---
-layout: post
-slug: tdd-formula-in-notion-thousand-comma
 title: >-
   มาเขียน Notion Formula with Confidence ด้วย TDD กัน (แจก Formula Thousand
   Comma ด้วยนะ)

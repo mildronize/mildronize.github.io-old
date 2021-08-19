@@ -1,5 +1,4 @@
 ---
-layout: post
 title: A very short Ubuntu/Debian packages installation sheet
 categories:
   - en

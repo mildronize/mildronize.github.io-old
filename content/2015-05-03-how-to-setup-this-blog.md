@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to setup this blog?
 description: >-
   This blog created by Jekyll that is ruby scripts to transforms plain text into

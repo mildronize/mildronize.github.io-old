@@ -1,13 +1,11 @@
 ---
 title: สิ่งที่ได้รับจากการเรียนวิศวกรรมคอมพิวเตอร์ปริญญาโท
-slug: what-i-get-from-master-degree
 tags:
   - experience
   - study
   - research
   - opentsdb
   - master-degree
-layout: post
 categories:
   - th
 language: th

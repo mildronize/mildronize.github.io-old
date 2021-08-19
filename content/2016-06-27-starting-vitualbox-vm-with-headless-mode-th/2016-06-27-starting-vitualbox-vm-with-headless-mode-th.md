@@ -1,7 +1,5 @@
 ---
-layout: post
 title: วิธีการเริ่มการทำงาน VM ของ VirtualBox แบบทำงานเบื้องหลัง
-slug: starting-vitualbox-vm-with-headless-mode-th
 description: รวมวิธีการเริ่มการทำงาน VM ของ VirtualBox ทั้งแบบ GUI และ Command mode
 tags:
   - virtualbox

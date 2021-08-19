@@ -1,7 +1,5 @@
 ---
-layout: post
 title: รู้จักกับฐานข้อมูลอนุกรมเวลา OpenTSDB กันเถอะ
-slug: introduction-to-open-time-series-database-th
 categories:
   - th
 tags:

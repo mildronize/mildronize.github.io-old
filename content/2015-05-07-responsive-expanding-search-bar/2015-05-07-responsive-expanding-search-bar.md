@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Responsive expanding search bar
 description: >-
   Expanding search bar extension for any HTML page or Jekyll. This extension is

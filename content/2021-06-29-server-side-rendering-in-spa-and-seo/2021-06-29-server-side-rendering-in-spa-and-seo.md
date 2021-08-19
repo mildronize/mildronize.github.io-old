@@ -1,6 +1,4 @@
 ---
-layout: post
-slug: server-side-rendering-in-spa-and-seo
 title: >-
   เราควรเพิ่มประสิทธิภาพของ Single Page Application โดยใช้ Server-side Rendering
   (SSR) หรือไม่

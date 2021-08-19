@@ -6,7 +6,6 @@ tags:
   - ui
   - factor
   - ux
-layout: post
 categories:
   - en
 language: en

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: GitHub Page Build Failure Solution
 description: >-
   (ClassNotFound: no lexer for alias shell found.) Jekyll build failure problem

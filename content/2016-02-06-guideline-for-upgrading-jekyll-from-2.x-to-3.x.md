@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Guideline for Upgrading Jekyll from 2.x to 3.x
 description: >-
   If you are a Jekyll user. You may be heard some news about announcement Jekyll

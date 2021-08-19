@@ -1,5 +1,4 @@
 ---
-layout: post
 title: My blog development for Jekyll site
 description: 'Tools, structure, extension and everything for building this blog'
 tags:

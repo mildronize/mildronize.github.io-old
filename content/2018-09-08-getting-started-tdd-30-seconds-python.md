@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Getting Started TDD in 30 Seconds with Python
 tags:
   - python
