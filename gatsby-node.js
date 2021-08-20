@@ -52,7 +52,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     const nodeSlug = node.frontmatter.uuid;
     const nodeReadableSlug = slug.replace(/^\//,'').replace(/\/$/,'');
-    console.log(nodeReadableSlug)
 
     createNodeField({ node, name: "slug", value: nodeSlug });
     createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
