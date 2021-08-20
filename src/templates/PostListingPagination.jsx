@@ -33,7 +33,7 @@ function PostListingPagination({ pageContext, data }) {
         })}
         {!isLastPage && <Link to={nextPage}>Next</Link>}
       </div>
-    
+
     );
   }
 
@@ -74,7 +74,6 @@ export const listingQuery = graphql`
           frontmatter {
             title
             tags
-            cover
             date
           }
         }
