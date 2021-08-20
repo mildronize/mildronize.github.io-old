@@ -6,6 +6,7 @@ const config = require("./data/SiteConfig");
 const validatedPathPrefix = config.pathPrefix === "" ? "/" : config.pathPrefix;
 
 module.exports = {
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   pathPrefix: validatedPathPrefix,
   siteMetadata: {
     siteUrl: urljoin(config.siteUrl, config.pathPrefix),
@@ -135,7 +136,7 @@ module.exports = {
         setup(ref) {
           const ret = ref.query.site.siteMetadata.rssMetadata;
           ret.allMarkdownRemark = ref.query.allMarkdownRemark;
-          ret.generator = "GatsbyJS Advanced Starter";
+          ret.generator = "Thada W.";
           return ret;
         },
         query: `
@@ -163,8 +164,8 @@ module.exports = {
                 date: edge.node.fields.date,
                 title: edge.node.frontmatter.title,
                 description: edge.node.excerpt,
-                url: rssMetadata.site_url + edge.node.fields.slug,
-                guid: rssMetadata.site_url + edge.node.fields.slug,
+                url: rssMetadata.site_url + edge.node.fields.renderedSlug,
+                guid: rssMetadata.site_url + edge.node.fields.renderedSlug,
                 custom_elements: [
                   { "content:encoded": edge.node.html },
                   { author: config.userEmail },
@@ -185,6 +186,7 @@ module.exports = {
                     fields {
                       slug
                       date
+                      renderedSlug
                     }
                     frontmatter {
                       title
