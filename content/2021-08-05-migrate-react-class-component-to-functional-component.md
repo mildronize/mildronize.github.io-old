@@ -5,8 +5,7 @@ tags:
   - pattern
   - class-component
   - functional-component
-categories:
-  - en
+  - typescript
 language: th
 toc: true
 uuid: a7ng95o
@@ -24,7 +23,7 @@ interface MyProps {
   message: string;
 };
 interface MyState {
-  count: number; 
+  count: number;
 };
 class App extends React.Component<MyProps, MyState> {
   state: MyState = {
@@ -41,7 +40,7 @@ class App extends React.Component<MyProps, MyState> {
 }
 ```
 
-ให้เป็น [Functional Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components) แบบนี้ได้ 
+ให้เป็น [Functional Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components) แบบนี้ได้
 
 ```ts
 import React, { useState } from 'react';
@@ -62,7 +61,7 @@ function App({ message }: PropTypes){
 export default App;
 ```
 
-ทำไมถึงไม่แนะนำ `React.FC` หรือ `React.FunctionComponent`/`React.VoidFunctionComponent` อ่านรายละเอียดใน [Functional Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components) 
+ทำไมถึงไม่แนะนำ `React.FC` หรือ `React.FunctionComponent`/`React.VoidFunctionComponent` อ่านรายละเอียดใน [Functional Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components)
 
 # Handle Click Event
 
@@ -104,7 +103,7 @@ export default App;
 
 > Note: Using an arrow function in render creates a new function each time the component renders, which may break optimizations based on strict identity comparison. Read more at [React Official Doc](https://reactjs.org/docs/faq-functions.html#arrow-function-in-render).
 
-ให้เป็น Functional Component แบบนี้ได้ 
+ให้เป็น Functional Component แบบนี้ได้
 
 ```ts
 import React, { useState } from 'react';
@@ -132,7 +131,7 @@ export default App;
 ```
 
 
-# componentDidMount() in React Hook 
+# componentDidMount() in React Hook
 
 หนึ่งใน React Lifecyle ที่ใช้บ่อยๆ มากๆ คือ [componentDidMount()](https://reactjs.org/docs/react-component.html#componentdidmount) ซึ่งจะทำครั้งแรก ครั้งเดียวเมื่อ Component โหลดเสร็จ
 
@@ -150,7 +149,7 @@ function FirstExecuteComponent() {
 
 ข้อสังเกตุ `useEffect` ต้องการรับ 2 parameters ถ้าอยากให้เหมือน `componentDidMount()` ให้ใส่ Array เปล่าๆ ใน parameters ตัวที่สอง `[]`
 
-# componentWillUnmount() in React Hook 
+# componentWillUnmount() in React Hook
 
 อีกหนึ่งใน React Lifecyle ที่มีใช้บ้างคือคือ [componentWillUnmount()](https://reactjs.org/docs/react-component.html#componentwillunmount) ซึ่งจะทำงานครั้งสุดท้ายครั้งเดียวก่อนที่ Component ถูกเอาออก (Component is unmounted and destroyed)
 
