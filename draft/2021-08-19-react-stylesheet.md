@@ -55,3 +55,10 @@ CSS จะถูก import ที่ global ของ HTML เลย หมา�
 
 @emotion, styled-component
 
+```js
+import styled from 'styled-component';
+
+const FontRed = styled.span`
+  color: red
+`;
+```
