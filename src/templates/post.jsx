@@ -20,22 +20,23 @@ export default function PostTemplate({ data, pageContext }) {
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
   const { timeToRead } = data.markdownRemark;
-  const { date, readableSlug } = data.markdownRemark.fields;
+  const { date } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
   }
 
-  useEffect(()=> {
-    if(!window) return;
-    const query = new URLSearchParams(window.location.search);
-    if(query.has('id')){
-      if(query.get('id') !== readableSlug){
-        window.location.search = `?id=${readableSlug}`;
-      }
-    } else {
-      window.location.search = `?id=${readableSlug}`;
-    }
-  }, []);
+  // Not use this method, render the clean url instead
+  // useEffect(()=> {
+  //   if(!window) return;
+  //   const query = new URLSearchParams(window.location.search);
+  //   if(query.has('id')){
+  //     if(query.get('id') !== readableSlug){
+  //       window.location.search = `?id=${readableSlug}`;
+  //     }
+  //   } else {
+  //     window.location.search = `?id=${readableSlug}`;
+  //   }
+  // }, []);
 
   return (
     <Layout>

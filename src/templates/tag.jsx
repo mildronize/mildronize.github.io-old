@@ -33,6 +33,7 @@ export const pageQuery = graphql`
             slug
             date
             readableSlug
+            renderedSlug
           }
           excerpt
           timeToRead

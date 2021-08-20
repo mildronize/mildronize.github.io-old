@@ -13,10 +13,10 @@ function PostListing({ postEdges }) {
         tags.push(tag);
       });
     }
-    const { slug, readableSlug } =  postEdge.node.fields;
+
     postList.push({
-      path: `${slug}?id=${readableSlug}`,
-      tags: tags,
+      path:  postEdge.node.fields.renderedSlug,
+      tags,
       cover: postEdge.node.frontmatter.cover,
       title: postEdge.node.frontmatter.title,
       date: postEdge.node.fields.date?postEdge.node.fields.date: "2021-01-01",

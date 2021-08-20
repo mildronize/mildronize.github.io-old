@@ -47,8 +47,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       throw new Error('No field `uuid`, please run `npm run uuid `');
     }
 
-    createNodeField({ node, name: "slug", value: `/${node.frontmatter.uuid}` });
-    createNodeField({ node, name: "readableSlug", value: `${slug.replace(/^\//,'')}` });
+    const nodeSlug = `/${node.frontmatter.uuid}`;
+    const nodeReadableSlug = slug.replace(/^\//,'');
+
+    createNodeField({ node, name: "slug", value: nodeSlug });
+    createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
+    createNodeField({ node, name: "renderedSlug", value: `/${nodeSlug}/${nodeReadableSlug}` });
   }
 };
 
@@ -70,6 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
             filename
             slug
             readableSlug
+            renderedSlug
           }
           frontmatter {
             title
@@ -158,7 +163,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const prevEdge = postsEdges[prevID];
 
     createPage({
-      path: edge.node.fields.slug,
+      path: edge.node.fields.renderedSlug,
       component: postPage,
       context: {
         slug: edge.node.fields.slug,
