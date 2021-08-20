@@ -16,23 +16,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const parsedFilePath = path.parse(fileNode.relativePath);
 
     // Get slug from `title` field
-    // if (
-    //   Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
-    //   Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
-    // ) {
-    //   slug = `/${_.kebabCase(node.frontmatter.title)}`;
-    // }
+    if (
+      Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
+      Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
+    ) {
+      slug = `/${_.kebabCase(node.frontmatter.title)}`;
+    }else if (parsedFilePath.dir === "") {
+      slug = `/${parsedFilePath.name.replace(dateOfFile,'')}/`;
+    } else {
+      slug = `/${parsedFilePath.dir.replace(dateOfFile,'')}/`;
+    }
 
     // Get slug from both dir and its file name
     // if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
     //   slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
     // }
-
-    if (parsedFilePath.dir === "") {
-      slug = `/${parsedFilePath.name.replace(dateOfFile,'')}/`;
-    } else {
-      slug = `/${parsedFilePath.dir.replace(dateOfFile,'')}/`;
-    }
 
     if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug"))

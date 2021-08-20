@@ -178,14 +178,16 @@ const PostContent = styled.div`
 const Wrapper = styled.span`
   display: flex;
   align-items:center;
+  font-size: 1rem;
 `;
 
 const Container = styled.div`
 .post-title{
-  font-size: 2rem;
+  font-size: 1.85rem;
+  margin-bottom: 5px;
 
   ${breakpoint('tablet')`
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   `}
 }
 
