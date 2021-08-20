@@ -10,19 +10,38 @@ function Page404({ data }: PageProps) {
 
   const [isNotFound, setIsNotFound] = useState(false);
 
-  useEffect(() => {
+  const getRenderedSlug = (urlSlug: string) => {
+    const postEdge = data as any;
+    const foundNodes = postEdge.allMarkdownRemark.edges.filter(edge => urlSlug === edge.node.fields.slug);
+    if (foundNodes.length > 0)
+      return foundNodes[0].node.fields.renderedSlug;
+    return '';
+  }
+
+  const redirect = (urlSlug: string) => {
     if (window) {
-      const splits = window.location.pathname.replace(/^\//, '').split('/');
-      const URLslug = '/' + splits[0];
-      const postEdge = data as any;
-      const foundNodes = postEdge.allMarkdownRemark.edges.filter( edge => URLslug === edge.node.fields.slug );
-      if(foundNodes.length > 0){
-        window.location.pathname = foundNodes[0].node.fields.renderedSlug;
+      if (urlSlug !== '') {
+        window.location.pathname = urlSlug;
       } else {
         setIsNotFound(true);
       }
-
     }
+  }
+
+  const handleInvalidUrl = () => {
+    if (window) {
+      const splits = window.location.pathname.replace(/^\//, '').split('/');
+      const slugs = splits[0].split('-');
+      const urlSlug = slugs[slugs.length - 1];
+      return urlSlug;
+    }
+    return '';
+  }
+
+  useEffect(() => {
+    const uuid = handleInvalidUrl();
+    const targetSlug = getRenderedSlug(uuid);
+    redirect(targetSlug);
   }, []);
 
   return (
@@ -31,7 +50,7 @@ function Page404({ data }: PageProps) {
         <Helmet title={`About | ${config.siteTitle}`} />
 
         {isNotFound &&
-          <div style={{textAlign:'center'}}>
+          <div style={{ textAlign: 'center' }}>
             <meta http-equiv="refresh" content="2;URL='/'" />
             <h1>404</h1>
             <h1>PAGE NOT FOUND</h1>

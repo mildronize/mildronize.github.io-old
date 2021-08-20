@@ -5,6 +5,9 @@ const _ = require("lodash");
 const moment = require("moment");
 const siteConfig = require("./data/SiteConfig");
 
+// 2021-08-05-migrate-react-class-component-to-functional-component
+const dateOfFile = /^\d\d\d\d-\d\d-\d\d-/;
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   let slug;
@@ -26,9 +29,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // }
 
     if (parsedFilePath.dir === "") {
-      slug = `/${parsedFilePath.name}/`;
+      slug = `/${parsedFilePath.name.replace(dateOfFile,'')}/`;
     } else {
-      slug = `/${parsedFilePath.dir}/`;
+      slug = `/${parsedFilePath.dir.replace(dateOfFile,'')}/`;
     }
 
     if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
@@ -47,12 +50,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       throw new Error('No field `uuid`, please run `npm run uuid `');
     }
 
-    const nodeSlug = `/${node.frontmatter.uuid}`;
-    const nodeReadableSlug = slug.replace(/^\//,'');
+    const nodeSlug = node.frontmatter.uuid;
+    const nodeReadableSlug = slug.replace(/^\//,'').replace(/\/$/,'');
+    console.log(nodeReadableSlug)
 
     createNodeField({ node, name: "slug", value: nodeSlug });
     createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
-    createNodeField({ node, name: "renderedSlug", value: `${nodeSlug}/${nodeReadableSlug}` });
+    createNodeField({ node, name: "renderedSlug", value: `/${nodeReadableSlug}-${nodeSlug}` });
   }
 };
 
