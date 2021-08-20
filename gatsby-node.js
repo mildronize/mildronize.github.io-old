@@ -52,7 +52,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     createNodeField({ node, name: "slug", value: nodeSlug });
     createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
-    createNodeField({ node, name: "renderedSlug", value: `/${nodeSlug}/${nodeReadableSlug}` });
+    createNodeField({ node, name: "renderedSlug", value: `${nodeSlug}/${nodeReadableSlug}` });
   }
 };
 
