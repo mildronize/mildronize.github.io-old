@@ -168,6 +168,11 @@ const PostContent = styled.div`
       padding: 0;
     }
 
+    hr {
+      margin: 70px 20px;
+      border: 1px solid var(--colors-hover-0);
+    }
+
 `;
 
 const Wrapper = styled.span`
