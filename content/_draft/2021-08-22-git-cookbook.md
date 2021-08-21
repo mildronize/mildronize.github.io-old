@@ -7,6 +7,18 @@ language: th
 uuid: 4vwhqae
 ---
 
+[read this](git-in-action-obu52c9)
+
+## Preparing to work with Git
+
+You need to set your name and email before you create a first commit in your repository.
+
+```bash
+git config user.name "Thada Wangthammang"
+git config user.email "thada.wth@gmail.com"
+```
+
+
 
 ### First Commit to Remote Git
 

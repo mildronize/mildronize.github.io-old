@@ -21,21 +21,28 @@ function Page404({ data }: PageProps) {
   const redirect = (urlSlug: string) => {
     if (window) {
       if (urlSlug !== '') {
-        window.location.pathname = urlSlug;
+        // Remove this page from history, user can browse with short link.
+        window.location.replace(urlSlug);
       } else {
         setIsNotFound(true);
       }
     }
   }
 
+
   const handleInvalidUrl = () => {
-    if (window) {
-      const splits = window.location.pathname.replace(/^\//, '').split('/');
-      const slugs = splits[0].split('-');
-      const urlSlug = slugs[slugs.length - 1];
-      return urlSlug;
+    if (!window) return '';
+    const splits = window.location.pathname.replace(/^\//, '').split('/');
+    let slugs;
+
+    // is Draft Url
+    if(/^\/draft\//.test(window.location.pathname)){
+      slugs = splits[1].split('-');
+    } else {
+      slugs = splits[0].split('-');
     }
-    return '';
+    const urlSlug = slugs[slugs.length - 1];
+    return urlSlug;
   }
 
   useEffect(() => {
@@ -74,6 +81,7 @@ export const query = graphql`
             slug
             readableSlug
             renderedSlug
+            isDraft
           }
         }
       }
