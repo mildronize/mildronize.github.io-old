@@ -1,5 +1,6 @@
 {
   "name": "gatsby-starter-advanced",
+  "private": true,
   "description": "GatsbyJS starter that includes examples for advanced use cases.",
   "version": "2.20.11",
   "author": "Ruben Harutyunyan <vagr9k@gmail.com>",
@@ -85,7 +86,7 @@
     "develop": "gatsby develop",
     "dev": "npm run uuid && npm run develop",
     "serve": "gatsby serve",
-    "build": "npm run uuid && gatsby build",
+    "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
     "build:gh": "npm run clean && npm run build:pp && gh-pages -d public",
     "clean": "rm -rf public && rm -rf .cache",
@@ -95,8 +96,8 @@
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "format:styles": "prettier '**/*.{css,scss}' --write",
-    "uuid": "ts-node ./scripts/inject-uuid.ts && prettier 'uuid-store.json' --write",
-    "prepare": "husky install"
+    "uuid": "ts-node ./scripts/inject-uuid.ts && prettier 'uuid-store.json' --write && git add uuid-store.json",
+    "postinstall": "husky install"
   },
   "remarkConfig": {
     "plugins": [
