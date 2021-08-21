@@ -88,7 +88,7 @@ body {
 
 body.light {
     --text-heading: #2d3748;
-    --text-link: #0b6e99;
+    --text-link: hsla(var(--palette-blue-50), 100%);
     --color-default: #363537;
     --background-default: #ffffff;
     --text-heading: #222;
@@ -131,19 +131,19 @@ body.light {
 
 body.dark {
     --text-heading: #222;
-    --text-link: #529cca;
+    --text-link: hsla(var(--palette-blue-40), 100%);
     --color-default: #fafafa;
     --background-default: #1a202c;
     --text-heading: #fafafa;
     --textNormal: #fafafa;
     --colors-logo: hsla(var(--palette-blue-30), 100%);
-    --colors-brand: hsla(var(--palette-blue-40), 100%);
+    --colors-brand: hsla(var(--palette-blue-95), 100%);
     --colors-body: hsla(var(--palette-gray-95), 100%);
     --colors-emphasis: hsla(var(--palette-blue-40), 8%);
     --colors-foreground: hsla(var(--palette-gray-100), 55%);
     --colors-danger: hsla(var(--palette-red-30), 100%);
     --colors-danger-emphasis: hsla(var(--palette-red-30), 8%);
-    --colors-blockquote: rgba(255,220,73,0.5);
+    --colors-blockquote: rgba(255,220,73,0.2);
     --colors-background:  hsla(var(--palette-gray-80), 100%);
     --colors-text-0: hsla(var(--palette-gray-00), 100%);
     --colors-text-1: hsla(var(--palette-gray-20), 100%);
@@ -196,7 +196,7 @@ blockquote {
 
 a,
 a:visited {
-    color: var(--colors-brand);
+    color: var(--text-link);
     text-decoration: none;
 }
 
