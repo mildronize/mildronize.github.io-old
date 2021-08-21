@@ -19,7 +19,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // Mark draft file
     if(/^_draft/.test(parsedFilePath.dir)) {
       isDraft = true;
-      console.log(parsedFilePath.name);
     }
 
     // Get slug from `title` field
@@ -52,10 +51,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 
     if(!Object.prototype.hasOwnProperty.call(node.frontmatter, "uuid")){
-      throw new Error('No field `uuid`, please run `npm run uuid `');
+      const warnMsg = 'No field `uuid`, please run `npm run uuid `';
+      if(process.env.NODE_ENV === 'production'){
+        throw new Error(warnMsg);
+      }
+      console.warn(warnMsg);
     }
 
-    const nodeSlug = node.frontmatter.uuid;
+    /* eslint new-cap: "off" */
+    const fallbackUuid = new Buffer.from(readableSlug).toString('base64')
+
+    const nodeSlug = node.frontmatter.uuid || fallbackUuid;
     const nodeReadableSlug = readableSlug.replace(/^\//,'').replace(/\/$/,'');
     const draftSlug = isDraft? 'draft/': '';
 

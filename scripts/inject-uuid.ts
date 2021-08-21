@@ -20,6 +20,7 @@ const ignoreDirs: RegExp[] = [
 
 async function main() {
   const store = new DataStore(path.resolve(databasePath));
+  const uuids: string[] = [];
   const markdownPaths = await getAllMarkdownPaths(targetPath);
   console.log(`Started running to inject uuid on Markdown ${markdownPaths.length} files`);
   for (const mdPath of markdownPaths) {
@@ -39,8 +40,10 @@ async function main() {
     } else {
       // console.log(`[SKIP] uuid of ${mdPath} is existing.`);
     }
-
+    uuids.push(frontmatter.data.uuid);
   }
+  // Correct path when the file has been changed
+  await store.correctData(uuids, markdownPaths);
 }
 
 main();

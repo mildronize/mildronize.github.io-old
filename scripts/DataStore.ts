@@ -6,6 +6,13 @@ const readFile = promisify(fs.readFile);
 
 const defaultUnicode = 'utf8';
 
+/**
+ * DATA:
+ *  {
+ *    '80cv2rqw': '2015-05-03-how-to-setup-this-blog.md' ,
+ *    '3ugsgkg': '2015-05-04-simple-soap-client-and-simple-server-via-flask.md'
+ *  }
+ */
 class DataStore {
 
   private path: string;
@@ -47,19 +54,20 @@ class DataStore {
   }
 
   async add(uuid: string, refPath: string) {
-    /**
-     * DATA:
-     *  {
-     *    '80cv2rqw': '2015-05-03-how-to-setup-this-blog.md' ,
-     *    '3ugsgkg': '2015-05-04-simple-soap-client-and-simple-server-via-flask.md'
-     *  }
-     */
     const loadedData = await this.getAll();
     if (this.isExist(loadedData, uuid)) {
       console.warn(`The '${uuid}' key is existing, please try again.`);
       return;
     }
     loadedData[uuid] = refPath;
+    await writeFile(this.path, JSON.stringify(loadedData), defaultUnicode);
+  }
+
+  async correctData(uuids: string[], paths: string[]) {
+    const loadedData = await this.getAll();
+    uuids.forEach((uuid, index) => {
+      loadedData[uuid] = paths[index];
+    });
     await writeFile(this.path, JSON.stringify(loadedData), defaultUnicode);
   }
 }
