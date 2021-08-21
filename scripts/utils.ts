@@ -119,7 +119,7 @@ export async function getAllMarkdownPaths(targetPath: string) {
   return [];
 }
 
-export function generateUUID(length) {
+export function generateUUID(length: number) {
   // https://gist.github.com/6174/6062387
   if (length > 10) throw Error('No more than 10 chars');
   return Math.random().toString(36).substring(2, 2 + length);
