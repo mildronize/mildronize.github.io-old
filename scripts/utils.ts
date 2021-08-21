@@ -4,7 +4,7 @@ import { promisify } from 'util';
 
 const readdir = promisify(fs.readdir);
 const lstat = promisify(fs.lstat);
-
+const markdownExt = /\.md$/;
 interface lstatWorker {
   files: string[];
   instances: Promise<fs.Stats>[];
@@ -21,11 +21,24 @@ export const asyncFilter = async (arr, predicate) => {
   return arr.filter((_v, index) => results[index]);
 };
 
-export async function getAllMarkdownPathsAsync(directoryAbsolutePath: string, targetPath: string) {
-  const markdownExt = /\.md$/;
+async function getAllDirs(directoryAbsolutePath: string, ignoreDirs: RegExp[]) {
+  let files = await readdir(directoryAbsolutePath) || [];
+  // Ignore dirs following regex pattern
+  ignoreDirs.forEach(ignoreDir => {
+    files = files.filter((file) => !ignoreDir.test(file));
+  });
+  return files;
+}
+
+/*
+Only 2 levels of dir
+*/
+
+
+export async function getAllMarkdownPathsAsync(directoryAbsolutePath: string, targetPath: string, ignoreDirs: RegExp[]) {
   const markdownPaths: string[] = [];
   try {
-    const files = await readdir(directoryAbsolutePath) || [];
+    const files = await getAllDirs(directoryAbsolutePath, ignoreDirs);
     markdownPaths.push(...files.filter((file) => markdownExt.test(file)));
 
     const lstatWorker: lstatWorker = { files: [], instances: [] };
@@ -40,7 +53,7 @@ export async function getAllMarkdownPathsAsync(directoryAbsolutePath: string, ta
       .map((stat, index) => stat.isDirectory() ? lstatWorker.files[index] : '')
       .filter(file => file !== '');
 
-    const readdirWorker: readdirWorker = {parentDir: [], instances: []};
+    const readdirWorker: readdirWorker = { parentDir: [], instances: [] };
     for (const dir of dirs) {
       const absolutePath = path.resolve(targetPath, dir);
       readdirWorker.instances.push(readdir(absolutePath));
@@ -48,7 +61,7 @@ export async function getAllMarkdownPathsAsync(directoryAbsolutePath: string, ta
     }
 
     const readdirs = await Promise.all(readdirWorker.instances);
-    readdirs.forEach( (files, index) => {
+    readdirs.forEach((files, index) => {
       markdownPaths.push(...files.filter((file) => markdownExt.test(file)).map(file => path.join(readdirWorker.parentDir[index], file)));
     });
 
@@ -58,26 +71,52 @@ export async function getAllMarkdownPathsAsync(directoryAbsolutePath: string, ta
   return markdownPaths;
 }
 
-export async function getAllMarkdownPaths(directoryAbsolutePath: string, targetPath: string) {
-  const markdownExt = /\.md$/;
-  const markdownPaths: string[] = [];
+
+async function getDirsRecursive(targetPath: string, currentDir: string, markdownPaths: string[]) {
+
+  const currentPath = path.join(targetPath, currentDir);
+  const files = await readdir(path.resolve(currentPath)) || [];
+  if (files.length === 0) return [];
+
+  // Add found markdown files
+  markdownPaths.push(...files.filter((file) => markdownExt.test(file)).map(file => path.join(currentDir, file)));
+
+  const dirs = await asyncFilter(files, async (file) => {
+    const absolutePath = path.resolve(currentPath, file);
+    const stat = await lstat(absolutePath);
+    return stat.isDirectory();
+  });
+
+  // Find in deep each directory
+  for (const dir of dirs) {
+    await getDirsRecursive(targetPath, path.join(currentDir, dir), markdownPaths);
+  }
+
+  return markdownPaths;
+}
+
+export async function getAllMarkdownPaths(targetPath: string) {
   try {
-    const files = await readdir(directoryAbsolutePath) || [];
-    markdownPaths.push(...files.filter((file) => markdownExt.test(file)));
-    const dirs = await asyncFilter(files, async (file) => {
-      const absolutePath = path.resolve(targetPath, file);
-      const stat = await lstat(absolutePath);
-      return stat.isDirectory();
-    });
-    for (const dir of dirs) {
-      const absolutePath = path.resolve(targetPath, dir);
-      const files = await readdir(absolutePath);
-      markdownPaths.push(...files.filter((file) => markdownExt.test(file)).map(file => path.join(dir, file)));
-    }
+    return await getDirsRecursive(targetPath, '', []);
+
+    // const files = await readdir(path.resolve(targetPath)) || [];
+    // markdownPaths.push(...files.filter((file) => markdownExt.test(file)));
+
+    // const dirs = await asyncFilter(files, async (file) => {
+    //   const absolutePath = path.resolve(targetPath, file);
+    //   const stat = await lstat(absolutePath);
+    //   return stat.isDirectory();
+    // });
+    // for (const dir of dirs) {
+    //   const absolutePath = path.resolve(targetPath, dir);
+    //   const files = await readdir(absolutePath);
+    //   markdownPaths.push(...files.filter((file) => markdownExt.test(file)).map(file => path.join(dir, file)));
+    // }
+    //
   } catch (err) {
     console.log("Unable to scan directory: " + err);
   }
-  return markdownPaths;
+  return [];
 }
 
 export function generateUUID(length) {

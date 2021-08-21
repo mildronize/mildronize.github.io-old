@@ -10,31 +10,38 @@ const dateOfFile = /^\d\d\d\d-\d\d-\d\d-/;
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-  let slug;
+  let readableSlug;
+  let isDraft = false;
   if (node.internal.type === "MarkdownRemark") {
     const fileNode = getNode(node.parent);
     const parsedFilePath = path.parse(fileNode.relativePath);
+
+    // Mark draft file
+    if(/^_draft/.test(parsedFilePath.dir)) {
+      isDraft = true;
+      console.log(parsedFilePath.name);
+    }
 
     // Get slug from `title` field
     if (
       Object.prototype.hasOwnProperty.call(node, "frontmatter") &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
     ) {
-      slug = `/${_.kebabCase(node.frontmatter.title)}`;
+      readableSlug = `/${_.kebabCase(node.frontmatter.title)}`;
     }else if (parsedFilePath.dir === "") {
-      slug = `/${parsedFilePath.name.replace(dateOfFile,'')}/`;
+      readableSlug = `/${parsedFilePath.name.replace(dateOfFile,'')}/`;
     } else {
-      slug = `/${parsedFilePath.dir.replace(dateOfFile,'')}/`;
+      readableSlug = `/${parsedFilePath.dir.replace(dateOfFile,'')}/`;
     }
 
     // Get slug from both dir and its file name
     // if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
-    //   slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
+    //   readableSlug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
     // }
 
     if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug"))
-        slug = `/${_.kebabCase(node.frontmatter.slug)}`;
+      readableSlug = `/${_.kebabCase(node.frontmatter.slug)}`;
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
         const date = moment(node.frontmatter.date, siteConfig.dateFromFormat);
         if (!date.isValid)
@@ -49,11 +56,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 
     const nodeSlug = node.frontmatter.uuid;
-    const nodeReadableSlug = slug.replace(/^\//,'').replace(/\/$/,'');
+    const nodeReadableSlug = readableSlug.replace(/^\//,'').replace(/\/$/,'');
+    const draftSlug = isDraft? 'draft/': '';
 
+    createNodeField({ node, name: "isDraft", value: isDraft });
     createNodeField({ node, name: "slug", value: nodeSlug });
     createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
-    createNodeField({ node, name: "renderedSlug", value: `/${nodeReadableSlug}-${nodeSlug}` });
+    createNodeField({ node, name: "renderedSlug", value: `/${draftSlug}${nodeReadableSlug}-${nodeSlug}` });
   }
 };
 
@@ -64,7 +73,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const categoryPage = path.resolve("src/templates/category.jsx");
   const listingPage = path.resolve("./src/templates/PostListingPagination.jsx");
   const landingPage = path.resolve("./src/templates/PostListing.jsx");
-
   // Get a full list of markdown posts
   const markdownQueryResult = await graphql(`
   {
@@ -76,6 +84,7 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
             readableSlug
             renderedSlug
+            isDraft
           }
           frontmatter {
             title
@@ -174,6 +183,7 @@ exports.createPages = async ({ graphql, actions }) => {
         prevslug: prevEdge.node.fields.slug,
       },
     });
+
   });
 
   //  Create tag pages

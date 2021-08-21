@@ -20,7 +20,7 @@ export default function PostTemplate({ data, pageContext }) {
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
   const { timeToRead } = data.markdownRemark;
-  const { date } = data.markdownRemark.fields;
+  const { date, isDraft } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
   }
@@ -44,7 +44,7 @@ export default function PostTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        <SEO postPath={slug} postNode={postNode} postSEO />
+        {!isDraft && <SEO postPath={slug} postNode={postNode} postSEO /> }
         <Container>
           <h1 className="post-title">{post.title}</h1>
 
@@ -227,6 +227,7 @@ export const pageQuery = graphql`
         slug
         date
         readableSlug
+        isDraft
       }
     }
   }

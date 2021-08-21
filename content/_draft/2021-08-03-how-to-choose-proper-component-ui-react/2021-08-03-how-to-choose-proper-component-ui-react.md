@@ -2,11 +2,11 @@
 layout: post
 slug: how-to-choose-proper-component-ui-react
 title: เราควรเลือก React Component UI อย่่างไร ให้เหมาะสมกับงานของเรา
-tags: [
-    React,
-    ]
+tags:
+  - React
 category: React
 cover: 02-csr-vs-ssr.png
+uuid: 55dtwqq
 ---
 
 

@@ -16,9 +16,7 @@ function Landing({ data }) {
       <div className="landing-container">
         <div className="posts-container">
           <Helmet title={config.siteTitle} />
-          <SEO />
-          <Hero />
-          <Header>All articles</Header>
+          <Header>All draft articles</Header>
           <PostListing postEdges={postEdges} />
         </div>
       </div>
@@ -40,10 +38,10 @@ const Header = styled.h4`
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query LandingQuery {
+  query DraftQuery {
     allMarkdownRemark(
       sort: { fields: [fields___date], order: DESC }
-      filter: { fields: { isDraft: { eq: false } } }
+      filter: { fields: { isDraft: { eq: true } } }
       ) {
       edges {
         node {
@@ -52,6 +50,7 @@ export const pageQuery = graphql`
             date
             readableSlug
             renderedSlug
+            isDraft
           }
           excerpt
           timeToRead

@@ -1,16 +1,17 @@
 ---
 layout: post
 title: React Dark Mode
-tags:	
-- react
-- pattern
-- dark-mode
-- react-hook
-- theme
-
-categories: [th]
+tags:
+  - react
+  - pattern
+  - dark-mode
+  - react-hook
+  - theme
+categories:
+  - th
 language: th
 toc: true
+uuid: yvtxh9c
 ---
 
 # Use css

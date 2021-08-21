@@ -14,10 +14,13 @@ const writeFile = promisify(fs.writeFile);
 const databasePath = 'uuid-store.json';
 const targetPath = "content";
 const defaultUnicode = 'utf8';
+const ignoreDirs: RegExp[] = [
+  // /^_/,   // Start with `_` (underscore)
+];
 
 async function main() {
   const store = new DataStore(path.resolve(databasePath));
-  const markdownPaths = await getAllMarkdownPathsAsync(path.resolve(targetPath), targetPath);
+  const markdownPaths = await getAllMarkdownPaths(targetPath);
   console.log(`Started running to inject uuid on Markdown ${markdownPaths.length} files`);
   for (const mdPath of markdownPaths) {
     const absoluteMarkdownPath = path.resolve(targetPath, mdPath);

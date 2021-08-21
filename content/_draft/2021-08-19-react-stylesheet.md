@@ -2,15 +2,13 @@
 layout: post
 title: React Stylesheet
 tags:
-- react
-- pattern
-- dark-mode
-- react-hook
-- theme
-
-categories: [th]
+  - react
+  - pattern
+  - dark-mode
+  - react-hook
+  - theme
 language: th
-toc: true
+uuid: p72tqcd
 ---
 
 ก่อนอื่นเราต้องมาทำความเข้าใจก่อนว่า ในโลกของแต่งแต้ม Web เราใช้ CSS ในการทำรูปร่าง สีและหน้าตา ถูกมั้ยครับ และในโลกของ React เองก็นำ CSS มาใช้ในหลากหลายวิธีด้วยกัน ซึ่งวิธีได้รับความนิยมคือ
