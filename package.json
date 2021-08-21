@@ -82,9 +82,9 @@
   "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
-    "dev": "npm run uuid && npm run develop",
+    "dev": "npm run uuid && npm run format:uuid && npm run develop",
     "serve": "gatsby serve",
-    "build": "npm run uuid && gatsby build",
+    "build": "npm run uuid && npm run format:uuid && gatsby build",
     "build:pp": "gatsby build --prefix-paths",
     "build:gh": "npm run clean && npm run build:pp && gh-pages -d public",
     "clean": "rm -rf public && rm -rf .cache",
@@ -94,7 +94,8 @@
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "format:styles": "prettier '**/*.{css,scss}' --write",
-    "uuid": "ts-node ./scripts/inject-uuid.ts"
+    "uuid": "ts-node ./scripts/inject-uuid.ts",
+    "format:uuid": "prettier 'uuid-store.json' --write"
   },
   "remarkConfig": {
     "plugins": [
