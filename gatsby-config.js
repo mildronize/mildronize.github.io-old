@@ -45,6 +45,7 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
+          `gatsby-plugin-social-sharing-cards`,
           {
             resolve: `gatsby-remark-relative-images`,
           },
@@ -172,7 +173,6 @@ module.exports = {
                     }
                     frontmatter {
                       title
-                      cover
                       date
                       category
                       tags
