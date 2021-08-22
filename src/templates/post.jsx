@@ -1,27 +1,24 @@
 import React, {useEffect, useRef, useState} from "react";
 import { Helmet } from "react-helmet";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, navigate } from "gatsby";
 import _ from "lodash";
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
-import Person from '../components/Person';
-
-import Layout from "../layout/PageLayout";
-// import TableOfContents from "../components/TableOfContents";
+import "./prism-template.css";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
-
-import "./prism-template.css";
+import Person from '../components/Person';
+import Layout from "../layout/PageLayout";
+import ShareButton from "../components/ShareButton";
 
 export default function PostTemplate({ data, pageContext }) {
-  const [isRedirect, setIsRedirect] = useState(false);
   const contentRef = useRef(null);
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
   const { timeToRead } = data.markdownRemark;
-  const { date, isDraft } = data.markdownRemark.fields;
+  const { date, isDraft, slug : fieldSlug } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
   }
@@ -39,25 +36,27 @@ export default function PostTemplate({ data, pageContext }) {
   //   }
   // }, []);
 
+
+
     useEffect(()=> {
       /* eslint no-restricted-globals: off */
-      if(!window || !history) {
-        isRedirect(false);
-        return;
-      }
+      if(!window || !history) return;
       const query = new URLSearchParams(window.location.search);
       if(query.has('redirect')){
         if(query.get('redirect') === 'true' ){
           // If this come from 404 page, it will be duplicated history.
           // Solve with history.back();
-          setIsRedirect(true);
-          history.back();
+          if(history.length > 2){
+            history.back();
+          } else {
+            navigate(window.location.pathname);
+          }
         }
       }
   }, []);
 
   return (
-    <>{!isRedirect && <Layout>
+    <Layout>
       <div>
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
@@ -66,18 +65,28 @@ export default function PostTemplate({ data, pageContext }) {
         <Container>
           <h1 className="post-title">{post.title}</h1>
 
-          <Wrapper>
-            <div className='page-metadata'>
-              {format(parseISO(date), "MMM d, yyyy")}
-            </div>
-            {timeToRead !== 0 && <div className='page-metadata'>{timeToRead} minutes to read</div>}
-            <Person author={{
-              username: config.userGithub,
-              name: config.userName,
-              profileUrl: '/about',
-              avatarUrl: config.userAvatar
-            }} />
-          </Wrapper>
+          <MetadataWrapper>
+            <Wrapper>
+              <div className='page-metadata'>
+                {format(parseISO(date), "MMM d, yyyy")}
+              </div>
+              {timeToRead !== 0 && <div className='page-metadata'>{timeToRead} minutes to read</div>}
+              <Person author={{
+                username: config.userGithub,
+                name: config.userName,
+                profileUrl: '/about',
+                avatarUrl: config.userAvatar
+              }} />
+            </Wrapper>
+              <div style={{ marginTop: '10px'}} >
+                <ShareButton url={`${config.siteUrl}/${fieldSlug}`} />
+              </div>
+              {/* <IconButton
+                onClick={copyToClipboard} >
+                <i className="fas fa-share-alt"></i>
+              </IconButton> */}
+
+          </MetadataWrapper>
           <HorizontalDivider />
 
           {/* eslint-disable-next-line react/no-danger */}
@@ -114,8 +123,6 @@ export default function PostTemplate({ data, pageContext }) {
         </Container>
       </div>
     </Layout>
-    }
-    </>
   );
 }
 
@@ -199,6 +206,11 @@ const Wrapper = styled.span`
   display: flex;
   align-items:center;
   font-size: 1rem;
+`;
+
+const MetadataWrapper = styled.span`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Container = styled.div`
