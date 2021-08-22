@@ -5,8 +5,23 @@ import ToggleDarkMode from './ToggleDarkModeWrapper';
 import CenterContainer from "../components/CenterContainer";
 import logo from './logo.png';
 
+
+
 const TopBar = (props: any) => {
   const { ...restProps } = props;
+  const [draftMode, setDraftMode] = useState(false);
+
+  const handleDraftMode = () => {
+    if (!window) return '';
+    if(/^\/draft\//.test(window.location.pathname)) {
+      setDraftMode(true);
+    }
+  }
+
+  useEffect(() => {
+    handleDraftMode();
+  }, []);
+
 
   return (
     <div {...restProps}>
@@ -15,6 +30,7 @@ const TopBar = (props: any) => {
           <FlexContainer>
             <FlexItem>
               <Logo><Link to="/" >Thada W.</Link></Logo>
+              {draftMode && <DraftLabel><Link to="/draft" >DRAFT</Link></DraftLabel>}
             </FlexItem>
             <FlexItem >
               <ToggleOffset>
@@ -44,9 +60,18 @@ const FixedTopContainer = styled.div`
   transition: var(--theme-transition);
 `;
 
-// const Logo = styled.img`
-//   height: 28px;
-// `;
+const DraftLabel = styled.span`
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  margin-left: 25px;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 7px;
+  background-color: var(--colors-blockquote);
+
+  a{
+    color: var(--color-default);
+  }
+`;
 
 const Logo = styled.span`
   a{
@@ -70,7 +95,10 @@ const FlexContainer = styled.div`
   justify-content: space-between;
 `;
 
-const FlexItem = styled.div``;
+const FlexItem = styled.div`
+display: flex;
+  align-items: center;
+`;
 
 
 export default TopBar;
