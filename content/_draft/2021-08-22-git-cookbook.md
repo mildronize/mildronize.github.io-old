@@ -7,7 +7,7 @@ language: th
 uuid: 4vwhqae
 ---
 
-[read this](git-in-action-obu52c9)
+[read this before](git-in-action-obu52c9)
 
 ## Preparing to work with Git
 
@@ -69,6 +69,43 @@ git push -u upstream frontend
 ```jsx
 git reset --soft HEAD~1
 ```
+
+### How to undo git reset
+https://stackoverflow.com/a/2531803
+
+```bash
+# short answer
+git reset 'HEAD@{1}'
+```
+
+Git keeps a log of all ref updates (e.g., checkout, reset, commit, merge). You can view it by typing:
+
+```
+git reflog
+```
+
+Somewhere in this list is the commit that you lost. Let's say you just typed `git reset HEAD~` and want to undo it. My reflog looks like this:
+```
+$ git reflog
+3f6db14 HEAD@{0}: HEAD~: updating HEAD
+d27924e HEAD@{1}: checkout: moving from d27924e0fe16776f0d0f1ee2933a0334a4787b4c
+[...]
+```
+
+The first line says that `HEAD` 0 positions ago (in other words, the current position) is 3f6db14; it was obtained by resetting to `HEAD~`. The second line says that `HEAD` 1 position ago (in other words, the state before the reset) is d27924e. It was obtained by checking out a particular commit (though that's not important right now). So, to undo the reset, run `git reset HEAD@{1}` (or `git reset d27924e`).
+
+If, on the other hand, you've run some other commands since then that update HEAD, the commit you want won't be at the top of the list, and you'll need to search through the `reflog`.
+
+One final note: It may be easier to look at the `reflog` for the specific branch you want to un-reset, say master, rather than `HEAD`:
+
+```
+$ git reflog show master
+c24138b master@{0}: merge origin/master: Fast-forward
+90a2bf9 master@{1}: merge origin/master: Fast-forward
+[...]
+```
+
+This should have less noise it in than the general `HEAD reflog`.
 
 ### Clone Pull Request
 
