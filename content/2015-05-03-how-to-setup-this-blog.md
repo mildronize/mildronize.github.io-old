@@ -15,7 +15,6 @@ tags:
   - website
   - github
   - markdown
-cover: 8.jpg
 uuid: we3xr8r
 ---
 

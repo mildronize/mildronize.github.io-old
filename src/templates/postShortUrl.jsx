@@ -21,7 +21,7 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
-  const { isDraft } = data.markdownRemark.fields;
+  const { isDraft, slug : fieldSlug } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
   }
@@ -37,7 +37,7 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        {!isDraft && <SEO postPath={slug} postNode={postNode} postSEO />}
+        {!isDraft && <SEO postPath={slug} postNode={postNode} postSEO coverPath={`${fieldSlug}/cover.jpg`}  />}
       </div>
     </>
   );

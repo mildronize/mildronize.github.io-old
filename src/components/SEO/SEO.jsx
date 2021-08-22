@@ -4,14 +4,15 @@ import urljoin from "url-join";
 import moment from "moment";
 import config from "../../../data/SiteConfig";
 
-function SEO({ postNode, postPath, postSEO }) {
+function SEO({ postNode, postPath, postSEO, coverPath }) {
   let title;
   let description;
   let image;
   let postURL;
+  let postMeta;
 
   if (postSEO) {
-    const postMeta = postNode.frontmatter;
+    postMeta = postNode.frontmatter;
     ({ title } = postMeta);
     description = postMeta.description
       ? postMeta.description
@@ -46,7 +47,12 @@ function SEO({ postNode, postPath, postSEO }) {
     return moment(postNode.frontmatter.date, config.dateFromFormat).toDate();
   };
 
-  image = getImagePath(image);
+  if(postMeta && postMeta.cover){
+    // TODO: Read `cover` field from markdown later
+    // --> Need to get absolute path: `image = getImagePath(image);`
+  } if(coverPath) {
+    image = urljoin(config.siteUrl, coverPath);
+  }
 
   const datePublished = getPublicationDate();
 
