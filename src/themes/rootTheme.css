@@ -108,6 +108,7 @@ body.light {
     --colors-text-2: hsla(var(--palette-gray-60), 100%);
     --colors-text-3: hsla(var(--palette-gray-50), 100%);
     --colors-hover-0: hsla(var(--palette-gray-20), 20%);
+    --colors-hover-1: hsla(var(--palette-gray-20), 50%);
     --shadow-1: 0 0px 12px -6px rgba(0, 24, 40, 0.3);
     --shadow-2: 0 0px 15px -6px rgba(0, 24, 40, 0.4);
     --shadow-3: 0 0px 20px -6px rgba(0, 24, 40, 0.5);
@@ -150,6 +151,7 @@ body.dark {
     --colors-text-2: hsla(var(--palette-gray-40), 100%);
     --colors-text-3: hsla(var(--palette-gray-50), 100%);
     --colors-hover-0: hsla(var(--palette-gray-80), 100%);
+    --colors-hover-1: hsla(var(--palette-gray-80), 70%);
     --shadow-1: 0 0px 20px -6px rgba(0, 0, 0, 0.7);
     --shadow-2: 0 0px 25px -6px rgba(0, 0, 0, 0.8);
     --shadow-3: 0 0px 30px -6px rgba(0, 0, 0, 0.9);

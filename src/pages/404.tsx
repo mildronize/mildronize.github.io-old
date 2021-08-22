@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import { PageProps } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../layout";
 import config from "../../data/SiteConfig";
-import { graphql } from 'gatsby';
 import { useState } from "react";
 
 function Page404({ data }: PageProps) {
