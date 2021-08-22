@@ -68,7 +68,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         if(filenameRegex.test(parentDirectory)){
           actualFilename = parentDirectory;
         }
-        console.log('Dir ', parsedFilePath.name, parentDirectory)
         const nodeDate = actualFilename.replace(filenameRegex, '$1');
         const nodeFilename = actualFilename.replace(filenameRegex, '$2');
         createNodeField({ node, name: "date", value: nodeDate });

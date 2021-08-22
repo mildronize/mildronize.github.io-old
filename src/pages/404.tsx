@@ -22,7 +22,8 @@ function Page404({ data }: PageProps) {
     if (window) {
       if (urlSlug !== '') {
         // Remove this page from history, user can browse with short link.
-        window.location.replace(urlSlug);
+        console.log(`Redirect to ${urlSlug}`);
+        window.location.replace(`${urlSlug}?redirect=true`);
       } else {
         setIsNotFound(true);
       }

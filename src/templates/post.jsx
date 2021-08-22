@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import _ from "lodash";
@@ -15,6 +15,7 @@ import config from "../../data/SiteConfig";
 import "./prism-template.css";
 
 export default function PostTemplate({ data, pageContext }) {
+  const [isRedirect, setIsRedirect] = useState(false);
   const contentRef = useRef(null);
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
@@ -38,8 +39,25 @@ export default function PostTemplate({ data, pageContext }) {
   //   }
   // }, []);
 
+    useEffect(()=> {
+      /* eslint no-restricted-globals: off */
+      if(!window || !history) {
+        isRedirect(false);
+        return;
+      }
+      const query = new URLSearchParams(window.location.search);
+      if(query.has('redirect')){
+        if(query.get('redirect') === 'true' ){
+          // If this come from 404 page, it will be duplicated history.
+          // Solve with history.back();
+          setIsRedirect(true);
+          history.back();
+        }
+      }
+  }, []);
+
   return (
-    <Layout>
+    <>{!isRedirect && <Layout>
       <div>
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
@@ -96,6 +114,8 @@ export default function PostTemplate({ data, pageContext }) {
         </Container>
       </div>
     </Layout>
+    }
+    </>
   );
 }
 
