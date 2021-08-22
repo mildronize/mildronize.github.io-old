@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef } from "react";
 import { Helmet } from "react-helmet";
 import { graphql, Link, navigate } from "gatsby";
 import _ from "lodash";
@@ -8,6 +8,7 @@ import { parseISO, format } from "date-fns";
 import "./prism-template.css";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
+import globalConfig from "../../data/globalConfig";
 import Person from '../components/Person';
 import Layout from "../layout/PageLayout";
 import ShareButton from "../components/ShareButton";
@@ -36,23 +37,23 @@ export default function PostTemplate({ data, pageContext }) {
   //   }
   // }, []);
 
-
-
-    useEffect(()=> {
-      /* eslint no-restricted-globals: off */
-      if(!window || !history) return;
-      const query = new URLSearchParams(window.location.search);
-      if(query.has('redirect')){
-        if(query.get('redirect') === 'true' ){
-          // If this come from 404 page, it will be duplicated history.
-          // Solve with history.back();
-          if(history.length > 2){
-            history.back();
-          } else {
-            navigate(window.location.pathname);
-          }
+  useEffect(()=> {
+    console.log(history.length)
+    /* eslint no-restricted-globals: off */
+    if(!window || !history) return;
+    const query = new URLSearchParams(window.location.search);
+    if(query.has('action')){
+      if(query.get('action') === globalConfig.actions.REDIRECT ){
+        // If this come from 404 page, it will be duplicated history.
+        // Solve with history.back();
+        if(history.length > 2){
+          history.back();
+        }
+        else {
+          navigate(window.location.pathname);
         }
       }
+    }
   }, []);
 
   return (

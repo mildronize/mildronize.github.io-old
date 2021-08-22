@@ -100,6 +100,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const postPage = path.resolve("src/templates/post.jsx");
+  const postShortUrlPage = path.resolve("src/templates/postShortUrl.jsx");
   const tagPage = path.resolve("src/templates/tag.jsx");
   const categoryPage = path.resolve("src/templates/category.jsx");
   const listingPage = path.resolve("./src/templates/PostListingPagination.jsx");
@@ -206,6 +207,19 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: edge.node.fields.renderedSlug,
       component: postPage,
+      context: {
+        slug: edge.node.fields.slug,
+        nexttitle: nextEdge.node.frontmatter.title,
+        nextslug: nextEdge.node.fields.slug,
+        prevtitle: prevEdge.node.frontmatter.title,
+        prevslug: prevEdge.node.fields.slug,
+      },
+    });
+
+    // Render short Url page for SEO
+    createPage({
+      path: edge.node.fields.slug,
+      component: postShortUrlPage,
       context: {
         slug: edge.node.fields.slug,
         nexttitle: nextEdge.node.frontmatter.title,

@@ -3,6 +3,7 @@ import { PageProps, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../layout";
 import config from "../../data/SiteConfig";
+import globalConfig from "../../data/globalConfig";
 import { useState } from "react";
 
 function Page404({ data }: PageProps) {
@@ -22,7 +23,7 @@ function Page404({ data }: PageProps) {
       if (urlSlug !== '') {
         // Remove this page from history, user can browse with short link.
         console.log(`Redirect to ${urlSlug}`);
-        window.location.replace(`${urlSlug}?redirect=true`);
+        window.location.replace(`${urlSlug}?action=${globalConfig.actions.REDIRECT}`);
       } else {
         setIsNotFound(true);
       }
