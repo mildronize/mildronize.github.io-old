@@ -40,13 +40,39 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
     if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug"))
-      readableSlug = `/${_.kebabCase(node.frontmatter.slug)}`;
+        readableSlug = `/${_.kebabCase(node.frontmatter.slug)}`;
+
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "date")) {
         const date = moment(node.frontmatter.date, siteConfig.dateFromFormat);
         if (!date.isValid)
           console.warn(`WARNING: Invalid date.`, node.frontmatter);
 
         createNodeField({ node, name: "date", value: date.toISOString() });
+      } else {
+        // Replace `gatsby-plugin-pathdata`
+
+        /*
+        If structure markdown files as a directory
+          ```
+          ./2015-05-07-responsive-expanding-search-bar
+            └── readme.md (any file, use info from parent)
+          ```
+        Use info from dir name not file name , extract date and filename
+
+        Note: This allow only one markdown file per parent dir like /^(\d+-\d+-\d+)-([\w-]+)$/
+        */
+        const filenameRegex = /^(\d+-\d+-\d+)-([\w-]+)$/;
+        let actualFilename = parsedFilePath.name;
+        const split = parsedFilePath.dir.split('/');
+        const parentDirectory = split[split.length - 1];
+        if(filenameRegex.test(parentDirectory)){
+          actualFilename = parentDirectory;
+        }
+        console.log('Dir ', parsedFilePath.name, parentDirectory)
+        const nodeDate = actualFilename.replace(filenameRegex, '$1');
+        const nodeFilename = actualFilename.replace(filenameRegex, '$2');
+        createNodeField({ node, name: "date", value: nodeDate });
+        createNodeField({ node, name: "filename", value: nodeFilename });
       }
     }
 
