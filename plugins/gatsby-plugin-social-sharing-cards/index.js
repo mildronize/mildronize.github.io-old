@@ -16,7 +16,7 @@ module.exports = async ({ markdownNode }) => {
   // const tag = tags[0]
   // const time = readingTime ? `${Math.ceil(readingTime.minutes)}m` : "3m"
 
-  const titleFont = await jimp.loadFont(`${__dirname}/fonts/IBMPlexSansThai-Medium-45pt.fnt`)
+  const titleFont = await jimp.loadFont(`${__dirname}/fonts/IBMPlexSansThai-Medium-55pt-black.fnt`)
   // const titleFont = await jimp.loadFont(`${__dirname}/fonts/Title.fnt`)
   // const detailFont = await jimp.loadFont(`${__dirname}/fonts/Detail.fnt`)
 
@@ -35,7 +35,7 @@ module.exports = async ({ markdownNode }) => {
             alignmentY: jimp.VERTICAL_ALIGN_BOTTOM,
           },
           700,
-          300
+          400
         )
         .write(location)
     }
