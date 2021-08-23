@@ -14,12 +14,30 @@ import Layout from "../layout/PageLayout";
 import ShareButton from "../components/ShareButton";
 import { onMobile } from "../themes/responsive";
 
+// https://stackoverflow.com/a/17773849/4540808
+const urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
+// https://regexr.com/39rsv
+const linkTagRegex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/gm;
+
+const addClassWhenLinkIsUrl = (html) => {
+  const processedHtml = html.replace(linkTagRegex, (match, aTagProperties, aTagContent) => {
+    if(urlRegex.test(aTagContent)){
+      console.log(`aTagContent (${aTagContent}): is a URL`)
+      return `<a class="url" ${aTagProperties}>${aTagContent}</a>`;
+    }
+
+    // Do nothing
+    return match;
+  });
+  return processedHtml;
+}
 
 export default function PostTemplate({ data, pageContext }) {
   const contentRef = useRef(null);
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
+  const postNodeHtml = addClassWhenLinkIsUrl(postNode.html);
   const { timeToRead } = data.markdownRemark;
   const { date, isDraft, slug : fieldSlug } = data.markdownRemark.fields;
   if (!post.id) {
@@ -96,7 +114,7 @@ export default function PostTemplate({ data, pageContext }) {
 
           {/* eslint-disable-next-line react/no-danger */}
           <PostContent ref={contentRef}
-            dangerouslySetInnerHTML={{ __html: postNode.html }}
+            dangerouslySetInnerHTML={{ __html: postNodeHtml }}
           />
 
           <div className="post-meta">
@@ -176,7 +194,8 @@ const PostContent = styled.div`
       font-size: 0.9rem;
     }
 
-    p a {
+    /* Work with 'addClassWhenLinkIsUrl()' */
+    a.url {
       word-break: break-all;
     }
 
