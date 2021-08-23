@@ -45,3 +45,25 @@ git push -u origin main
 - `git pull <repo link>`: to download the folder from the remote repository
 - `git stash save`: stores modified tracked files
 - `git stash drop`: discards most recent stashed files
+
+## git reflog
+
+
+```log
+649bee7 (HEAD -> main, origin/main) HEAD@{0}: pull: Fast-forward
+c7964f8 HEAD@{1}: commit: docs: add security
+f354fe6 HEAD@{2}: reset: moving to HEAD@{1}
+8d92e0d HEAD@{3}: commit: docs: add security
+f354fe6 HEAD@{4}: commit: If this come from 404 page, it will be duplicated history. using history.back to pop the duplicate one
+fdfc1a8 HEAD@{5}: commit: docs: update git cookbook
+33890fb HEAD@{6}: commit: Replace 'gatsby-plugin-pathdata' to reduce duplicate filename and dir name
+a80050e HEAD@{7}: reset: moving to HEAD@{4}
+e8a3339 HEAD@{8}: reset: moving to HEAD@{2}
+e8a3339 HEAD@{9}: reset: moving to HEAD@{1}
+d5c8822 HEAD@{10}: reset: moving to HEAD~1~
+e8a3339 HEAD@{11}: commit: Replace to reduce duplicate filename and dir name
+a80050e HEAD@{12}: pull: Fast-forward
+d5c8822 HEAD@{13}: commit: add draft content git
+01adbaf HEAD@{14}: pull: Fast-forward
+dd2fae2 HEAD@{15}: checkout: moving from update-uuid-store to main
+```
