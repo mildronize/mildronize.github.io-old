@@ -176,6 +176,10 @@ const PostContent = styled.div`
       font-size: 0.9rem;
     }
 
+    p a {
+      word-break: break-all;
+    }
+
     .gatsby-highlight{
       margin: 30px 0;
     }
@@ -204,9 +208,7 @@ const PostContent = styled.div`
       margin: 70px 20px;
       border: 1px solid var(--colors-hover-0);
     }
-    p code {
-      word-break: break-all;
-    }
+
 `;
 
 const Flex= styled.span`
@@ -256,9 +258,8 @@ const Container = styled.div`
 const TagContainer = styled.div`
   /* margin-top: -5px; */
   /* padding */
-  a {
-      word-break: break-all;
-    }
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const Tag = styled.span`
