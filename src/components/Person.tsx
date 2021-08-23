@@ -34,7 +34,7 @@ const Person = ({ author }: IPersonProps) => {
           // }}
           imageUrl={author.avatarUrl}
           text={author.name}
-          size={PersonaSize.size40}
+          size={PersonaSize.size32}
           hidePersonaDetails={true}
           imageAlt={author.name}
         />
