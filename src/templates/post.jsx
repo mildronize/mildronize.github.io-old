@@ -12,6 +12,8 @@ import globalConfig from "../../data/globalConfig";
 import Person from '../components/Person';
 import Layout from "../layout/PageLayout";
 import ShareButton from "../components/ShareButton";
+import { onMobile } from "../themes/responsive";
+
 
 export default function PostTemplate({ data, pageContext }) {
   const contentRef = useRef(null);
@@ -68,16 +70,18 @@ export default function PostTemplate({ data, pageContext }) {
 
           <MetadataWrapper>
             <Wrapper>
-              <div className='page-metadata'>
+              <div className='page-metadata page-metadata-first'>
                 {format(parseISO(date), "MMM d, yyyy")}
               </div>
-              {timeToRead !== 0 && <div className='page-metadata'>{timeToRead} minutes to read</div>}
-              <Person author={{
-                username: config.userGithub,
-                name: config.userName,
-                profileUrl: '/about',
-                avatarUrl: config.userAvatar
-              }} />
+              <Flex>
+                {timeToRead !== 0 && <div className='page-metadata'>{timeToRead} minutes to read</div>}
+                <Person author={{
+                  username: config.userGithub,
+                  name: config.userName,
+                  profileUrl: '/about',
+                  avatarUrl: config.userAvatar
+                }} />
+              </Flex>
             </Wrapper>
               <div style={{ marginTop: '10px'}} >
                 <ShareButton url={`${config.siteUrl}/${fieldSlug}`} />
@@ -200,13 +204,25 @@ const PostContent = styled.div`
       margin: 70px 20px;
       border: 1px solid var(--colors-hover-0);
     }
+    p code {
+      word-break: break-all;
+    }
+`;
 
+const Flex= styled.span`
+  display: flex;
+  align-items:center;
 `;
 
 const Wrapper = styled.span`
   display: flex;
   align-items:center;
   font-size: 1rem;
+
+  ${onMobile} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const MetadataWrapper = styled.span`
@@ -229,11 +245,20 @@ const Container = styled.div`
   padding-right: 6px;
   content: "•";
 }
+
+.page-metadata-first:after {
+  ${onMobile} {
+    content: "";
+  }
+}
 `;
 
 const TagContainer = styled.div`
   /* margin-top: -5px; */
   /* padding */
+  a {
+      word-break: break-all;
+    }
 `;
 
 const Tag = styled.span`
