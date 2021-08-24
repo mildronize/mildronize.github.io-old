@@ -7,6 +7,7 @@ import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
 import "./prism-template.css";
 import SEO from "../components/SEO/SEO";
+import SocialLinks from "../components/SocialLinks/SocialLinks";
 import config from "../../data/SiteConfig";
 import globalConfig from "../../data/globalConfig";
 import Person from '../components/Person';
@@ -58,7 +59,6 @@ export default function PostTemplate({ data, pageContext }) {
   // }, []);
 
   useEffect(()=> {
-    console.log(history.length)
     /* eslint no-restricted-globals: off */
     if(!window || !history) return;
     const query = new URLSearchParams(window.location.search);
@@ -102,13 +102,8 @@ export default function PostTemplate({ data, pageContext }) {
               </Flex>
             </Wrapper>
               <div style={{ marginTop: '10px'}} >
-                <ShareButton url={`${config.siteUrl}/${fieldSlug}`} />
+                <ShareButton url={`${config.siteUrl}/s/${fieldSlug}`} />
               </div>
-              {/* <IconButton
-                onClick={copyToClipboard} >
-                <i className="fas fa-share-alt"></i>
-              </IconButton> */}
-
           </MetadataWrapper>
           <HorizontalDivider />
 
@@ -132,17 +127,7 @@ export default function PostTemplate({ data, pageContext }) {
                 ))}
             </TagContainer>
 
-
-            {/* <SocialLinks postPath={slug} postNode={postNode} /> */}
-          </div>
-          {/* <UserInfo config={config} /> */}
-          {/* <Disqus postNode={postNode} /> */}
-          {/* <Footer config={config} /> */}
-          {/* <TableOfContents
-            headings={mock}
-            disableTOC={false}
-            contentRef={contentRef}
-          /> */}
+            <SocialLinks postPath={`s/${slug}`} postNode={postNode} />          </div>
         </Container>
       </div>
     </Layout>
