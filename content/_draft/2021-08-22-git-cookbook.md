@@ -50,8 +50,12 @@ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.gi
 git fetch upstream
 git checkout main
 git merge upstream/main
-
 ```
+
+https://root.cern/for_developers/creating_pr/
+![PR_workflow](https://root.cern/for_developers/creating_pr/PR_workflow.png)
+
+Ref: [https://www.freecodecamp.org/news/how-to-sync-your-fork-with-the-original-git-repository/](https://www.freecodecamp.org/news/how-to-sync-your-fork-with-the-original-git-repository/)
 
 ### Push from Fork project to Original Project
 
@@ -118,8 +122,37 @@ This should have less noise it in than the general `HEAD reflog`.
 2. Switch to the new branch that's based on this pull request:
 
     ```
-    [main] $ git checkoutBRANCHNAME
+    [main] $ git checkout BRANCHNAME
     > Switched to a new branch 'BRANCHNAME'
     ```
 
-Ref: [https://www.freecodecamp.org/news/how-to-sync-your-fork-with-the-original-git-repository/](https://www.freecodecamp.org/news/how-to-sync-your-fork-with-the-original-git-repository/)
+# To checkout a PR branch for coding review, credit @Wittawat Karpkrikaew, aaron
+
+- Add a contributor's remote:
+  ```sh
+  $ git remote add [REFERENCE_NAME] git@github.com:aaronamm/dotnetthailand.github.io.git
+  ```
+
+- I usually use REFERENCE_NAME as a contributor's name, e.g. aaron, mild.
+
+- Then, fetch all branches of a contributor.
+  ```sh
+  $ git fetch aaron
+  ```
+- Git tries to automatically create a local branch that tracks a remote brnach for you, e.g.
+  ```sh
+  * [new branch] improve-webpack-sass-only-content -> aaron/improve-webpack-sass-only-content
+  ```
+
+- You can can checkout a new branch with:
+
+  ```sh
+  $ git checkout improve-webpack-sass-only-content
+  ```
+
+- This will leave a local branch on your computer.
+- Or you can checkout a temporary branch with:
+
+  ```
+  $ git checkout aaron/improve-webpack-sass-only-content
+  ```
