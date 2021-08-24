@@ -1,6 +1,10 @@
 import fs from 'fs';
 import { promisify } from 'util';
 
+/**
+Unused files
+*/
+
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
 
