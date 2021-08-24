@@ -19,7 +19,10 @@ abcdefghijklmnopqrstuvwxyz
 
 https://r12a.github.io/uniview/?block=thai#title
 
+# Blog
+https://tkplaceholder.io/how-to-automate-social-cards-for-your-gatsby-blog/
 https://codeburst.io/how-to-automate-social-sharing-cards-on-your-gatsby-blog-77a356a58b38
+
 https://github.com/plahteenlahti/gatsby-social-cards
 
 
