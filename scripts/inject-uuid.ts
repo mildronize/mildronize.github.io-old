@@ -11,12 +11,25 @@ import { getAllMarkdownPaths, retryNewUuid, stageChangeGit } from './utils';
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
+/**
+  Option:
+  process.argv
+     stage-changes
+
+  default: do nothing
+*/
+
 const databasePath = 'uuid-store.json';
 const targetPath = "content";
 const defaultUnicode = 'utf8';
 const ignoreDirs: RegExp[] = [
   // /^_/,   // Start with `_` (underscore)
 ];
+
+const firstArg = process.argv[2];
+const isStageChangeMode = firstArg === 'stage-changes';
+
+console.log(`Running inject-uuid [mode] isStageChangeMode: ${isStageChangeMode}`);
 
 export const getUuidStore = async (markdownPaths: string[], targetPath: string) => {
   const uuids: Record<string, string> = {};
@@ -57,8 +70,10 @@ async function main() {
     if (!('uuid' in frontmatter.data)) {
       frontmatter.data.uuid = uuid;
       await writeFile(absoluteMarkdownPath, matter.stringify(frontmatter.content, frontmatter.data), defaultUnicode);
-      // Auto stage change in git
-      await stageChangeGit(path.join(targetPath, mdPath));
+      if(isStageChangeMode){
+        // Auto stage change in git
+        await stageChangeGit(path.join(targetPath, mdPath));
+      }
       console.log(`[ADD] uuid of ${mdPath}`);
     } else {
       // console.log(`[SKIP] uuid of ${mdPath} is existing.`);
