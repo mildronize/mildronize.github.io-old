@@ -1,10 +1,15 @@
 # My personal site
 
+Available  Field in frontmatter
+```
+- title
+- uuid
+```
+
 # Todo
 - [ ] Migrate to TS
 - [ ] Search
 - [ ] SEO Support
-
 
 
 # Run your GitHub Actions locally 🚀
