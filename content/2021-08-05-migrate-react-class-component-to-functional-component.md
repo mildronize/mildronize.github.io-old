@@ -1,5 +1,5 @@
 ---
-title: ย้ายจาก React Class Component มาเป็น Functional Component
+title: ย้ายจาก React Class Component มาเป็น Functional Component ง่ายกว่าที่คิด
 tags:
   - react
   - pattern

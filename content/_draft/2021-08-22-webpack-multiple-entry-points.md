@@ -6,6 +6,7 @@ language: en
 uuid: j5trzrh
 ---
 
+- Setup Webpack สำหรับ Multiple Endpoint สำหรับ React ([https://github.com/mildronize/react-typescript-guidebook](https://github.com/mildronize/react-typescript-guidebook))
 
 # Static Multiple Entry Point
 https://github.com/mildronize/blog-jekyll/blob/jekyll/webpack.config.js
