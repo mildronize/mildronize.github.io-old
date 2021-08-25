@@ -3,7 +3,17 @@ title: Google Analytics
 uuid: bqfiofl
 ---
 
-How track user behavior
+# Begin with GA
+
+Analyzing user acquisition
+Tracking PageViews
+Tracking Events
+Tracking Load/Render Performance
+Tracking Exception
+
+https://wendeehsu.medium.com/google-analytics-in-react-js-c1b78dc1bbda
+
+# How track user behavior
 
 https://www.codesanook.com/programming-google-analytics-javascript-library-to-track-user-behavior
 
