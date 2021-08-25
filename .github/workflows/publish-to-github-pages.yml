@@ -1,0 +1,21 @@
+# credit https://medium.com/better-programming/deploy-your-gatsby-site-with-github-actions-e761ea93813f
+# https://github.com/enriikke/gatsby-gh-pages-action/blob/main/README.md
+# https://www.dotnetthailand.com/programming-cookbook/github-actions/deploy-gatsby-to-github-pages
+name: Publish Gatsby to GitHub pages
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          # access-token is a GitHub Personal access token with the "repo" scope
+          # https://github.com/settings/tokens
+          access-token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
+          deploy-branch: gh-pages
