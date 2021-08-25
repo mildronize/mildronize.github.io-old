@@ -6,10 +6,18 @@ import matter from 'gray-matter';
 import path from 'path';
 import { promisify } from 'util';
 import DataStore from "./DataStore";
-import { getAllMarkdownPaths, generateUUID, getAllMarkdownPathsAsync, stageChangeGit} from './utils';
+import { getAllMarkdownPaths, retryNewUuid, stageChangeGit } from './utils';
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
+
+/**
+  Option:
+  process.argv
+     stage-changes
+
+  default: do nothing
+*/
 
 const databasePath = 'uuid-store.json';
 const targetPath = "content";
@@ -18,32 +26,59 @@ const ignoreDirs: RegExp[] = [
   // /^_/,   // Start with `_` (underscore)
 ];
 
-async function main() {
-  const store = new DataStore(path.resolve(databasePath));
-  const uuids: string[] = [];
-  const markdownPaths = await getAllMarkdownPaths(targetPath);
-  console.log(`Started running to inject uuid on Markdown ${markdownPaths.length} files`);
+const firstArg = process.argv[2];
+const isStageChangeMode = firstArg === 'stage-changes';
+
+console.log(`Running inject-uuid [mode] isStageChangeMode: ${isStageChangeMode}`);
+
+export const getUuidStore = async (markdownPaths: string[], targetPath: string) => {
+  const uuids: Record<string, string> = {};
+  const readFileWorkers: Promise<any>[] = [];
   for (const mdPath of markdownPaths) {
     const absoluteMarkdownPath = path.resolve(targetPath, mdPath);
+    readFileWorkers.push(readFile(absoluteMarkdownPath, defaultUnicode));
+  }
+
+  const readFiles = await Promise.all(readFileWorkers);
+  readFiles.forEach((readFile, index) => {
+    const frontmatter = matter(readFile);
+    if (!Object.prototype.hasOwnProperty.call(frontmatter, "data")) return;
+    if (!Object.prototype.hasOwnProperty.call(frontmatter.data, "uuid")) return;
+    if (Object.prototype.hasOwnProperty.call(uuids, frontmatter.data.uuid))
+      throw new Error('The uuid is duplicating, please fix this issue before run this command again');
+    uuids[frontmatter.data.uuid] = markdownPaths[index];
+  });
+
+  return {
+    uuidStore: uuids,
+    markdownFiles: readFiles
+  };
+}
+
+async function main() {
+  const markdownPaths = await getAllMarkdownPaths(targetPath);
+  const { uuidStore, markdownFiles } = await getUuidStore(markdownPaths, targetPath);
+  console.log(`Started running to inject uuid on Markdown ${markdownPaths.length} files`);
+
+  markdownFiles.forEach(async (readFile, index) => {
+    const mdPath = markdownPaths[index];
+    const absoluteMarkdownPath = path.resolve(targetPath, mdPath);
     // Get frontmatter
-    const frontmatter = matter(await readFile(absoluteMarkdownPath, defaultUnicode));
-    const uuid = generateUUID(7);
+    const frontmatter = matter(readFile);
+    const uuid = retryNewUuid(uuidStore);
 
     if (!('uuid' in frontmatter.data)) {
-      // Save used uuid in file.
-      await store.add(uuid, mdPath);
       frontmatter.data.uuid = uuid;
       await writeFile(absoluteMarkdownPath, matter.stringify(frontmatter.content, frontmatter.data), defaultUnicode);
-      // Auto stage change in git
-      await stageChangeGit(path.join(targetPath, mdPath));
+      if(isStageChangeMode){
+        // Auto stage change in git
+        await stageChangeGit(path.join(targetPath, mdPath));
+      }
       console.log(`[ADD] uuid of ${mdPath}`);
     } else {
       // console.log(`[SKIP] uuid of ${mdPath} is existing.`);
     }
-    uuids.push(frontmatter.data.uuid);
-  }
-  // Correct path when the file has been changed
-  await store.correctData(uuids, markdownPaths);
+  });
 }
 
 main();

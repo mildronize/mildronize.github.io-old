@@ -97,7 +97,7 @@
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "format:styles": "prettier '**/*.{css,scss}' --write",
-    "uuid": "ts-node ./scripts/inject-uuid.ts && prettier 'uuid-store.json' --write && git add uuid-store.json",
+    "uuid": "ts-node ./scripts/inject-uuid.ts",
     "postinstall": "husky install"
   },
   "remarkConfig": {

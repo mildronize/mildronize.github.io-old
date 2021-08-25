@@ -5,11 +5,12 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  margin: 15px 0;
+  margin-top: 80px;
+  margin-bottom: 0;
 }
 
-.social-links > div {
-  margin: 5px 15px;
+.social-links > button {
+  margin: 5px 10px;
   cursor: pointer;
 }
 

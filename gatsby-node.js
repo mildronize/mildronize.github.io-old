@@ -91,7 +91,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const draftSlug = isDraft? 'draft/': '';
 
     createNodeField({ node, name: "isDraft", value: isDraft });
-    createNodeField({ node, name: "slug", value: nodeSlug });
+    createNodeField({ node, name: "slug", value: nodeSlug });  // No starting and trailing slash ex: whaab42
     createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
     createNodeField({ node, name: "renderedSlug", value: `/${draftSlug}${nodeReadableSlug}-${nodeSlug}` });
   }
@@ -218,7 +218,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     // Render short Url page for SEO
     createPage({
-      path: edge.node.fields.slug,
+      path: `/s/${edge.node.fields.slug}`,
       component: postShortUrlPage,
       context: {
         slug: edge.node.fields.slug,

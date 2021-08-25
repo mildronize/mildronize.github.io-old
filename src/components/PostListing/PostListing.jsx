@@ -30,8 +30,8 @@ function PostListing({ postEdges }) {
       {
         /* Your post list here. */
         postList.map((post) => (
-          <PostItem>
-            <Link to={post.path} key={post.title} >
+          <PostItem  key={post.path}>
+            <Link to={post.path} >
               {/* <a className="post-item-link"> */}
               <FlexContainer>
                 <FlexItem width="150px">
@@ -48,7 +48,6 @@ function PostListing({ postEdges }) {
                   </TagContainer> */}
                 </FlexItem>
               </FlexContainer>
-              {/* </a> */}
             </Link>
           </PostItem>
         ))

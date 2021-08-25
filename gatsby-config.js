@@ -65,9 +65,12 @@ module.exports = {
       },
     },
     {
+      // NOTE: This plugin only works in production mode!
+      // To test your Google Analytics, run: gatsby build && gatsby serve.
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: config.googleAnalyticsID,
+        exclude: ["/s/**", "/draft/**"]
       },
     },
     {
