@@ -102,11 +102,13 @@ const { google } = require('googleapis');
 const service_account = require('./key.json');
 const reporting = google.analyticsreporting('v4');
 
+const scopes = ['https://www.googleapis.com/auth/analytics.readonly'];
+
 const jwt = new google.auth.JWT(
   service_account.client_email,
   null,
   service_account.private_key,
-  scopes: ['https://www.googleapis.com/auth/analytics.readonly']
+  scopes
 );
 
 // The find the view ID in Google Analytics go to admin, select the rights view and click view settings.

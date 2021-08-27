@@ -86,6 +86,13 @@ module.exports = {
     "gatsby-plugin-twitter",
     "gatsby-plugin-sitemap",
     {
+      resolve: `gatsby-plugin-ga-pageview`,
+      options: {
+        clientEmail: process.env.GA_CLIENT_EMAIL,
+        privateKey: process.env.GA_PRIVATE_KEY
+      }
+    },
+    {
       resolve: `gatsby-plugin-disqus`,
       options: {
         shortname: config.disqusShortname,

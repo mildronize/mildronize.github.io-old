@@ -5,6 +5,7 @@ import _ from "lodash";
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
+import numeral from 'numeral';
 import "./prism-template.css";
 import SEO from "../components/SEO/SEO";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
@@ -40,7 +41,7 @@ export default function PostTemplate({ data, pageContext }) {
   const post = postNode.frontmatter;
   const postNodeHtml = addClassWhenLinkIsUrl(postNode.html);
   const { timeToRead } = data.markdownRemark;
-  const { date, isDraft, slug : fieldSlug } = data.markdownRemark.fields;
+  const { date, isDraft, slug : fieldSlug, pageview } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
   }
@@ -101,9 +102,13 @@ export default function PostTemplate({ data, pageContext }) {
                 }} />
               </Flex>
             </Wrapper>
-              <div style={{ marginTop: '10px'}} >
-                <ShareButton url={`${config.siteUrl}/s/${fieldSlug}`} />
-              </div>
+              <Flex>
+                <span className="page-view">{numeral(pageview).format('0,0')} views</span>
+                <span style={{ marginTop: '3px'}} >
+                  <ShareButton url={`${config.siteUrl}/s/${fieldSlug}`} />
+                </span>
+              </Flex>
+
           </MetadataWrapper>
           <HorizontalDivider />
 
@@ -234,6 +239,13 @@ const Wrapper = styled.span`
 const MetadataWrapper = styled.span`
   display: flex;
   justify-content: space-between;
+
+  .page-metadata, .page-view{
+    font-size: 0.95rem;
+  }
+  .page-view{
+    margin-right: 15px;
+  }
 `;
 
 const Container = styled.div`
@@ -291,6 +303,7 @@ export const pageQuery = graphql`
         date
         readableSlug
         isDraft
+        pageview
       }
     }
   }
