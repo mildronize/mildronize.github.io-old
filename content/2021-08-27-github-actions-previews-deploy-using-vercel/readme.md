@@ -99,3 +99,9 @@ jobs:
 
 # Read More
 - [Deploy your pull requests with GitHub Actions and GitHub Deployments](https://sanderknape.com/2020/05/deploy-pull-requests-github-actions-deployments/)
+
+---
+
+*Cross published at [.NET Thailand](https://www.dotnetthailand.com/programming-cookbook/github-actions/deploy-preview-when-pr)*
+
+*Acknowledgement: Thank you .net thailand team to review this article: [dotnetthailand.github.io#139](https://github.com/dotnetthailand/dotnetthailand.github.io/pull/139)*
