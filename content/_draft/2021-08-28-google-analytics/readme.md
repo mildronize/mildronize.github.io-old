@@ -109,6 +109,7 @@ const jwt = new google.auth.JWT(
   scopes: ['https://www.googleapis.com/auth/analytics.readonly']
 );
 
+// The find the view ID in Google Analytics go to admin, select the rights view and click view settings.
 const view_id = 'YOUR_VIEW_ID';
 
 let getReports = async function (reports) {
