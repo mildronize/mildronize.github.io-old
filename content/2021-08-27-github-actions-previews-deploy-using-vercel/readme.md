@@ -61,6 +61,8 @@ Once set up, a new .vercel directory will be added to your directory. The .verce
 
 ## 3. กำหนด Github Actions
 
+> TL;DR: Combining `pull_request_target` workflow trigger with an explicit checkout of an untrusted PR is a dangerous practice that may lead to repository compromise. We use `pull_request` trigger.
+
 ```yml
 # https://github.com/marketplace/actions/vercel-action
 name: Preview deploy
@@ -68,7 +70,6 @@ on:
   pull_request:
     branches:
       - main
-  pull_request_target:
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -99,7 +100,7 @@ jobs:
 
 # Read More
 - [Deploy your pull requests with GitHub Actions and GitHub Deployments](https://sanderknape.com/2020/05/deploy-pull-requests-github-actions-deployments/)
-
+- [Keeping your GitHub Actions and workflows secure Part 1: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)
 ---
 
 *Cross published at [.NET Thailand](https://www.dotnetthailand.com/programming-cookbook/github-actions/deploy-preview-when-pr)*
