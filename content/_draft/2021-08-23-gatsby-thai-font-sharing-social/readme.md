@@ -42,4 +42,17 @@ https://linux.thai.net/pub/thailinux/software/fonts-tlwg/webfonts/
 - https://unicode-table.com/th/0E48/
 - https://unicode.org/charts/PDF/U0E00.pdf
 
+# Possible Solution
 
+- Project
+  - Automate Remapping `.fnt` file
+- Method:
+  - use `kerning`
+
+```
+The kerning information is used to adjust the **distance between certain characters**, e.g. some characters should be placed closer to each other than others.
+
+first	The first character id.
+second	The second character id.
+amount	How much the x position should be adjusted when drawing the second character immediately following the first.
+```
