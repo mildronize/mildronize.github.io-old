@@ -5,7 +5,6 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import { promisify } from 'util';
-import DataStore from "./DataStore";
 import { getAllMarkdownPaths, retryNewUuid, stageChangeGit } from './utils';
 
 const readFile = promisify(fs.readFile);
@@ -56,10 +55,16 @@ export const getUuidStore = async (markdownPaths: string[], targetPath: string) 
 }
 
 async function main() {
+  console.time("main");
+  console.time("getAllMarkdownPaths");
   const markdownPaths = await getAllMarkdownPaths(targetPath);
+  console.timeEnd("getAllMarkdownPaths");
+  console.time("getUuidStore");
   const { uuidStore, markdownFiles } = await getUuidStore(markdownPaths, targetPath);
+  console.timeEnd("getUuidStore");
   console.log(`Started running to inject uuid on Markdown ${markdownPaths.length} files`);
 
+  console.time("addUuidToMarkdown");
   markdownFiles.forEach(async (readFile, index) => {
     const mdPath = markdownPaths[index];
     const absoluteMarkdownPath = path.resolve(targetPath, mdPath);
@@ -79,6 +84,8 @@ async function main() {
       // console.log(`[SKIP] uuid of ${mdPath} is existing.`);
     }
   });
+  console.timeEnd("addUuidToMarkdown");
+  console.timeEnd("main");
 }
 
 main();

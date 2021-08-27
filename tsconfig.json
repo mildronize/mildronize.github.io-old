@@ -17,7 +17,6 @@
       "noImplicitAny":false
     },
     "include": [
-      "./src/**/*",
-      "./scritps/**/*"
+      "./src/**/*"
     ]
   }

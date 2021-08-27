@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "esModuleInterop": true,
+  },
+  "files": [
+    "./inject-uuid.ts"
+  ]
+}

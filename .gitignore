@@ -62,3 +62,5 @@ bundle-stats.json
 .DS_Store
 
 .vercel
+
+scripts/build
