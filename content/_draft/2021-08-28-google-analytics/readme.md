@@ -15,8 +15,8 @@ https://wendeehsu.medium.com/google-analytics-in-react-js-c1b78dc1bbda
 
 # How track user behavior
 
-https://www.codesanook.com/programming-google-analytics-javascript-library-to-track-user-behavior
-
+- https://www.codesanook.com/programming-google-analytics-javascript-library-to-track-user-behavior
+- https://maxchadwick.xyz/blog/tracking-your-most-popular-blog-post-tags-in-google-analytics-with-jekyll
 
 # How to read page view from GA with specific URL
 
