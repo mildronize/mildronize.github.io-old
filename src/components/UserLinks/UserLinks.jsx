@@ -8,7 +8,7 @@ function UserLinks({ config, labeled }) {
     const { userLinks } = config;
 
     return userLinks.map((link) => (
-      <SocialLink href={link.url} key={link.label}>
+      <SocialLink href={link.url} key={link.label} aria-label={link.label}>
         {/* <button type="button">{labeled ? link.label : ""}</button> */}
         <i className={link.iconClassName}></i>
       </SocialLink>

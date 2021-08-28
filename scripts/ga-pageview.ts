@@ -6,7 +6,7 @@ const reporting = google.analyticsreporting('v4');
 
 dotenv.config();
 const clientEmail = process.env.GA_CLIENT_EMAIL;
-const privateKey = process.env.GA_PRIVATE_KEY.replace(/\\n/gm, '\n');
+const privateKey = process.env.GA_PRIVATE_KEY?.replace(/\\n/gm, '\n');
 const storePath = './scripts/build/pageview.json';
 const storeDebugPath = './scripts/build/debug-pageview.json';
 
