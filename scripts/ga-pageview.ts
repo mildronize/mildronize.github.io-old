@@ -32,7 +32,7 @@ const jwt = new google.auth.JWT(
 
 const view_id = '101792950';
 
-const getReports = async function (reports) {
+async function getReports(reports) {
 
   await jwt.authorize();
   const request = {
@@ -48,14 +48,15 @@ const basic_report = {
   'reportRequests': [
     {
       'viewId': view_id,
-      'dateRanges': [{ 'startDate': '2021-01-01', 'endDate': 'today' }],
+      'dateRanges': [{ 'startDate': '2021-08-13', 'endDate': 'today' }],
       'metrics': [{ 'expression': 'ga:pageviews' }],
       'dimensions': [{ 'name': 'ga:pagePath' }]
     }
   ]
 };
 
-function getSlugFromPathname(pathname) {
+function getUuidFromPathname(pathname: string) {
+
   const splits = pathname.replace(/^\//, '').split('/');
   let slugs;
 
@@ -92,7 +93,7 @@ export async function getUuidPageView(pageViewList: PageView[]) {
   const slugDict: Record<string, any> = {};
   // const pageViewList = await getPageViewList();
   pageViewList.forEach(item => {
-    const slug = getSlugFromPathname(item.pagePath);
+    const slug = getUuidFromPathname(item.pagePath);
     if (slug === '') return;
     if (slug in slugDict) {
       slugDict[slug] = parseInt(slugDict[slug]) + item.pageView;
@@ -103,7 +104,6 @@ export async function getUuidPageView(pageViewList: PageView[]) {
   return slugDict;
 }
 
-// module.exports = { getUuidPageView };
 
 async function main() {
   console.log(`Running ga-pageview [mode] isDebugMode: ${isDebugMode}`);

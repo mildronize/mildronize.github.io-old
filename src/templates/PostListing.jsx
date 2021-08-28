@@ -11,6 +11,7 @@ import breakpoint from 'styled-components-breakpoint';
 
 function Landing({ data }) {
   const postEdges = data.allMarkdownRemark.edges;
+  const popularPostEdges = data.popularPost.edges;
   return (
     <Layout>
       <div className="landing-container">
@@ -18,6 +19,8 @@ function Landing({ data }) {
           <Helmet title={config.siteTitle} />
           <SEO />
           <Hero />
+          <Header>Popular articles</Header>
+          <PostListing postEdges={popularPostEdges} />
           <Header>All articles</Header>
           <PostListing postEdges={postEdges} />
         </div>
@@ -41,7 +44,7 @@ const Header = styled.h4`
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query LandingQuery {
-    allMarkdownRemark(
+    allMarkdownRemark: allMarkdownRemark(
       sort: { fields: [fields___date], order: DESC }
       filter: { fields: { isDraft: { eq: false } } }
       ) {
@@ -52,6 +55,31 @@ export const pageQuery = graphql`
             date
             readableSlug
             renderedSlug
+            pageview
+          }
+          excerpt
+          timeToRead
+          frontmatter {
+            title
+            tags
+            date
+          }
+        }
+      }
+    }
+    popularPost: allMarkdownRemark(
+      sort: { fields: [fields___pageview], order: DESC }
+      filter: { fields: { isDraft: { eq: false } } }
+      limit: 7
+      ) {
+      edges {
+        node {
+          fields {
+            slug
+            date
+            readableSlug
+            renderedSlug
+            pageview
           }
           excerpt
           timeToRead
