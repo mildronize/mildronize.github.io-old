@@ -15,7 +15,7 @@ function PostListing({ postEdges }) {
     }
 
     postList.push({
-      path:  postEdge.node.fields.renderedSlug,
+      path:  postEdge.node.fields.renderedPathname,
       tags,
       cover: postEdge.node.frontmatter.cover,
       title: postEdge.node.frontmatter.title,

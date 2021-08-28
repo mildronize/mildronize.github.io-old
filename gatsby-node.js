@@ -93,7 +93,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({ node, name: "isDraft", value: isDraft });
     createNodeField({ node, name: "slug", value: nodeSlug });  // No starting and trailing slash ex: whaab42
     createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
-    createNodeField({ node, name: "renderedSlug", value: `/${draftSlug}${nodeReadableSlug}-${nodeSlug}` });
+    // Render Path
+    createNodeField({ node, name: "renderedPathname", value: `/${draftSlug}${nodeReadableSlug}-${nodeSlug}` });
+    createNodeField({ node, name: "shortPathname", value: `/s/${nodeSlug}` });
   }
 };
 
@@ -115,8 +117,9 @@ exports.createPages = async ({ graphql, actions }) => {
             filename
             slug
             readableSlug
-            renderedSlug
+            renderedPathname
             isDraft
+            shortPathname
           }
           frontmatter {
             title
@@ -205,7 +208,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const prevEdge = postsEdges[prevID];
 
     createPage({
-      path: edge.node.fields.renderedSlug,
+      path: edge.node.fields.renderedPathname,
       component: postPage,
       context: {
         slug: edge.node.fields.slug,
@@ -218,7 +221,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     // Render short Url page for SEO
     createPage({
-      path: `/s/${edge.node.fields.slug}`,
+      path: edge.node.fields.shortPathname,
       component: postShortUrlPage,
       context: {
         slug: edge.node.fields.slug,

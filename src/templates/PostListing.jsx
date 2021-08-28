@@ -54,7 +54,7 @@ export const pageQuery = graphql`
             slug
             date
             readableSlug
-            renderedSlug
+            renderedPathname
             pageview
           }
           excerpt
@@ -78,7 +78,7 @@ export const pageQuery = graphql`
             slug
             date
             readableSlug
-            renderedSlug
+            renderedPathname
             pageview
           }
           excerpt

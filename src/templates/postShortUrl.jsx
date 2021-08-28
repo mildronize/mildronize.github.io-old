@@ -4,7 +4,7 @@ import { graphql, Link, navigate } from "gatsby";
 import "./prism-template.css";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
-
+import { generateCoverImageUrl } from "../utils/path-utils";
 
 /**
  * This component will render only SEO info, then redirect to actual post.
@@ -13,7 +13,7 @@ import config from "../../data/SiteConfig";
 const getRenderedSlug = (urlSlug, data) => {
   const foundNodes = data.allMarkdownRemark.edges.filter(edge => urlSlug === edge.node.fields.slug);
   if (foundNodes.length > 0)
-    return foundNodes[0].node.fields.renderedSlug;
+    return foundNodes[0].node.fields.renderedPathname;
   return '';
 }
 
@@ -21,7 +21,7 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
-  const { isDraft, slug : fieldSlug } = data.markdownRemark.fields;
+  const { isDraft, slug : fieldSlug, shortPathname } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
   }
@@ -37,7 +37,7 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        {!isDraft && <SEO postPath={slug} postNode={postNode} postSEO coverPath={`${fieldSlug}/cover.jpg`}  />}
+        {!isDraft && <SEO postPath={shortPathname} postNode={postNode} postSEO coverPath={generateCoverImageUrl(fieldSlug)}  />}
       </div>
     </>
   );
@@ -61,6 +61,7 @@ export const pageQuery = graphql`
         date
         readableSlug
         isDraft
+        shortPathname
       }
     }
     allMarkdownRemark: allMarkdownRemark {
@@ -70,7 +71,7 @@ export const pageQuery = graphql`
             filename
             slug
             readableSlug
-            renderedSlug
+            renderedPathname
             isDraft
           }
         }

@@ -58,7 +58,6 @@ exports.onCreateNode = async ({ actions, node, getNode }, options) => {
   const filename = getFilename(getNode(node.parent));
   if (slugPageView && filename) {
     pageview += filename in slugPageView ? slugPageView[filename] : 0;
-    console.log(filename, pageview);
   } else {
     console.warn('no filename');
   }

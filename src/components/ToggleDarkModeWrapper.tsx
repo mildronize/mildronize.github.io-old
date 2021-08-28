@@ -8,7 +8,7 @@ import ToggleDarkMode from './ToggleDarkMode';
 
 const ToggleDarkModeWrapper = ({ isLightTheme }: any) => {
     const setTheme = () => {
-        console.log(isLightTheme ? 'light' : 'dark');
+        // console.log(isLightTheme ? 'light' : 'dark');
         window.__setPreferredTheme(isLightTheme ? 'dark' : 'light')
     }
     return (

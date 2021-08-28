@@ -15,6 +15,7 @@ import Person from '../components/Person';
 import Layout from "../layout/PageLayout";
 import ShareButton from "../components/ShareButton";
 import { onMobile } from "../themes/responsive";
+import { generateCoverImageUrl } from "../utils/path-utils";
 
 // https://stackoverflow.com/a/17773849/4540808
 const urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
@@ -24,7 +25,7 @@ const linkTagRegex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/gm;
 const addClassWhenLinkIsUrl = (html) => {
   const processedHtml = html.replace(linkTagRegex, (match, aTagProperties, aTagContent) => {
     if(urlRegex.test(aTagContent)){
-      console.log(`aTagContent (${aTagContent}): is a URL`)
+      // console.log(`aTagContent (${aTagContent}): is a URL`)
       return `<a class="url" ${aTagProperties}>${aTagContent}</a>`;
     }
 
@@ -41,7 +42,7 @@ export default function PostTemplate({ data, pageContext }) {
   const post = postNode.frontmatter;
   const postNodeHtml = addClassWhenLinkIsUrl(postNode.html);
   const { timeToRead } = data.markdownRemark;
-  const { date, isDraft, slug : fieldSlug, pageview } = data.markdownRemark.fields;
+  const { date, isDraft, slug : fieldSlug, pageview, renderedPathname, shortPathname } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
   }
@@ -83,7 +84,7 @@ export default function PostTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        {!isDraft && <SEO postPath={slug} postNode={postNode} postSEO coverPath={`${fieldSlug}/cover.jpg`} /> }
+        {!isDraft && <SEO postPath={renderedPathname} postNode={postNode} postSEO coverPath={generateCoverImageUrl(fieldSlug)} /> }
         <Container>
           <h1 className="post-title">{post.title}</h1>
 
@@ -105,7 +106,7 @@ export default function PostTemplate({ data, pageContext }) {
             <RightWrapper>
               <span className="page-view">{numeral(pageview).format('0,0')} views</span>
               <span style={{ marginTop: '3px'}} >
-                <ShareButton url={`${config.siteUrl}/s/${fieldSlug}`} />
+                <ShareButton url={`${config.siteUrl}${shortPathname}`} />
               </span>
             </RightWrapper>
 
@@ -314,6 +315,8 @@ export const pageQuery = graphql`
         readableSlug
         isDraft
         pageview
+        renderedPathname
+        shortPathname
       }
     }
   }

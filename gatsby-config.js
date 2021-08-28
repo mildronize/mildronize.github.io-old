@@ -159,8 +159,8 @@ module.exports = {
                 date: edge.node.fields.date,
                 title: edge.node.frontmatter.title,
                 description: edge.node.excerpt,
-                url: rssMetadata.site_url + edge.node.fields.renderedSlug,
-                guid: rssMetadata.site_url + edge.node.fields.renderedSlug,
+                url: rssMetadata.site_url + edge.node.fields.renderedPathname,
+                guid: rssMetadata.site_url + edge.node.fields.renderedPathname,
                 custom_elements: [
                   { "content:encoded": edge.node.html },
                   { author: config.userEmail },
@@ -181,7 +181,7 @@ module.exports = {
                     fields {
                       slug
                       date
-                      renderedSlug
+                      renderedPathname
                     }
                     frontmatter {
                       title

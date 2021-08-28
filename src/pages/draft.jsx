@@ -49,7 +49,7 @@ export const pageQuery = graphql`
             slug
             date
             readableSlug
-            renderedSlug
+            renderedPathname
             isDraft
           }
           excerpt

@@ -14,7 +14,7 @@ function Page404({ data }: PageProps) {
     const postEdge = data as any;
     const foundNodes = postEdge.allMarkdownRemark.edges.filter(edge => urlSlug === edge.node.fields.slug);
     if (foundNodes.length > 0)
-      return foundNodes[0].node.fields.renderedSlug;
+      return foundNodes[0].node.fields.renderedPathname;
     return '';
   }
 
@@ -81,7 +81,7 @@ export const query = graphql`
             filename
             slug
             readableSlug
-            renderedSlug
+            renderedPathname
             isDraft
           }
         }

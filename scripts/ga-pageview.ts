@@ -84,7 +84,6 @@ async function getPageViewList() {
       pagePath: element.dimensions[0],
       pageView: parseInt(element.metrics[0].values[0]) || 0
     })
-    // console.log(`path: '${element.dimensions[0]} (${element.metrics[0].values[0]})'`)
   });
   return result;
 }
