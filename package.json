@@ -36,6 +36,7 @@
     "gatsby-source-filesystem": "^3.4.0",
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.4.0",
+    "googleapis": "^84.0.0",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
@@ -105,7 +106,8 @@
     "uuid:build": "tsc --project ./scripts/tsconfig.json",
     "uuid:build-if-not-exist": "path-exists ./scripts/build || npm run uuid:build",
     "postinstall": "run-p husky uuid:build-if-not-exist",
-    "husky": "husky install"
+    "husky": "husky install",
+    "pageview": "ts-node ./scripts/ga-pageview.ts"
   },
   "remarkConfig": {
     "plugins": [
