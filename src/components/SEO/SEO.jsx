@@ -4,7 +4,7 @@ import urljoin from "url-join";
 import moment from "moment";
 import config from "../../../data/SiteConfig";
 
-function SEO({ postNode, postPath, postSEO, coverPath }) {
+function SEO({ postNode, postPath, postSEO, coverPath, shortUrl }) {
   let title;
   let description;
   let image;
@@ -18,7 +18,7 @@ function SEO({ postNode, postPath, postSEO, coverPath }) {
       ? postMeta.description
       : postNode.excerpt;
     image = postMeta.cover;
-    postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
+    postURL = urljoin(config.siteUrl, config.pathPrefix, shortUrl);
   } else {
     title = config.siteTitle;
     description = config.siteDescription;

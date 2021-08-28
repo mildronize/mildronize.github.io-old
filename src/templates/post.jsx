@@ -84,7 +84,7 @@ export default function PostTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        {!isDraft && <SEO postPath={renderedPathname} postNode={postNode} postSEO coverPath={generateCoverImageUrl(fieldSlug)} /> }
+        {!isDraft && <SEO postPath={renderedPathname} shortUrl={shortPathname} postNode={postNode} postSEO coverPath={generateCoverImageUrl(fieldSlug)} /> }
         <Container>
           <h1 className="post-title">{post.title}</h1>
 

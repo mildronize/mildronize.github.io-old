@@ -37,7 +37,7 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        {!isDraft && <SEO postPath={shortPathname} postNode={postNode} postSEO coverPath={generateCoverImageUrl(fieldSlug)}  />}
+        {!isDraft && <SEO postPath={shortPathname} shortUrl={shortPathname} postNode={postNode} postSEO coverPath={generateCoverImageUrl(fieldSlug)}  />}
       </div>
     </>
   );
