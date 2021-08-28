@@ -57,11 +57,11 @@ Once set up, a new .vercel directory will be added to your directory. The .verce
 {"orgId":"example_org_id","projectId":"example_project_id"}
 ```
 
-คุณสามารถเก็บได้ตาม [link](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
+คุณสามารถเก็บ secret ได้ตาม [link](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
 
 ## 3. กำหนด Github Actions
 
-> TL;DR: Combining `pull_request_target` workflow trigger with an explicit checkout of an untrusted PR is a dangerous practice that may lead to repository compromise. We use `pull_request` trigger.
+> TL;DR: Combining `pull_request_target` workflow trigger with an explicit checkout of an untrusted PR is a dangerous practice that may lead to repository compromise. We use `pull_request` trigger. [Ref](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)
 
 ```yml
 # https://github.com/marketplace/actions/vercel-action
