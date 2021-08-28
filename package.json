@@ -105,7 +105,7 @@
     "format:styles": "prettier '**/*.{css,scss}' --write",
     "uuid": "node ./scripts/build/inject-uuid.js",
     "uuid:build": "tsc --project ./scripts/tsconfig.json",
-    "uuid:build-if-not-exist": "path-exists ./scripts/build || npm run uuid:build",
+    "uuid:build-if-not-exist": "path-exists ./scripts/build/inject-uuid.js || npm run uuid:build",
     "postinstall": "run-p husky uuid:build-if-not-exist",
     "husky": "husky install",
     "pageview": "ts-node ./scripts/ga-pageview.ts"

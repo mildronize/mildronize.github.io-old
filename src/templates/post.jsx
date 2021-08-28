@@ -102,12 +102,12 @@ export default function PostTemplate({ data, pageContext }) {
                 }} />
               </Flex>
             </Wrapper>
-              <Flex>
-                <span className="page-view">{numeral(pageview).format('0,0')} views</span>
-                <span style={{ marginTop: '3px'}} >
-                  <ShareButton url={`${config.siteUrl}/s/${fieldSlug}`} />
-                </span>
-              </Flex>
+            <RightWrapper>
+              <span className="page-view">{numeral(pageview).format('0,0')} views</span>
+              <span style={{ marginTop: '3px'}} >
+                <ShareButton url={`${config.siteUrl}/s/${fieldSlug}`} />
+              </span>
+            </RightWrapper>
 
           </MetadataWrapper>
           <HorizontalDivider />
@@ -223,6 +223,16 @@ const PostContent = styled.div`
 const Flex= styled.span`
   display: flex;
   align-items:center;
+`;
+
+const RightWrapper= styled.span`
+  display: flex;
+  align-items:center;
+
+  ${onMobile} {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 `;
 
 const Wrapper = styled.span`

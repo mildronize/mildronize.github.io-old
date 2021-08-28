@@ -55,7 +55,7 @@ function Page404({ data }: PageProps) {
   return (
     <Layout>
       <div className="about-container">
-        <Helmet title={`About | ${config.siteTitle}`} />
+        <Helmet title={`Not Found | ${config.siteTitle}`} />
 
         {isNotFound &&
           <div style={{ textAlign: 'center' }}>
