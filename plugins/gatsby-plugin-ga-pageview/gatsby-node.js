@@ -22,10 +22,18 @@ function getFilename(fileNode) {
 }
 
 exports.onPreInit = async () => {
-  uuidPageView = JSON.parse(await readFile(path.resolve(storePath), "utf8"));
-  slugPageView = JSON.parse(
-    await readFile(path.resolve(storeOldSlugPath), "utf8")
-  );
+  try{
+    uuidPageView = JSON.parse(await readFile(path.resolve(storePath), "utf8"));
+  } catch(error){
+    console.warn('No uuidPageView' ,error);
+  }
+  try{
+    slugPageView = JSON.parse(
+      await readFile(path.resolve(storeOldSlugPath), "utf8")
+    );
+  } catch(error){
+    console.warn('No slugPageView' ,error);
+  }
 };
 
 exports.onCreateNode = async ({ actions, node, getNode }, options) => {
@@ -41,8 +49,6 @@ exports.onCreateNode = async ({ actions, node, getNode }, options) => {
         pageview = postUuid in uuidPageView ? uuidPageView[postUuid] : 0;
       }
     }
-  } else {
-    console.warn("No uuidPageView");
   }
 
   /**
@@ -50,10 +56,11 @@ exports.onCreateNode = async ({ actions, node, getNode }, options) => {
    */
 
   const filename = getFilename(getNode(node.parent));
-
   if (slugPageView && filename) {
     pageview += filename in slugPageView ? slugPageView[filename] : 0;
     console.log(filename, pageview);
+  } else {
+    console.warn('no filename');
   }
 
   createNodeField({
