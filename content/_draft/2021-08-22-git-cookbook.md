@@ -129,24 +129,24 @@ This should have less noise it in than the general `HEAD reflog`.
 # To checkout a PR branch for coding review, credit @Wittawat Karpkrikaew, aaron
 
 - Add a contributor's remote:
-  ```sh
+  ```bash
   $ git remote add [REFERENCE_NAME] git@github.com:aaronamm/dotnetthailand.github.io.git
   ```
 
 - I usually use REFERENCE_NAME as a contributor's name, e.g. aaron, mild.
 
 - Then, fetch all branches of a contributor.
-  ```sh
+  ```bash
   $ git fetch aaron
   ```
 - Git tries to automatically create a local branch that tracks a remote brnach for you, e.g.
-  ```sh
+  ```bash
   * [new branch] improve-webpack-sass-only-content -> aaron/improve-webpack-sass-only-content
   ```
 
 - You can can checkout a new branch with:
 
-  ```sh
+  ```bash
   $ git checkout improve-webpack-sass-only-content
   ```
 
