@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
+      GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
     steps:
       - uses: actions/checkout@master
 
