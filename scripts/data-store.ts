@@ -13,8 +13,9 @@ const defaultUnicode = 'utf8';
 /**
  * DATA:
  *  {
- *    '80cv2rqw': '2015-05-03-how-to-setup-this-blog.md' ,
- *    '3ugsgkg': '2015-05-04-simple-soap-client-and-simple-server-via-flask.md'
+ *    'pagePath': 'pageView'
+ *    '/test': 32 ,
+ *    '/about': 1 ,
  *  }
  */
 class DataStore {
@@ -74,6 +75,11 @@ class DataStore {
     });
     await writeFile(this.path, JSON.stringify(loadedData), defaultUnicode);
   }
+
+  async saveData(data: any) {
+    await writeFile(this.path, JSON.stringify(data), defaultUnicode);
+  }
+
 }
 
 export default DataStore;

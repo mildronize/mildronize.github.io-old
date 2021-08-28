@@ -36,9 +36,11 @@
     "gatsby-source-filesystem": "^3.4.0",
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.4.0",
+    "googleapis": "^84.0.0",
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
+    "numeral": "^2.0.6",
     "polished": "^4.1.2",
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
@@ -57,6 +59,7 @@
     "@types/react-helmet": "^6.1.1",
     "@types/styled-components": "^5.1.9",
     "cli-glob": "^0.1.0",
+    "dotenv": "^10.0.0",
     "eslint": "^7.21.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^8.1.0",
@@ -89,7 +92,8 @@
     "develop": "gatsby develop",
     "dev": "run-s uuid develop",
     "serve": "gatsby serve",
-    "build": "gatsby build",
+    "build": "run-s pageview build:only",
+    "build:only": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
     "build:gh": "npm run clean && npm run build:pp && gh-pages -d public",
     "clean": "rm -rf public && rm -rf .cache",
@@ -103,7 +107,8 @@
     "uuid:build": "tsc --project ./scripts/tsconfig.json",
     "uuid:build-if-not-exist": "path-exists ./scripts/build || npm run uuid:build",
     "postinstall": "run-p husky uuid:build-if-not-exist",
-    "husky": "husky install"
+    "husky": "husky install",
+    "pageview": "ts-node ./scripts/ga-pageview.ts"
   },
   "remarkConfig": {
     "plugins": [

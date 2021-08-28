@@ -1,0 +1,17 @@
+{
+  "name": "gatsby-plugin-ga-pageview",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node ./ga.ts"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^1.0.1",
+    "googleapis": "^84.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  }
+}
