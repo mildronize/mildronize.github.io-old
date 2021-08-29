@@ -4,7 +4,7 @@ import { graphql, Link, navigate } from "gatsby";
 import "./prism-template.css";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
-import { generateCoverImageUrl, findRenderedPathname } from "../utils/path-utils";
+import { generateCoverImageUrl, findRenderedPathname, convertHtmlToExcerpt } from "../utils/path-utils";
 
 /**
  * This component will render only SEO info, then redirect to actual post.
@@ -14,6 +14,8 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
+  // Broken excerpt from GraphQL, use this way to get excerpt
+  const postExcerpt = convertHtmlToExcerpt(postNode.html);
   const { unsplashImgCoverId } = data.markdownRemark.frontmatter;
   const { isDraft, slug : fieldSlug, shortPathname } = data.markdownRemark.fields;
   if (!post.id) {
@@ -35,6 +37,7 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
           postPath={shortPathname}
           shortUrl={shortPathname}
           postNode={postNode}
+          postExcerpt={postExcerpt}
           postSEO
           coverPath={generateCoverImageUrl(fieldSlug)}
           postUnsplashImgCoverId={unsplashImgCoverId}

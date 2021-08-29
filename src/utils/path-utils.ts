@@ -1,3 +1,5 @@
+import excerptHtml from 'excerpt-html';
+
 // For social card generate
 // See more: /plugins/gatsby-plugin-social-sharing-cards/index.js
 export const generateCoverImageUrl = (fieldSlug: string) => `/s/${fieldSlug}/cover.jpg`;
@@ -32,4 +34,15 @@ export const extractUuidFromPathname = (pathname: string): string => {
   }
   const urlSlug = slugs[slugs.length - 1];
   return urlSlug;
+}
+
+
+export const convertHtmlToExcerpt = (htmlCode: string) => {
+  // 140 chars for thai, 55 for eng
+  return excerptHtml(htmlCode, {
+    stripTags:   true, // Set to false to get html code
+    pruneLength: 140, // Amount of characters that the excerpt should contain
+    pruneString: '…', // Character that will be added to the pruned string
+    pruneSeparator: ' ', // Separator to be used to separate words
+  })
 }

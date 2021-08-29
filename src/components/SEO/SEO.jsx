@@ -4,7 +4,7 @@ import urljoin from "url-join";
 import moment from "moment";
 import config from "../../../data/SiteConfig";
 
-function SEO({ postNode, postPath, postSEO, coverPath, shortUrl, postUnsplashImgCoverId }) {
+function SEO({ postNode, postPath, postSEO, coverPath, shortUrl, postUnsplashImgCoverId, postExcerpt }) {
   let title;
   let description;
   let image;
@@ -14,9 +14,14 @@ function SEO({ postNode, postPath, postSEO, coverPath, shortUrl, postUnsplashImg
   if (postSEO) {
     postMeta = postNode.frontmatter;
     ({ title } = postMeta);
-    description = postMeta.description
+    if(postExcerpt){
+      description = postExcerpt;
+    }
+    else {
+      description = postMeta.description
       ? postMeta.description
       : postNode.excerpt;
+    }
     image = postMeta.cover;
     postURL = urljoin(config.siteUrl, config.pathPrefix, shortUrl);
   } else {

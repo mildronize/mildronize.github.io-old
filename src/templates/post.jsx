@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
 import numeral from 'numeral';
+
 import "./prism-template.css";
 import SEO from "../components/SEO/SEO";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
@@ -15,7 +16,7 @@ import Person from '../components/Person';
 import Layout from "../layout/PageLayout";
 import ShareButton from "../components/ShareButton";
 import { onMobile } from "../themes/responsive";
-import { generateCoverImageUrl, findRenderedPathname, extractUuidFromPathname } from "../utils/path-utils";
+import { generateCoverImageUrl, findRenderedPathname, extractUuidFromPathname, convertHtmlToExcerpt} from "../utils/path-utils";
 
 // https://stackoverflow.com/a/17773849/4540808
 const urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
@@ -39,6 +40,9 @@ export default function PostTemplate({ data, pageContext }) {
   const contentRef = useRef(null);
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
+  console.log(postNode)
+  // Broken excerpt from GraphQL, use this way to get excerpt
+  const postExcerpt = convertHtmlToExcerpt(postNode.html);
   const post = postNode.frontmatter;
   const postNodeHtml = addClassWhenLinkIsUrl(postNode.html);
   const { timeToRead } = data.markdownRemark;
@@ -84,6 +88,7 @@ export default function PostTemplate({ data, pageContext }) {
           postPath={renderedPathname}
           shortUrl={shortPathname}
           postNode={postNode}
+          postExcerpt={postExcerpt}
           postSEO
           coverPath={generateCoverImageUrl(fieldSlug)}
           postUnsplashImgCoverId={unsplashImgCoverId}
