@@ -1,31 +1,22 @@
-// Ref: BooGi
+// Ref More: https://thadaw.com/s/ne5q3pt/
+import { useMediaQuery } from 'react-responsive';
 
-const breakpointsInt = {
-  mobile: 768,
-  desktop: 1170,
-} as Record<string, number>;
-
-const breakpoints: Record<string, string> = {};
-
-Object.keys(breakpointsInt).map(function (key, index) {
-  breakpoints[key] = breakpointsInt[key] + 'px';
-});
-
-const checkViewport = (maxValue: number) => {
-  if (typeof document !== `undefined`) {
-    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    return vw <= maxValue;
-  }
-  return false;
+const breakpoints: Record<string, number> = {
+  small: 768,
+  large: 1170,
 };
 
 // For JS
-
-export const isMobile = () => checkViewport(breakpointsInt.mobile);
-export const isDesktop = () => checkViewport(breakpointsInt.desktop);
+export function useResponsive() {
+  const isMobile = useMediaQuery({ maxWidth: breakpoints.small })
+  const isTablet = useMediaQuery({
+    minWidth: breakpoints.small + 1,
+    maxWidth: breakpoints.large - 1 })
+  const isDesktop = useMediaQuery({ minWidth: breakpoints.large })
+  return { isMobile, isTablet, isDesktop};
+}
 
 // For CSS media query
-
-const mq = Object.values(breakpoints).map((bp) => `@media (max-width: ${bp})`);
-export const onMobile = mq[0];
-export const onDesktop = mq[1];
+const mediaQuery = (bp: number) => `@media (max-width: ${bp}px)`;
+export const onMobile = mediaQuery(breakpoints.small);
+export const onTablet = mediaQuery(breakpoints.large);

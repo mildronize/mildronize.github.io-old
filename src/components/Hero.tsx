@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
+import { onMobile, onTablet } from '../themes/responsive';
 import "../themes/font-awesome-all-5.2.0.css";
 import LinkButton from "./Button";
 
@@ -18,16 +19,16 @@ const Hero = (props: any) => {
 };
 
 const Container = styled.div`
-  margin-top: 150px;
+  /* margin-top: 150px; */
   margin-bottom: 100px;
 
   h2{
     font-family: var(--font-family-inter);
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 
-    ${breakpoint('tablet')`
+    ${onMobile} {
       font-size: 2rem;
-    `}
+    }
 
   }
 `;

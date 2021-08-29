@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import { Link } from "gatsby";
 import ToggleDarkMode from './ToggleDarkModeWrapper';
-import CenterContainer from "../components/CenterContainer";
+import CenterContainer from "./CenterContainer";
 import logo from './logo.png';
 
 
@@ -26,13 +26,14 @@ const TopBar = (props: any) => {
   return (
     <div {...restProps}>
       <FixedTopContainer >
-        <CenterContainer>
+        <CenterContainer wide>
           <FlexContainer>
             <FlexItem>
               <Logo><Link to="/" >Thada W.</Link></Logo>
               {draftMode && <DraftLabel><Link to="/draft" >DRAFT</Link></DraftLabel>}
             </FlexItem>
             <FlexItem >
+              <MenuItem><Link to="/blog" >Blog</Link></MenuItem>
               <ToggleOffset>
                 <ToggleDarkMode />
               </ToggleOffset>
@@ -86,7 +87,7 @@ const HeaderOffsetBottom = styled.div`
 `;
 
 const ToggleOffset = styled.div`
-margin-top:4px;
+  margin-left: 5px;
 `;
 
 
@@ -96,9 +97,13 @@ const FlexContainer = styled.div`
 `;
 
 const FlexItem = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
 `;
 
+const MenuItem = styled.div`
+  margin: 0 15px;
+  cursor: pointer;
+`;
 
 export default TopBar;

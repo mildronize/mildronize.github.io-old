@@ -6,13 +6,17 @@ import Footer from "../components/Footer/Footer";
 import config from "../../data/SiteConfig";
 import CenterContainer from "../components/CenterContainer";
 
-const PageLayout = (props: any) => {
-    const { children } = props;
+interface ICenterContainerProps {
+  children: React.ReactNode;
+  wide?: boolean;
+}
+
+const PageLayout = ({ children, wide }: any) => {
 
     return (
         <Layout>
             <TopBar />
-            <CenterContainer>
+            <CenterContainer wide={wide}>
                 {children}
             </CenterContainer>
             <Footer config={config} />
