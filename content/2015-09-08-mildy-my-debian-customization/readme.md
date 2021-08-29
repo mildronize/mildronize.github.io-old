@@ -16,6 +16,7 @@ tags:
   - theme
   - style
 uuid: gtg6emr
+unsplashImgCoverId: hWgsxV_VQW0
 ---
 
 Are you boring in Desktop of Debian. Here are some configurations for
