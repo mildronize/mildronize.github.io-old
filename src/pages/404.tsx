@@ -1,22 +1,15 @@
 import React, { useEffect } from "react";
-import { PageProps, graphql } from "gatsby";
+import { PageProps, graphql, navigate } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../layout";
 import config from "../../data/SiteConfig";
 import globalConfig from "../../data/globalConfig";
 import { useState } from "react";
+import { extractUuidFromPathname, findRenderedPathname } from "../utils/path-utils";
 
 function Page404({ data }: PageProps) {
 
   const [isNotFound, setIsNotFound] = useState(false);
-
-  const getRenderedSlug = (urlSlug: string) => {
-    const postEdge = data as any;
-    const foundNodes = postEdge.allMarkdownRemark.edges.filter(edge => urlSlug === edge.node.fields.slug);
-    if (foundNodes.length > 0)
-      return foundNodes[0].node.fields.renderedPathname;
-    return '';
-  }
 
   const redirect = (urlSlug: string) => {
     if (window) {
@@ -30,25 +23,14 @@ function Page404({ data }: PageProps) {
     }
   }
 
-
   const handleInvalidUrl = () => {
     if (!window) return '';
-    const splits = window.location.pathname.replace(/^\//, '').split('/');
-    let slugs;
-
-    // is Draft Url
-    if(/^\/draft\//.test(window.location.pathname)){
-      slugs = splits[1].split('-');
-    } else {
-      slugs = splits[0].split('-');
-    }
-    const urlSlug = slugs[slugs.length - 1];
-    return urlSlug;
+    return extractUuidFromPathname(window.location.pathname);
   }
 
   useEffect(() => {
     const uuid = handleInvalidUrl();
-    const targetSlug = getRenderedSlug(uuid);
+    const targetSlug = findRenderedPathname(uuid, (data as any).allMarkdownRemark);
     redirect(targetSlug);
   }, []);
 

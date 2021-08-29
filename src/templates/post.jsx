@@ -15,7 +15,7 @@ import Person from '../components/Person';
 import Layout from "../layout/PageLayout";
 import ShareButton from "../components/ShareButton";
 import { onMobile } from "../themes/responsive";
-import { generateCoverImageUrl } from "../utils/path-utils";
+import { generateCoverImageUrl, findRenderedPathname, extractUuidFromPathname } from "../utils/path-utils";
 
 // https://stackoverflow.com/a/17773849/4540808
 const urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
@@ -48,32 +48,27 @@ export default function PostTemplate({ data, pageContext }) {
     post.id = slug;
   }
 
-  // Not use this method, render the clean url instead
-  // useEffect(()=> {
-  //   if(!window) return;
-  //   const query = new URLSearchParams(window.location.search);
-  //   if(query.has('id')){
-  //     if(query.get('id') !== readableSlug){
-  //       window.location.search = `?id=${readableSlug}`;
-  //     }
-  //   } else {
-  //     window.location.search = `?id=${readableSlug}`;
-  //   }
-  // }, []);
-
   useEffect(()=> {
     /* eslint no-restricted-globals: off */
     if(!window || !history) return;
     const query = new URLSearchParams(window.location.search);
     if(query.has('action')){
       if(query.get('action') === globalConfig.actions.REDIRECT ){
-        // If this come from 404 page, it will be duplicated history.
-        // Solve with history.back();
+        /**
+         * If this come from 404 page, it will be duplicated history.
+         * Solve with history.back();
+         */
         if(history.length > 2){
           history.back();
         }
+        /**
+         * If this come from 404 page and access such URL directly,
+         * find uuid of the post, and navigate to it.
+         */
         else {
-          navigate(window.location.pathname);
+          const uuid = extractUuidFromPathname(window.location.pathname);
+          const pathname = findRenderedPathname(uuid, data.allMarkdownRemark);
+          navigate(pathname);
         }
       }
     }
@@ -147,6 +142,45 @@ export default function PostTemplate({ data, pageContext }) {
     </Layout>
   );
 }
+
+
+/* eslint no-undef: "off" */
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+    markdownRemark: markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      timeToRead
+      excerpt
+      frontmatter {
+        title
+        date
+        category
+        tags
+        unsplashImgCoverId
+      }
+      fields {
+        slug
+        date
+        readableSlug
+        isDraft
+        pageview
+        renderedPathname
+        shortPathname
+      }
+    }
+    allMarkdownRemark: allMarkdownRemark {
+      edges {
+        node {
+          fields {
+            renderedPathname
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
+
 
 const HorizontalDivider = styled.div`
 margin-bottom: 70px;
@@ -291,7 +325,7 @@ const Container = styled.div`
 `;
 
 const TagContainer = styled.div`
-  /* margin-top: -5px; */
+  margin-top: 35px;
   /* padding */
   display: flex;
   flex-wrap: wrap;
@@ -303,30 +337,3 @@ const Tag = styled.span`
   margin-right: 30px;
 `;
 
-
-/* eslint no-undef: "off" */
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      timeToRead
-      excerpt
-      frontmatter {
-        title
-        date
-        category
-        tags
-        unsplashImgCoverId
-      }
-      fields {
-        slug
-        date
-        readableSlug
-        isDraft
-        pageview
-        renderedPathname
-        shortPathname
-      }
-    }
-  }
-`;

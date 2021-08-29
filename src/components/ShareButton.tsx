@@ -36,7 +36,7 @@ const ShareButton = ({ url, ...props }: IShareButtonProps) => {
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
+        pauseOnFocusLoss={false}
         draggable={false}
         pauseOnHover
       />

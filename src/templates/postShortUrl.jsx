@@ -4,18 +4,11 @@ import { graphql, Link, navigate } from "gatsby";
 import "./prism-template.css";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
-import { generateCoverImageUrl } from "../utils/path-utils";
+import { generateCoverImageUrl, findRenderedPathname } from "../utils/path-utils";
 
 /**
  * This component will render only SEO info, then redirect to actual post.
  */
-
-const getRenderedSlug = (urlSlug, data) => {
-  const foundNodes = data.allMarkdownRemark.edges.filter(edge => urlSlug === edge.node.fields.slug);
-  if (foundNodes.length > 0)
-    return foundNodes[0].node.fields.renderedPathname;
-  return '';
-}
 
 export default function PostShortUrlTemplate({ data, pageContext }) {
   const { slug } = pageContext;
@@ -26,7 +19,7 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
   if (!post.id) {
     post.id = slug;
   }
-  const targetUrl = getRenderedSlug(slug, data);
+  const targetUrl = findRenderedPathname(slug, data.allMarkdownRemark);
 
   useEffect(() => {
     if(targetUrl !== '') navigate(targetUrl);
@@ -77,11 +70,8 @@ export const pageQuery = graphql`
       edges {
         node {
           fields {
-            filename
             slug
-            readableSlug
             renderedPathname
-            isDraft
           }
         }
       }

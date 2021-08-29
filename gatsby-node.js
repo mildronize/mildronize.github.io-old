@@ -94,8 +94,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({ node, name: "slug", value: nodeSlug });  // No starting and trailing slash ex: whaab42
     createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
     // Render Path
-    createNodeField({ node, name: "renderedPathname", value: `/${draftSlug}${nodeReadableSlug}-${nodeSlug}` });
-    createNodeField({ node, name: "shortPathname", value: `/s/${nodeSlug}` });
+    createNodeField({ node, name: "renderedPathname", value: `/${draftSlug}${nodeReadableSlug}-${nodeSlug}/` }); // Add trailing slash for FB open graph
+    createNodeField({ node, name: "shortPathname", value: `/s/${nodeSlug}/` }); // Add trailing slash for preventing redirect
   }
 };
 
