@@ -9,7 +9,7 @@ const config = {
   siteDescription: "You can find almost stuff about me: sharing ideas, programming techniques, web technology and others.", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteRssTitle: "Thadaw.com RSS feed", // Title of the RSS feed
-  siteFBAppID: "xxxxx", // FB Application ID for using app insights
+  siteFBAppID: "487836291329244", // FB Application ID for using app insights
   googleAnalyticsID: "UA-62565035-1", // GA tracking ID.
   disqusShortname: "https-vagr9k-github-io-gatsby-advanced-starter", // Disqus shortname.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
