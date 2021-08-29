@@ -44,7 +44,12 @@ if(isAddUnsplashCover){
   });
 }
 
+if(!unsplashAccessKey && isAddUnsplashCover){
+  console.log(`Running inject-uuid without Add Unsplash`);
+}
+
 console.log(`Running inject-uuid [mode] isStageChangeMode: ${isStageChangeMode}`);
+console.log(`Running inject-uuid [mode] isAddUnsplashCover: ${isAddUnsplashCover}`);
 
 function randomRange(min, max) {
   min = Math.ceil(min);
@@ -122,7 +127,6 @@ async function main() {
     // Get frontmatter
     const frontmatter = matter(readFile);
     const uuid = retryNewUuid(uuidStore);
-
     if (!('uuid' in frontmatter.data)) {
       frontmatter.data.uuid = uuid;
       await writeFile(absoluteMarkdownPath, matter.stringify(frontmatter.content, frontmatter.data), defaultUnicode);
@@ -135,7 +139,7 @@ async function main() {
 
     if (!('unsplashImgCoverId' in frontmatter.data) && isAddUnsplashCover && unsplashAccessKey) {
       const tags = Array.isArray(frontmatter.data.tags) ? frontmatter.data.tags: [];
-      if(tags.length === 0) return;
+      if(tags.length === 0) continue;
       try{
         frontmatter.data.unsplashImgCoverId = await getUnsplashImageId(3, tags);
       } catch(error) {
@@ -144,7 +148,7 @@ async function main() {
       console.log(frontmatter.data.title);
       if(!frontmatter.data.unsplashImgCoverId) {
         console.warn(`unsplashImgCoverId is empty`)
-        return;
+        continue;
       }
       await writeFile(absoluteMarkdownPath, matter.stringify(frontmatter.content, frontmatter.data), defaultUnicode);
       if(isStageChangeMode){

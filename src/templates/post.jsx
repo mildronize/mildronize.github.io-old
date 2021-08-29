@@ -40,7 +40,6 @@ export default function PostTemplate({ data, pageContext }) {
   const contentRef = useRef(null);
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
-  console.log(postNode)
   // Broken excerpt from GraphQL, use this way to get excerpt
   const postExcerpt = convertHtmlToExcerpt(postNode.html);
   const post = postNode.frontmatter;
