@@ -14,6 +14,7 @@ import Person from '../components/Person';
 import Layout from "../layout/PageLayout";
 import ShareButton from "../components/ShareButton";
 import { onMobile } from "../themes/responsive";
+import TableOfContents from '../components/TableOfContents';
 
 // https://stackoverflow.com/a/17773849/4540808
 const urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
@@ -33,7 +34,7 @@ const addClassWhenLinkIsUrl = (html) => {
   return processedHtml;
 }
 
-export default function PostTemplate({ data, pageContext }) {
+export default function PostTemplate({ data, pageContext, location }) {
   const contentRef = useRef(null);
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
@@ -106,6 +107,11 @@ export default function PostTemplate({ data, pageContext }) {
               </div>
           </MetadataWrapper>
           <HorizontalDivider />
+
+          <TableOfContents
+              show={true}
+              location={location}
+            />
 
           {/* eslint-disable-next-line react/no-danger */}
           <PostContent ref={contentRef}
