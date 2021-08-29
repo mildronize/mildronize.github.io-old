@@ -22,6 +22,12 @@ export const findRenderedPathname = (urlSlug: string, markdownRemarkData: Markdo
   return '';
 }
 
+/**
+ * @param pathname Should be gotten from `window.location.pathname`
+ * pathname will be like: `/react-import-export-component-pattern-whaab42`
+ * The last string will be uuid: whaab42
+ */
+
 export const extractUuidFromPathname = (pathname: string): string => {
   const splits = pathname.replace(/^\//, '').split('/');
   let slugs;

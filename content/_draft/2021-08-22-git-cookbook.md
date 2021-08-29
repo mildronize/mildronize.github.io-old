@@ -69,7 +69,9 @@ git push -u upstream frontend
 
 ## Git Undo
 
-[https://devconnected.com/how-to-undo-last-git-commit/](https://devconnected.com/how-to-undo-last-git-commit/)
+
+- [How to undo (almost) anything with Git](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/)
+- [https://devconnected.com/how-to-undo-last-git-commit/](https://devconnected.com/how-to-undo-last-git-commit/)
 
 ```jsx
 git reset --soft HEAD~1
