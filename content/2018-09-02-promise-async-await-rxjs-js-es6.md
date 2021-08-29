@@ -10,6 +10,7 @@ categories:
   - th
 image: 'https://www.dropbox.com/s/53ds3aqow09hl0g/cover.jpeg?raw=1'
 uuid: leu0374
+unsplashImgCoverId: hopnkQoC0dg
 ---
 
 > **อ่านฉันหน่อย**:  บทความนี้ใช้ javascript ES6 นะครับ ใครยังไม่ชินไปตามอ่านได้ใน Cheat sheet นี้เลย มีภาษาไทยด้วย

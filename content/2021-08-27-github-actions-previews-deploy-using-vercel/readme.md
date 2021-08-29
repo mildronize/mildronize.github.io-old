@@ -1,9 +1,12 @@
 ---
-title:  ตั้งค่าให้ Github Actions แสดง Previews Deploy เมื่อส่ง Pull Request โดยใช้ Vercel
+title: >-
+  ตั้งค่าให้ Github Actions แสดง Previews Deploy เมื่อส่ง Pull Request โดยใช้
+  Vercel
 tags:
   - Github Actions
   - Pull Request
 uuid: qocjeqb
+unsplashImgCoverId: LG8ToawE8WQ
 ---
 
 นี่เป็นตัวอย่างการใช้งานคร่าวๆ นะครับ

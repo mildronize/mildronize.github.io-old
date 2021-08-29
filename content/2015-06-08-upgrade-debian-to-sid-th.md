@@ -19,6 +19,7 @@ categories:
   - th
 last_modified_at: 2016-02-16T00:00:00.000Z
 uuid: e52fdze
+unsplashImgCoverId: raNIrcd39jY
 ---
 
 โดยปกติแล้ว เวลาลง Debian ใหม่ๆ จะไม่สามารถใช้ คำสั่ง sudo ได้ ไม่เหมือนกับ Ubuntu ที่ตอนติดตั้งจะให้ user แรกที่สร้างตอนติดตั้งสามารถใช้ คำสั่ง sudo ได้เลย 

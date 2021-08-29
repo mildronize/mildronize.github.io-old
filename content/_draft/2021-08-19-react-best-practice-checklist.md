@@ -7,6 +7,7 @@ tags:
   - Best Practices
 language: th
 uuid: bulndnf
+unsplashImgCoverId: 1HCb2gPk3ik
 ---
 
 # Performance Issue

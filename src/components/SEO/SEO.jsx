@@ -4,7 +4,7 @@ import urljoin from "url-join";
 import moment from "moment";
 import config from "../../../data/SiteConfig";
 
-function SEO({ postNode, postPath, postSEO, coverPath, shortUrl }) {
+function SEO({ postNode, postPath, postSEO, coverPath, shortUrl, postUnsplashImgCoverId }) {
   let title;
   let description;
   let image;
@@ -47,11 +47,14 @@ function SEO({ postNode, postPath, postSEO, coverPath, shortUrl }) {
     return moment(postNode.frontmatter.date, config.dateFromFormat).toDate();
   };
 
-  if(postMeta && postMeta.cover){
-    // TODO: Read `cover` field from markdown later
-    // --> Need to get absolute path: `image = getImagePath(image);`
-  } if(coverPath) {
+
+  if(postUnsplashImgCoverId){
+    image = `https://source.unsplash.com/${postUnsplashImgCoverId}/800x600`;
+  } else if(coverPath) {
     image = urljoin(config.siteUrl, coverPath);
+  } else if(postMeta && postMeta.cover){
+    // TODO: Read `cover` field from markdown later
+    image = getImagePath(image);
   }
 
   const datePublished = getPublicationDate();

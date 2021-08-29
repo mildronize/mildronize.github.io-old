@@ -1,5 +1,5 @@
 ---
-title: 'จัดการ side effects ใน React ด้วย Hook useEffect'
+title: จัดการ side effects ใน React ด้วย Hook useEffect
 tags:
   - react
   - pattern
@@ -8,6 +8,7 @@ tags:
   - typescript
 language: th
 uuid: wes5jlp
+unsplashImgCoverId: c8h0n7fSTqs
 ---
 
 Side effects เป็น function โดยส่วนใหญ่แล้ว เราจะจัดการกับ Side Effect ของ Component โดยมี 3 scenarios:

@@ -12,6 +12,7 @@ tags:
 categories:
   - th
 uuid: 612v702
+unsplashImgCoverId: oaU-E83yRPw
 ---
 
 สวัสดีครับ คุณผู้อ่านทุกท่านที่สนใจใน Debian

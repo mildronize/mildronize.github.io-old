@@ -10,6 +10,7 @@ tags:
 categories:
   - th
 uuid: it3xlde
+unsplashImgCoverId: 9XngoIpxcEo
 ---
 
 โพสนี้เป็นการรวมเรื่องราวกันหัดใช้ linux ครั้งแรกของผมโดย จะแบ่งเป็นข้อๆ และก็จะค่อยๆ ทยอยเขียน

@@ -16,6 +16,7 @@ tags:
   - github
   - markdown
 uuid: we3xr8r
+unsplashImgCoverId: z0uPpx6DDcA
 ---
 
 I'm following [botbotbot 's blog](http://dev.im-bot.com/2014/06/16/how-to-set-up-this-blog/) to setup this blog. Some contents of this post is original from him.

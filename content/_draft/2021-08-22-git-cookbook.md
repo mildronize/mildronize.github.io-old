@@ -5,6 +5,7 @@ tags:
   - Git
 language: th
 uuid: 4vwhqae
+unsplashImgCoverId: 842ofHC6MaI
 ---
 
 [read this before](git-in-action-obu52c9)

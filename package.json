@@ -39,6 +39,7 @@
     "gatsby-transformer-sharp": "^3.4.0",
     "googleapis": "^84.0.0",
     "gray-matter": "^4.0.3",
+    "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "numeral": "^2.0.6",
@@ -53,6 +54,7 @@
     "react-twitter-widgets": "^1.9.5",
     "styled-components": "^5.2.3",
     "styled-components-breakpoint": "^3.0.0-preview.20",
+    "unsplash-js": "^7.0.15",
     "url-join": "^4.0.0"
   },
   "devDependencies": {
@@ -109,7 +111,8 @@
     "uuid:build-if-not-exist": "path-exists ./scripts/build/inject-uuid.js || npm run uuid:build",
     "postinstall": "run-p husky uuid:build-if-not-exist",
     "husky": "husky install",
-    "pageview": "ts-node ./scripts/ga-pageview.ts"
+    "pageview": "ts-node ./scripts/ga-pageview.ts",
+    "uuid:dev": "ts-node ./scripts/inject-uuid.ts"
   },
   "remarkConfig": {
     "plugins": [

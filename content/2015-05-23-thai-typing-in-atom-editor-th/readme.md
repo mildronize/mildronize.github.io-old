@@ -18,6 +18,7 @@ tags:
   - character
   - thai
 uuid: 5zqwlzs
+unsplashImgCoverId: 5PEy9UraJ5c
 ---
 
 > อัพเดท 2015-07-05: [Atom Editor ออกรุ่น 1.0 แล้ว](https://www.blognone.com/node/69792) ผมได้ทดสอบแล้วแต่ก็ยังไม่สามารถใช้งานภาษาไทยได้

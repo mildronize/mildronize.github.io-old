@@ -10,6 +10,7 @@ categories:
 image: >-
   https://www.dropbox.com/s/ai9dub2ym6qv5pb/Getting%20Started%20TDD%20in%2030%20Seconds%20with%20Python.jpg?raw=1
 uuid: lm28n32
+unsplashImgCoverId: ieic5Tq8YMk
 ---
 
 Quick start to setup python script for Test Driven Development in 30 seconds

@@ -12,6 +12,7 @@ tags:
   - jekyll-3
   - guideline
 uuid: z578nvw
+unsplashImgCoverId: H7LxvEmVZnE
 ---
 
 > Note: **This guideline is not suitable for default engine of GitHub (Jekyll)**. Because it doesn't allow to install any plugin. On the other hand, we can't use Jekyll 2 plugin. It must uses in Jekyll 3 way.

@@ -11,6 +11,7 @@ tags:
 categories:
   - th
 uuid: 8q0uj3s
+unsplashImgCoverId: Pyjp2zmxuLk
 ---
 
 พอดีผมใช้ Windows มาก่อนแล้วถนัดให้ แสดง folder ก่อนแสดงไฟล์ เลยไปหาวิธีการมาจาก [เว็บนี้](http://gexperts.com/wp/gnome-3-12-filesnautilus-sort-folders-before-files-issues/) 

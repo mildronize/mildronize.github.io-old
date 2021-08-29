@@ -42,6 +42,7 @@ export default function PostTemplate({ data, pageContext }) {
   const post = postNode.frontmatter;
   const postNodeHtml = addClassWhenLinkIsUrl(postNode.html);
   const { timeToRead } = data.markdownRemark;
+  const { unsplashImgCoverId } = data.markdownRemark.frontmatter;
   const { date, isDraft, slug : fieldSlug, pageview, renderedPathname, shortPathname } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
@@ -84,7 +85,14 @@ export default function PostTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        {!isDraft && <SEO postPath={renderedPathname} shortUrl={shortPathname} postNode={postNode} postSEO coverPath={generateCoverImageUrl(fieldSlug)} /> }
+        {!isDraft && <SEO
+          postPath={renderedPathname}
+          shortUrl={shortPathname}
+          postNode={postNode}
+          postSEO
+          coverPath={generateCoverImageUrl(fieldSlug)}
+          postUnsplashImgCoverId={unsplashImgCoverId}
+          /> }
         <Container>
           <h1 className="post-title">{post.title}</h1>
 
@@ -308,6 +316,7 @@ export const pageQuery = graphql`
         date
         category
         tags
+        unsplashImgCoverId
       }
       fields {
         slug

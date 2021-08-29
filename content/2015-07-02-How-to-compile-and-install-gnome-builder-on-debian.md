@@ -10,6 +10,7 @@ tags:
 categories:
   - en
 uuid: 1jxvb3m
+unsplashImgCoverId: Tjbk79TARiE
 ---
 
 > Note: This post is early access for using Gnome Builder. It may be including some bug or any error, please calm when you found some bug. So I think this is becoming the best editor for gnome user, Cheer!

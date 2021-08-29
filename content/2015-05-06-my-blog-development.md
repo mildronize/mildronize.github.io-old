@@ -6,6 +6,7 @@ tags:
   - github-page
   - angularjs
 uuid: hm371bt
+unsplashImgCoverId: i0e3m7aMk10
 ---
 
 > This post is involving the old version site, built with [Jekyll](http://jekyllrb.com). 

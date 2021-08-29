@@ -11,6 +11,7 @@ tags:
   - merge
 language: th
 uuid: 2zgi1pu
+unsplashImgCoverId: UT8LMo-wlyk
 ---
 
 มีหลายๆ เทคนิคที่สามารถทำได้ วิธีนี้เป็นวิธีที่ง่ายที่สุด ซึ่งผมได้นำมาจากบทความของ [jasonrudolph.com](http://jasonrudolph.com/blog/2009/02/25/git-tip-how-to-merge-specific-files-from-another-branch/)

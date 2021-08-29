@@ -1,11 +1,14 @@
 ---
-title: "ทำ Task Management ด้วย Template My Things ( Fully inspired by Things 3 Application )"
+title: >-
+  ทำ Task Management ด้วย Template My Things ( Fully inspired by Things 3
+  Application )
 tags:
   - Notion
   - Notion Formula
   - Things3
 category: notion
 uuid: p8c504z
+unsplashImgCoverId: cdMAU_x9mxY
 ---
 
 สวัสดีครับวันนี้มาแชร์ Template: My Things  📥 ( Fully inspired by [Things 3](https://culturedcode.com/things/) Application)

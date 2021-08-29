@@ -21,6 +21,7 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
   const { slug } = pageContext;
   const postNode = data.markdownRemark;
   const post = postNode.frontmatter;
+  const { unsplashImgCoverId } = data.markdownRemark.frontmatter;
   const { isDraft, slug : fieldSlug, shortPathname } = data.markdownRemark.fields;
   if (!post.id) {
     post.id = slug;
@@ -37,7 +38,14 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        {!isDraft && <SEO postPath={shortPathname} shortUrl={shortPathname} postNode={postNode} postSEO coverPath={generateCoverImageUrl(fieldSlug)}  />}
+        {!isDraft && <SEO
+          postPath={shortPathname}
+          shortUrl={shortPathname}
+          postNode={postNode}
+          postSEO
+          coverPath={generateCoverImageUrl(fieldSlug)}
+          postUnsplashImgCoverId={unsplashImgCoverId}
+          />}
       </div>
     </>
   );
@@ -55,6 +63,7 @@ export const pageQuery = graphql`
         date
         category
         tags
+        unsplashImgCoverId
       }
       fields {
         slug

@@ -14,6 +14,7 @@ tags:
   - mount-volume
 featured_image: logo/docker.png
 uuid: deb407s
+unsplashImgCoverId: SInhLTQouEk
 ---
 
 ## เกริ่นนำ สักนิด...

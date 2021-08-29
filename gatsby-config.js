@@ -122,9 +122,9 @@ module.exports = {
         ],
       },
     },
-    // Disable PWA app
-    // "gatsby-plugin-offline",
-    "gatsby-plugin-remove-serviceworker",
+    // Enable PWA app
+    "gatsby-plugin-offline",
+    // "gatsby-plugin-remove-serviceworker",
     {
       resolve: "gatsby-plugin-feed",
       options: {

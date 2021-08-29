@@ -8,6 +8,7 @@ tags:
   - TDD
 category: notion
 uuid: fk36d30
+unsplashImgCoverId: rRX70iCT6o0
 ---
 
 สวัสดีครับ วันนี้ผมมาแชร์เทคนิคการเขียน สูตรแบบ ยังไงก็ไม่พลาดแน่ๆ กันครับ เทคนิคที่ใช้ TDD (Test-Driven Development) คือ โดยผมประยุกต์ใช้ใน Notion โดย

@@ -9,6 +9,7 @@ tags:
   - typescript
 language: en
 uuid: whaab42
+unsplashImgCoverId: L8KQIPCODV8
 ---
 
 ## Default export

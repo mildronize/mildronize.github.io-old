@@ -4,6 +4,7 @@ tags:
   - Webpack
 language: en
 uuid: j5trzrh
+unsplashImgCoverId: oCm8nPkE40k
 ---
 
 - Setup Webpack สำหรับ Multiple Endpoint สำหรับ React ([https://github.com/mildronize/react-typescript-guidebook](https://github.com/mildronize/react-typescript-guidebook))

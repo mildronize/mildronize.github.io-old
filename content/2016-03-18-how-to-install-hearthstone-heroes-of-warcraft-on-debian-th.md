@@ -13,6 +13,7 @@ categories:
   - th
 featured_image: logo/hearthstone.jpg
 uuid: 2vpnolt
+unsplashImgCoverId: 22W93iChREU
 ---
 
 ผมได้โอกาสลองเล่น Hearthstone: Heroes of Warcraft ดู ปรากฏว่าสนุกมากๆ เลยครับ ทำออกมาดีเลยที่เดียว แถมมีทุก platform เลย ยกเว้น Linux แอบน้อยใจนิดๆ เลยได้ลองหาวิธีติดตั้งดู ซึ่งก็ไม่ได้ยากอย่างที่คิด ถ้าใครเป็นมือใหม่ลองทำตามขั้นตอนนี้เลยนะครับ

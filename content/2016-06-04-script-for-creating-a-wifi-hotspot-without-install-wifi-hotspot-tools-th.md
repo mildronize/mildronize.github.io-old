@@ -10,6 +10,7 @@ tags:
 categories:
   - th
 uuid: 4hztzdg
+unsplashImgCoverId: sNvBTRQR7eE
 ---
 
 โปรแกรมทางเลือกสำหรับการสร้าง WiFi Hotspot ใช้งานเองโดยไม่ต้องพึงโปรแกรมอื่นๆ จากคอมพิวเตอร์ของคุณ เช่น [Connectify](http://www.connectify.me/) หรือ [mHotspot](http://www.mhotspot.com/) เป็นต้น
