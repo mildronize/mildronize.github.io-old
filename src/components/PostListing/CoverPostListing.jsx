@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
 import { getUnsplashImageURL, convertHtmlToExcerpt } from "../../utils/path-utils";
-import { onSmallMobile, onMobile } from "../../themes/responsive";
+import { onSmallMobile, onMobile, onTablet } from "../../themes/responsive";
 
 function CoverPostListing({ postEdges }) {
   const postList = [];
@@ -128,10 +128,17 @@ const FlexContainer = styled.div`
 const FlexItem = styled.div`
   width: ${({ cover }) => cover? '250px': '100%'};
   margin-right: ${({ cover }) => cover? '20px': '0'};
-  /* min-width: 100%; */
+
+  ${onTablet} {
+    width: ${({ cover }) => cover? '150px': '100%'};;
+  }
 
   img{
     width: 250px;
+
+    ${onTablet} {
+      width: 150px;
+    }
 
     ${onMobile} {
       width: 150px;

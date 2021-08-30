@@ -45,7 +45,7 @@ export default Landing;
 
 const TwoColumnLayout = styled.div`
   display: flex;
-  ${onTablet} {
+  ${onMobile} {
     flex-direction: column;
   }
 `;
@@ -55,7 +55,7 @@ const TwoColumnItem = styled.div`
   margin-right: ${(p) => (p.main ? 45 : 0)}px;
   border-right: ${(p) => (p.main ? '1px solid var(--colors-text-4)' : 0)};
   width: ${(p) => (p.main ? 70 : 30)}%;
-  ${onTablet} {
+  ${onMobile} {
     width: 100%;
     padding: 0;
     padding-right: 0;
