@@ -19,7 +19,7 @@ const Hero = (props: any) => {
 };
 
 const Container = styled.div`
-  /* margin-top: 150px; */
+
   margin-bottom: 100px;
 
   h2{
@@ -27,7 +27,7 @@ const Container = styled.div`
     font-size: 1.3rem;
 
     ${onMobile} {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
   }

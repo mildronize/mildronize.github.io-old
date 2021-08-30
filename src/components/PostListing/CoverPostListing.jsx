@@ -186,6 +186,7 @@ const FlexItem = styled.div`
 
   ${onSmallMobile} {
     width: 100%;
+    margin-right:0;
   }
 `;
 // console.log(onSmallMobile)
