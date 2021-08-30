@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import { Link } from "gatsby";
 import ToggleDarkMode from './ToggleDarkModeWrapper';
 import CenterContainer from "./CenterContainer";
-import logo from './logo.png';
-
-
 
 const TopBar = (props: any) => {
   const { ...restProps } = props;
@@ -104,6 +101,10 @@ const FlexItem = styled.div`
 const MenuItem = styled.div`
   margin: 0 15px;
   cursor: pointer;
+  a {
+      color: var(--color-default);
+  }
+
 `;
 
 export default TopBar;

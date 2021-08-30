@@ -3,18 +3,21 @@ import { Link } from "gatsby";
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
-import { getUnsplashImageURL, convertHtmlToExcerpt } from "../../utils/path-utils";
+import { getUnsplashImageURL, getTagPathname } from "../../utils/path-utils";
 import { onSmallMobile, onMobile, onTablet } from "../../themes/responsive";
+// import Tag from "../Tag";
 
 function CoverPostListing({ postEdges }) {
   const postList = [];
   postEdges.forEach((postEdge) => {
-    const tags = [];
+    let tags = [];
     if (postEdge.node.frontmatter.tags) {
       postEdge.node.frontmatter.tags.forEach((tag) => {
         tags.push(tag);
       });
     }
+    const maxLength = tags.length > 3? 3: tags.length;
+    tags = tags.splice(0, maxLength);
 
 
     console.log(postEdge.node.frontmatter)
@@ -31,55 +34,83 @@ function CoverPostListing({ postEdges }) {
   });
 
   return (
-    <div>
+    <Container>
       {
         /* Your post list here. */
         postList.map((post) => (
           <PostItem  key={post.path}>
-            <Link to={post.path} >
-              {/* <a className="post-item-link"> */}
               <FlexContainer>
                 <FlexItem cover>
-                  <img src={getUnsplashImageURL(post.unsplashImgCoverId, 250, 160)} />
+                  <Link className="post-link" to={post.path} >
+                    <img src={getUnsplashImageURL(post.unsplashImgCoverId, 250, 160)} />
+                  </Link>
                 </FlexItem>
                 <FlexItem >
-                  <h4>{post.title}</h4>
-                  <Excerpt>{post.excerpt}</Excerpt>
-                  <PostDate >
-                    {format(parseISO(post.date), "yyyy MMM, d")}
+                  <Link className="post-link" to={post.path} >
+                    <h4>{post.title}</h4>
+                    <Excerpt>{post.excerpt}</Excerpt>
+                  </Link>
+                  <PostDate className="post-metadata" >
+                    {format(new Date(), "yyyy") === format(parseISO(post.date), "yyyy")
+                      ? format(parseISO(post.date), "MMM, d")
+                      : format(parseISO(post.date), "yyyy MMM, d")}
                   </PostDate>
-                  {/* <TagContainer>
+                  <TagContainer>
                     {post.tags.map((tag) => (
-                      <Tag>#{tag} </Tag>
+                      <Tag><Link to={getTagPathname(tag)}>{tag}</Link></Tag>
                     ))}
-                  </TagContainer> */}
+                  </TagContainer>
                 </FlexItem>
               </FlexContainer>
-            </Link>
+
           </PostItem>
         ))
       }
-    </div>
+
+    <MorePostLink >
+      <Link to="/blog/" ><h4>More posts...</h4></Link>
+    </MorePostLink>
+    </Container>
   );
 }
 
-
-
-const PostItem = styled.div`
-  margin-bottom:10px;
+const Container = styled.div`
+  .post-metadata:after{
+    padding-left: 10px;
+    padding-right: 10px;
+    content: "•";
+  }
 
   a, a:visited{
-    display: inline-block;
     color: var(--text-heading);
-    font-weight: 400;
-    font-size: 1.2rem;
-    line-height: 1.5;
     text-decoration: none;
-    width:100%;
-    padding: 20px 15px 20px 0px;
-    border-radius: 10px;
-    ${onSmallMobile}{
-      padding-right: 0px;
+  }
+`;
+
+const MorePostLink = styled.div`
+  text-align: center;
+  margin-top: 60px;
+  a {
+    padding: 10px;
+  }
+  /* text-decoration: underline; */
+`;
+
+const PostItem = styled.div`
+  margin-bottom:20px;
+
+  .post-link {
+    a, a:visited {
+      display: inline-block;
+      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      width:100%;
+      padding: 20px 15px 0px 0px;
+      border-radius: 10px;
+      ${onSmallMobile}{
+        padding-right: 0px;
+      }
     }
   }
 
@@ -105,15 +136,18 @@ const PostDate = styled.time`
   font-size: 0.8rem;
 `;
 
-const TagContainer = styled.div`
-  margin-top: -5px;
-  margin-bottom:20px;
+const TagContainer = styled.span`
+  /* margin-top: -5px;
+  margin-bottom:20px; */
 `;
 
 const Tag = styled.span`
-  color: var(--colors-text-3);
+  a, a:visited {
+    color: var(--colors-text-3);
+  }
+
   font-size: 0.8rem;
-  margin-right: 20px;
+  margin-right: 15px;
 `;
 
 const FlexContainer = styled.div`
@@ -127,7 +161,7 @@ const FlexContainer = styled.div`
 
 const FlexItem = styled.div`
   width: ${({ cover }) => cover? '250px': '100%'};
-  margin-right: ${({ cover }) => cover? '20px': '0'};
+  margin-right: ${({ cover }) => cover? '25px': '0'};
 
   ${onTablet} {
     width: ${({ cover }) => cover? '150px': '100%'};;
