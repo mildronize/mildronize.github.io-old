@@ -2,6 +2,7 @@
 import { useMediaQuery } from 'react-responsive';
 
 const breakpoints: Record<string, number> = {
+  extraSmall: 400,
   small: 768,
   large: 1170,
 };
@@ -18,5 +19,8 @@ export function useResponsive() {
 
 // For CSS media query
 const mediaQuery = (bp: number) => `@media (max-width: ${bp}px)`;
+export const onSmallMobile = mediaQuery(breakpoints.extraSmall);
 export const onMobile = mediaQuery(breakpoints.small);
 export const onTablet = mediaQuery(breakpoints.large);
+
+console.log(onSmallMobile)

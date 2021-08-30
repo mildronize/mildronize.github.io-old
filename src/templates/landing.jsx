@@ -5,6 +5,7 @@ import styled from "styled-components";
 import breakpoint from "styled-components-breakpoint";
 import PageLayout from "../layout/PageLayout";
 import PostListing from "../components/PostListing/PostListing";
+import CoverPostListing from "../components/PostListing/CoverPostListing";
 import SidePostListing from "../components/PostListing/SidePostListing";
 import Hero from "../components/Hero";
 import SEO from "../components/SEO/SEO";
@@ -26,7 +27,7 @@ function Landing({ data }) {
             <TwoColumnItem main>
               {isMobile && <Hero />}
               <Header>Recent posts</Header>
-              <PostListing postEdges={postEdges} />
+              <CoverPostListing postEdges={postEdges} />
             </TwoColumnItem>
             <TwoColumnItem>
               {!isMobile && <Hero />}
@@ -50,11 +51,16 @@ const TwoColumnLayout = styled.div`
 `;
 
 const TwoColumnItem = styled.div`
-  padding: 0 15px;
+  padding-right: ${(p) => (p.main ? 45 : 0)}px;
+  margin-right: ${(p) => (p.main ? 45 : 0)}px;
+  border-right: ${(p) => (p.main ? '1px solid var(--colors-text-4)' : 0)};
   width: ${(p) => (p.main ? 70 : 30)}%;
   ${onTablet} {
     width: 100%;
     padding: 0;
+    padding-right: 0;
+    margin-right: 0;
+    border-right: 0;
   }
 `;
 
@@ -92,6 +98,7 @@ export const pageQuery = graphql`
             title
             tags
             date
+            unsplashImgCoverId
           }
         }
       }

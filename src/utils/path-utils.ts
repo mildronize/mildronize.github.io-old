@@ -46,3 +46,8 @@ export const convertHtmlToExcerpt = (htmlCode: string) => {
     pruneSeparator: ' ', // Separator to be used to separate words
   })
 }
+
+
+export const getUnsplashImageURL = (imageId: string, width = 900, height = 600) => {
+  return `https://source.unsplash.com/${imageId}/${width}x${height}`;
+}

@@ -3,8 +3,10 @@ import { Link } from "gatsby";
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import { parseISO, format } from "date-fns";
+import { getUnsplashImageURL, convertHtmlToExcerpt } from "../../utils/path-utils";
+import { onSmallMobile, onMobile } from "../../themes/responsive";
 
-function SidePostListing({ postEdges }) {
+function CoverPostListing({ postEdges }) {
   const postList = [];
   postEdges.forEach((postEdge) => {
     const tags = [];
@@ -14,6 +16,8 @@ function SidePostListing({ postEdges }) {
       });
     }
 
+
+    console.log(postEdge.node.frontmatter)
     postList.push({
       path:  postEdge.node.fields.renderedPathname,
       tags,
@@ -22,6 +26,7 @@ function SidePostListing({ postEdges }) {
       date: postEdge.node.fields.date?postEdge.node.fields.date: "2021-01-01",
       excerpt: postEdge.node.excerpt,
       timeToRead: postEdge.node.timeToRead,
+      unsplashImgCoverId: postEdge.node.frontmatter.unsplashImgCoverId,
     });
   });
 
@@ -34,19 +39,20 @@ function SidePostListing({ postEdges }) {
             <Link to={post.path} >
               {/* <a className="post-item-link"> */}
               <FlexContainer>
-
+                <FlexItem cover>
+                  <img src={getUnsplashImageURL(post.unsplashImgCoverId, 250, 160)} />
+                </FlexItem>
                 <FlexItem >
                   <h4>{post.title}</h4>
+                  <Excerpt>{post.excerpt}</Excerpt>
+                  <PostDate >
+                    {format(parseISO(post.date), "yyyy MMM, d")}
+                  </PostDate>
                   {/* <TagContainer>
                     {post.tags.map((tag) => (
                       <Tag>#{tag} </Tag>
                     ))}
                   </TagContainer> */}
-                </FlexItem>
-                <FlexItem>
-                  <PostDate >
-                    {format(parseISO(post.date), "yyyy MMM, d")}
-                  </PostDate>
                 </FlexItem>
               </FlexContainer>
             </Link>
@@ -57,11 +63,7 @@ function SidePostListing({ postEdges }) {
   );
 }
 
-const PostDate = styled.time`
-  color: var(--colors-text-3);
-  font-weight: 400;
-  font-size: 0.8rem;
-`;
+
 
 const PostItem = styled.div`
   margin-bottom:10px;
@@ -74,16 +76,33 @@ const PostItem = styled.div`
     line-height: 1.5;
     text-decoration: none;
     width:100%;
-    padding: 20px 15px 10px 0px;
+    padding: 20px 15px 20px 0px;
     border-radius: 10px;
+    ${onSmallMobile}{
+      padding-right: 0px;
+    }
+  }
+
+  a:hover{
+    /* background: var(--colors-hover-0); */
   }
 
 h4{
-  font-weight: 700;
-  font-size: 1rem;
   margin:0;
   padding:0;
 }
+`;
+
+const Excerpt = styled.div`
+  color: var(--colors-text-3);
+  font-weight: 400;
+  font-size: 0.9rem;
+`;
+
+const PostDate = styled.time`
+  color: var(--colors-text-3);
+  font-weight: 400;
+  font-size: 0.8rem;
 `;
 
 const TagContainer = styled.div`
@@ -99,13 +118,34 @@ const Tag = styled.span`
 
 const FlexContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 
-
+  ${onSmallMobile}{
+    flex-wrap: wrap;
+  }
 `;
 
 const FlexItem = styled.div`
-  min-width: 100%;
-`;
+  width: ${({ cover }) => cover? '250px': '100%'};
+  margin-right: ${({ cover }) => cover? '20px': '0'};
+  /* min-width: 100%; */
 
-export default SidePostListing;
+  img{
+    width: 250px;
+
+    ${onMobile} {
+      width: 150px;
+    }
+
+    ${onSmallMobile} {
+      width: 100%;
+      margin-right:0;
+    }
+  }
+
+  ${onSmallMobile} {
+    width: 100%;
+  }
+`;
+// console.log(onSmallMobile)
+export default CoverPostListing;

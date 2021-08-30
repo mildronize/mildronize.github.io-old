@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import urljoin from "url-join";
 import moment from "moment";
 import config from "../../../data/SiteConfig";
+import { getUnsplashImageURL } from "../../utils/path-utils";
 
 function SEO({ postNode, postPath, postSEO, coverPath, shortUrl, postUnsplashImgCoverId, postExcerpt }) {
   let title;
@@ -52,9 +53,8 @@ function SEO({ postNode, postPath, postSEO, coverPath, shortUrl, postUnsplashImg
     return moment(postNode.frontmatter.date, config.dateFromFormat).toDate();
   };
 
-
   if(postUnsplashImgCoverId){
-    image = `https://source.unsplash.com/${postUnsplashImgCoverId}/800x600`;
+    image = getUnsplashImageURL(postUnsplashImgCoverId);
   } else if(coverPath) {
     image = urljoin(config.siteUrl, coverPath);
   } else if(postMeta && postMeta.cover){
