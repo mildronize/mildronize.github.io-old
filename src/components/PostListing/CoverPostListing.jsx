@@ -89,15 +89,14 @@ const Container = styled.div`
 
 const MorePostLink = styled.div`
   text-align: center;
-  margin-top: 60px;
+  margin-top: 45px;
   a {
     padding: 10px;
   }
-  /* text-decoration: underline; */
 `;
 
 const PostItem = styled.div`
-  margin-bottom:20px;
+  margin-bottom: 25px;
 
   .post-link {
     a, a:visited {
@@ -161,7 +160,7 @@ const FlexContainer = styled.div`
 
 const FlexItem = styled.div`
   width: ${({ cover }) => cover? '250px': '100%'};
-  margin-right: ${({ cover }) => cover? '25px': '0'};
+  margin-right: ${({ cover }) => cover? '30px': '0'};
 
   ${onTablet} {
     width: ${({ cover }) => cover? '150px': '100%'};;
@@ -169,6 +168,7 @@ const FlexItem = styled.div`
 
   img{
     width: 250px;
+    padding: 5px;
 
     ${onTablet} {
       width: 150px;
