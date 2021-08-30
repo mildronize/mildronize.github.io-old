@@ -50,6 +50,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-redux": "^7.2.4",
+    "react-responsive": "^9.0.0-beta.3",
     "react-share": "^4.4.0",
     "react-toastify": "^7.0.4",
     "react-twitter-widgets": "^1.9.5",

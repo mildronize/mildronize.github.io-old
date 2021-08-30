@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 
-const CenterContainer = (props: any) => {
-  const { children, ...restProps } = props;
+interface ICenterContainerProps {
+  children: React.ReactNode;
+  wide?: boolean;
+}
+
+const CenterContainer = ({ children, wide = false }: ICenterContainerProps) => {
 
   return (
-    <Container {...restProps}>
+    <Container wide={wide}>
       {children}
     </Container>
   );
 };
+interface IContainerProps {
+  wide: boolean;
+}
 
 const Container = styled.div`
-  max-width: 700px;
+  max-width: ${(props: IContainerProps) => props.wide? 1300 :700}px;
   margin: 0 auto;
 `;
 

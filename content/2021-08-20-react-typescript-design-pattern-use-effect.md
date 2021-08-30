@@ -8,7 +8,7 @@ tags:
   - typescript
 language: th
 uuid: wes5jlp
-unsplashImgCoverId: c8h0n7fSTqs
+unsplashImgCoverId: ZfczAO3uDzc
 ---
 
 Side effects เป็น function โดยส่วนใหญ่แล้ว เราจะจัดการกับ Side Effect ของ Component โดยมี 3 scenarios:

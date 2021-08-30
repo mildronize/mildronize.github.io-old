@@ -1,5 +1,5 @@
 import excerptHtml from 'excerpt-html';
-
+import _ from "lodash";
 // For social card generate
 // See more: /plugins/gatsby-plugin-social-sharing-cards/index.js
 export const generateCoverImageUrl = (fieldSlug: string) => `/s/${fieldSlug}/cover.jpg`;
@@ -52,3 +52,13 @@ export const convertHtmlToExcerpt = (htmlCode: string) => {
     pruneSeparator: ' ', // Separator to be used to separate words
   })
 }
+
+
+export const getUnsplashImageURL = (imageId: string, width = 900, height = 600) => {
+  return `https://source.unsplash.com/${imageId}/${width}x${height}`;
+}
+
+export const getTagPathname = (tag: string) => {
+  return `/tags/${_.kebabCase(tag)}`;
+}
+

@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
 /* @import url('https://fonts.googleapis.com/css?family=Bai+Jamjuree:300,400,500,600&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500;600;700&display=swap');
 /* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@600&display=swap'); */
 /* @import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@500&display=swap"); */
 /* @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400&display=swap'); */
@@ -109,6 +109,7 @@ body.light {
     --colors-text-1: hsla(var(--palette-gray-70), 100%);
     --colors-text-2: hsla(var(--palette-gray-60), 100%);
     --colors-text-3: hsla(var(--palette-gray-50), 100%);
+    --colors-text-4: hsla(var(--palette-gray-10), 100%);
     --colors-hover-0: hsla(var(--palette-gray-20), 20%);
     --colors-hover-1: hsla(var(--palette-gray-20), 50%);
     --shadow-1: 0 0px 12px -6px rgba(0, 24, 40, 0.3);
@@ -152,6 +153,7 @@ body.dark {
     --colors-text-1: hsla(var(--palette-gray-20), 100%);
     --colors-text-2: hsla(var(--palette-gray-40), 100%);
     --colors-text-3: hsla(var(--palette-gray-50), 100%);
+    --colors-text-4: hsla(var(--palette-gray-80), 100%);
     --colors-hover-0: hsla(var(--palette-gray-80), 100%);
     --colors-hover-1: hsla(var(--palette-gray-80), 70%);
     --shadow-1: 0 0px 20px -6px rgba(0, 0, 0, 0.7);
