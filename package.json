@@ -94,7 +94,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
     "dev": "run-s uuid develop",
     "serve": "gatsby serve",
     "build": "run-s pageview build:only",

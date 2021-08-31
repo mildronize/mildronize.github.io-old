@@ -42,7 +42,7 @@ function CoverPostListing({ postEdges }) {
               <FlexContainer>
                 <FlexItem cover>
                   <Link className="post-link" to={post.path} >
-                    <img src={getUnsplashImageURL(post.unsplashImgCoverId, 250, 160)} />
+                    <img src={getUnsplashImageURL(post.unsplashImgCoverId, 230, 140)} />
                   </Link>
                 </FlexItem>
                 <FlexItem >
@@ -159,7 +159,7 @@ const FlexContainer = styled.div`
 `;
 
 const FlexItem = styled.div`
-  width: ${({ cover }) => cover? '250px': '100%'};
+  width: ${({ cover }) => cover? '230px': '100%'};
   margin-right: ${({ cover }) => cover? '30px': '0'};
 
   ${onTablet} {
@@ -167,7 +167,7 @@ const FlexItem = styled.div`
   }
 
   img{
-    width: 250px;
+    width: 230px;
     padding: 5px;
 
     ${onTablet} {
