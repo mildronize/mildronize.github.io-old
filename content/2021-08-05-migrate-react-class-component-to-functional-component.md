@@ -12,6 +12,10 @@ uuid: a7ng95o
 unsplashImgCoverId: L8KQIPCODV8
 ---
 
+ใครที่ใช้ React แล้วเขียนด้วย Class Componentลองย้ายมาเขียน Functional Component (Hook) ดูน้า ไม่ยากเลย
+ทำให้โค๊ดอ่านง่ายมากขึ้นด้วย และเขียนง่ายขึ้น
+
+วันนี้เอาตัวอย่างที่ใช้บ่อยๆ ใน React TypeScript เทียบกันให้เห็น จะๆ เลย
 
 # Local State
 
