@@ -9,9 +9,27 @@ https://leetcode.com/
 dotnet tool install -g dotnet-script
 ```
 
-```c#
-// HelloWorld.cs
-Console.WriteLine("Hello World");
+# Setup
+
+```json
+// Filename: omnisharp.json
+{
+  "script": {
+    "enableScriptNuGetReferences": true,
+    "defaultTargetFramework": "net5.0"
+  }
+}
+```
+
+```csharp
+// Filename: HelloWorld.cs
+public class HelloWorld {
+    public string GetString() {
+        return "Hello World";
+    }
+}
+
+Console.WriteLine(new HelloWorld().GetString());
 ```
 
 ```bash
