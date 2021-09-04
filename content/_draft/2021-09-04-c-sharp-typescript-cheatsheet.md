@@ -44,3 +44,22 @@ foreach(var item in array)
 Console.WriteLine("[{0}]", string.Join(", ", array));
 // Output: [2, 7, 11]
 ```
+
+## String Reverse
+
+```csharp
+string ReverseString(string s)
+{
+    char[] charArray = s.ToCharArray();
+    Array.Reverse( charArray );
+    return new string( charArray );
+}
+```
+
+## Convert string to array of chars
+
+```csharp
+char[] charArray = s.ToCharArray();
+// Convert `char[]` back to `string`
+new string( charArray );
+```
