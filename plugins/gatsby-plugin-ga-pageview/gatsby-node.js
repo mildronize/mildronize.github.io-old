@@ -6,8 +6,10 @@ const readFile = promisify(fs.readFile);
 let uuidPageView;
 let slugPageView;
 let mediumPageView;
+let trendingPageView;
 // This path will be ignore by Git
 const storePath = "./scripts/build/pageview.json";
+const storeTrendingPath = "./scripts/build/pageview-trending.json";
 const mediumPath = "./scripts/data/pageview-medium.json"
 const storeOldSlugPath = "./scripts/data/old-pageview-before-2021-08-12.json";
 
@@ -27,22 +29,11 @@ function getFilename(fileNode) {
 exports.onPreInit = async () => {
   try{
     uuidPageView = JSON.parse(await readFile(path.resolve(storePath), "utf8"));
+    slugPageView = JSON.parse(await readFile(path.resolve(storeOldSlugPath), "utf8"));
+    mediumPageView = JSON.parse(await readFile(path.resolve(mediumPath), "utf8"));
+    trendingPageView  = JSON.parse(await readFile(path.resolve(storeTrendingPath), "utf8"));
   } catch(error){
-    console.warn('No uuidPageView' ,error);
-  }
-  try{
-    slugPageView = JSON.parse(
-      await readFile(path.resolve(storeOldSlugPath), "utf8")
-    );
-  } catch(error){
-    console.warn('No slugPageView' ,error);
-  }
-  try{
-    mediumPageView = JSON.parse(
-      await readFile(path.resolve(mediumPath), "utf8")
-    );
-  } catch(error){
-    console.warn('No mediumPageView' ,error);
+    console.warn('Cannot read file' ,error);
   }
 };
 
@@ -51,12 +42,14 @@ exports.onCreateNode = async ({ actions, node, getNode }, options) => {
   const { createNodeField } = actions;
   if (type !== "MarkdownRemark") return;
   let pageview = 0;
+  let pageviewTrendingCount = 0;
   let postUuid = "";
   if (uuidPageView) {
     if (Object.prototype.hasOwnProperty.call(node, "frontmatter")) {
       if (Object.prototype.hasOwnProperty.call(node.frontmatter, "uuid")) {
         postUuid = node.frontmatter.uuid;
         pageview = postUuid in uuidPageView ? uuidPageView[postUuid] : 0;
+        pageviewTrendingCount = postUuid in trendingPageView ? trendingPageView[postUuid] : 0;
       }
     }
   }
@@ -83,5 +76,11 @@ exports.onCreateNode = async ({ actions, node, getNode }, options) => {
     node,
     name: "pageview",
     value: parseInt(pageview) || 0,
+  });
+
+  createNodeField({
+    node,
+    name: "trendingPageview",
+    value: parseInt(pageviewTrendingCount) || 0,
   });
 };

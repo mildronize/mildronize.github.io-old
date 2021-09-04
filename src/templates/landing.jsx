@@ -15,6 +15,7 @@ import { onMobile, onTablet, useResponsive } from "../themes/responsive";
 function Landing({ data }) {
   const postEdges = data.allMarkdownRemark.edges;
   const popularPostEdges = data.popularPost.edges;
+  const trendingPostEdges = data.trendingPost.edges;
   const { isMobile } = useResponsive();
   console.log(onMobile);
   return (
@@ -27,11 +28,18 @@ function Landing({ data }) {
             <TwoColumnItem main>
               {isMobile && <Hero />}
               <Header>Recent posts</Header>
+              <HorizontalDivider/>
               <CoverPostListing postEdges={postEdges} />
             </TwoColumnItem>
             <TwoColumnItem>
               {!isMobile && <Hero />}
-              <Header>Popular posts</Header>
+              <Header>Trending posts</Header>
+              <SubHeader>A Month Earlier</SubHeader>
+              <HorizontalDivider/>
+              <SidePostListing postEdges={trendingPostEdges} trending />
+              <Header style={{marginTop:'65px'}}>Popular posts</Header>
+              <SubHeader>Lifetime</SubHeader>
+              <HorizontalDivider/>
               <SidePostListing postEdges={popularPostEdges} />
             </TwoColumnItem>
           </TwoColumnLayout>
@@ -64,7 +72,26 @@ const TwoColumnItem = styled.div`
   }
 `;
 
+const HorizontalDivider = styled.div`
+  margin-top: 20px;
+  margin-bottom: 20px;
+`;
+const SubHeader = styled.div`
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-transform: lowercase;
+  font-family: var(--font-family-inter);
+  /* font-weight: 500; */
+  font-size: 0.7rem;
+
+  ${onTablet} {
+    font-size: 0.8rem;
+  }
+`;
+
 const Header = styled.h4`
+  /* margin-top: 55px; */
+  margin-bottom: 0;
   text-transform: uppercase;
   font-family: var(--font-family-inter);
   /* font-weight: 500; */
@@ -116,6 +143,31 @@ export const pageQuery = graphql`
             readableSlug
             renderedPathname
             pageview
+          }
+          excerpt
+          timeToRead
+          frontmatter {
+            title
+            tags
+            date
+          }
+        }
+      }
+    }
+    trendingPost: allMarkdownRemark(
+      sort: { fields: [fields___trendingPageview], order: DESC }
+      filter: { fields: { isDraft: { eq: false } } }
+      limit: 3
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+            date
+            readableSlug
+            renderedPathname
+            pageview
+            trendingPageview
           }
           excerpt
           timeToRead

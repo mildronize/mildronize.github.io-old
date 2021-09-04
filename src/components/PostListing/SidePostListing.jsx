@@ -5,7 +5,7 @@ import numeral from 'numeral';
 import { parseISO, format } from "date-fns";
 import { getTagPathname } from "../../utils/path-utils";
 
-function SidePostListing({ postEdges }) {
+function SidePostListing({ postEdges, trending }) {
   const postList = [];
   postEdges.forEach((postEdge) => {
     const tags = [];
@@ -25,7 +25,7 @@ function SidePostListing({ postEdges }) {
         : "2021-01-01",
       excerpt: postEdge.node.excerpt,
       timeToRead: postEdge.node.timeToRead,
-      pageview: postEdge.node.fields.pageview,
+      pageview: trending? postEdge.node.fields.trendingPageview : postEdge.node.fields.pageview,
     });
   });
 

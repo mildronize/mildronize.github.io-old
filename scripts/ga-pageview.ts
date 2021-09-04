@@ -1,6 +1,8 @@
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import DataStore from './data-store';
+import { format } from 'date-fns';
+import { execFileSync } from 'child_process';
 
 const reporting = google.analyticsreporting('v4');
 
@@ -8,6 +10,7 @@ dotenv.config();
 const clientEmail = process.env.GA_CLIENT_EMAIL;
 const privateKey = process.env.GA_PRIVATE_KEY?.replace(/\\n/gm, '\n');
 const storePath = './scripts/build/pageview.json';
+const storeTrendingPath = './scripts/build/pageview-trending.json';
 const storeDebugPath = './scripts/build/debug-pageview.json';
 
 /**
@@ -43,17 +46,24 @@ async function getReports(reports) {
 
 };
 
-const basic_report = {
-  // https://developers.google.com/analytics/devguides/reporting/core/v4/rest/v4/reports/batchGet
-  'reportRequests': [
-    {
-      'viewId': view_id,
-      'dateRanges': [{ 'startDate': '2021-08-13', 'endDate': 'today' }],
-      'metrics': [{ 'expression': 'ga:pageviews' }],
-      'dimensions': [{ 'name': 'ga:pagePath' }]
-    }
-  ]
-};
+interface DateRange {
+  startDate: string;
+  endDate: string;
+}
+
+function getReportRequests(dateRange: DateRange) {
+  return {
+    // https://developers.google.com/analytics/devguides/reporting/core/v4/rest/v4/reports/batchGet
+    'reportRequests': [
+      {
+        'viewId': view_id,
+        'dateRanges': [ dateRange ],
+        'metrics': [{ 'expression': 'ga:pageviews' }],
+        'dimensions': [{ 'name': 'ga:pagePath' }]
+      }
+    ]
+  }
+}
 
 function getUuidFromPathname(pathname: string) {
 
@@ -75,9 +85,9 @@ interface PageView {
   pageView: number;
 }
 
-async function getPageViewList() {
+async function getPageViewList(dateRange: DateRange) {
   const result: PageView[] = [];
-  const data = (await getReports(basic_report)).data;
+  const data = (await getReports(getReportRequests(dateRange))).data;
   data.reports[0].data.rows.forEach(element => {
     if (!element.dimensions[0]) return;
     result.push({
@@ -103,10 +113,18 @@ export async function getUuidPageView(pageViewList: PageView[]) {
   return slugDict;
 }
 
+function getPreviousMonthDate(month: number) {
+  const currentDate = new Date();
+  currentDate.setMonth(currentDate.getMonth() - month);
+  return format(currentDate, "yyyy-MM-dd");
+}
 
-async function main() {
-  console.log(`Running ga-pageview [mode] isDebugMode: ${isDebugMode}`);
-  const pageViewList = await getPageViewList();
+
+async function getLifeTimeGaPageview() {
+  const pageViewList = await getPageViewList({
+    'startDate': '2021-08-13',
+    'endDate': 'today'
+  });
   const uuidPageView = await getUuidPageView(pageViewList);
   const store = new DataStore(storePath);
   await store.saveData(uuidPageView);
@@ -116,4 +134,16 @@ async function main() {
   }
 }
 
-main();
+async function getTrendingPageview() {
+  const pageViewList = await getPageViewList({
+    'startDate': getPreviousMonthDate(1),
+    'endDate': 'today'
+  });
+  const uuidPageView = await getUuidPageView(pageViewList);
+  const store = new DataStore(storeTrendingPath);
+  await store.saveData(uuidPageView);
+}
+
+console.log(`Running ga-pageview [mode] isDebugMode: ${isDebugMode}`);
+getLifeTimeGaPageview();
+getTrendingPageview();
