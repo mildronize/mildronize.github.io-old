@@ -10,6 +10,8 @@ unsplashImgCoverId: KXkgOigCqj0
 
 สไตล์ของโพสนี่จะเริ่มจาก ES6+ เสมอนะครับ เพื่อให้เห็นอีกมุมนึง
 
+ES6+ คือ
+
 # 1. Commonly used ES6 Features
 
 Ref: https://medium.com/the-andela-way/a-beginners-guide-to-react-with-es6-a2ed0b5c977e
@@ -17,8 +19,6 @@ Ref: https://medium.com/the-andela-way/a-beginners-guide-to-react-with-es6-a2ed0
 ## let and const
 
 use `let` when you plan on re-assigning new values to the variable and `const` if you’re not planning to re-assign a variable.
-
-`var` is always global scope.
 
 ```js
 let name = 'Thada';
@@ -30,15 +30,9 @@ Mild
 ```
 
 <details>
-<summary>Click Me</summary>
+<summary>การใช้ `var` ใน JavaScript ก่อน ES6</summary>
 
-
-#### yes, even hidden code blocks!
-
-```python
-print("hello world!")
-```
-
+`var` is always global scope.
 
 </details>
 
@@ -70,6 +64,8 @@ const message = `Hello ${name}`;
 const message = `Hello ${name.toUpperCase()}`;
 ```
 
+
+
 ## Default function parameters
 
 ```js
@@ -86,66 +82,87 @@ console.log(greet('Mike', 'Hi')); // Hi Mike
 
 ### 1. Extracting data from an array
 
-  ```js
-  // ------
-  const points = [20, 30, 40];
-  const [x, y, z] = points;
-  console.log(x, y, z);
-  //output
-  20 30 40
+```js
+const points = [20, 30, 40];
+const [x, y, z] = points;
+console.log(x, y, z);
+//output
+20 30 40
+```
 
-  // ----
-  const points = [20, 30, 40];
-  const x = points[0];
-  const y = points[1];
-  const z = points[2];
-  console.log(x, y, z);
+<details>
+<summary>คำอธิบายใน JavaScript ก่อน ES6</summary>
 
-  //output
-  20 30 40
-  ```
+```js
+const points = [20, 30, 40];
+const x = points[0];
+const y = points[1];
+const z = points[2];
+console.log(x, y, z);
 
-  ```js
-  const [x, , z] = points
-  ```
+//output
+20 30 40
+```
+
+</details>
+
+```js
+const [x, , z] = points
+```
 ### 2. Extracting data from an object
 
-  ```js
-  // JavaScript ES6+
-  const car = {
-    type: 'Toyota',
-    color: 'Silver',
-    model: 2007
+```js
+// JavaScript ES6+
+const car = {
+  type: 'Toyota',
+  color: 'Silver',
+  model: 2007
+};
+
+const {type, color, model} = car;
+
+console.log(type, color, model);
+//output
+Toyota Silver 2007
+```
+
+<details>
+<summary>คำอธิบายใน JavaScript ก่อน ES6</summary>
+
+```js
+// Before ES6+
+const car = {
+  type: 'Toyota',
+  color: 'Silver',
+  model: 2007
   };
 
-  const {type, color, model} = car;
+const type = car.type;
+const color = car.color;
+const model = car.model;
 
-  console.log(type, color, model);
-  //output
-  Toyota Silver 2007
+console.log(type, color, model);
+//output
+Toyota Silver 2007
+```
 
-  // Before ES6+
-  const car = {
-    type: 'Toyota',
-    color: 'Silver',
-    model: 2007
-    };
+</details>
 
-  const type = car.type;
-  const color = car.color;
-  const model = car.model;
+```js
+const {color} = car;
+console.log(color);
+//output
+Silver
+```
 
-  console.log(type, color, model);
-  //output
-  Toyota Silver 2007
-  ```
+Rename
 
-  ```js
-  const {color} = car;
-  console.log(color);
-  //output
-  Silver
-  ```
+```js
+const {color: myColor} = car;
+console.log(myColor);
+//output
+Silver
+```
 
 ## Object literal Shorthand
 
@@ -164,7 +181,19 @@ console.log(car);
 { type: 'Toyota', color: 'Silver', model: 2007 }
 ```
 
+<details>
+<summary>คำอธิบายใน JavaScript ก่อน ES6</summary>
 
+```js
+// Before ES6+
+const car = {
+  type: type,
+  color: color,
+  model: model,
+};
+```
+
+</details>
 
 ## Arrow Function
 
