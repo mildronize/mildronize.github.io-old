@@ -22,9 +22,10 @@ export default function PostShortUrlTemplate({ data, pageContext }) {
     post.id = slug;
   }
   const targetUrl = findRenderedPathname(slug, data.allMarkdownRemark);
-
   useEffect(() => {
-    if(targetUrl !== '') navigate(targetUrl);
+    if(targetUrl !== '' && window) {
+      window.location.replace(targetUrl);
+    }
   }, []);
 
   return (
