@@ -59,7 +59,8 @@ module.exports = {
             resolve: "gatsby-remark-responsive-iframe",
           },
           "gatsby-remark-copy-linked-files",
-          "gatsby-remark-autolink-headers",
+          // temporarily disable because of bug, some link is not clickable.
+          // "gatsby-remark-autolink-headers",
           "gatsby-remark-prismjs",
         ],
       },
