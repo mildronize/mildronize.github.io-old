@@ -29,8 +29,9 @@ console.log(name);
 Mild
 ```
 
-<details><summary>CLICK ME</summary>
-<p>
+<details>
+<summary>Click Me</summary>
+
 
 #### yes, even hidden code blocks!
 
@@ -38,7 +39,7 @@ Mild
 print("hello world!")
 ```
 
-</p>
+
 </details>
 
 ## The spread operator

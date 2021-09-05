@@ -265,6 +265,26 @@ const PostContent = styled.div`
       border: 1px solid var(--colors-hover-0);
     }
 
+    /** Styling collapsible markdown -> 'details > summary' */
+
+    details {
+      border: 2px solid var(--colors-hover-1);
+      padding: 15px;
+      border-radius: 7px;
+
+      :hover{
+        border-color: var(--colors-border-details);
+      }
+
+      > summary {
+        text-decoration: underline;
+        cursor: pointer;
+        :hover{
+          text-decoration: none;
+        }
+      }
+    }
+
 `;
 
 const Flex= styled.span`

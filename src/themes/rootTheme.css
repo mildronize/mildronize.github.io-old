@@ -98,6 +98,7 @@ body.light {
     /* Color */
     --colors-logo: hsla(var(--palette-blue-70), 100%);
     --colors-brand: hsla(var(--palette-blue-50), 100%);
+    --colors-border-details:  #0e9cd4;
     --colors-body: hsla(var(--palette-gray-00), 100%);
     --colors-emphasis: hsla(var(--palette-blue-50), 8%);
     --colors-foreground: hsla(var(--palette-gray-10), 45%);
@@ -142,6 +143,7 @@ body.dark {
     --textNormal: #fafafa;
     --colors-logo: hsla(var(--palette-blue-30), 100%);
     --colors-brand: hsla(var(--palette-blue-95), 100%);
+    --colors-border-details: #0085b9;
     --colors-body: hsla(var(--palette-gray-95), 100%);
     --colors-emphasis: hsla(var(--palette-blue-40), 8%);
     --colors-foreground: hsla(var(--palette-gray-100), 55%);
