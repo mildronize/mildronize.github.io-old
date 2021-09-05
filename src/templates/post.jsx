@@ -187,19 +187,31 @@ export const pageQuery = graphql`
 
 
 const HorizontalDivider = styled.div`
-margin-bottom: 70px;
+  margin-bottom: 70px;
 `;
 
+const headingAnchorOffset = 100;
+
 const PostContent = styled.div`
+
+    body{
+      ${onMobile} {
+        font-size: 12pt;
+      }
+    }
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-      /* margin-bottom: 20px; */
-      margin-top: 30px;
       margin-bottom: 0px;
+      padding-top: ${headingAnchorOffset}px;
+      margin-top: ${-headingAnchorOffset + 20}px;
+    }
+
+    a.anchor {
+      top: ${headingAnchorOffset}px;
     }
 
     h1{
