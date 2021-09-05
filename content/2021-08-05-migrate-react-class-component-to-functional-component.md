@@ -21,7 +21,7 @@ unsplashImgCoverId: L8KQIPCODV8
 
 เราสามารถแปลงจาก [Class Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/class_components/) ด้านล่างนี้
 
-```ts
+```tsx
 import React from 'react';
 
 interface MyProps {
@@ -47,7 +47,7 @@ class App extends React.Component<MyProps, MyState> {
 
 ให้เป็น [Functional Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components) แบบนี้ได้
 
-```ts
+```tsx
 import React, { useState } from 'react';
 
 interface PropTypes {
@@ -72,7 +72,7 @@ export default App;
 
 เราสามารถแปลงจาก [Class Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/class_components) ด้านล่างนี้
 
-```ts
+```tsx
 import React from 'react';
 
 interface PropTypes {
@@ -110,7 +110,7 @@ export default App;
 
 ให้เป็น Functional Component แบบนี้ได้
 
-```ts
+```tsx
 import React, { useState } from 'react';
 
 interface PropTypes {
@@ -140,7 +140,7 @@ export default App;
 
 หนึ่งใน React Lifecyle ที่ใช้บ่อยๆ มากๆ คือ [componentDidMount()](https://reactjs.org/docs/react-component.html#componentdidmount) ซึ่งจะทำครั้งแรก ครั้งเดียวเมื่อ Component โหลดเสร็จ
 
-```ts
+```tsx
 function FirstExecuteComponent() {
 
   // add event listeners (Flux Store, WebSocket, document, etc.)
@@ -159,7 +159,7 @@ function FirstExecuteComponent() {
 อีกหนึ่งใน React Lifecyle ที่มีใช้บ้างคือคือ [componentWillUnmount()](https://reactjs.org/docs/react-component.html#componentwillunmount) ซึ่งจะทำงานครั้งสุดท้ายครั้งเดียวก่อนที่ Component ถูกเอาออก (Component is unmounted and destroyed)
 
 
-```ts
+```tsx
 function FirstAndLastExecuteComponent() {
 
   // remove event listeners (Flux Store, WebSocket, document, etc.)

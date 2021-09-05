@@ -20,7 +20,7 @@ Side effects เป็น function โดยส่วนใหญ่แล้ว
 
 จะทำครั้งแรก ครั้งเดียวเมื่อ Component โหลดเสร็จ
 
-```ts
+```tsx
 function FirstExecuteComponent() {
 
   // Add event listeners (Flux Store, WebSocket, document, etc.)
@@ -38,7 +38,7 @@ function FirstExecuteComponent() {
 
 จะทำงานครั้งสุดท้ายครั้งเดียวก่อนที่ Component ถูกเอาออก (Component is unmounted and destroyed)
 
-```ts
+```tsx
 function FirstAndLastExecuteComponent() {
 
   // Remove event listeners (Flux Store, WebSocket, document, etc.)

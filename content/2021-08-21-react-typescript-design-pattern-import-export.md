@@ -14,7 +14,7 @@ unsplashImgCoverId: L8KQIPCODV8
 
 ## Default export
 
-```ts
+```tsx
 // MyComponent.tsx
 const MyComponent = () => <div>Hey, MyComponent</div>;
 export default MyComponent;
@@ -25,7 +25,7 @@ import MyComponent from './MyComponent';
 
 ## Export
 
-```ts
+```tsx
 // MyComponent.tsx
 export const MyComponent = () => <div>Hey, MyComponent</div>;
 
@@ -35,7 +35,7 @@ import { MyComponent } from './MyComponent';
 
 ## Rename import
 
-```ts
+```tsx
 // MyComponent.tsx
 export const MyComponent = () => <div>Hey, MyComponent</div>;
 
@@ -63,7 +63,7 @@ export const App = () => (
 
 ## Re-export all
 
-```ts
+```tsx
 // MyComponent.tsx
 export const Switch = () => <div>Hey, Switch</div>;
 export const Group = () => <div>Hey, Group</div>;
@@ -83,7 +83,7 @@ export const App = () => (
 
 ## Re-export, then group all imports and rename
 
-```ts
+```tsx
 // MyComponent.tsx
 export const Switch = () => <div>Hey, Switch</div>;
 export const Group = () => <div>Hey, Group</div>;
@@ -103,7 +103,7 @@ export const App = () => (
 
 ## Export type
 
-```ts
+```tsx
 // MyComponent.tsx
 export type Gender = "Male" | "Female"; // Accept only "Male" or "Female"
 
@@ -113,7 +113,7 @@ import { Gender } from './MyComponent'
 
 ## Export interface
 
-```ts
+```tsx
 // MyComponent.tsx
 export interface IUser {
     id: string;
