@@ -38,22 +38,22 @@ Mild
 
 ## The spread operator
 ```js
-const cities = ["Kampala", "Nairobi", "Lagos"];
-console.log(...cities);
+const animals = ["Cat", "Dog", "Elephant"];
+console.log(...animals);
 
 // Output:
-Kampala Nairobi Lagos
+Cat Dog Elephant
 ```
 
 ```js
-const east = ["Uganda", "Kenya", "Tanzania"];
-const west = ["Nigeria", "Cameroon", "Ghana"];
+const animals = ["Cat", "Dog", "Elephant"];;
+const moreAnimals = ["Ant", "Cow", "Horse"];
 
-const countries = [...east, ...west];
-console.log(countries);
+const allAnimals = [...animals, ...moreAnimals];
+console.log(allAnimals);
 
 // Output:
-[ 'Uganda', 'Kenya', 'Tanzania', 'Nigeria', 'Cameroon', 'Ghana' ]
+[ 'Cat', 'Dog', 'Elephant', 'Ant', 'Cow', 'Horse' ]
 ```
 ## Template literals
 
@@ -69,13 +69,13 @@ const message = `Hello ${name.toUpperCase()}`;
 ## Default function parameters
 
 ```js
-function greet(name = 'Fellow', greeting = 'Welcome') {
+function hello(name = 'Thada', greeting = 'Welcome') {
  return `${greeting} ${name}`;
 }
 
-console.log(greet()); // Welcome Fellow
-console.log(greet('Kagga')); // Welcome Kagga
-console.log(greet('Mike', 'Hi')); // Hi Mike
+console.log(hello()); // Welcome Thada
+console.log(hello('Somchai')); // Welcome Somchai
+console.log(hello('Chana', 'Hi')); // Hi Chana
 ```
 
 ## Destructuring
@@ -83,25 +83,26 @@ console.log(greet('Mike', 'Hi')); // Hi Mike
 ### 1. Extracting data from an array
 
 ```js
-const points = [20, 30, 40];
+const points = [3, 5, 10];
 const [x, y, z] = points;
 console.log(x, y, z);
+
 //output
-20 30 40
+3 5 10
 ```
 
 <details>
 <summary>คำอธิบายใน JavaScript ก่อน ES6</summary>
 
 ```js
-const points = [20, 30, 40];
+const points = [3, 5, 10];
 const x = points[0];
 const y = points[1];
 const z = points[2];
 console.log(x, y, z);
 
 //output
-20 30 40
+3 5 10
 ```
 
 </details>
@@ -113,17 +114,17 @@ const [x, , z] = points
 
 ```js
 // JavaScript ES6+
-const car = {
-  type: 'Toyota',
-  color: 'Silver',
-  model: 2007
+const author = {
+  name: 'Thada',
+  age: 28,
+  location: 'Thailand'
 };
 
-const {type, color, model} = car;
+const {name, age, location} = author;
 
-console.log(type, color, model);
+console.log(name, age, location);
 //output
-Toyota Silver 2007
+Thada 28 Thailand
 ```
 
 <details>
@@ -131,35 +132,35 @@ Toyota Silver 2007
 
 ```js
 // Before ES6+
-const car = {
-  type: 'Toyota',
-  color: 'Silver',
-  model: 2007
-  };
+const author = {
+  name: 'Thada',
+  age: 28,
+  location: 'Thailand'
+};
 
-const type = car.type;
-const color = car.color;
-const model = car.model;
+const name = car.name;
+const age = car.age;
+const location = car.location;
 
-console.log(type, color, model);
+console.log(name, age, location);
 //output
-Toyota Silver 2007
+Thada 28 Thailand
 ```
 
 </details>
 
 ```js
-const {color} = car;
-console.log(color);
+const { location } = author;
+console.log(location);
 //output
-Silver
+Thailand
 ```
 
 Rename
 
 ```js
-const {color: myColor} = car;
-console.log(myColor);
+const { location: country } = author;
+console.log(country);
 //output
 Silver
 ```
@@ -167,18 +168,19 @@ Silver
 ## Object literal Shorthand
 
 ```js
-let type = 'Toyota';
-let color = 'Silver';
-let model = 2007;
+let name = 'Thada';
+let age = 28;
+let location = 'Thailand';
 
-const car = {
- type,
- color,
- model
+const author = {
+ name,
+ age,
+ location
 };
-console.log(car);
+
+console.log(author);
 //output
-{ type: 'Toyota', color: 'Silver', model: 2007 }
+{ name: 'Thada', age: 28, location: 'Thailand' }
 ```
 
 <details>
@@ -187,9 +189,9 @@ console.log(car);
 ```js
 // Before ES6+
 const car = {
-  type: type,
-  color: color,
-  model: model,
+  name: name,
+  age: age,
+  location: location,
 };
 ```
 
