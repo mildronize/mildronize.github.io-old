@@ -245,3 +245,16 @@ https://www.pluralsight.com/guides/handling-multiple-inputs-with-single-onchange
 # Import & Export Pattern
 
 [React Import & Export Component Pattern](/react-import-export-component-pattern-whaab42/)
+
+
+# Promise
+
+```ts
+// Ref: from redux-toolkits starter template
+// A mock function to mimic making an async request for data
+export function fetchCount(amount = 1) {
+    return new Promise<{ data: number }>((resolve) =>
+      setTimeout(() => resolve({ data: amount }), 500)
+    );
+  }
+```
