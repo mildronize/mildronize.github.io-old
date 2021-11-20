@@ -27,35 +27,28 @@ uuid: hzpnrnx
 
 # Mac OS, Ubuntu, WSL
 
-Create a new repository, or reuse an existing one.
+สร้าง SSH key
 
-Generate a new SSH key:
-```
-ssh-keygen -t rsa -C "your_email@example.com"
+```bash
+$ ssh-keygen -t rsa -C "your_email@example.com"
 ```
 
-Copy the contents of the file `~/.ssh/id_rsa.pub` to your SSH keys in your GitHub account settings (https://github.com/settings/keys).
+Copy ข้อมูลในไฟล์ `~/.ssh/id_rsa.pub` (ซึ่งก็คือ Public Key) ไปวางที่ GitHub account settings (https://github.com/settings/keys).
 
-Test SSH key:
-```
+ลองทดสอบ SSH key:
+
+```bash
 $ ssh -T git@github.com
-Hi developius! You've successfully authenticated, but GitHub does not provide shell access.
+Hi [Your Username]! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-Change directory into the local clone of your repository (if you're not already there) and run:
+ไปยังโฟลเดอร์ที่ของ Git Repo ในเครื่องเราแล้วเปลี่ยน Git remote ให้เป็นแบบ SSH
 
-```
-git remote set-url origin git@github.com:username/your-repository.git
-```
-
-Now try editing a file (try the README) and then do:
-
-```
-$ git commit -am "Update README.md"
-$ git push
+```bash
+$ git remote set-url origin git@github.com:username/your-repository.git
 ```
 
-You should not be asked for a username or password. If it works, your SSH key is correctly configured.
+จากนั้นลอง commit และ push ดู ระบบไม่ควรถามหารหัสผ่านแล้ว
 
 Ref: https://gist.github.com/developius/c81f021eb5c5916013dc
 
@@ -103,21 +96,21 @@ Copy the contents of the file `~/.ssh/id_rsa.pub` to your SSH keys in your GitHu
 
 Test SSH key:
 ```
-PS> ssh -i ~/.ssh/id_rsa -T git@github.com
+PS > ssh -i ~/.ssh/id_rsa -T git@github.com
 Hi mildronize! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
 Change directory into the local clone of your repository (if you're not already there) and run:
 
 ```
-git remote set-url origin git@github.com:username/your-repository.git
+PS > git remote set-url origin git@github.com:username/your-repository.git
 ```
 
 Now try editing a file (try the README) and then do:
 
 ```
-$ git commit -am "Update README.md"
-$ git push
+PS > git commit -am "Update README.md"
+PS > git push
 ```
 
 You should not be asked for a username or password. If it works, your SSH key is correctly configured.
