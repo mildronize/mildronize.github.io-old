@@ -52,7 +52,6 @@ $ git remote set-url origin git@github.com:username/your-repository.git
 
 Ref: https://gist.github.com/developius/c81f021eb5c5916013dc
 
-
 # Windows 10, 11
 
 เมื่อปี 2018 ผมได้เขียนบทความ [วิธีตั้งค่าการใช้งาน Github (แบบไม่ต้องกรอกรหัสผ่านทุกครั้ง) ผ่าน SSH บน Windows](/s/mo4feik/) ซึ่งได้แนะนำวิธีการใช้ Putty สำหรับทำงานเป็นเบื้องหลัง แต่เราจำเป็นต้องเปิดตัว agent ขึ้นมาทุกครั้ง หรือถ้าไม่อย่างนั้นก็ต้อง ตั้งค่า startup เอง
@@ -61,27 +60,21 @@ Ref: https://gist.github.com/developius/c81f021eb5c5916013dc
 
 ในหัวข้อนี้จะเน้นที่ Powershell เท่านั้นนะครับ ถ้าใครใช้ WSL หรือ Git Bash บน Windows แล้วแนะนำให้ใช้หัวข้อข้างบนแทน
 
-## Make sure enable OpenSSH on Windows 10
+## เตรียม SSH สำหรับ Windows 10
 
-OpenSSH is available as part of Windows 10 which makes using SSH from cmd/powershell much easier in my opinion. It also doesn't rely on having git installed, unlike my previous solution.
+OpenSSH ได้ถูกปล่อยออกมาเป็นส่วนหนึ่งของ Windows 10 ทำให้เราสามารถใช้คำสั่ง SSH ผ่าน cmd หรือ powershell ได้
 
-1. Open Manage optional features from the start menu and make sure you have `OpenSSH Client` in the list. If not, you should be able to add it.
+2. เปิด Manage optional features จาก start menu แล้วติดตั้ง `OpenSSH Client`
 
-2. Open Services from the start Menu
+3. เปิด Services จาก the start Menu
 
-3. Scroll down to `OpenSSH Authentication Agent` > right click > properties
+4. หา service ที่ชื่อ `OpenSSH Authentication Agent` > คลิกขวา > เลือก properties
 
-4. Change the Startup type from Disabled to any of the other 3 options. I have mine set to Automatic (Delayed Start)
+5. เปลี่ยน Startup type จาก disabled เป็น Automatic (Delayed Start)
 
-5. Open cmd and type where ssh to confirm that the top listed path is in System32. Mine is installed at `C:\Windows\System32\OpenSSH\ssh.exe.` If it's not in the list you may need to close and reopen cmd.
-6. **Optional step/troubleshooting:** If you use git, you should set the `GIT_SSH` environment variable to the output of where ssh which you ran before (e.g `C:\Windows\System32\OpenSSH\ssh.exe`). This is to stop inconsistencies between the version of ssh you're using (and your keys are added/generated with) and the version that git uses internally. This should prevent issues that are similar to this
-
-Some nice things about this solution:
-
-- You won't need to start the ssh-agent every time you restart your computer
-- Identities that you've added (using ssh-add) will get automatically added after restarts. (It works for me, but you might possibly need a config file in your c:\Users\User\.ssh folder)
-- You don't need git!
-- You can register any rsa private key to the agent. The other solution will only pick up a key named id_rsa
+```
+Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+```
 
 ## How to Setup (Powershell)
 
@@ -117,6 +110,8 @@ You should not be asked for a username or password. If it works, your SSH key is
 
 ## How to make Powershell remember the SSH key passphrase.
 
+[Daniel Dogeanu][2]
+
 You should not use the Open SSH client that comes with Git for Windows. Instead, Windows 10 has its own implementation of Open SSH that is integrated with the system. To achieve this:
 
 1. Start the `ssh-agent` from Windows Services:
@@ -151,12 +146,13 @@ ssh-add $HOME/.ssh/your_file_name
 5. Done! Now restart your Powershell and even Windows if necessary.
 
 
+- Identities that you've added (using ssh-add) will get automatically added after restarts. (It works for me, but you might possibly need a config file in your c:\Users\User\.ssh folder)
+
+
 Ref:
 
-- https://newbedev.com/how-to-run-ssh-add-on-windows
-- https://gist.github.com/danieldogeanu/16c61e9b80345c5837b9e5045a701c99
-- https://newbedev.com/ssh-keygen-no-such-file-or-directory
+[1]: https://newbedev.com/how-to-run-ssh-add-on-windows
+[2]: https://gist.github.com/danieldogeanu/16c61e9b80345c5837b9e5045a701c99 "How to make Powershell remember the SSH key passphrase."
+[3]: https://newbedev.com/ssh-keygen-no-such-file-or-directory
 
-
-
-
+ถ้าลองทำแล้วได้ไม่ได้ยังไง มาแบ่งปันกันได้นะครับ
