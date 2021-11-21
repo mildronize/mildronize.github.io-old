@@ -30,7 +30,7 @@ uuid: hzpnrnx
 สร้าง SSH key
 
 ```bash
-$ ssh-keygen -t rsa -C "your_email@example.com"
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
 Copy ข้อมูลในไฟล์ `~/.ssh/id_rsa.pub` (ซึ่งก็คือ Public Key) ไปวางที่ GitHub account settings (https://github.com/settings/keys).
@@ -52,8 +52,6 @@ $ git remote set-url origin git@github.com:username/your-repository.git
 
 [Finnian Anderson][4]
 
-## การใช้งานหลาย Key ในเครื่องเดียวกัน
-
 
 
 # Windows 10, 11
@@ -68,49 +66,26 @@ $ git remote set-url origin git@github.com:username/your-repository.git
 
 OpenSSH ได้ถูกปล่อยออกมาเป็นส่วนหนึ่งของ Windows 10 ทำให้เราสามารถใช้คำสั่ง SSH ผ่าน cmd หรือ powershell ได้
 
-2. เปิด Manage optional features จาก start menu แล้วติดตั้ง `OpenSSH Client`
+1. เปิด `Manage optional features` จาก start menu แล้วติดตั้ง `OpenSSH Client`
 
-3. เปิด Services จาก the start Menu
+2. เปิด Powershell แบบ Admin
 
-4. หา service ที่ชื่อ `OpenSSH Authentication Agent` > คลิกขวา > เลือก properties
+  ```powershell
+  Get-Service -Name ssh-agent | Set-Service -StartupType Automatic
+  Get-Service -Name ssh-agent | Set-Service -Status Running
+  ```
 
-5. เปลี่ยน Startup type จาก disabled เป็น Automatic (Delayed Start)
 
-```
-Get-Service -Name ssh-agent | Set-Service -StartupType Manual
-```
+3. Configure Git to use the Windows 10 implementation of OpenSSH by issuing the following command in Powershell:
+
+  ```
+  git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
+  ```
+
 
 ## How to Setup (Powershell)
 
-Create a new repository, or reuse an existing one.
-
-Generate a new SSH key:
-```
-ssh-keygen -t rsa -C "your_email@example.com" -f $env:UserProfile/.ssh/id_rsa
-```
-
-Copy the contents of the file `~/.ssh/id_rsa.pub` to your SSH keys in your GitHub account settings (https://github.com/settings/keys).
-
-Test SSH key:
-```
-PS > ssh -i ~/.ssh/id_rsa -T git@github.com
-Hi mildronize! You've successfully authenticated, but GitHub does not provide shell access.
-```
-
-Change directory into the local clone of your repository (if you're not already there) and run:
-
-```
-PS > git remote set-url origin git@github.com:username/your-repository.git
-```
-
-Now try editing a file (try the README) and then do:
-
-```
-PS > git commit -am "Update README.md"
-PS > git push
-```
-
-You should not be asked for a username or password. If it works, your SSH key is correctly configured.
+ดูข้อมูลจากข้างบนได้เลย
 
 ## How to make Powershell remember the SSH key passphrase.
 
@@ -118,17 +93,7 @@ You should not be asked for a username or password. If it works, your SSH key is
 
 You should not use the Open SSH client that comes with Git for Windows. Instead, Windows 10 has its own implementation of Open SSH that is integrated with the system. To achieve this:
 
-1. Start the `ssh-agent` from Windows Services:
-  - Type `Services` in the `Start Menu` or `Win+R` and then type `services.msc` to launch the Services window;
-  - Find the `OpenSSH Authentication Agent` in the list and double click on it;
-  - In the `OpenSSH Authentication Agent Properties` window that appears, choose `Automatic` from the `Startup type:` dropdown and click `Start` from `Service status:`. Make sure it now says `Service status: Running`.
-
-2. Configure Git to use the Windows 10 implementation of OpenSSH by issuing the following command in Powershell:
-```
-git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
-```
-
-3. Configure SSH to automatically add the keys to the agent on startup by editing the `config` file found at `$HOME\.ssh\config` (full path - `C:\Users\%YOUR_USERNAME%\.ssh\config`), and add the following lines:
+1. Configure SSH to automatically add the keys to the agent on startup by editing the `config` file found at `$HOME\.ssh\config` (full path - `C:\Users\%YOUR_USERNAME%\.ssh\config`), and add the following lines:
 ```
 Host *
 	AddKeysToAgent yes
@@ -142,16 +107,35 @@ Host github.com
 	IdentityFile ~/.ssh/your_file_name
 ```
 
-4. Add your SSH key to the `ssh-agent` by issuing the `ssh-add` command and entering your passphrase:
+2. Add your SSH key to the `ssh-agent` by issuing the `ssh-add` command and entering your passphrase:
+
 ```
 ssh-add $HOME/.ssh/your_file_name
 ```
 
-5. Done! Now restart your Powershell and even Windows if necessary.
+3. Done! Now restart your Powershell
 
+## การใช้งานหลาย Key ในเครื่องเดียวกัน
 
-- Identities that you've added (using ssh-add) will get automatically added after restarts. (It works for me, but you might possibly need a config file in your c:\Users\User\.ssh folder)
+```
+~/.ssh/config
+```
 
+```
+Host *
+	AddKeysToAgent yes
+	IdentitiesOnly yes
+
+Host github.com
+	HostName github.com
+	User mildronize
+	IdentityFile ~/.ssh/thada.wth_rsa
+
+Host github-work
+	HostName github.com
+	User work-user
+	IdentityFile ~/.ssh/work-user_rsa
+```
 
 Ref:
 
