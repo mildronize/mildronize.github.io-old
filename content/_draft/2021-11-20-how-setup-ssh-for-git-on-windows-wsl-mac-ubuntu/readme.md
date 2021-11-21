@@ -50,7 +50,11 @@ $ git remote set-url origin git@github.com:username/your-repository.git
 
 จากนั้นลอง commit และ push ดู ระบบไม่ควรถามหารหัสผ่านแล้ว
 
-Ref: https://gist.github.com/developius/c81f021eb5c5916013dc
+[Finnian Anderson][4]
+
+## การใช้งานหลาย Key ในเครื่องเดียวกัน
+
+
 
 # Windows 10, 11
 
@@ -154,5 +158,6 @@ Ref:
 [1]: https://newbedev.com/how-to-run-ssh-add-on-windows
 [2]: https://gist.github.com/danieldogeanu/16c61e9b80345c5837b9e5045a701c99 "How to make Powershell remember the SSH key passphrase."
 [3]: https://newbedev.com/ssh-keygen-no-such-file-or-directory
+[4]: https://gist.github.com/developius/c81f021eb5c5916013dc
 
 ถ้าลองทำแล้วได้ไม่ได้ยังไง มาแบ่งปันกันได้นะครับ
