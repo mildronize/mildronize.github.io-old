@@ -53,7 +53,6 @@ $ git remote set-url origin git@github.com:username/your-repository.git
 [Finnian Anderson][4]
 
 
-
 # Windows 10, 11
 
 เมื่อปี 2018 ผมได้เขียนบทความ [วิธีตั้งค่าการใช้งาน Github (แบบไม่ต้องกรอกรหัสผ่านทุกครั้ง) ผ่าน SSH บน Windows](/s/mo4feik/) ซึ่งได้แนะนำวิธีการใช้ Putty สำหรับทำงานเป็นเบื้องหลัง แต่เราจำเป็นต้องเปิดตัว agent ขึ้นมาทุกครั้ง หรือถ้าไม่อย่างนั้นก็ต้อง ตั้งค่า startup เอง
@@ -75,13 +74,13 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
   Get-Service -Name ssh-agent | Set-Service -Status Running
   ```
 
-
 3. Configure Git to use the Windows 10 implementation of OpenSSH by issuing the following command in Powershell:
 
   ```
   git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
   ```
 
+Ref: [1]
 
 ## How to Setup (Powershell)
 
@@ -94,28 +93,31 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
 You should not use the Open SSH client that comes with Git for Windows. Instead, Windows 10 has its own implementation of Open SSH that is integrated with the system. To achieve this:
 
 1. Configure SSH to automatically add the keys to the agent on startup by editing the `config` file found at `$HOME\.ssh\config` (full path - `C:\Users\%YOUR_USERNAME%\.ssh\config`), and add the following lines:
-```
-Host *
-	AddKeysToAgent yes
-	IdentitiesOnly yes
-```
+
+  ```
+  Host *
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+  ```
+
   You can also add the following lines if you generated an SSH key with custom name or multiple SSH keys:
-```
-Host github.com
-	HostName github.com
-	User your_user_name
-	IdentityFile ~/.ssh/your_file_name
-```
+
+  ```
+  Host github.com
+    HostName github.com
+    User your_user_name
+    IdentityFile ~/.ssh/your_file_name
+  ```
 
 2. Add your SSH key to the `ssh-agent` by issuing the `ssh-add` command and entering your passphrase:
 
-```
-ssh-add $HOME/.ssh/your_file_name
-```
+  ```
+  ssh-add $HOME/.ssh/your_file_name
+  ```
 
 3. Done! Now restart your Powershell
 
-## การใช้งานหลาย Key ในเครื่องเดียวกัน
+# การใช้งานหลาย Key ในเครื่องเดียวกัน
 
 ```
 ~/.ssh/config
@@ -129,12 +131,18 @@ Host *
 Host github.com
 	HostName github.com
 	User mildronize
-	IdentityFile ~/.ssh/thada.wth_rsa
+	IdentityFile ~/.ssh/personal_rsa
 
 Host github-work
 	HostName github.com
 	User work-user
 	IdentityFile ~/.ssh/work-user_rsa
+```
+
+วิธีการใช้
+
+```
+git remote set-url origin git@github-work:your-username/your-repo.git
 ```
 
 Ref:
