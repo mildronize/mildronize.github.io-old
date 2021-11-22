@@ -30,10 +30,13 @@ uuid: hzpnrnx
 สร้าง SSH key
 
 ```bash
-$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f /path/to/key
 ```
 
+> Note: ถ้าเป็น Windows ต้องใส่ `-f /path/to/key` ไม่งั้นจะ error ว่า [SSH-Keygen "no such file or directory"][3]
+
 Copy ข้อมูลในไฟล์ `~/.ssh/id_rsa.pub` (ซึ่งก็คือ Public Key) ไปวางที่ GitHub account settings (https://github.com/settings/keys).
+
 
 ลองทดสอบ SSH key:
 
@@ -50,7 +53,7 @@ $ git remote set-url origin git@github.com:username/your-repository.git
 
 จากนั้นลอง commit และ push ดู ระบบไม่ควรถามหารหัสผ่านแล้ว
 
-[Finnian Anderson][4]
+Ref: [Finnian Anderson][4]
 
 
 # Windows 10, 11
@@ -74,13 +77,7 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
   Get-Service -Name ssh-agent | Set-Service -Status Running
   ```
 
-3. Configure Git to use the Windows 10 implementation of OpenSSH by issuing the following command in Powershell:
-
-  ```
-  git config --global core.sshCommand C:/Windows/System32/OpenSSH/ssh.exe
-  ```
-
-Ref: [1]
+Ref: สามารถดูการตั้งค่าแบบ UI ได้ที่ [newbedev.com][1]
 
 ## How to Setup (Powershell)
 
@@ -88,11 +85,9 @@ Ref: [1]
 
 ## How to make Powershell remember the SSH key passphrase.
 
-[Daniel Dogeanu][2]
+Ref: [Daniel Dogeanu][2]
 
-You should not use the Open SSH client that comes with Git for Windows. Instead, Windows 10 has its own implementation of Open SSH that is integrated with the system. To achieve this:
-
-1. Configure SSH to automatically add the keys to the agent on startup by editing the `config` file found at `$HOME\.ssh\config` (full path - `C:\Users\%YOUR_USERNAME%\.ssh\config`), and add the following lines:
+1. ตั้งค่าให้ SSH สามารถที่จะเพิ่ม key ลงไปใน agent โดยการแก้ไขไฟล์ config ที่อยู่ใน `$HOME\.ssh\config`
 
   ```
   Host *
@@ -100,7 +95,7 @@ You should not use the Open SSH client that comes with Git for Windows. Instead,
     IdentitiesOnly yes
   ```
 
-  You can also add the following lines if you generated an SSH key with custom name or multiple SSH keys:
+  โดยที่เราสามารถใส่ config ของ SSH key ที่เราสร้างขึ้นมาได้ หรือจะสามารถใส่หลาย key ได้ด้วย
 
   ```
   Host github.com
@@ -130,22 +125,24 @@ Host *
 
 Host github.com
 	HostName github.com
-	User mildronize
+	User personal-user
 	IdentityFile ~/.ssh/personal_rsa
 
-Host github-work
+Host work.github.com
 	HostName github.com
 	User work-user
-	IdentityFile ~/.ssh/work-user_rsa
+	IdentityFile ~/.ssh/work_rsa
 ```
 
 วิธีการใช้
 
 ```
-git remote set-url origin git@github-work:your-username/your-repo.git
+git remote set-url origin git@work.github.com:your-username/your-repo.git
 ```
 
-Ref:
+```
+git remote set-url origin git@github.com:your-username/your-repo.git
+```
 
 [1]: https://newbedev.com/how-to-run-ssh-add-on-windows
 [2]: https://gist.github.com/danieldogeanu/16c61e9b80345c5837b9e5045a701c99 "How to make Powershell remember the SSH key passphrase."
@@ -153,3 +150,4 @@ Ref:
 [4]: https://gist.github.com/developius/c81f021eb5c5916013dc
 
 ถ้าลองทำแล้วได้ไม่ได้ยังไง มาแบ่งปันกันได้นะครับ
+ตอนนี้ยังหาวิธีที่งานร่วมกับ SourceTree ยังไม่ได้ ถ้าใครทราบยังไงแชร์ได้เลยนะครับ
