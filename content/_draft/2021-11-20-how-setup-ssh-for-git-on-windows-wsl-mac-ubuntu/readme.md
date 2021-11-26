@@ -25,6 +25,8 @@ uuid: hzpnrnx
 
 ![](Asymmetric-Encryption.jpg)
 
+สามารถอ่านเพิ่มได้ที่ [4 Cryptography Concept ที่ Developer ทุกคนควรรู้ โดยคุณ Kittitorn Kanokwalai
+](https://medium.com/scb-techx/4-cryptography-concept-%E0%B8%97%E0%B8%B5%E0%B9%88-developer-%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%84%E0%B8%99%E0%B8%84%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%B9%E0%B9%89-15a806b6771d)
 # Mac OS, Ubuntu, WSL
 
 สร้าง SSH key
