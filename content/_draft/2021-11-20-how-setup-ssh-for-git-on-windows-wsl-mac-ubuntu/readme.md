@@ -150,6 +150,21 @@ git remote set-url origin git@github.com:your-username/your-repo.git
 [2]: https://gist.github.com/danieldogeanu/16c61e9b80345c5837b9e5045a701c99 "How to make Powershell remember the SSH key passphrase."
 [3]: https://newbedev.com/ssh-keygen-no-such-file-or-directory
 [4]: https://gist.github.com/developius/c81f021eb5c5916013dc
+[5]: https://richardballard.co.uk/ssh-keys-on-windows-10/ "SSH keys on Windows 10"
+[6]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement "Official Docs"
 
 ถ้าลองทำแล้วได้ไม่ได้ยังไง มาแบ่งปันกันได้นะครับ
-ตอนนี้ยังหาวิธีที่งานร่วมกับ SourceTree ยังไม่ได้ ถ้าใครทราบยังไงแชร์ได้เลยนะครับ
+
+## วิธีใช้งานร่วมกับ SourceTree
+
+![](openssh-sourcetree.png)
+
+> ต้องใช้ SourceTree แบบ admin ไม่งั้นมันจะ Error "ssh-agent failed with code-1 system.componentmodel.win32exception access is denied"
+
+Sourcetree สามารถอ่านไฟล์ `~/.ssh/config` ได้ ดังนั้น custom hostname เราจะสามารถใช้งานได้
+
+ให้เราอัพเดท Remote ไปที่
+
+```
+git@work.github.com:your-username/your-repo.git
+```
