@@ -26,8 +26,10 @@ unsplashImgCoverId: 842ofHC6MaI
 
 ![](Asymmetric-Encryption.jpg)
 
-สามารถอ่านเพิ่มได้ที่ [4 Cryptography Concept ที่ Developer ทุกคนควรรู้ โดยคุณ Kittitorn Kanokwalai
-](https://medium.com/scb-techx/4-cryptography-concept-%E0%B8%97%E0%B8%B5%E0%B9%88-developer-%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%84%E0%B8%99%E0%B8%84%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%B9%E0%B9%89-15a806b6771d)
+สามารถอ่านเพิ่มได้ที่ [4 Cryptography Concept ที่ Developer ทุกคนควรรู้][4-crypto] โดยคุณ Kittitorn Kanokwalai
+
+ก่อนที่เข้าเรื่องในบทความนี้จะเป็นวิธีการใช้ OpenSSH ที่ใช้อยากแพร่หลายใน Linux และ Mac มาอย่างยาวนาน และแนะนำวิธีการตั้งค่า OpenSSH บน Windows (แทนที่จะเป็น Putty) โดยการใช้งาน OpenSSH จะมี `ssh-agent` ที่เป็น service ที่ทำงานหลังบ้าน เพื่อให้เราสามารถนำ key ของเราไปเชื่อมต่อกับ server ปลายทางได้
+
 # 1. Mac OS, Ubuntu, WSL
 ## 1.1 วิธีการสร้าง SSH Keys และการใช้งาน
 
@@ -70,7 +72,7 @@ Ref: [Finnian Anderson][4]
 
 ## 2.1 เตรียม SSH สำหรับ Windows 10
 
-OpenSSH ได้ถูกปล่อยออกมาเป็นส่วนหนึ่งของ Windows 10 ทำให้เราสามารถใช้คำสั่ง SSH ผ่าน cmd หรือ powershell ได้
+OpenSSH ได้ถูกปล่อยออกมาเป็นส่วนหนึ่งของ Windows 10 ทำให้เราสามารถใช้คำสั่ง SSH ผ่าน cmd หรือ powershell ได้ เพื่อให้สามารถใช้งาน OpenSSH ได้เราจำเป็นจะต้องติดตั้ง OpenSSH และสั่งให้ service `ssh-agent` ทำงานเบื้องหลังไว้
 
 1. เปิด `Manage optional features` จาก start menu แล้วติดตั้ง `OpenSSH Client`
 
@@ -83,7 +85,7 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
 
   แนะนำให้อ่าน[บทความการตั้งค่า OpenSSH ของ Microsoft][ms-official-docs] เพิ่มเติม
 
-ถ้าใครไม่ถนัดการใช้ผ่าน command-line สามารถดูการตั้งค่าแบบ UI ได้ที่ [newbedev.com][1]
+ถ้าใครไม่ถนัดการใช้ผ่าน command-line สามารถดูการตั้งค่าแบบ UI ได้ที่ [newbedev.com][1] หรือ [SSH keys on Windows 10][5] โดย Richard Ballard
 
 ## 2.2 วิธีการสร้าง SSH Keys และการใช้งาน บน PowerShell
 
@@ -164,7 +166,7 @@ git remote set-url origin git@github.com:your-username/your-repo.git
 
 ![](openssh-sourcetree.png)
 
-> ต้องใช้ SourceTree แบบ admin ไม่งั้นมันจะ Error "ssh-agent failed with code-1 system.componentmodel.win32exception access is denied"
+> เราจำเป็นต้องใช้ **SourceTree แบบ Admin** ถ้าสังเกตุในหัวข้อ 2.1 เตรียม SSH สำหรับ Windows 10 มีการสั่งให้ service `ssh-agent` เริ่มทำงาน จำเป็นต้องใช้สิทธิ Admin ไปด้วยในการใช้งานบน SourceTree มิเช่นนั้นมันจะ Error "ssh-agent failed with code-1 system.componentmodel.win32exception access is denied"
 
 Sourcetree สามารถอ่านไฟล์ `~/.ssh/config` ได้ ดังนั้น custom hostname เราจะสามารถใช้งานได้
 
@@ -177,8 +179,12 @@ git@work.github.com:your-username/your-repo.git
 
 # อ่านเพิ่มเติม
 
+- [4 Cryptography Concept ที่ Developer ทุกคนควรรู้][4-crypto] โดยคุณ Kittitorn Kanokwalai
 - [SSH keys on Windows 10][5] - Richard Ballard
 - [OpenSSH key management][ms-official-docs] by Microsoft
+
+# อ้างอิง
+
 - [How to run ssh-add on windows?][1] - Newbedev.com
 - [How to make Powershell remember the SSH key passphrase.][2] - Daniel Dogeanu
 - [SSH-Keygen "no such file or directory" ][3] - Newbedev.com
@@ -190,3 +196,4 @@ git@work.github.com:your-username/your-repo.git
 [4]: https://gist.github.com/developius/c81f021eb5c5916013dc
 [5]: https://richardballard.co.uk/ssh-keys-on-windows-10/ "SSH keys on Windows 10"
 [ms-official-docs]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement "Official Docs"
+[4-crypto]: https://medium.com/scb-techx/4-cryptography-concept-%E0%B8%97%E0%B8%B5%E0%B9%88-developer-%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%84%E0%B8%99%E0%B8%84%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%B9%E0%B9%89-15a806b6771d "4 Cryptography Concept ที่ Developer ทุกคนควรรู้"
