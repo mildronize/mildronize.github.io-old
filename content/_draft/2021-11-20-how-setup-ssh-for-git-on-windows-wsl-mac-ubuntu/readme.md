@@ -28,7 +28,8 @@ unsplashImgCoverId: 842ofHC6MaI
 
 สามารถอ่านเพิ่มได้ที่ [4 Cryptography Concept ที่ Developer ทุกคนควรรู้ โดยคุณ Kittitorn Kanokwalai
 ](https://medium.com/scb-techx/4-cryptography-concept-%E0%B8%97%E0%B8%B5%E0%B9%88-developer-%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%84%E0%B8%99%E0%B8%84%E0%B8%A7%E0%B8%A3%E0%B8%A3%E0%B8%B9%E0%B9%89-15a806b6771d)
-# Mac OS, Ubuntu, WSL
+# 1. Mac OS, Ubuntu, WSL
+## 1.1 วิธีการสร้าง SSH Keys และการใช้งาน
 
 สร้าง SSH key
 
@@ -59,7 +60,7 @@ $ git remote set-url origin git@github.com:username/your-repository.git
 Ref: [Finnian Anderson][4]
 
 
-# Windows 10, 11
+# 2. Windows 10, 11
 
 เมื่อปี 2018 ผมได้เขียนบทความ [วิธีตั้งค่าการใช้งาน Github (แบบไม่ต้องกรอกรหัสผ่านทุกครั้ง) ผ่าน SSH บน Windows](/s/mo4feik/) ซึ่งได้แนะนำวิธีการใช้ Putty สำหรับทำงานเป็นเบื้องหลัง แต่เราจำเป็นต้องเปิดตัว agent ขึ้นมาทุกครั้ง หรือถ้าไม่อย่างนั้นก็ต้อง ตั้งค่า startup เอง
 
@@ -67,7 +68,7 @@ Ref: [Finnian Anderson][4]
 
 ในหัวข้อนี้จะเน้นที่ Powershell เท่านั้นนะครับ ถ้าใครใช้ WSL หรือ Git Bash บน Windows แล้วแนะนำให้ใช้หัวข้อข้างบนแทน
 
-## เตรียม SSH สำหรับ Windows 10
+## 2.1 เตรียม SSH สำหรับ Windows 10
 
 OpenSSH ได้ถูกปล่อยออกมาเป็นส่วนหนึ่งของ Windows 10 ทำให้เราสามารถใช้คำสั่ง SSH ผ่าน cmd หรือ powershell ได้
 
@@ -80,15 +81,29 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
   Get-Service -Name ssh-agent | Set-Service -Status Running
   ```
 
-Ref: สามารถดูการตั้งค่าแบบ UI ได้ที่ [newbedev.com][1]
+  แนะนำให้อ่าน[บทความการตั้งค่า OpenSSH ของ Microsoft][ms-official-docs] เพิ่มเติม
 
-## How to Setup (Powershell)
+ถ้าใครไม่ถนัดการใช้ผ่าน command-line สามารถดูการตั้งค่าแบบ UI ได้ที่ [newbedev.com][1]
 
-ดูข้อมูลจากข้างบนได้เลย
+## 2.2 วิธีการสร้าง SSH Keys และการใช้งาน บน PowerShell
 
-## How to make Powershell remember the SSH key passphrase.
+สามารถใช้วิธีการเดียวกันจาก Mac OS, Ubuntu, WSL ได้เลย ที่เขียนไว้แล้วข้างบน
 
-Ref: [Daniel Dogeanu][2]
+# 3. วิธีการที่ทำ SSH Agent จำ Key passphrase
+
+เราสามารถใช้งานทั้ง Mac OS, Ubuntu, WSL และ Windows เลย โดยมี 2 วิธี  ขอบคุณ[Daniel Dogeanu][2]
+
+## 3.1 ใช้ Command ssh-add
+
+2. Add your SSH key to the `ssh-agent` by issuing the `ssh-add` command and entering your passphrase:
+
+  ```
+  ssh-add $HOME/.ssh/your_file_name
+  ```
+
+> ถ้าใครจะใช้ SSH Key มากกว่าหนึ่ง แนะนำให้ใช้วิธีการที่ 2 ซึ่งเราสามารถ setup ชื่อของ Host ที่แตกต่างกันได้ เมื่อเราใช้คนละ account กัน แนะนำให้ดูเพิ่มใน หัวข้อที่ 4. การใช้งานหลาย Key ในเครื่องเดียวกัน
+
+## 3.2 ตั้งค่าไฟล์ใน `~/.ssh/config`
 
 1. ตั้งค่าให้ SSH สามารถที่จะเพิ่ม key ลงไปใน agent โดยการแก้ไขไฟล์ config ที่อยู่ใน `$HOME\.ssh\config`
 
@@ -107,15 +122,9 @@ Ref: [Daniel Dogeanu][2]
     IdentityFile ~/.ssh/your_file_name
   ```
 
-2. Add your SSH key to the `ssh-agent` by issuing the `ssh-add` command and entering your passphrase:
+2. เรียบร้อยแล้ว ถ้ายังใช้งานไม่ได้ให้ restart shell
 
-  ```
-  ssh-add $HOME/.ssh/your_file_name
-  ```
-
-3. Done! Now restart your Powershell
-
-# การใช้งานหลาย Key ในเครื่องเดียวกัน
+# 4. การใช้งานหลาย Key ในเครื่องเดียวกัน
 
 ```
 ~/.ssh/config
@@ -147,12 +156,7 @@ git remote set-url origin git@work.github.com:your-username/your-repo.git
 git remote set-url origin git@github.com:your-username/your-repo.git
 ```
 
-[1]: https://newbedev.com/how-to-run-ssh-add-on-windows
-[2]: https://gist.github.com/danieldogeanu/16c61e9b80345c5837b9e5045a701c99 "How to make Powershell remember the SSH key passphrase."
-[3]: https://newbedev.com/ssh-keygen-no-such-file-or-directory
-[4]: https://gist.github.com/developius/c81f021eb5c5916013dc
-[5]: https://richardballard.co.uk/ssh-keys-on-windows-10/ "SSH keys on Windows 10"
-[6]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement "Official Docs"
+
 
 ถ้าลองทำแล้วได้ไม่ได้ยังไง มาแบ่งปันกันได้นะครับ
 
@@ -169,3 +173,20 @@ Sourcetree สามารถอ่านไฟล์ `~/.ssh/config` ได้ 
 ```
 git@work.github.com:your-username/your-repo.git
 ```
+
+
+# อ่านเพิ่มเติม
+
+- [SSH keys on Windows 10][5] - Richard Ballard
+- [OpenSSH key management][ms-official-docs] by Microsoft
+- [How to run ssh-add on windows?][1] - Newbedev.com
+- [How to make Powershell remember the SSH key passphrase.][2] - Daniel Dogeanu
+- [SSH-Keygen "no such file or directory" ][3] - Newbedev.com
+- [Setup SSH keys for use with GitHub/GitLab/BitBucket etc ][4] - Finnian Anderson
+
+[1]: https://newbedev.com/how-to-run-ssh-add-on-windows
+[2]: https://gist.github.com/danieldogeanu/16c61e9b80345c5837b9e5045a701c99 "How to make Powershell remember the SSH key passphrase."
+[3]: https://newbedev.com/ssh-keygen-no-such-file-or-directory
+[4]: https://gist.github.com/developius/c81f021eb5c5916013dc
+[5]: https://richardballard.co.uk/ssh-keys-on-windows-10/ "SSH keys on Windows 10"
+[ms-official-docs]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement "Official Docs"
