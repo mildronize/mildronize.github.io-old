@@ -9,6 +9,7 @@ tags:
   - macos
   - ubuntu
 uuid: hzpnrnx
+unsplashImgCoverId: 842ofHC6MaI
 ---
 
 ถ้าใครจะตั้งค่า SSH สำหรับ Remote Server อื่นๆ ก็ใช้หลักการเดียวกันได้ เพียงแต่ในบทความนี้ยกตัวอย่าง GitHub

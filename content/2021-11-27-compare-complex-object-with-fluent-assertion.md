@@ -7,6 +7,7 @@ tags:
   - FluentAssertions
   - dotnet
 uuid: qlh6tbh
+unsplashImgCoverId: SMxzEaidR20
 ---
 
 สมมติว่าเรามี Data Structure ดังนี้ คำถามคือเราจะ Assert อย่างไร
