@@ -44,6 +44,14 @@ if(isAddUnsplashCover){
   });
 }
 
+async function checkUnsplashAccessToken(){
+   const result = await unsplash.photos.getRandom({ count: 1 });
+    if(result.type === 'error'){
+      // console.error(result.errors + '');
+      throw Error(result.errors)
+    }
+}
+
 if(!unsplashAccessKey && isAddUnsplashCover){
   console.log(`Running inject-uuid without Add Unsplash`);
 }
@@ -73,7 +81,9 @@ async function getUnsplashImageId(limit: number, queries: string[]){
     orientation: 'landscape',
   });
 
-  if(result.response.results.length === 0){
+  // console.log(result);
+
+  if(result.response?.results.length === 0){
     // Remove first element
     return getUnsplashImageId(limit, queries.slice(1));
   }
@@ -110,6 +120,7 @@ export const getUuidStore = async (markdownPaths: string[], targetPath: string) 
 }
 
 async function main() {
+  checkUnsplashAccessToken();
   console.time("inject-uuid");
   console.time("getAllMarkdownPaths");
   const markdownPaths = await getAllMarkdownPaths(targetPath);
