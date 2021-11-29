@@ -27,3 +27,7 @@ uuid: l2kc44e
   - pull_request
 - Environment
 - strategy Metric
+
+
+- Composite
+  - Cannot set env var
