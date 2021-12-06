@@ -127,10 +127,8 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
 2. เรียบร้อยแล้ว ถ้ายังใช้งานไม่ได้ให้ restart shell
 
 # 4. การใช้งานหลาย Key ในเครื่องเดียวกัน
-
-```
-~/.ssh/config
-```
+เราสามารถใช้งานทั้ง Mac OS, Ubuntu, WSL และ Windows เลย
+โดยการเข้าไปแก้ไขไฟล์ `~/.ssh/config` และเพิ่มหัวข้อ Host ใหม่ โดยในทีนี้ผมเลือกให้ `Host github.com` เป็นค่าเริ่มต้นของ account github ส่วนตัว และใช้ `Host work.github.com` เป็น host สำหรับ account github ที่ทำงาน
 
 ```
 Host *
@@ -148,16 +146,23 @@ Host work.github.com
 	IdentityFile ~/.ssh/work_rsa
 ```
 
-วิธีการใช้
+ตัวอย่างวิธีการใช้ เราสามารถใช้
 
-```
+```bash
+# สำหรับเปลี่ยน Remote location ของบัญชีส่วนตัว
 git remote set-url origin git@work.github.com:your-username/your-repo.git
+# สำหรับเปลี่ยน Clone ของบัญชีส่วนตัว
+git clone git@work.github.com:your-username/your-repo.git
 ```
+> ซึ่งตรงนี้จะเหมือนกับหน้าเว็บ GitHub แนะนำเลย
 
+แต่ถ้าเราจะใช้ `Host work.github.com` เป็น host สำหรับ account github ที่ทำงาน เพียงแค่เปลี่ยน host ใน URL เท่านั้นเอง
 ```
+# สำหรับเปลี่ยน Remote location ของบัญชีที่ทำงาน
 git remote set-url origin git@github.com:your-username/your-repo.git
+# สำหรับเปลี่ยน Remote location ของบัญชีที่ทำงาน
+git clone origin git@github.com:your-username/your-repo.git
 ```
-
 
 
 ถ้าลองทำแล้วได้ไม่ได้ยังไง มาแบ่งปันกันได้นะครับ
