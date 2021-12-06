@@ -28,3 +28,7 @@ unsplashImgCoverId: YKXnz5vG8AA
   - pull_request
 - Environment
 - strategy Metric
+
+
+- Composite
+  - Cannot set env var
