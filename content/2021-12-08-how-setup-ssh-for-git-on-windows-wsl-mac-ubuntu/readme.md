@@ -93,7 +93,7 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
 
 # 3. วิธีการที่ทำ SSH Agent จำ Key passphrase
 
-เราสามารถใช้งานทั้ง Mac OS, Ubuntu, WSL และ Windows เลย โดยมี 2 วิธี  ขอบคุณ[Daniel Dogeanu][2]
+เราสามารถใช้งานทั้ง Mac OS, Ubuntu, WSL และ Windows เลย โดยมี 2 วิธี  ขอบคุณ [Daniel Dogeanu][2]
 
 ## 3.1 ใช้ Command ssh-add
 
@@ -157,7 +157,8 @@ git clone git@work.github.com:your-username/your-repo.git
 > ซึ่งตรงนี้จะเหมือนกับหน้าเว็บ GitHub แนะนำเลย
 
 แต่ถ้าเราจะใช้ `Host work.github.com` เป็น host สำหรับ account github ที่ทำงาน เพียงแค่เปลี่ยน host ใน URL เท่านั้นเอง
-```
+
+```bash
 # สำหรับเปลี่ยน Remote location ของบัญชีที่ทำงาน
 git remote set-url origin git@github.com:your-username/your-repo.git
 # สำหรับเปลี่ยน Remote location ของบัญชีที่ทำงาน
