@@ -109,7 +109,8 @@ pre[class*="language-"] {
 .style .token.string {
 	color: var(--prism-operator);
 	/* This background color was intended by the author of this theme. */
-	background: var(--prism-bg-operator);
+	background: var(--prism-bg-pre);
+  /* Original color: --prism-bg-operator */
 }
 
 .token.atrule,
