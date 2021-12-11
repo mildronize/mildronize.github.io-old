@@ -372,11 +372,16 @@ ts-node ./app.ts
 
 
 
-# Ref
+# Read More
 
-- https://tsh.io/blog/why-use-typescript/
-- Effective TypeScript
+- [Why use TypeScript? Could it be the best way to write frontend in 2021?](https://tsh.io/blog/why-use-typescript/)
+- [It's not JavaScript's ugly cousin. See how Typescript improves Developer Experience](https://tsh.io/blog/typescript-improves-developer-experience/)
+- [Practical code examples of why Typescript is the best choice for frontend](https://tsh.io/blog/why-typescript/)
+- Effective TypeScript Book
 
+# Good to Know
+
+- He show how to setup SWC on typeScript. [How to speed up your TypeScript project?](https://tsh.io/blog/how-to-speed-up-your-typescript-project/)
 
 # Slides
 
