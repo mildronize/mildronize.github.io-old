@@ -119,7 +119,7 @@ body.light {
     /* prism highlight */
     --prism-0: black;
     --prism-shadow-0: white;
-    --prism-bg-selection: #52575c;
+    --prism-bg-selection: #E5EBF1;
     --prism-bg-pre: #f5f2f0;
     --prism-comment: slategray;
     --prism-punctuation: #999;
@@ -164,7 +164,7 @@ body.dark {
     /* prism highlight */
     --prism-0: #f8f8f2;
     --prism-shadow-0: rgba(0, 0, 0, 0.3);
-    --prism-bg-selection: #a0abe9;
+    --prism-bg-selection: #264F78;
     --prism-bg-pre: #282a36;
     --prism-comment: #6272a4;
     --prism-punctuation: #f8f8f2;
