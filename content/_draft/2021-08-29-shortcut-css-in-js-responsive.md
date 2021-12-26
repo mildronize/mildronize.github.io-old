@@ -34,7 +34,7 @@ export function useResponsive() {
 }
 
 // For CSS media query
-const mediaQuery = (bp: number) => `@media (max-width: ${bp})`;
+const mediaQuery = (bp: number) => `@media (max-width: ${bp}px)`;
 export const onMobile = mediaQuery(breakpoints.small);
 export const onTablet = mediaQuery(breakpoints.large);
 
