@@ -45,9 +45,8 @@ if(isAddUnsplashCover){
 }
 
 async function checkUnsplashAccessToken(){
-   const result = await unsplash.photos.getRandom({ count: 1 });
-    if(result.type === 'error'){
-      // console.error(result.errors + '');
+   const result = await unsplash?.photos.getRandom({ count: 1 });
+    if(result?.type === 'error'){
       throw Error(result.errors)
     }
 }
