@@ -10,7 +10,7 @@ const Hero = (props: any) => {
 
   return (
     <Container {...restProps}>
-      <h2>Hi 👋 I'm Thada, Software Engineer, welcome to my blog. <Subtitle>
+      <h2>Hi 👋 I'm Thada, DevSecOps Engineer, welcome to my blog. <Subtitle>
         Sharing ideas, programming techniques, web technology and others.</Subtitle></h2>
         <LinkButton href="/about" target="_blank">📄&nbsp; About</LinkButton>
         <LinkButton href="https://github.com/mildronize" target="_blank"><i className="fab fa-github"></i>&nbsp; Github</LinkButton>
