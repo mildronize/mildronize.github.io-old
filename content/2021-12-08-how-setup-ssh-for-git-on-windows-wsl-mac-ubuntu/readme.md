@@ -36,13 +36,24 @@ unsplashImgCoverId: 842ofHC6MaI
 สร้าง SSH key
 
 ```bash
-$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f /path/to/key
+$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f ~/.ssh/id_rsa
 ```
 
-> Note: ถ้าเป็น Windows ต้องใส่ `-f /path/to/key` ไม่งั้นจะ error ว่า [SSH-Keygen "no such file or directory"][3]
+> Note: ถ้าเป็น Windows ต้องใส่ `-f ~/.ssh/id_rsa` ไม่งั้นจะ error ว่า [SSH-Keygen "no such file or directory"][3]
 
 Copy ข้อมูลในไฟล์ `~/.ssh/id_rsa.pub` (ซึ่งก็คือ Public Key) ไปวางที่ GitHub account settings (https://github.com/settings/keys).
 
+ติดตั้ง SSH Agent
+
+```bash
+eval "$(ssh-agent -s)"
+```
+
+Add ตัว private key
+
+```
+ssh-add ~/.ssh/id_rsa
+```
 
 ลองทดสอบ SSH key:
 
@@ -59,7 +70,7 @@ $ git remote set-url origin git@github.com:username/your-repository.git
 
 จากนั้นลอง commit และ push ดู ระบบไม่ควรถามหารหัสผ่านแล้ว
 
-Ref: [Finnian Anderson][4]
+Ref: [Finnian Anderson][4], [GitHub Official Doc](https://docs.github.com/en/github-ae@latest/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 
 # 2. Windows 10, 11
