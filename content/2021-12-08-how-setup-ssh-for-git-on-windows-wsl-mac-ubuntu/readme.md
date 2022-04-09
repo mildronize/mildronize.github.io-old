@@ -108,7 +108,7 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
 
 ## 3.1 ใช้ Command ssh-add
 
-2. Add your SSH key to the `ssh-agent` by issuing the `ssh-add` command and entering your passphrase:
+1. Add your SSH key to the `ssh-agent` by issuing the `ssh-add` command and entering your passphrase:
 
   ```
   ssh-add $HOME/.ssh/your_file_name
@@ -157,6 +157,14 @@ Host work.github.com
 	IdentityFile ~/.ssh/work_rsa
 ```
 
+ลองตรวจสอบดูว่า key ของเราถูกติดตั้งหรือยัง?
+
+```bash
+ssh-add -l
+4096 SHA256:XXXXXXXXXXXXXX personal@email.com (RSA)
+4096 SHA256:XXXXXXXXXXXXXX work@email.com (RSA)
+```
+
 ตัวอย่างวิธีการใช้ เราสามารถใช้
 
 ```bash
@@ -176,6 +184,27 @@ git remote set-url origin git@github.com:your-username/your-repo.git
 git clone origin git@github.com:your-username/your-repo.git
 ```
 
+# 5. วิธีการแก้ปัญหา
+
+1. ถ้าเป็นแบบนี้ แสดงว่า SSH Agent ยังไม่ได้ทำงาน background ให้ใช้ คำสั่ง `eval "$(ssh-agent -s)"` เพื่อ Start Agent ขึ้นมา (เฉพาะ Mac, Linux, WSL)
+
+  ```bash
+  $ ssh-add -l
+  Could not open a connection to your authentication agent.
+  ```
+
+2. ถ้าเป็นแบบนี้ แสดงว่า SSH Agent ทำงานแล้ว แต่ยังไม่ได้ติดตั้ง key ของเราเลย อาจจะต้องใช้คำสั่ง `ssh-add /path/key` ไปก่อน เพื่อเพิ่ม key เข้าไป
+
+  ```bash
+  $ ssh-add -l
+  The agent has no identities.
+  ```
+
+3. ถ้ายังไม่ได้ลองดู Verbose ของ SSH ดู
+
+  ```bash
+  ssh -vv -T git@work.github.com
+  ```
 
 ถ้าลองทำแล้วได้ไม่ได้ยังไง มาแบ่งปันกันได้นะครับ
 
@@ -199,6 +228,9 @@ git@work.github.com:your-username/your-repo.git
 - [4 Cryptography Concept ที่ Developer ทุกคนควรรู้][4-crypto] โดยคุณ Kittitorn Kanokwalai
 - [SSH keys on Windows 10][5] - Richard Ballard
 - [OpenSSH key management][ms-official-docs] by Microsoft
+- [วิธีการใช้งาน ~/.ssh/config เพิ่มเติม](https://linuxize.com/post/using-the-ssh-config-file/)
+- [Understand Basic SSH Agent](https://www.ssh.com/academy/ssh/agent)
+- [Using SSH agent forwarding](https://docs.github.com/en/enterprise-server@3.4/developers/overview/using-ssh-agent-forwarding) - GitHub Official Doc
 
 # อ้างอิง
 
