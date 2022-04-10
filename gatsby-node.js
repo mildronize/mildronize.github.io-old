@@ -84,7 +84,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 
     /* eslint new-cap: "off" */
-    const fallbackUuid = new Buffer.from(readableSlug).toString('base64')
+    // Trim Fallback UUID only 32 chars, for preventing too-long URL problem
+    // Convert to base64 because when the Gatsby restart, it should return same URL
+    const tmpUuid = new Buffer.from(readableSlug).toString('base64');
+    const maxLength = tmpUuid.length > 32 ? 32: tmpUuid.length;
+    const fallbackUuid = encodeURI(tmpUuid.substring(0, maxLength));
 
     const nodeSlug = node.frontmatter.uuid || fallbackUuid;
     const nodeReadableSlug = readableSlug.replace(/^\//,'').replace(/\/$/,'');
