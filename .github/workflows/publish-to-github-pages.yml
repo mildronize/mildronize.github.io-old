@@ -7,6 +7,16 @@ on:
   push:
     branches:
       - main
+    paths:
+      - content/**
+      - data/**
+      - src/**
+      - static/**
+
+  schedule:
+      # Nightly Build for Update Page view about 03:00 UTC+7
+      - cron: "0 20 * * *"
+
 jobs:
   build:
     runs-on: ubuntu-latest
