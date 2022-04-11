@@ -239,6 +239,12 @@ const PostContent = styled.div`
       margin: 10px 0;
     }
 
+    p > code {
+      margin-left: 2px;
+      margin-right: 2px;
+      font-size: 0.8em;
+    }
+
     pre > code {
       font-size: 0.9rem;
     }
