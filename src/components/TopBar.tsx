@@ -10,7 +10,7 @@ const TopBar = (props: any) => {
 
   const handleDraftMode = () => {
     if (!window) return '';
-    if(/^\/draft\//.test(window.location.pathname)) {
+    if (/^\/draft\//.test(window.location.pathname)) {
       setDraftMode(true);
     }
   }
@@ -30,7 +30,8 @@ const TopBar = (props: any) => {
               {draftMode && <DraftLabel><Link to="/draft" >DRAFT</Link></DraftLabel>}
             </FlexItem>
             <FlexItem >
-              <MenuItem><Link to="/blog" >Blog</Link></MenuItem>
+              <MenuItem><Link to="/talk" >talk</Link></MenuItem>
+              <MenuItem><Link to="/blog" >blog</Link></MenuItem>
               <ToggleOffset>
                 <ToggleDarkMode />
               </ToggleOffset>
