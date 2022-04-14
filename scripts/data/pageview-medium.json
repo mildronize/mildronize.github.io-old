@@ -4,13 +4,14 @@
   "mediumPattern": "https://medium.com/p/[mediumUuid]",
   "thadawPattern": "https://thadaw.com/s/[uuid]",
   "stats": {
-    "8jexlus": {"mediumUuid": "a93dae533609",  "pageView": 1200},
-    "i4kssit": {"mediumUuid": "9b835aeac9b", "pageView": 78},
-    "lm28n32": {"mediumUuid": "8113d6c94753", "pageView": 101},
-    "leu0374": {"mediumUuid": "12b9e7b32392", "pageView": 62},
-    "jmm9qn9": {"mediumUuid": "8c2def84bc30", "pageView": 505},
-    "et0zg84": {"mediumUuid": "d524d25060ec", "pageView": 351},
-    "928lrr0": {"mediumUuid": "70f4e4d52b09", "pageView": 3200},
-    "utkfndt": {"mediumUuid": "60722e357a42", "pageView": 190}
+    "hzpnrnx": {"mediumUuid": "7c1b475a90af",  "pageView": 242},
+    "8jexlus": {"mediumUuid": "a93dae533609",  "pageView": 1500},
+    "i4kssit": {"mediumUuid": "9b835aeac9b", "pageView": 79},
+    "lm28n32": {"mediumUuid": "8113d6c94753", "pageView": 102},
+    "leu0374": {"mediumUuid": "12b9e7b32392", "pageView": 70},
+    "jmm9qn9": {"mediumUuid": "8c2def84bc30", "pageView": 509},
+    "et0zg84": {"mediumUuid": "d524d25060ec", "pageView": 435},
+    "928lrr0": {"mediumUuid": "70f4e4d52b09", "pageView": 3300},
+    "utkfndt": {"mediumUuid": "60722e357a42", "pageView": 206}
   }
 }
