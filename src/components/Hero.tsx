@@ -4,6 +4,8 @@ import breakpoint from 'styled-components-breakpoint';
 import { onMobile, onTablet } from '../themes/responsive';
 import "../themes/font-awesome-all-5.2.0.css";
 import LinkButton from "./Button";
+import UserLinks from "./UserLinks/UserLinks";
+import config from "../../data/SiteConfig";
 
 const Hero = (props: any) => {
   const { ...restProps } = props;
@@ -14,6 +16,7 @@ const Hero = (props: any) => {
         Sharing ideas, programming techniques, web technology and others.</Subtitle></h2>
         <LinkButton href="/about" target="_blank">📄&nbsp; About</LinkButton>
         <LinkButton href="https://github.com/mildronize" target="_blank"><i className="fab fa-github"></i>&nbsp; Github</LinkButton>
+        <Social>Getting to know me: <UserLinks config={config} /></Social>
     </Container>
   );
 };
@@ -36,6 +39,12 @@ const Container = styled.div`
 
 const Subtitle = styled.span`
   color: var(--colors-text-2);
+`;
+
+const Social = styled.p`
+  margin-left: 8px;
+  margin-top: 20px;
+  font-size: 0.7rem;
 `;
 
 export default Hero;

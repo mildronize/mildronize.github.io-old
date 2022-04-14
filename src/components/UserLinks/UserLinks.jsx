@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import "./UserLinks.css";
 import "../../themes/font-awesome-all-5.2.0.css";
 
-function UserLinks({ config, labeled }) {
+function UserLinks({ config }) {
   function getLinkElements() {
     const { userLinks } = config;
 
