@@ -53,7 +53,7 @@ function TalkPage(props: PageProps) {
       <Helmet title={`Talk | ${config.siteTitle}`} />
         <Header>My Talk</Header>
         <Content>
-          <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />,
+          <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />
         </Content>
       </div>
     </div>
