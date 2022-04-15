@@ -17,7 +17,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const parsedFilePath = path.parse(fileNode.relativePath);
 
     // Mark draft file
-    if(/^_draft/.test(parsedFilePath.dir)) {
+    if (/^_draft/.test(parsedFilePath.dir)) {
       isDraft = true;
     }
 
@@ -27,10 +27,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       Object.prototype.hasOwnProperty.call(node.frontmatter, "title")
     ) {
       readableSlug = `/${_.kebabCase(node.frontmatter.title)}`;
-    }else if (parsedFilePath.dir === "") {
-      readableSlug = `/${parsedFilePath.name.replace(dateOfFile,'')}/`;
+    } else if (parsedFilePath.dir === "") {
+      readableSlug = `/${parsedFilePath.name.replace(dateOfFile, "")}/`;
     } else {
-      readableSlug = `/${parsedFilePath.dir.replace(dateOfFile,'')}/`;
+      readableSlug = `/${parsedFilePath.dir.replace(dateOfFile, "")}/`;
     }
 
     // Get slug from both dir and its file name
@@ -63,21 +63,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         */
         const filenameRegex = /^(\d+-\d+-\d+)-([\w-]+)$/;
         let actualFilename = parsedFilePath.name;
-        const split = parsedFilePath.dir.split('/');
+        const split = parsedFilePath.dir.split("/");
         const parentDirectory = split[split.length - 1];
-        if(filenameRegex.test(parentDirectory)){
+        if (filenameRegex.test(parentDirectory)) {
           actualFilename = parentDirectory;
         }
-        const nodeDate = actualFilename.replace(filenameRegex, '$1');
-        const nodeFilename = actualFilename.replace(filenameRegex, '$2');
+        const nodeDate = actualFilename.replace(filenameRegex, "$1");
+        const nodeFilename = actualFilename.replace(filenameRegex, "$2");
         createNodeField({ node, name: "date", value: nodeDate });
         createNodeField({ node, name: "filename", value: nodeFilename });
       }
     }
 
-    if(!Object.prototype.hasOwnProperty.call(node.frontmatter, "uuid")){
-      const warnMsg = 'No field `uuid`, please run `npm run uuid `';
-      if(process.env.NODE_ENV === 'production'){
+    if (!Object.prototype.hasOwnProperty.call(node.frontmatter, "uuid")) {
+      const warnMsg = "No field `uuid`, please run `npm run uuid `";
+      if (process.env.NODE_ENV === "production") {
         throw new Error(warnMsg);
       }
       console.warn(warnMsg);
@@ -86,19 +86,23 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     /* eslint new-cap: "off" */
     // Trim Fallback UUID only 32 chars, for preventing too-long URL problem
     // Convert to base64 because when the Gatsby restart, it should return same URL
-    const tmpUuid = new Buffer.from(readableSlug).toString('base64');
-    const maxLength = tmpUuid.length > 32 ? 32: tmpUuid.length;
+    const tmpUuid = new Buffer.from(readableSlug).toString("base64");
+    const maxLength = tmpUuid.length > 32 ? 32 : tmpUuid.length;
     const fallbackUuid = encodeURI(tmpUuid.substring(0, maxLength));
 
     const nodeSlug = node.frontmatter.uuid || fallbackUuid;
-    const nodeReadableSlug = readableSlug.replace(/^\//,'').replace(/\/$/,'');
-    const draftSlug = isDraft? 'draft/': '';
+    const nodeReadableSlug = readableSlug.replace(/^\//, "").replace(/\/$/, "");
+    const draftSlug = isDraft ? "draft/" : "";
 
     createNodeField({ node, name: "isDraft", value: isDraft });
-    createNodeField({ node, name: "slug", value: nodeSlug });  // No starting and trailing slash ex: whaab42
+    createNodeField({ node, name: "slug", value: nodeSlug }); // No starting and trailing slash ex: whaab42
     createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
     // Render Path
-    createNodeField({ node, name: "renderedPathname", value: `/${draftSlug}${nodeReadableSlug}-${nodeSlug}/` }); // Add trailing slash for FB open graph
+    createNodeField({
+      node,
+      name: "renderedPathname",
+      value: `/${draftSlug}${nodeReadableSlug}-${nodeSlug}/`,
+    }); // Add trailing slash for FB open graph
     createNodeField({ node, name: "shortPathname", value: `/s/${nodeSlug}/` }); // Add trailing slash for preventing redirect
   }
 };
@@ -108,35 +112,34 @@ exports.createPages = async ({ graphql, actions }) => {
   const postPage = path.resolve("src/templates/post.jsx");
   const postShortUrlPage = path.resolve("src/templates/postShortUrl.jsx");
   const tagPage = path.resolve("src/templates/tag.jsx");
-  // const allTagsPage = path.resolve("src/templates/tags.jsx");
+  const allTagsPage = path.resolve("src/templates/all-tags.jsx");
   const categoryPage = path.resolve("src/templates/category.jsx");
   const listingPage = path.resolve("./src/templates/PostListingPagination.jsx");
   const landingPage = path.resolve("./src/templates/landing.jsx");
   // Get a full list of markdown posts
   const markdownQueryResult = await graphql(`
-  {
-    allMarkdownRemark {
-      edges {
-        node {
-          fields {
-            filename
-            slug
-            readableSlug
-            renderedPathname
-            isDraft
-            shortPathname
-          }
-          frontmatter {
-            title
-            tags
-            category
-            date
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              filename
+              slug
+              readableSlug
+              renderedPathname
+              isDraft
+              shortPathname
+            }
+            frontmatter {
+              title
+              tags
+              category
+              date
+            }
           }
         }
       }
     }
-  }
-
   `);
 
   if (markdownQueryResult.errors) {
@@ -144,20 +147,13 @@ exports.createPages = async ({ graphql, actions }) => {
     throw markdownQueryResult.errors;
   }
 
-
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
 
   // Sort posts
   postsEdges.sort((postA, postB) => {
-    const dateA = moment(
-      postA.node.fields.date,
-      siteConfig.dateFromFormat
-    );
+    const dateA = moment(postA.node.fields.date, siteConfig.dateFromFormat);
 
-    const dateB = moment(
-      postB.node.fields.date,
-      siteConfig.dateFromFormat
-    );
+    const dateB = moment(postB.node.fields.date, siteConfig.dateFromFormat);
 
     if (dateA.isBefore(dateB)) return 1;
     if (dateB.isBefore(dateA)) return -1;
@@ -191,21 +187,23 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const categorySet = new Set();
-  const tagMap = {}
+  const tagMap = {};
 
   // Post page creating
   postsEdges.forEach((edge, index) => {
     // Generate a list of tags
-    if (edge.node.frontmatter.tags) {
+    if (edge.node.frontmatter.tags && edge.node.fields.isDraft == false) {
       edge.node.frontmatter.tags.forEach((tag) => {
         const tagKebabCase = _.kebabCase(tag);
-        if(!tagMap.hasOwnProperty(tagKebabCase)){
-          tagMap[tagKebabCase] = {
-            count: 1,
-            path: `/tags/${tagKebabCase}/`
-          }
-        } else
-          tagMap[tagKebabCase].count ++;
+        if (tagKebabCase != "") {
+          if (!tagMap.hasOwnProperty(tagKebabCase)) {
+            tagMap[tagKebabCase] = {
+              displayName: tag,
+              count: 1,
+              path: `/tags/${tagKebabCase}/`,
+            };
+          } else tagMap[tagKebabCase].count++;
+        }
       });
     }
 
@@ -244,21 +242,35 @@ exports.createPages = async ({ graphql, actions }) => {
         prevslug: prevEdge.node.fields.slug,
       },
     });
-
   });
 
-  // createPage({
-  //   path: '/tags',
-  //   component: allTagsPage,
-  //   context: { data: tagMap },
-  // });
+  // console.log(tagMap);
+  // Convert to Array
+  let sortedTags = [];
+  Object.keys(tagMap).forEach((tag) => {
+    sortedTags.push({
+      ...tagMap[tag],
+      slug: tag
+    })
+  });
+  sortedTags = sortedTags.sort(function (a, b) {
+    return b.count - a.count;
+  });
+  console.log(sortedTags);
+
+  createPage({
+    path: '/tags/',
+    component: allTagsPage,
+    context: { sortedTags },
+  });
+
 
   //  Create tag pages
   Object.keys(tagMap).forEach((tag) => {
     createPage({
       path: tagMap[tag].path,
       component: tagPage,
-      context: { tag },
+      context: { tag: tagMap[tag].displayName },
     });
   });
 
@@ -276,11 +288,11 @@ exports.createPages = async ({ graphql, actions }) => {
 // https://github.com/gatsbyjs/gatsby/issues/16112
 exports.onCreatePage = ({ page, actions }) => {
   if (process.env.NODE_ENV !== `production` && page.path === `/404/`) {
-    const { createPage } = actions
+    const { createPage } = actions;
     // Make the 404 page match everything client side.
     // This will be used as fallback if more specific pages are not found
     /* eslint no-param-reassign: off */
-    page.matchPath = `/*`
-    createPage(page)
+    page.matchPath = `/*`;
+    createPage(page);
   }
-}
+};

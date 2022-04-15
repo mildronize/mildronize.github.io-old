@@ -3,10 +3,22 @@ import styled from 'styled-components';
 import { Link } from "gatsby";
 import ToggleDarkMode from './ToggleDarkModeWrapper';
 import CenterContainer from "./CenterContainer";
+import { useResponsive } from "../themes/responsive";
 
 const TopBar = (props: any) => {
   const { ...restProps } = props;
+  const { isMobile } = useResponsive();
   const [draftMode, setDraftMode] = useState(false);
+
+  const isActiveMenu = (path: string) => {
+    if (!window) return false;
+    const regexString = `${path}`;
+    const regex = new RegExp(regexString,"gm");
+    if (regex.test(window.location.pathname)) {
+      return true;
+    }
+    return false;
+  }
 
   const handleDraftMode = () => {
     if (!window) return '';
@@ -30,8 +42,9 @@ const TopBar = (props: any) => {
               {draftMode && <DraftLabel><Link to="/draft" >DRAFT</Link></DraftLabel>}
             </FlexItem>
             <FlexItem >
-              <MenuItem><Link to="/talk" >talk</Link></MenuItem>
-              <MenuItem><Link to="/blog" >blog</Link></MenuItem>
+              <MenuItem active={isActiveMenu('/talk')}><Link to="/talk" >talk</Link></MenuItem>
+              <MenuItem active={isActiveMenu('/blog')}><Link to="/blog" >blog</Link></MenuItem>
+              {!isMobile && <MenuItem active={isActiveMenu('/tags')}><Link to="/tags" >tags</Link></MenuItem>}
               <ToggleOffset>
                 <ToggleDarkMode />
               </ToggleOffset>
@@ -99,11 +112,21 @@ const FlexItem = styled.div`
   align-items: center;
 `;
 
+type MenuItemType = {active?: boolean};
 const MenuItem = styled.div`
-  margin: 0 15px;
+  margin: 0 8px 0 8px;
+
   cursor: pointer;
   a {
-      color: var(--color-default);
+    border-radius: 10px;
+    color: ${(props :MenuItemType ) => props.active? `var(--text-heading)`: `var(--color-default)`};
+    font-weight: ${(props :MenuItemType ) => props.active? `bold`: `300`};
+    background:  ${(props :MenuItemType ) => props.active? ` var(--colors-hover-0)`: `none`};
+    padding: 8px 12px;
+  }
+  a:hover {
+    color: var(--text-heading);
+    background: var(--colors-hover-0);
   }
 
 `;
