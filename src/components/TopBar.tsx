@@ -11,7 +11,7 @@ const TopBar = (props: any) => {
   const [draftMode, setDraftMode] = useState(false);
 
   const isActiveMenu = (path: string) => {
-    if (!window) return false;
+    if (typeof window === 'undefined') return false;
     const regexString = `${path}`;
     const regex = new RegExp(regexString,"gm");
     if (regex.test(window.location.pathname)) {
