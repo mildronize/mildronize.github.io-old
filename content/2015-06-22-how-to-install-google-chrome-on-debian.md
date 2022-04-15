@@ -18,7 +18,7 @@ unsplashImgCoverId: CD2aics5pU0
 ---
 
 # *Deprecated post!
-Please go to [my new post]({{ /posts/2016-11-21-a-very-short-ubuntu-debian-packages-installation/ | url }}#google-chrome). 
+Please go to [my new post](/a-very-short-ubuntu-debian-packages-installation-sheet-0967oym/)
 
 <hr>
 
@@ -27,7 +27,7 @@ Please go to [my new post]({{ /posts/2016-11-21-a-very-short-ubuntu-debian-packa
 
 ## Installation
 1. Add Google Chrome repository from [unofficial debian repository](https://wiki.debian.org/UnofficialRepositories) by add `deb http://dl.google.com/linux/chrome/deb/ stable main` into last line of `/etc/apt/source.list`
-    
+
     ```bash
     $ sudo echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/source.list
     $ sudo aptitude update
@@ -50,8 +50,8 @@ Please go to [my new post]({{ /posts/2016-11-21-a-very-short-ubuntu-debian-packa
 
     ```
     $ sudo aptitude update
-    $ sudo aptitude install google-chrome-stable 
+    $ sudo aptitude install google-chrome-stable
     ```
-    
+
 > Note: Google Chrome has 3 version: `google-chrome-beta`, `google-chrome-stable` and `google-chrome-unstable`. My case uses `google-chrome-stable` for daily use.
 
