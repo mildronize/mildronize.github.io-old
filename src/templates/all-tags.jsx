@@ -27,7 +27,7 @@ const Tag = styled.span`
   }
   a {
     color: var(--color-default);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 5px 15px;
     font-weight: 400;
     display: inline-block;
@@ -38,7 +38,7 @@ const Tag = styled.span`
   .zoom:hover {
     position: relative;
     color: var(--colors-brand);
-    transform: scale(1.2);
+    transform: scale(1.1);
     font-weight: 500;
     background: var(--colors-text-4);
     border-radius: 10px;
