@@ -108,6 +108,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const postPage = path.resolve("src/templates/post.jsx");
   const postShortUrlPage = path.resolve("src/templates/postShortUrl.jsx");
   const tagPage = path.resolve("src/templates/tag.jsx");
+  // const allTagsPage = path.resolve("src/templates/tags.jsx");
   const categoryPage = path.resolve("src/templates/category.jsx");
   const listingPage = path.resolve("./src/templates/PostListingPagination.jsx");
   const landingPage = path.resolve("./src/templates/landing.jsx");
@@ -143,8 +144,6 @@ exports.createPages = async ({ graphql, actions }) => {
     throw markdownQueryResult.errors;
   }
 
-  const tagSet = new Set();
-  const categorySet = new Set();
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
 
@@ -191,12 +190,22 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   }
 
+  const categorySet = new Set();
+  const tagMap = {}
+
   // Post page creating
   postsEdges.forEach((edge, index) => {
     // Generate a list of tags
     if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach((tag) => {
-        tagSet.add(tag);
+        const tagKebabCase = _.kebabCase(tag);
+        if(!tagMap.hasOwnProperty(tagKebabCase)){
+          tagMap[tagKebabCase] = {
+            count: 1,
+            path: `/tags/${tagKebabCase}/`
+          }
+        } else
+          tagMap[tagKebabCase].count ++;
       });
     }
 
@@ -238,10 +247,16 @@ exports.createPages = async ({ graphql, actions }) => {
 
   });
 
+  // createPage({
+  //   path: '/tags',
+  //   component: allTagsPage,
+  //   context: { data: tagMap },
+  // });
+
   //  Create tag pages
-  tagSet.forEach((tag) => {
+  Object.keys(tagMap).forEach((tag) => {
     createPage({
-      path: `/tags/${_.kebabCase(tag)}/`,
+      path: tagMap[tag].path,
       component: tagPage,
       context: { tag },
     });
