@@ -54,13 +54,12 @@ const config = {
       label: "Medium",
       url: "https://thadaw.medium.com/",
       iconClassName: "fab fa-medium",
+    },
+    {
+      label: "RSS",
+      url: "/rss",
+      iconClassName: "fas fa-rss",
     }
-    // RSS Page is still buggy
-    // {
-    //   label: "RSS",
-    //   url: "/rss.xml",
-    //   iconClassName: "fas fa-rss",
-    // }
   ],
   copyright: "Copyright © 2021. Thada W.", // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.

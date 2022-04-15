@@ -31,7 +31,7 @@ const Container = styled.div`
     font-size: 1.3rem;
 
     ${onMobile} {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
 
   }

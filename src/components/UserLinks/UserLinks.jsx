@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import "./UserLinks.css";
 import "../../themes/font-awesome-all-5.2.0.css";
 
-function UserLinks({ config }) {
+function UserLinks({ config, small }) {
+  console.log(`${small} small`)
   function getLinkElements() {
     const { userLinks } = config;
 
@@ -19,13 +20,13 @@ function UserLinks({ config }) {
   if (!userLinks) {
     return null;
   }
-  return <Container>{getLinkElements()}</Container>;
+  return <Container small={small}>{getLinkElements()}</Container>;
 }
 
 export default UserLinks;
 
 const Container = styled.div`
-  font-size: 1rem;
+  font-size: ${props => props.small ? `1`: `1.4`}rem;
   a, a:visited{
     color: var(--colors-text-3);
   }
