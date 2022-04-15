@@ -3,6 +3,7 @@ import { PageProps } from "gatsby";
 import styled from 'styled-components';
 import { Helmet } from "react-helmet";
 import Layout from "../layout/PageLayout";
+import PageTitle from "../components/PageTitle";
 import config from "../../data/SiteConfig";
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -53,7 +54,7 @@ function TalkPage(props: PageProps) {
     <div className="landing-container">
       <div className="posts-container">
       <Helmet title={`Talk | ${config.siteTitle}`} />
-        <Header>My Talk</Header>
+        <PageTitle>My Talk</PageTitle>
         <Content>
           <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />
         </Content>
@@ -65,11 +66,11 @@ function TalkPage(props: PageProps) {
 
 export default TalkPage;
 
-const Header = styled.h4`
-  font-family: var(--font-family-inter);
-  font-weight: bold;
-  font-size: 1.4rem;
-`;
+// const Header = styled.h4`
+//   font-family: var(--font-family-inter);
+//   font-weight: bold;
+//   font-size: 1.4rem;
+// `;
 
 const Content = styled.div`
   font-size: 1rem;

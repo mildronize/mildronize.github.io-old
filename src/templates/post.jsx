@@ -349,6 +349,7 @@ const MetadataWrapper = styled.span`
 
 const Container = styled.div`
 .post-title{
+  font-family: var(--font-family-heading);
   font-size: 1.85rem;
   margin-bottom: 5px;
 

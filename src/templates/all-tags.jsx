@@ -2,19 +2,40 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import Layout from "../layout/PageLayout";
 import config from "../../data/SiteConfig";
+import styled from "styled-components";
+import PageTitle from "../components/PageTitle";
 
-export default function Tag({ pageContext }) {
+export default function AllTag({ pageContext }) {
   const { sortedTags } = pageContext;
   console.log(sortedTags);
   return (
     <Layout>
-      <div className="tag-container">
+      <Container>
         <Helmet title={`Posts tagged as  | ${config.siteTitle}`} />
-        <h2>All Tags</h2>
+        <PageTitle>All Tags</PageTitle>
         {sortedTags.map(tag => (
-          <p key={tag.slug}><a href={tag.path}>{tag.displayName}: {tag.count}</a></p>
+          <Tag key={tag.slug}><a href={tag.path}>{tag.displayName} <sup>{tag.count}</sup></a></Tag>
         ))}
-      </div>
+      </Container>
     </Layout>
   );
 }
+
+const Tag = styled.span`
+  sup {
+    color: var(--colors-text-3);
+
+  }
+  a {
+    color: var(--color-default);
+  }
+
+  font-size: 1.2rem;
+  padding: 5px 15px;
+  font-weight: 400;
+  display: inline-block;
+`;
+
+const Container = styled.div`
+white-space: normal;
+`;

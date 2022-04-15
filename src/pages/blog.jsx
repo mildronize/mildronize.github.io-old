@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
+import PageTitle from "../components/PageTitle";
 import Layout from "../layout/PageLayout";
 import PostListing from "../components/PostListing/PostListing";
 import Hero from "../components/Hero";
@@ -16,7 +17,7 @@ function BlogListPage({ data }) {
       <div className="landing-container">
         <div className="posts-container">
           <Helmet title={config.siteTitle} />
-          <Header>All archived articles</Header>
+          <PageTitle>All archived articles</PageTitle>
           <PostListing postEdges={postEdges} />
         </div>
       </div>
@@ -26,15 +27,15 @@ function BlogListPage({ data }) {
 
 export default BlogListPage;
 
-const Header = styled.h4`
-  font-family: var(--font-family-inter);
-  /* font-weight: 500; */
-  font-size: 1.4rem;
+// const Header = styled.h4`
+//   font-family: var(--font-family-inter);
+//   /* font-weight: 500; */
+//   font-size: 1.4rem;
 
-  ${breakpoint('tablet')`
-      font-size: 1.5rem;
-    `}
-`;
+//   ${breakpoint('tablet')`
+//       font-size: 1.5rem;
+//     `}
+// `;
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`

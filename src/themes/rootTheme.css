@@ -215,7 +215,7 @@ h4,
 h5,
 h6 {
     color: var(--colors-text-0);
-    font-family: var(--font-family-heading);
+    font-family: var(--font-family-inter);
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: 0.3px;

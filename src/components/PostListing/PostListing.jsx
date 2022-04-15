@@ -40,7 +40,7 @@ function PostListing({ postEdges }) {
                   </PostDate>
                 </FlexItem>
                 <FlexItem >
-                  <h4>{post.title}</h4>
+                  <Title>{post.title}</Title>
                   {/* <TagContainer>
                     {post.tags.map((tag) => (
                       <Tag>#{tag} </Tag>
@@ -55,6 +55,11 @@ function PostListing({ postEdges }) {
     </div>
   );
 }
+
+const Title = styled.h4`
+  font-family: var(--font-family-heading);
+`;
+
 
 const PostDate = styled.time`
   color: var(--colors-text-3);

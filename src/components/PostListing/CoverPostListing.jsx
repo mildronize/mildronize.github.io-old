@@ -47,7 +47,7 @@ function CoverPostListing({ postEdges }) {
                 </FlexItem>
                 <FlexItem >
                   <Link className="post-link" to={post.path} >
-                    <h4>{post.title}</h4>
+                    <Title>{post.title}</Title>
                     <Excerpt>{post.excerpt}</Excerpt>
                   </Link>
                   <PostDate className="post-metadata" >
@@ -73,6 +73,10 @@ function CoverPostListing({ postEdges }) {
     </Container>
   );
 }
+
+const Title = styled.h4`
+  font-family: var(--font-family-heading);
+`;
 
 const Container = styled.div`
   .post-metadata:after{
