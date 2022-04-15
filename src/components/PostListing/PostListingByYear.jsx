@@ -93,7 +93,7 @@ const textNonOverflow = `
 `
 
 const PostTitle = styled.h4`
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 400;
   font-family: var(--font-family-default);
   transition: all ease-out 0.2s;
@@ -120,7 +120,7 @@ const PostTitle = styled.h4`
 const PostDate = styled.time`
   color: var(--colors-text-3);
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 `;
 
 const PostItem = styled.div`
