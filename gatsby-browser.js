@@ -1,5 +1,7 @@
-// Disable PWA app
-// export const onServiceWorkerUpdateReady = () => {
-//   // Auto reload to display the latest version, when service worker update ready.
-//   window.location.reload();
-// };
+/**
+ * Implement Gatsby's Browser APIs in this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/browser-apis/
+ */
+
+// You can delete this file if you're not using it
