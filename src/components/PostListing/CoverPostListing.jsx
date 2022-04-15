@@ -68,7 +68,7 @@ function CoverPostListing({ postEdges }) {
       }
 
     <MorePostLink >
-      <Link to="/blog/" ><h4>More posts...</h4></Link>
+      <Link to="/posts/" ><h4>More posts...</h4></Link>
     </MorePostLink>
     </Container>
   );

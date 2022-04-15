@@ -37,7 +37,7 @@ function SidePostListing({ postEdges, trending }) {
               <FlexContainer>
                 <FlexItem>
                   <Link className="post-link" to={post.path}>
-                   <h4>{post.title}</h4>
+                   <Title>{post.title}</Title>
                   </Link>
                 </FlexItem>
                 <FlexItem>
@@ -64,6 +64,10 @@ function SidePostListing({ postEdges, trending }) {
     </Container>
   );
 }
+const Title = styled.h4`
+  font-weight: 500;
+  font-family: var(--font-family-heading);
+`;
 
 const Container = styled.div`
   .post-metadata:after{
@@ -109,7 +113,6 @@ const PostItem = styled.div`
   }
 
   h4 {
-    font-weight: 600;
     font-size: 1rem;
     margin: 0;
     padding: 0;

@@ -2,19 +2,20 @@
 import { useMediaQuery } from 'react-responsive';
 
 const breakpoints: Record<string, number> = {
-  extraSmall: 400,
+  extraSmall: 460,
   small: 768,
   large: 1170,
 };
 
 // For JS
 export function useResponsive() {
+  const isExtraSmallMobile = useMediaQuery({ maxWidth: breakpoints.extraSmall })
   const isMobile = useMediaQuery({ maxWidth: breakpoints.small })
   const isTablet = useMediaQuery({
     minWidth: breakpoints.small + 1,
     maxWidth: breakpoints.large - 1 })
   const isDesktop = useMediaQuery({ minWidth: breakpoints.large })
-  return { isMobile, isTablet, isDesktop};
+  return { isExtraSmallMobile, isMobile, isTablet, isDesktop};
 }
 
 // For CSS media query

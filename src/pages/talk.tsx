@@ -73,9 +73,14 @@ export default TalkPage;
 // `;
 
 const Content = styled.div`
+  font-family: var(--font-family-default);
   font-size: 1rem;
 
   li > p {
     margin-bottom:3px;
+  }
+
+  h3 {
+    font-size: 1.4rem;
   }
 `;

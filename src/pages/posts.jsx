@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import PageTitle from "../components/PageTitle";
 import Layout from "../layout/PageLayout";
-import PostListing from "../components/PostListing/PostListing";
+import PostListing from "../components/PostListing/PostListingByYear";
 import Hero from "../components/Hero";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
@@ -17,7 +17,7 @@ function BlogListPage({ data }) {
       <div className="landing-container">
         <div className="posts-container">
           <Helmet title={config.siteTitle} />
-          <PageTitle>All archived articles</PageTitle>
+          <PageTitle>All Posts</PageTitle>
           <PostListing postEdges={postEdges} />
         </div>
       </div>

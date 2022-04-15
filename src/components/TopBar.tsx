@@ -7,7 +7,7 @@ import { useResponsive } from "../themes/responsive";
 
 const TopBar = (props: any) => {
   const { ...restProps } = props;
-  const { isMobile } = useResponsive();
+  const { isExtraSmallMobile } = useResponsive();
   const [draftMode, setDraftMode] = useState(false);
 
   const isActiveMenu = (path: string) => {
@@ -42,9 +42,9 @@ const TopBar = (props: any) => {
               {draftMode && <DraftLabel><Link to="/draft" >DRAFT</Link></DraftLabel>}
             </FlexItem>
             <FlexItem >
-              <MenuItem active={isActiveMenu('/talk')}><Link to="/talk" >talk</Link></MenuItem>
-              <MenuItem active={isActiveMenu('/blog')}><Link to="/blog" >blog</Link></MenuItem>
-              {!isMobile && <MenuItem active={isActiveMenu('/tags')}><Link to="/tags" >tags</Link></MenuItem>}
+              <MenuItem active={isActiveMenu('/posts')}><Link to="/posts" >Posts</Link></MenuItem>
+              <MenuItem active={isActiveMenu('/talk')}><Link to="/talk" >Talks</Link></MenuItem>
+              {!isExtraSmallMobile && <MenuItem active={isActiveMenu('/tags')}><Link to="/tags" >Tags</Link></MenuItem>}
               <ToggleOffset>
                 <ToggleDarkMode />
               </ToggleOffset>
@@ -114,13 +114,14 @@ const FlexItem = styled.div`
 
 type MenuItemType = {active?: boolean};
 const MenuItem = styled.div`
+  font-family: var(--font-family-default);
   margin: 0 8px 0 8px;
 
   cursor: pointer;
   a {
     border-radius: 10px;
     color: ${(props :MenuItemType ) => props.active? `var(--text-heading)`: `var(--color-default)`};
-    font-weight: ${(props :MenuItemType ) => props.active? `bold`: `300`};
+    font-weight: ${(props :MenuItemType ) => props.active? `bold`: `400`};
     background:  ${(props :MenuItemType ) => props.active? ` var(--colors-hover-0)`: `none`};
     padding: 8px 12px;
   }
