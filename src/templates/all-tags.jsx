@@ -10,13 +10,13 @@ export default function AllTag({ pageContext }) {
   console.log(sortedTags);
   return (
     <Layout>
-      <Container>
+      <div>
         <Helmet title={`Posts tagged as  | ${config.siteTitle}`} />
         <PageTitle>All Tags</PageTitle>
         {sortedTags.map(tag => (
           <Tag key={tag.slug}><a href={tag.path}>{tag.displayName} <sup>{tag.count}</sup></a></Tag>
         ))}
-      </Container>
+      </div>
     </Layout>
   );
 }
@@ -34,8 +34,4 @@ const Tag = styled.span`
   padding: 5px 15px;
   font-weight: 400;
   display: inline-block;
-`;
-
-const Container = styled.div`
-white-space: normal;
 `;

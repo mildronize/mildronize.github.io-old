@@ -6,20 +6,29 @@ import PageTitle from "../components/PageTitle";
 import PostListing from "../components/PostListing/PostListing";
 import config from "../../data/SiteConfig";
 import { Link } from "gatsby";
+import styled from 'styled-components';
 
 export default function TagTemplate({ pageContext, data }) {
   const { tag } = pageContext;
   const postEdges = data.allMarkdownRemark.edges;
   return (
     <Layout>
-      <div className="tag-container">
-        <Helmet title={`Posts tagged as "${tag}" | ${config.siteTitle}`} />
-        <PageTitle><Link to="/tags" >All Tags</Link>{` > `} "{tag}"</PageTitle>
+      <Container>
+        <Helmet title={`Posts tagged as “${tag.displayName}” | ${config.siteTitle}`} />
+        <PageTitle><Link to="/tags" >All Tags</Link><i class="fas fa-angle-right"></i>{`“${tag}”`}</PageTitle>
         <PostListing postEdges={postEdges} />
-      </div>
+      </Container>
     </Layout>
   );
 }
+
+const Container = styled.div`
+  i {
+    padding-right: 15px;
+    padding-left: 25px;
+  }
+`;
+
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`

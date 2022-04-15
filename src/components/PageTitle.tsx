@@ -8,6 +8,10 @@ const PageTitle = styled.h2`
   letter-spacing: 0.3px;
   font-size: 1.7rem;
   margin-bottom: 40px;
+  a {
+    text-decoration: underline;
+    color: var(--colors-text-1);
+  }
 `;
 
 export default PageTitle;
