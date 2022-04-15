@@ -36,5 +36,5 @@ const Container = styled.div`
 `;
 
 const SocialLink = styled.a`
-  margin: 0 7px;
+  margin: 0 ${props => props.small ? `7`: `10`}px;
 `;
