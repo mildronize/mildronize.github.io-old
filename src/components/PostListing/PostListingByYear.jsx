@@ -60,7 +60,7 @@ function PostListing({ postList, year }) {
                 <FlexItem >
                   <PostTitle>{post.title}</PostTitle>
                 </FlexItem>
-                <FlexItem>
+                <FlexItem width="50px">
                   <PostDate >
                     {format(parseISO(post.date), "MM-dd")}
                   </PostDate>
@@ -151,8 +151,8 @@ const FlexContainer = styled.div`
 `;
 
 const FlexItem = styled.div`
-  padding-right: 40px;
-  min-width: 100%;
+  padding-right: ${({ width }) => (width ? '0px' : '40px')};
+  min-width: ${({ width }) => (width ? width : '100%')};
 `;
 
 export default PostListingByYear;
