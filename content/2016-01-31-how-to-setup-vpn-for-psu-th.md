@@ -6,9 +6,9 @@ description: >-
 categories:
   - th
 tags:
-  - vpn
-  - psu
-  - how-to
+  - VPN
+  - PSU
+  - How to
 uuid: ix43nzw
 unsplashImgCoverId: CXlqHmQy3MY
 ---

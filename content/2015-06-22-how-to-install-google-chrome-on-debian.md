@@ -4,13 +4,9 @@ description: >-
   Installation instuction by using Google repository, and troubleshooting a
   error of public key is not available.
 tags:
-  - debian
-  - chrome
-  - repository
-  - how-to
-  - install
-  - apt-key
-  - chromium
+  - Debian
+  - Chrome
+  - How to
 categories:
   - en
 uuid: lay4u9o

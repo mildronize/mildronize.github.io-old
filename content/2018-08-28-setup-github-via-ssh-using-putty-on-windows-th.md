@@ -3,11 +3,10 @@ title: >-
   วิธีตั้งค่าการใช้งาน Github (แบบไม่ต้องกรอกรหัสผ่านทุกครั้ง) ผ่าน SSH บน
   Windows
 tags:
-  - how-to
-  - github
-  - windows
-  - putty
-  - git
+  - How to
+  - GitHub
+  - Windows
+  - Putty
 categories:
   - th
 image: 'https://www.dropbox.com/s/6j7n98dlmnubjxq/cover.jpg?raw=1'
@@ -61,13 +60,13 @@ Disconnected: All channels closed
 
 หลายๆ คนอาจจะเข้าไปที่ git directory บนเครื่องเราแล้ว ก็ยังต้องใส่ username และ password เหมือนเดิมอยู่อีก อย่าลืมเปลี่ยน remote URL จาก HTTPS เป็น SSH นะครับ เช่น
 
-ถ้าดูที่ github URL เราจะเห็นหน้าตาประมาณนี้ `https://github.com/USERNAME/REPOSITORY` 
+ถ้าดูที่ github URL เราจะเห็นหน้าตาประมาณนี้ `https://github.com/USERNAME/REPOSITORY`
 
 เช่นถ้าเรา username: `mildronize` และ github repo คือ `mildronize.github.io`
 
-ดังนั้น URL จะมีหน้าตาประมาณนี้ `https://github.com/mildronize/mildronize.github.io` 
+ดังนั้น URL จะมีหน้าตาประมาณนี้ `https://github.com/mildronize/mildronize.github.io`
 
-เราอาจจะ clone ด้วย HTTPS มา สังเกตุคือที่ URL จะขึ้นต้นด้วย HTTPS เช่น 
+เราอาจจะ clone ด้วย HTTPS มา สังเกตุคือที่ URL จะขึ้นต้นด้วย HTTPS เช่น
 
 ```bash
 git clone https://github.com/mildronize/mildronize.github.io
@@ -79,7 +78,7 @@ git clone https://github.com/mildronize/mildronize.github.io
 git clone git@github.com:mildronize/mildronize.github.io.git
 ```
 
-เข้าเรื่องกันเลย ไปดูขั้นตอนการเปลียนจาก remote URL จาก HTTPS เป็น SSH 
+เข้าเรื่องกันเลย ไปดูขั้นตอนการเปลียนจาก remote URL จาก HTTPS เป็น SSH
 
 ### การเปลี่ยนไปใช้ remote URLs SSH จาก HTTPS
 

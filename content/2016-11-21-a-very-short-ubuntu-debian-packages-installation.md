@@ -3,13 +3,12 @@ title: A very short Ubuntu/Debian packages installation sheet
 categories:
   - en
 tags:
-  - ubuntu
-  - debian
-  - ppa
-  - chrome
-  - docker
-  - vscode
-  - zotero
+  - Ubuntu
+  - Debian
+  - Chrome
+  - Docker
+  - VS Code
+  - Zotero
 featured: true
 toc: true
 uuid: 0967oym
@@ -27,7 +26,7 @@ unsplashImgCoverId: 4Mw7nkQDByk
 $ wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 $ echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 $ sudo apt update
-$ sudo apt install google-chrome-stable 
+$ sudo apt install google-chrome-stable
 ```
 
 Reference: <https://www.google.com/linuxrepositories/>

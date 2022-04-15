@@ -6,15 +6,9 @@ description: >-
 categories:
   - en
 tags:
-  - debian
-  - xfce
-  - plank
-  - linux
-  - customization
-  - desktop-environment
-  - terminal
-  - theme
-  - style
+  - Debian
+  - Xfce
+  - Linux Desktop Customization
 uuid: gtg6emr
 unsplashImgCoverId: hWgsxV_VQW0
 ---

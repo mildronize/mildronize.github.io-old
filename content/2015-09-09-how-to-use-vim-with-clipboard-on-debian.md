@@ -4,12 +4,9 @@ description: Shortly steps for using Vim Clipboard and breifly vim register Vim 
 categories:
   - en
 tags:
-  - vim
-  - clipboard
-  - debian
-  - linux
-  - ubuntu
-  - vim-registers
+  - Vim
+  - Clipboard
+  - Linux
 uuid: rfih9o0
 unsplashImgCoverId: TDV1i2f7rcc
 ---

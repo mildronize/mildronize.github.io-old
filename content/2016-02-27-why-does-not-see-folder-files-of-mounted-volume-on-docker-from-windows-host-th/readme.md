@@ -4,14 +4,13 @@ description: จะแก้ปัญหาอย่างไร เมื่อ
 categories:
   - th
 tags:
-  - docker
-  - windows
+  - Docker
+  - Windows
   - boot2docker
-  - docker-machine
-  - virtualbox
-  - vm
-  - virtual-machine
-  - mount-volume
+  - Docker Mchine
+  - VirtualBox
+  - Virtual Machine
+  - Mount Volume
 featured_image: logo/docker.png
 uuid: deb407s
 unsplashImgCoverId: SInhLTQouEk
@@ -21,7 +20,7 @@ unsplashImgCoverId: SInhLTQouEk
 
 ก่อนอ่านบทความนี้น่าจะมีความรู้พื้นฐานเรื่อง `Docker` และ `Docker Machine` มาก่อน
 
-สืบเนื่องจาก Docker ที่รันอยู่บน Windows นั้นทำงานอยู่ใน Linux VM ไม่ได้ทำงานบน Windows ตรงๆ 
+สืบเนื่องจาก Docker ที่รันอยู่บน Windows นั้นทำงานอยู่ใน Linux VM ไม่ได้ทำงานบน Windows ตรงๆ
 
 จึงการ mount folder (หรือ ในฝั่งของ Docker เค้าเรียกว่า Volume) นั้น
 Mount ได้อย่างมีข้อจำกัด
@@ -52,7 +51,7 @@ Folder Name: c/Users
 docker run --rm -it -v "//[Folder Name]/your/folder:/docker/container/path" IMAGE_NAME
 ```
 
-## แล้วเราสามารถ Mount ไปยัง path อื่นๆ ได้มั้ย 
+## แล้วเราสามารถ Mount ไปยัง path อื่นๆ ได้มั้ย
 คิดว่า น่าจะได้ครับ ยังไม่เคยลอง ลองอ่านบทความเพิ่มเติมดู
 
 - <http://stackoverflow.com/questions/30864466/whats-the-best-way-to-share-files-from-windows-to-boot2docker-vm>

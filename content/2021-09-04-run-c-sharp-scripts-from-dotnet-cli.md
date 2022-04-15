@@ -2,9 +2,9 @@
 title: Run C# scripts ไฟล์เดียว โดยใช้ .NET CLI
 uuid: t2z614m
 tags:
-  - dotnet
-  - dotnet5
-  - dotnet-script
+  - Dotnet
+  - Dotnet5
+  - Dotnet-script
 unsplashImgCoverId: EzUZqqp_yrc
 ---
 

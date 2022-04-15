@@ -7,14 +7,9 @@ description: >-
 categories:
   - en
 tags:
-  - how-to
-  - blog
-  - github-page
-  - jekyll
-  - guide
-  - website
-  - github
-  - markdown
+  - How to
+  - GitHub Page
+  - Jekyll
 uuid: we3xr8r
 unsplashImgCoverId: z0uPpx6DDcA
 ---

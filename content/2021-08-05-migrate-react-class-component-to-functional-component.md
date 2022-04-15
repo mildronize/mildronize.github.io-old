@@ -1,11 +1,11 @@
 ---
 title: ย้ายจาก React Class Component มาเป็น Functional Component ง่ายกว่าที่คิด
 tags:
-  - react
-  - pattern
-  - class-component
-  - functional-component
-  - typescript
+  - React
+  - Design Pattern
+  - Class Component
+  - Functional Component
+  - TypeScript
 language: th
 toc: true
 uuid: a7ng95o

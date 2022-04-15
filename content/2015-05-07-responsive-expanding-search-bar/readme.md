@@ -7,15 +7,10 @@ description: >-
 categories:
   - en
 tags:
-  - css
-  - javascript
-  - js
-  - html
-  - project
-  - jekyll
-  - extension
-  - plugin
-  - responsive-web-design
+  - HTML/CSS
+  - JavaScript
+  - Jekyll
+  - Responsive Web Design
 featured_image: 2015-05-06-responsive-expanding-search-bar.jpg
 image: public/images/2015-05-06-responsive-expanding-search-bar.jpg
 home: 'https://github.com/mildronize/ExpandingSearchBar'

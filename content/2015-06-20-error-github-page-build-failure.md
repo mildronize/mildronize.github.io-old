@@ -2,16 +2,13 @@
 title: GitHub Page Build Failure Solution
 description: >-
   (ClassNotFound: no lexer for alias shell found.) Jekyll build failure problem
-  in GitHub Page. I showed my solution for solving that. 
+  in GitHub Page. I showed my solution for solving that.
 tags:
-  - jekyll
-  - github-page
-  - case-study
-  - github-support
-  - github
-  - problem
-  - solution
-categories:
+  - Jekyll
+  - GitHub Page
+  - Case Study
+  - GitHub Support
+language:
   - en
 uuid: lo3mz9g
 unsplashImgCoverId: vPGGRXPvltE
@@ -29,18 +26,18 @@ unsplashImgCoverId: vPGGRXPvltE
 4. He responded me
 
     >  You should be running your site locally exactly as per these instructions:
-    >  
+    >
     >  <https://help.github.com/articles/using-jekyll-with-pages>
-    >  
+    >
     >  I cloned your repository and reproduced the issue locally by using a Gemfile and running:
-    >  
+    >
     >  `bundle exec jekyll build`
-    >  
+    >
     >  Which produced the error details:
-    >  
+    >
     >  `Conversion error: Jekyll::Converters::Markdown encountered an error converting '_posts/2015-06-08-upgrade-debian-to-sid.md'.`
     >  ...
-    
+
     >  `ClassNotFound('no lexer for alias %r found' % _alias) ClassNotFound: no lexer for alias 'shell' found`
 
 ## solution

@@ -4,9 +4,9 @@ description: >-
   อธิบายการใช้งาน script สำหรับสร้าง WiFi Hotspot
   ใช้งานเองโดยไม่ต้องพึ่งโปรแกรมอื่นๆ
 tags:
-  - hotspot
-  - wifi
-  - windows
+  - Hotspot
+  - Wifi
+  - Windows
 categories:
   - th
 uuid: 4hztzdg
@@ -19,7 +19,7 @@ unsplashImgCoverId: sNvBTRQR7eE
 
 ## ตั้งค่าเบื้องต้นก่อนใช้งาน
 1. คัดลอกโค๊ดข้างล่าง หรือ ดาวโหลดที่ [Gist Github ของผม](https://gist.github.com/mildronize/8d159d35497c56368914) ไปใส่ในไฟล์ ชื่อ `hotspot.bat`
-1. ตรวจสอบดูว่า มี Network Adapter ที่มีชนิดเป็น *Microsoft Virtual WiFi Miniport Adapter* ใน *Network and Sharing Center > Change Adapter Setting*   
+1. ตรวจสอบดูว่า มี Network Adapter ที่มีชนิดเป็น *Microsoft Virtual WiFi Miniport Adapter* ใน *Network and Sharing Center > Change Adapter Setting*
   - ถ้าไม่มีให้รัน `hotspot.bat` หนึ่งครั้ง มันจะสร้าง Adapter ตัวนั้นออกมา และปิดโปรแกรมไปก่อน แล้วก็เปลี่ยนชื่อเป็น `Hotspot`
   - ถ้ามีก็ให้เปลี่ยนชื่อเป็น `Hotspot` เช่นกัน
   >  ไม่เปลี่ยนชื่อเป็น Hotspot แต่ต้องไปแก้ในโค๊ด ตรงบรรทัดที่ `set wirelessName=Hotspot` ให้แก้เป็นชื่อของ adapter ที่มีชนิดเป็น *Microsoft Virtual WiFi Miniport Adapter*

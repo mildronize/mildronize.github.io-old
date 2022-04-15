@@ -7,16 +7,8 @@ description: >-
 categories:
   - th
 tags:
-  - atom
-  - editor
-  - unicode
-  - cursor
-  - problem
-  - positioning
-  - multi-byte
-  - incorrect
-  - character
-  - thai
+  - Atom Editor
+  - Thai
 uuid: 5zqwlzs
 unsplashImgCoverId: 5PEy9UraJ5c
 ---
@@ -26,7 +18,7 @@ unsplashImgCoverId: 5PEy9UraJ5c
 > หมายเหตุ: ถ้าใครยังไม่รู้จัก Atom Editor ลองอ่าน[บทความรีวิวจาก Blognone ดูนะครับ](https://www.blognone.com/node/56176)
 
 ## ปัญหาที่พบ
-ปัญหาที่ผมพบในการพิมพ์ภาษาไทยบน [Atom Editor](https://atom.io) คือ cursor ที่แสดงผลขณะกำลังพิมพ์นั้นไม่ตรงกับ สิ่งที่แสดงผลจริงๆ 
+ปัญหาที่ผมพบในการพิมพ์ภาษาไทยบน [Atom Editor](https://atom.io) คือ cursor ที่แสดงผลขณะกำลังพิมพ์นั้นไม่ตรงกับ สิ่งที่แสดงผลจริงๆ
 
 ![Problem while typing Thai in Atom editor](2015-05-23-thai-typing-in-atom-editor.gif)
 
@@ -44,7 +36,7 @@ unsplashImgCoverId: 5PEy9UraJ5c
 
 ถ้าใครมีวิธีการแก้ปัญหาที่ดีกว่านี้ ก็สามารถนำมาแบ่งปันได้นะครับ
 
-ซึ่งตอนนี้ใน Atom Editor ผมได้ตั้งค่าฟอนต์ใน ไฟล์ `config.cson` ซึ่งอยู่ใน root ของ setting ของ Atom ดังนี้ 
+ซึ่งตอนนี้ใน Atom Editor ผมได้ตั้งค่าฟอนต์ใน ไฟล์ `config.cson` ซึ่งอยู่ใน root ของ setting ของ Atom ดังนี้
 
 `fontFamily: "Inconsolata, Umpush, Arial, sans-serif"`
 

@@ -1,12 +1,10 @@
 ---
 title: React Import & Export Component Pattern
 tags:
-  - react
-  - pattern
+  - React
+  - Design pattern
   - functional-component
-  - import
-  - export
-  - typescript
+  - TypeScript
 language: en
 uuid: whaab42
 unsplashImgCoverId: L8KQIPCODV8

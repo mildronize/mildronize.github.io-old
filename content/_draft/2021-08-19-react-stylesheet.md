@@ -2,10 +2,10 @@
 layout: post
 title: React Stylesheet
 tags:
-  - react
-  - pattern
+  - React
+  - Design pattern
   - dark-mode
-  - react-hook
+  - React-hook
   - theme
 language: th
 uuid: p72tqcd

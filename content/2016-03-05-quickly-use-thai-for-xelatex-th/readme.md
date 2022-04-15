@@ -2,12 +2,11 @@
 title: ใช้งานภาษาไทยบน XeLaTeX ฉบับรีบร้อน
 description: อยากจะพิมพ์ภาษาไทยบนภาษา latex จะทำอย่างไรมาดูกัน
 tags:
-  - xelatex
-  - thai
-  - miktek
-  - latex
-  - xetex
-categories:
+  - XeLaTeX
+  - Thai
+  - MiKTeX
+  - LaTex
+language:
   - th
 featured_image: logo/latex.png
 uuid: 1esbgon
@@ -29,7 +28,7 @@ unsplashImgCoverId: XoByiBymX20
 \XeTeXlinebreaklocale “th_TH” % สำหรับตัดคำภาษาไทย
 
 \newenvironment{thai}{
-    \renewcommand{\baselinestretch}{1.2} 
+    \renewcommand{\baselinestretch}{1.2}
     \fontspec{TH Sarabun New}[Scale=1.23]
 }
 {\par}
@@ -68,7 +67,7 @@ unsplashImgCoverId: XoByiBymX20
     \usepackage{xltxtra}
     \XeTeXlinebreaklocale “th_TH” % สำหรับตัดคำภาษาไทย
     ```
-    
+
 2. กำหนดสภาพแวดล้อมใหม่(`\newenvironment`) สำหรับพิมพ์ภาษาไทยดังนี้
 
     ```latex
@@ -78,7 +77,7 @@ unsplashImgCoverId: XoByiBymX20
     }
     {\par}
     ```
-    
+
 ## การใช้งาน
 
 ```latex

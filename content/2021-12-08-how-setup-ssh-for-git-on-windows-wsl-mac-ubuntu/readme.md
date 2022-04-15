@@ -5,9 +5,9 @@ title: >-
 tags:
   - GitHub
   - SSH
-  - windows
-  - macos
-  - ubuntu
+  - Windows
+  - MacOS
+  - Ubuntu
 uuid: hzpnrnx
 unsplashImgCoverId: 842ofHC6MaI
 ---

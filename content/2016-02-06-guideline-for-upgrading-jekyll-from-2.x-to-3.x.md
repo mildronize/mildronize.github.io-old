@@ -8,9 +8,9 @@ categories:
   - en
 date: '2016-02-06'
 tags:
-  - jekyll
-  - jekyll-3
-  - guideline
+  - Jekyll
+  - Jekyll 3
+  - Guideline
 uuid: z578nvw
 unsplashImgCoverId: H7LxvEmVZnE
 ---

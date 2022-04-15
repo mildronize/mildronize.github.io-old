@@ -2,14 +2,14 @@
 title: My blog development for Jekyll site
 description: 'Tools, structure, extension and everything for building this blog'
 tags:
-  - jekyll
-  - github-page
-  - angularjs
+  - Jekyll
+  - GitHub Page
+  - Angular JS
 uuid: hm371bt
 unsplashImgCoverId: i0e3m7aMk10
 ---
 
-> This post is involving the old version site, built with [Jekyll](http://jekyllrb.com). 
+> This post is involving the old version site, built with [Jekyll](http://jekyllrb.com).
 > Demo site: https://jekyll.mildronize.com [source](https://github.com/mildronize/mildronize.github.io)
 
 ## Tools for V.2
@@ -38,7 +38,7 @@ José's post](https://jmperezperez.com/medium-image-progressive-loading-placehol
 
 ![image-load-blur](https://www.dropbox.com/s/4t30cmbtezs3qbw/2018-09-17-99-score-google-insight-web-optimization-7.gif?raw=1)
 
-> Latest version is posted on 
+> Latest version is posted on
 [ได้ 99 คะแนนจาก Google Insights & เรียนรู้การทำ web optimization](/posts/2018-09-17-99-score-google-insight-web-optimization/)
 
 ## Tools for V.1

@@ -2,12 +2,10 @@
 title: How to Compile & Install Gnome Builder on Debian
 description: Instruction of Gnome Builder installation on Debian
 tags:
-  - linux
-  - debian
-  - gnome
-  - builder
-  - how-to
-categories:
+  - Debian
+  - Gnome builder
+  - How to
+language:
   - en
 uuid: 1jxvb3m
 unsplashImgCoverId: Tjbk79TARiE
@@ -36,7 +34,7 @@ Okay, I can't wait to try it. Let's go to compile & install it!
     ```bash
     $ tar -Jxvf GNOME_BUILDER_3_16_3.tar.xz
     ```
-    
+
 4. go to the directory which you extracted
 
     ```bash
@@ -49,7 +47,7 @@ Okay, I can't wait to try it. Let's go to compile & install it!
     $ ./autogen.sh
     $ make
     ```
-    
+
 All done!, Let's enjoy the editor on our Gnome
 
 Next post, I will post how I know the prerequisite packages for compiling C source.

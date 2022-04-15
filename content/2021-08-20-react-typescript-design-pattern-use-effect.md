@@ -1,11 +1,11 @@
 ---
 title: จัดการ side effects ใน React ด้วย Hook useEffect
 tags:
-  - react
-  - pattern
-  - functional-component
-  - use-effect
-  - typescript
+  - React
+  - React Hook
+  - Design pattern
+  - Functional Component
+  - TypeScript
 language: th
 uuid: wes5jlp
 unsplashImgCoverId: ZfczAO3uDzc

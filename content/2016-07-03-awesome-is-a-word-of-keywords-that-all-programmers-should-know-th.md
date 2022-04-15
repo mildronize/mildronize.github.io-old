@@ -3,11 +3,8 @@ title: Awesome หนึ่งในคำสำคัญ (Keyword) ที่โ
 categories:
   - th
 tags:
-  - programmer
-  - tip
-  - trick
-  - awesome
-  - keyword
+  - Awesome
+  - Keyword
 language: th
 uuid: utkfndt
 unsplashImgCoverId: FCHlYvR5gJI

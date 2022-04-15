@@ -1,11 +1,11 @@
 ---
 title: ได้ 99 คะแนนจาก Google Insights & เรียนรู้การทำ web optimization
 tags:
-  - optimization
-  - google-insights
-  - responsive-web-design
-  - webpack
-  - jekyll
+  - Web Optimization
+  - Google Insights
+  - Responsive Web Design
+  - Webpack
+  - Jekyll
 categories:
   - th
 image: 'https://www.dropbox.com/s/lxir9pr41qsc9eu/cover.jpg?raw=1'
@@ -29,7 +29,7 @@ unsplashImgCoverId: a_PDPUPuNZ8
 แต่ดูเหมือนต้องปรับจูนเยอะกว่าจะได้ blog แบบที่เราต้องการ เลยไม่เอาดีกว่า ยอมใช้ Jekyll ที่ compile ช้ากว่า แต่ เราถนัดกว่า ( เทคโนโลยี แบบดั้งเดิมดี ไม่ต้องเปลี่ยนเยอะ)
 
 > ตรงนี้จากประสบการณ์ตัวเอง เนื่องจากว่าเว็บบล็อกไม่ได้เขียนโค้ด หรือพัฒนาอยู่บ่อยๆ ส่วนใหญ่เน้นไปที่เขียนบทความใหม่ๆ มากกว่า ดังนั้น เมื่อเวลาผ่านไปนานๆ และเทคโนโลยีฝั่งเว็บไปเร็วมาก จนบางครั้งอาจจะทำให้เทคโนโลยีเว็บเดิมที่เคยใช้อยู่ทำงานไม่ได้ ใน browser สมัยใหม่ หรือการปรับเปลี่ยนให้ทันยุคทันสมัยต้องมานั่งแก้เว็บใหม่อีก
-> 
+>
 > **ดังนั้น** ผมเลยตัดสินใจใช้เทคโนโลยีเก่าหน่อย ที่ยังคงเป็น long term support แต่ก็ยังคงสามารถทำให้ดูทันสมัยได้ และไม่ได้ทำงานช้าด้วยซึ่งก็เหมาะสมกับเว็บบล็อกดี
 
 สุดท้ายก็ตัดสินใจจูน frontend ของบล็อกเดิม ที่เป็น Jekyll ใหม่ให้เป็น Responsive มากขึ้น ทั้งแง่ของ typography ด้วย
@@ -50,7 +50,7 @@ unsplashImgCoverId: a_PDPUPuNZ8
 
 - เปลี่ยนจากการโหลด CSS แบบ Synchronous (Blocking) ให้โหลดแบบ Async ใช้ไลบรารี่ [LoadCSS](<https://github.com/filamentgroup/loadCSS>) (ซึ่งแนะนำโดย Google Insights) ในการโหลด CSS เข้ามา เมื่อโหลดเสร็จ
 
-### ผลที่ได้คือ 
+### ผลที่ได้คือ
 
 หน้าเว็บโหลดเร็วขึ้น แต่ข้อเสียคือ มันจะเห็นหน้าตาเว็บแบบไม่มี css ใดๆ เลย ซึ่งไม่สวยเลย 55 พอ CSS โหลดเข้ามาหน้าตาเว็บก็เป็นแบบที่เห็น แบบนี้เลยคับ
 
@@ -58,14 +58,14 @@ unsplashImgCoverId: a_PDPUPuNZ8
 
 - การใช้ **sass** ช่วยทำให้ชีวิตง่ายขึ้นเยอะในการจัดการค่าต่างๆ ในการตกแต่งหน้าเว็บ ให้มันเป็นอันหนึ่งอันเดียวกัน (consistency)
 
-## ใช้ Jekyll sass plugin ในการ bundle sass และ css 
+## ใช้ Jekyll sass plugin ในการ bundle sass และ css
 
 (อนาคตจะไปใช้ webpack ด้วย) แยกเป็น 2 ไฟล์คือ
 
 - `preload_styles.css` ไฟล์นี้ ถ้าโหลดผ่าน `LoadCSS` จะเหมือนรูปข้างบน จะใส่แบบปกติ ก็เดี๋ยวโดน Google หักคะแนน หาว่าโหลด stylesheet แบบ Blocking เดี๋ยวทำให้เว็บช้า **สรุปคือ** จัดการฝั่งโค้ด CSS เข้าไปใน HTML ซะเลย
 - `postload_styles.css` ไฟล์นี้โหลดผ่าน `LoadCSS `ไฟล์นี้จะเป็น พวก asset ขนาดใหญ่ พวกโหลด font, กับ Icon ต่างๆ ([Font Awesome](https://fontawesome.com/)) ซึ่งไม่จำเป็นต้องมาก่อนครั้งแรกที่เว็บโหลดก็ได้
 
-## เปลี่ยนเทคโนโลยีหน้า Search 
+## เปลี่ยนเทคโนโลยีหน้า Search
 
 จาก AngularJS ซึ่ง[เขียนตั้งแต่ปี 2558](https://github.com/mildronize/mildronize.github.io/commit/831f4fb466d0f9cd513a45c299b946ca2f398aed) ให้เป็น React โดยเป็นการใช้ React แบบ library จริงๆ คือเฉพาะส่วนของ content เท่านั้นที่เป็น React ที่เหลือยังคงเป็น HTML ธรรมดา (Header, Footer) ซึ่ง bundle ใส่ในไฟล์ `search.js` ปรับหน้า search ให้เป็น responsive บน mobile แยกต่างหากด้วย
 
@@ -74,16 +74,16 @@ unsplashImgCoverId: a_PDPUPuNZ8
 ## ทำเว็บ Bundle ด้วย Webpack4
 เนื่องจากเป็น Static page ธรรมดา ไม่มีการทำ SPA แต่อย่างใด ดังนั้นเลยใช้การแพ็กเป็น bundle ( คือรวมทุกๆ ไฟล์ เข้ามาเป็นไฟล์เดียว หรือแบ่งเป็นหลายๆ ส่วนแล้วแต่โมดูลก่อนก็ได้ ) ซึ่ง [webpack](https://webpack.js.org/) ก็มาตอบโจทย์ตรงนี้ได้ เพื่อให้ลดจำนวน request ส่งไปยัง server ตอนนี้เว็บแบ่งออกเป็น 3 ไฟล์ (entry)
 
-- `index.js` โหลดเฉพาะหน้าแรกเท่านั้น เป็นการเรียกใช้ [Moment.js](https://momentjs.com/) ( [Optimize file size ของ Moment ด้วยไม่งั้นไฟล์อ้วนมาก](https://github.com/jmblog/how-to-optimize-momentjs-with-webpack)) ในการแปลงเวลาของแต่บล็อก ให้แสดงผลว่า บล็อกเขียนมาแล้วกี่วัน 
+- `index.js` โหลดเฉพาะหน้าแรกเท่านั้น เป็นการเรียกใช้ [Moment.js](https://momentjs.com/) ( [Optimize file size ของ Moment ด้วยไม่งั้นไฟล์อ้วนมาก](https://github.com/jmblog/how-to-optimize-momentjs-with-webpack)) ในการแปลงเวลาของแต่บล็อก ให้แสดงผลว่า บล็อกเขียนมาแล้วกี่วัน
 - `toc.js` โหลดเฉพาะหน้าที่มี Table of Content จ้า มี JQuery กับ [Jekyll ToC](https://github.com/ghiculescu/jekyll-table-of-contents)
 - `search.js`โหลดเฉพาะหน้า Search เท่านั้น ซึ่งใช้ React ในหัวข้อก่อนหน้านี้
 
-## [Lazy load image](<https://github.com/verlok/lazyload>) 
-คือไม่ได้โหลด รูปทุกรูปในครั้งแรกที่เว็บโหลดแต่ จะค่อยๆ โหลดเมื่อ user scroll ผ่านเท่านั้น เพื่อลดปริมาณข้อมูลที่โหลดทั้งหมด 
+## [Lazy load image](<https://github.com/verlok/lazyload>)
+คือไม่ได้โหลด รูปทุกรูปในครั้งแรกที่เว็บโหลดแต่ จะค่อยๆ โหลดเมื่อ user scroll ผ่านเท่านั้น เพื่อลดปริมาณข้อมูลที่โหลดทั้งหมด
 
 สุดท้ายทำ
 
-## โหลดรูปภาพแบบ เบลอก่อนแล้วเมื่อรูปโหลดเสร็จถึงจะแสดงรูปจริงแบบ [medium.com](http://medium.com/) 
+## โหลดรูปภาพแบบ เบลอก่อนแล้วเมื่อรูปโหลดเสร็จถึงจะแสดงรูปจริงแบบ [medium.com](http://medium.com/)
 (ตรงนี้จะแชร์ในอีกบล็อกครับ) ซึ่งตรงนี้ใช้บริการแคชรูปของ [Cloudimage.io](https://cloudimage.io/) ซึ่งทำ cache, thumbnail ได้ง่ายมากๆ แถมให้ใช้ฟรี ตั้ง 15 GB ตรงนี้เขียน Plugin ของ Jekyll เข้ามาช่วยในการแปลง img tag ให้เป็นแบบ เบลอก่อนโหลดเสร็จด้วย
 
   ![image-load-blur](https://www.dropbox.com/s/4t30cmbtezs3qbw/2018-09-17-99-score-google-insight-web-optimization-7.gif?raw=1)
@@ -103,7 +103,7 @@ unsplashImgCoverId: a_PDPUPuNZ8
 
 ## สิ่งที่จะทำต่อไป
 
-- ตอนนี้ยังใช้บน IE แล้วยังมีปัญหา เรื่องของ Image Loading 
+- ตอนนี้ยังใช้บน IE แล้วยังมีปัญหา เรื่องของ Image Loading
 
 Source code: https://github.com/mildronize/mildronize.github.io
 

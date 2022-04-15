@@ -1,13 +1,8 @@
 ---
 title: Amazing UI Design Articles
 tags:
-  - web-design
-  - design
-  - ui
-  - factor
-  - ux
-categories:
-  - en
+  - Web Design
+  - UX/UI
 language: en
 image: >-
   https://www.dropbox.com/s/zk9rpnoxncolajw/2019-03-24-amazing-ui-design-articles.jpg?raw=1

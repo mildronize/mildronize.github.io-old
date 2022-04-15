@@ -4,10 +4,9 @@ description: >-
   ความพยายามของผมที่จะหัดใช้ลินุกซ์มามากกว่า 10 ครั้ง, ลินุกซ์คืออะไร,
   การแก้ปัญหาต่างๆ, Linux distrubtion, Debian, การบำรุงรักษา
 tags:
-  - linux
-  - debian
-  - newbie
-categories:
+  - Linux
+  - Debian
+language:
   - th
 uuid: it3xlde
 unsplashImgCoverId: 9XngoIpxcEo

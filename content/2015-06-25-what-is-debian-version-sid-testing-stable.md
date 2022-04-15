@@ -4,11 +4,7 @@ title: >-
   โอ๊ยเยอะแยะไปหมด...
 description: อธิบายแต่ละเวอร์ชั่นของการพัฒนา debian ได้แก่ sid testing และก็ stable
 tags:
-  - sid
-  - debian
-  - linux
-  - testing
-  - stable
+  - Debian
 categories:
   - th
 uuid: 612v702

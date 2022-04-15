@@ -3,10 +3,10 @@ title: >-
   การใช้งาน Multi-Modules ต่อ Workspace ใน VS Codeและ วิธีการแก้ปัญหา You are
   outside of a module and outside of $GOPATH/src
 tags:
-  - go
+  - Go
   - go1.17
   - gopls
-  - vscode
+  - VS Code
 uuid: 0ydbrqj
 unsplashImgCoverId: jvtKm4Wjd0Q
 ---

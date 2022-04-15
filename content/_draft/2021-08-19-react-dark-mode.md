@@ -2,10 +2,10 @@
 layout: post
 title: React Dark Mode
 tags:
-  - react
-  - pattern
+  - React
+  - Design pattern
   - dark-mode
-  - react-hook
+  - React-hook
   - theme
 categories:
   - th

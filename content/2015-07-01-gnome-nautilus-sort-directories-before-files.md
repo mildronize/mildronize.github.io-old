@@ -4,17 +4,15 @@ description: >-
   บอกวิธีการตั้งค่าให้โปรแกรมจัดการไฟล์บน Gnome แสดงผล directory (folder)
   ก่อนไฟล์
 tags:
-  - linux
-  - debian
-  - gnome
-  - nautilus
+  - Debian
+  - Gnome Nautilus
 categories:
   - th
 uuid: 8q0uj3s
 unsplashImgCoverId: Pyjp2zmxuLk
 ---
 
-พอดีผมใช้ Windows มาก่อนแล้วถนัดให้ แสดง folder ก่อนแสดงไฟล์ เลยไปหาวิธีการมาจาก [เว็บนี้](http://gexperts.com/wp/gnome-3-12-filesnautilus-sort-folders-before-files-issues/) 
+พอดีผมใช้ Windows มาก่อนแล้วถนัดให้ แสดง folder ก่อนแสดงไฟล์ เลยไปหาวิธีการมาจาก [เว็บนี้](http://gexperts.com/wp/gnome-3-12-filesnautilus-sort-folders-before-files-issues/)
 วันนี้เลยเอามาแปล และมาอธิบายให้ฟัง
 
 > **หมายเหตุ**: ใน Windows เค้าเรียกว่า Folder ส่วนใน linux เค้าจะเรียกว่า directory ครับ
@@ -27,7 +25,7 @@ unsplashImgCoverId: Pyjp2zmxuLk
 3. จากนั้นไปที่ `gnome`
 4. แล้วก็ `nautilus`
 5. แล้วก็ `preferences`
-6. เมื่อกด ที่ preferences จากขั้นตอนที่ 5 แล้ว ให้มองไปทางฝั่งขวา แล้วหารายการที่มีชื่อว่า `sort-directories-first` แล้วกดติ๊กถูกครับ 
+6. เมื่อกด ที่ preferences จากขั้นตอนที่ 5 แล้ว ให้มองไปทางฝั่งขวา แล้วหารายการที่มีชื่อว่า `sort-directories-first` แล้วกดติ๊กถูกครับ
 
 ถ้าขั้นตอนแรกยังไม่ได้ ให้ทำขั้นตอนที่ 2 อีกครับ
 
@@ -35,9 +33,9 @@ unsplashImgCoverId: Pyjp2zmxuLk
 
 1. ทำเหมือน ขั้นตอนที่ 1 ข้อที่ 1 เลย
 2. ดูฝั่งทางซ้าย ไปที่ `org` แล้วก็ `gtk` แล้วก็ `Settings` แล้วก็ `file-chooser`
-3. จากนี่น ดูฝั่งขวา แล้วหารายการที่มีชื่อว่า `sort-directories-first` แล้วกดติ๊กถูกครับ 
+3. จากนี่น ดูฝั่งขวา แล้วหารายการที่มีชื่อว่า `sort-directories-first` แล้วกดติ๊กถูกครับ
 
-ถ้าตั้งค่าตามที่กล่าวมานี้แล้ว สำหรับผมแล้วทำใช้งานได้ครับ 
+ถ้าตั้งค่าตามที่กล่าวมานี้แล้ว สำหรับผมแล้วทำใช้งานได้ครับ
 ขอบคุณครับ
 
 

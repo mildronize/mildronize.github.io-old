@@ -1,8 +1,8 @@
 ---
 title: Getting Started TDD in 30 Seconds with Python
 tags:
-  - python
-  - tdd
+  - Python
+  - TDD
   - pipenv
   - pytest
 categories:

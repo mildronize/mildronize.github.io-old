@@ -3,9 +3,8 @@ title: titlesec (Latex package) doesn't create section numbers on version 2.10.1
 categories:
   - en
 tags:
-  - titlesec
-  - latex
-  - bug
+  - Titlesec
+  - LaTex
 uuid: ptkagjo
 unsplashImgCoverId: LboV5Qpqm1E
 ---

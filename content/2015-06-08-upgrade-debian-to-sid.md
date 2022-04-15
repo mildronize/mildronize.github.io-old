@@ -4,16 +4,9 @@ description: >-
   Instruction for upgrading debian from stable to SID, sudo command setup,
   installing non-free packages(non open source)
 tags:
-  - upgrade
-  - debian
-  - linux
-  - how-to
-  - font-thai
-  - firmware-linux
-  - sudo
-  - update
-  - sorces.list
-  - non-free
+  - Debian
+  - How to
+  - Firmware Linux
 categories:
   - en
 last_modified_at: 2016-02-16T00:00:00.000Z
@@ -32,7 +25,7 @@ $ su
 
 > Note: If `sudo` don't work, try logout and login again.
 
-1. Replace the belowing text into `/etc/apt/sources.list` with your favorite editor. In my case I use 
+1. Replace the belowing text into `/etc/apt/sources.list` with your favorite editor. In my case I use
 `$ sudo vi /etc/apt/sources.list`
 
     ```bash
@@ -44,18 +37,18 @@ $ su
     deb http://ftp.th.debian.org/debian/ experimental main contrib non-free
     ```
     > Read more about Archive areas:
-    > [main](https://www.debian.org/doc/debian-policy/ch-archive.html#s-main), 
-    > [contrib](https://www.debian.org/doc/debian-policy/ch-archive.html#s-contrib), 
+    > [main](https://www.debian.org/doc/debian-policy/ch-archive.html#s-main),
+    > [contrib](https://www.debian.org/doc/debian-policy/ch-archive.html#s-contrib),
     > [non-free](https://www.debian.org/doc/debian-policy/ch-archive.html#s-non-free)
-    
-    > Note: Replace `http://ftp.th.debian.org/debian/` to your nearest repository 
-    
+
+    > Note: Replace `http://ftp.th.debian.org/debian/` to your nearest repository
+
 2. Update a list of repositories
 
     ```bash
     $ sudo aptitude update
     ```
-    
+
 2. Upgrade your debian version into sid version
 
     ```bash
@@ -67,14 +60,14 @@ $ su
     $ sudo reboot
     ```
 
-**Optional:** 
+**Optional:**
 
-- For installing firmware for various drivers in consist of [non-free](https://www.debian.org/doc/debian-policy/ch-archive.html#s-non-free) packages or drivers using: 
+- For installing firmware for various drivers in consist of [non-free](https://www.debian.org/doc/debian-policy/ch-archive.html#s-non-free) packages or drivers using:
 
     ```
     $ sudo aptitude install firmware-linux
     ```
-- For installing some thai font: 
+- For installing some thai font:
 
     ```
     $ sudo aptitude install xfonts-thai

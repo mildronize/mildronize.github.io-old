@@ -1,12 +1,10 @@
 ---
 title: React Design Patterns
 tags:
-  - react
-  - pattern
-  - javascript
-  - es6
-categories:
-  - en
+  - React
+  - Design Pattern
+  - JavaScript
+  - ES6
 language: en
 image: 'https://www.dropbox.com/s/9u7jxihxp12n06w/2019-03-13-react-pattern.jpg?raw=1'
 toc: true
@@ -21,7 +19,7 @@ Hi everyone, here is not getting started guide for writing React. You should hav
 
 I'm following [Airbnb style guide](https://github.com/airbnb/javascript/tree/master/react) and using  react in pattern books for references https://github.com/krasimir/react-in-patterns, <https://github.com/vasanthk/react-bits>
 
-### Designing React Web Application 
+### Designing React Web Application
 
 Nowadays, we have many approaches to design the composition of react component.
 
@@ -32,14 +30,14 @@ Here is one of approaches to design
 1. Use Airbnb style guide for consistency code style
 2. Use popular React boilerplate (`create-react-app`) for reducing complexity to manage build tools such as webpack, babel, etc.
 
-**Basic Design** 
+**Basic Design**
 
 In React documentation describes [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)  for explaining how to design react component and how they compose each others. However, when I 've getting started with React, I realize the component design thinking is most important thing for designing react application. In a React application, it will be at least one component, or can be divided into child component which should work with the parent one.
 
 1. Start with a few React component for reducing the complexity in state management.
 2. Break the code down to component when necessary, if it feel easier.
 3. The component can break into 2 parts: **Container Component** and **Presentational Component**, when necessary.
-   1. Container Component 
+   1. Container Component
    2. Presentational Component
 
 **Advanced Design: Reusable Components**
@@ -230,7 +228,7 @@ function sampleComponent(){
 
 ```jsx
 class App extends React.Component {
-    
+
   state = {
     textbox: ""
   }
@@ -304,14 +302,14 @@ class Counter extends React.Component {
   state = {
     count: 0
   }
-  
+
   handleAdd(){
     this.setState({ count: this.state.count + 1});
   }
 
   render() {
     return (
-      <CounterView 
+      <CounterView
         value={this.state.count}
         onAdd={() => this.handleAdd()}>
       </CounterView>
@@ -355,14 +353,14 @@ class Counter extends React.Component {
     }
     store.setRoot(this);
   }
-  
+
   handleAdd(){
     this.setState({ count: this.state.count + 1});
   }
 
   render() {
     return (
-      <CounterView 
+      <CounterView
         value={this.state.count}></CounterView>
     );
   }

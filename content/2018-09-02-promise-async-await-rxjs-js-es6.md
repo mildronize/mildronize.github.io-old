@@ -1,11 +1,10 @@
 ---
 title: 'Promise, Async, Await ของ JS ES6+ ฉบับสั้นๆ ไม่พูดเยอะ เจ็บคอ แถม RxJS'
 tags:
-  - promise
-  - javascript
-  - es6
-  - async
-  - await
+  - Promise
+  - JavaScript
+  - ES6
+  - Async/Await
 categories:
   - th
 image: 'https://www.dropbox.com/s/53ds3aqow09hl0g/cover.jpeg?raw=1'
@@ -21,9 +20,9 @@ unsplashImgCoverId: hopnkQoC0dg
 
 สวัสดีครับ บล็อกนี้มาสั้นๆ ไม่เกริ่นทีมา ว่าทำไมถึงใช้ และหลักการต่างๆ ข้ามไว้ก่อน เพราะเราขี้เกียจเขียน (ไว้ค่อยกลับมาเขียน 555)
 
-**สรุปสั้นๆ** 
+**สรุปสั้นๆ**
 
-- ใช้ **Promise** เพื่อแก้ปัญหา Callback Hell 
+- ใช้ **Promise** เพื่อแก้ปัญหา Callback Hell
 - ใช้ **Async, Await** เพื่อไม่ต้องใช้ `.then()` แล้วยังไงล่ะ ไปดู
 - เนื่องจาก Promise `resolve` ได้แค่ครั้งเดียว ถ้าอยาก `resolve` หลายครั้ง เช่นข้อมูลแบบ stream ใช้ **RxJS** เพื่อแก้ปัญหา
 
@@ -77,13 +76,13 @@ const main = async () => {
 
 เป็นไงล่ะ ทำงานได้เหมือนเดิม แต่ชีวิตง่ายขึ้นมั้ย ทีนี้เราก็ทำตัวเหมือนเขียน Blocking I/O หรือ Synchronous  แบบ C, Python ได้แล้ว เจ๋งป่ะล่ะ
 
-**ข้อสังเกตุ** ฟังก์ชัน `main()` ต้องเป็น `async` เพื่อบอกว่าฟังก์ชันนี้มี การทำ blocking I/O หรือ Synchronous อยู่นะ  เราใส่ `await` หน้า promise นั้นเอง มันจะ auto `.then()` ให้เลย สะดวกสุดๆ 
+**ข้อสังเกตุ** ฟังก์ชัน `main()` ต้องเป็น `async` เพื่อบอกว่าฟังก์ชันนี้มี การทำ blocking I/O หรือ Synchronous อยู่นะ  เราใส่ `await` หน้า promise นั้นเอง มันจะ auto `.then()` ให้เลย สะดวกสุดๆ
 
  ในบรรทัดนี้ `const data = await upperAfter('test',2000)` อารมณ์เหมือนเราได้ค่า `data` มาเลย แล้วก็เอาไปทำอะไรต่อก็ได้ ไม่ต้องอยู่ใน `.then()` แล้ว
 
-## ก่อนปิดบล็อก 
+## ก่อนปิดบล็อก
 
-อ่าวจบแล้ว? RxJS ล่ะ เอาแค่นี้ก่อน พอรู้ข้อจำกัดของการใช้ Promise แล้ว คราวหน้า เราสามารถไปใช้ RxJS ได้ 
+อ่าวจบแล้ว? RxJS ล่ะ เอาแค่นี้ก่อน พอรู้ข้อจำกัดของการใช้ Promise แล้ว คราวหน้า เราสามารถไปใช้ RxJS ได้
 
 ### ของแถม แล้ว **Promise** มาช่วยแก้ปัญหา Callback Hell  ยังไง
 

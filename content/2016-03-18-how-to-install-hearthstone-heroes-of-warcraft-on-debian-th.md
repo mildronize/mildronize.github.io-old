@@ -4,12 +4,11 @@ description: >-
   อธิบายขั้นตอนการลงเกม Hearthstone: Heroes of Warcraft ผ่านโปรแกรม wine
   พร้อมวิธีแก้ปัญหา
 tags:
-  - hearthstone
-  - game
-  - debian
-  - how-to
-  - wine
-categories:
+  - Hearthstone
+  - Debian
+  - How to
+  - Wine
+language:
   - th
 featured_image: logo/hearthstone.jpg
 uuid: 2vpnolt

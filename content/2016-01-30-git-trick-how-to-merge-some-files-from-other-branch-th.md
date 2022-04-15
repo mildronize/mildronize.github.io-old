@@ -1,14 +1,9 @@
 ---
 title: 'ทริคการใช้ git: การ merge บางไฟล์ไปอีก branch'
 description: ทริคการใช้งาน git แบบง่ายสำหรับการ merge ไฟล์ไปอีก branch
-categories:
-  - th
 tags:
   - git
-  - tip
-  - how-to
-  - branch
-  - merge
+  - How to
 language: th
 uuid: 2zgi1pu
 unsplashImgCoverId: UT8LMo-wlyk
@@ -18,7 +13,7 @@ unsplashImgCoverId: UT8LMo-wlyk
 
 นั่นคือ ใช้ประโยชน์จาก `git checkout` นั่นเอง
 
-สมมติว่า ผมมี 2 branches คือ `master` และ `mildronize-dotfiles` ตามผลลัพธ์ด้านล่าง ผมต้องการที่จะ merge ไฟล์ `README.md` จาก `mildronize-dotfiles` ไปยัง `master` 
+สมมติว่า ผมมี 2 branches คือ `master` และ `mildronize-dotfiles` ตามผลลัพธ์ด้านล่าง ผมต้องการที่จะ merge ไฟล์ `README.md` จาก `mildronize-dotfiles` ไปยัง `master`
 และทำการ commit ให้เรียบร้อย
 
 ```bash

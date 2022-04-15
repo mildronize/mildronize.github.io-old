@@ -2,7 +2,7 @@
 title: Modern Javascript (ES6+) ใน React ที่พบได้บ่อย (แถม TypeScript)
 tags:
   - Modern JavaScript
-  - ES6+
+  - ES6
   - TypeScript
 uuid: g4owyyw
 unsplashImgCoverId: KXkgOigCqj0

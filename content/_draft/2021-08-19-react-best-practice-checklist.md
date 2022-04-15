@@ -2,8 +2,8 @@
 layout: post
 title: React Best Practices Checklist
 tags:
-  - react
-  - pattern
+  - React
+  - Design pattern
   - Best Practices
 language: th
 uuid: bulndnf

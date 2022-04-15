@@ -2,10 +2,8 @@
 title: วิธีการเริ่มการทำงาน VM ของ VirtualBox แบบทำงานเบื้องหลัง
 description: รวมวิธีการเริ่มการทำงาน VM ของ VirtualBox ทั้งแบบ GUI และ Command mode
 tags:
-  - virtualbox
-  - vm
-  - cli
-  - command-line
+  - VirtualBox
+  - Virtual Machine
 category: th
 featured_image: logo/virtual.png
 uuid: 5v44hmt
