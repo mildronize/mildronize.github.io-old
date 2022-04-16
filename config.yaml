@@ -1,6 +1,6 @@
-baseURL: 'http://example.org/'
+baseURL: '/'
 languageCode: en-us
-title: My New Hugo Site
+title: Thada W.
 theme: mild-theme
 permalinks:
   posts: /:slug/

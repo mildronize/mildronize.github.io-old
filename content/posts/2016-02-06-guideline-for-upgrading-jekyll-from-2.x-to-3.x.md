@@ -7,12 +7,15 @@ description: >-
 categories:
   - en
 date: '2016-02-06'
+aliases:
+  - /s/z578nvw/
 tags:
   - Jekyll
   - Jekyll 3
   - Guideline
 uuid: z578nvw
 unsplashImgCoverId: H7LxvEmVZnE
+slug: guideline-for-upgrading-jekyll-from-2-x-to-3-x-z578nvw
 ---
 
 > Note: **This guideline is not suitable for default engine of GitHub (Jekyll)**. Because it doesn't allow to install any plugin. On the other hand, we can't use Jekyll 2 plugin. It must uses in Jekyll 3 way.

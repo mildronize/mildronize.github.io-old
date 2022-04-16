@@ -7,6 +7,9 @@ tags:
   - Pull Request
 uuid: qocjeqb
 unsplashImgCoverId: LG8ToawE8WQ
+date: '2021-08-27'
+slug: >-
+  ตั้งค่าให้-github-actions-แสดง-previews-deploy-เมื่อส่ง-pull-request-โดยใช้-vercel-qocjeqb
 ---
 
 นี่เป็นตัวอย่างการใช้งานคร่าวๆ นะครับ

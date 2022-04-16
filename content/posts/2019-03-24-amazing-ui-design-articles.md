@@ -8,6 +8,8 @@ image: >-
   https://www.dropbox.com/s/zk9rpnoxncolajw/2019-03-24-amazing-ui-design-articles.jpg?raw=1
 uuid: 14liwiu
 unsplashImgCoverId: _t-l5FFH8VA
+date: '2019-03-24'
+slug: amazing-ui-design-articles-14liwiu
 ---
 
 

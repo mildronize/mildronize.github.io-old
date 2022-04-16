@@ -12,6 +12,8 @@ image: 'https://www.dropbox.com/s/lxir9pr41qsc9eu/cover.jpg?raw=1'
 toc: true
 uuid: i4kssit
 unsplashImgCoverId: a_PDPUPuNZ8
+date: '2018-09-17'
+slug: ได้-99-คะแนนจาก-google-insights-เรียนรู้การทำ-web-optimization-i4kssit
 ---
 
 

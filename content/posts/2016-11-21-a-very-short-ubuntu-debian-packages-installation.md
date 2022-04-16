@@ -13,6 +13,8 @@ featured: true
 toc: true
 uuid: 0967oym
 unsplashImgCoverId: 4Mw7nkQDByk
+date: '2016-11-21'
+slug: a-very-short-ubuntu-debian-packages-installation-sheet-0967oym
 ---
 
 ## Docker

@@ -13,6 +13,9 @@ image: 'https://www.dropbox.com/s/6j7n98dlmnubjxq/cover.jpg?raw=1'
 toc: true
 uuid: mo4feik
 unsplashImgCoverId: z0uPpx6DDcA
+date: '2018-08-28'
+slug: >-
+  วิธีตั้งค่าการใช้งาน-github-แบบไม่ต้องกรอกรหัสผ่านทุกครั้ง-ผ่าน-ssh-บน-windows-mo4feik
 ---
 
 ขั้นตอนการตั้งค่าการใช้งาน Github  แบบไม่ต้องกรอกรหัสผ่านทุกครั้ง บน windows

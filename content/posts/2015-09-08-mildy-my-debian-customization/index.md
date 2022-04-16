@@ -11,6 +11,8 @@ tags:
   - Linux Desktop Customization
 uuid: gtg6emr
 unsplashImgCoverId: hWgsxV_VQW0
+date: '2015-09-08'
+slug: mildy-my-debian-customization-gtg6emr
 ---
 
 Are you boring in Desktop of Debian. Here are some configurations for

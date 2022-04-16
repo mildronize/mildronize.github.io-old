@@ -7,6 +7,8 @@ tags:
   - Angular JS
 uuid: hm371bt
 unsplashImgCoverId: i0e3m7aMk10
+date: '2015-05-06'
+slug: my-blog-development-for-jekyll-site-hm371bt
 ---
 
 > This post is involving the old version site, built with [Jekyll](http://jekyllrb.com).

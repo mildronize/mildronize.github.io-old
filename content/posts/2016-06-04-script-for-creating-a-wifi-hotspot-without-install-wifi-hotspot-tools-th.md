@@ -11,6 +11,8 @@ categories:
   - th
 uuid: 4hztzdg
 unsplashImgCoverId: sNvBTRQR7eE
+date: '2016-06-04'
+slug: เปิด-hotspot-wi-fi-เองโดยที่ต้องไม่พึ่งโปรแกรมใดๆ-บน-windows-4hztzdg
 ---
 
 โปรแกรมทางเลือกสำหรับการสร้าง WiFi Hotspot ใช้งานเองโดยไม่ต้องพึงโปรแกรมอื่นๆ จากคอมพิวเตอร์ของคุณ เช่น [Connectify](http://www.connectify.me/) หรือ [mHotspot](http://www.mhotspot.com/) เป็นต้น

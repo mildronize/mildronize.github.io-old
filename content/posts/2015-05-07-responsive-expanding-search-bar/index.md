@@ -17,6 +17,8 @@ home: 'https://github.com/mildronize/ExpandingSearchBar'
 source: 'https://github.com/mildronize/ExpandingSearchBar/archive/master.zip'
 uuid: cnhkvv7
 unsplashImgCoverId: 6JVlSdgMacE
+date: '2015-05-07'
+slug: responsive-expanding-search-bar-cnhkvv7
 ---
 
 ![responsive-expanding-search-bar](2015-05-06-responsive-expanding-search-bar.jpg)

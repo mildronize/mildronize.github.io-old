@@ -11,6 +11,8 @@ categories:
   - en
 uuid: lay4u9o
 unsplashImgCoverId: CD2aics5pU0
+date: '2015-06-22'
+slug: how-to-install-google-chrome-on-debian-lay4u9o
 ---
 
 # *Deprecated post!

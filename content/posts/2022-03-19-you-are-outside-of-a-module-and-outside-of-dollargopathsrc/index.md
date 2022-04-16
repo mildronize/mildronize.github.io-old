@@ -9,6 +9,9 @@ tags:
   - VS Code
 uuid: 0ydbrqj
 unsplashImgCoverId: jvtKm4Wjd0Q
+date: '2022-03-19'
+slug: >-
+  การใช้งาน-multi-modules-ต่อ-workspace-ใน-vs-codeและ-วิธีการแก้ปัญหา-you-are-outside-of-a-module-and-outside-of-gopath-src-0ydbrqj
 ---
 
 จากที่ลองทำตาม Tutorial ในการ import Go Module ใน Official Docs

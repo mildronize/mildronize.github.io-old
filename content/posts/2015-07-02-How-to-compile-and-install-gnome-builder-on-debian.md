@@ -9,6 +9,8 @@ language:
   - en
 uuid: 1jxvb3m
 unsplashImgCoverId: Tjbk79TARiE
+date: '2015-07-02'
+slug: how-to-compile-install-gnome-builder-on-debian-1jxvb3m
 ---
 
 > Note: This post is early access for using Gnome Builder. It may be including some bug or any error, please calm when you found some bug. So I think this is becoming the best editor for gnome user, Cheer!

@@ -8,7 +8,7 @@
     - [X] Quick solution - rename it to be more short.
     - [X] This issue is also found in Gatsby, ignore it.
   - [X] Field date is missing
-    - [ ] Solution: Using `Inject UUID` script to inject date from filename on every markdown file.
+    - [X] Solution: Using `Inject UUID` script to inject date from filename on every markdown file.
   - [X] Short URL
     - [ ] Solution: Add `aliases: [ '/s/z578nvw/']` in every markdown file using  `Inject UUID` script 
   - [ ] Slug URL

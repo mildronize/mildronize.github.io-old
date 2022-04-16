@@ -8,6 +8,8 @@ category: th
 featured_image: logo/virtual.png
 uuid: 5v44hmt
 unsplashImgCoverId: eygpU6KfOBk
+date: '2016-06-27'
+slug: วิธีการเริ่มการทำงาน-vm-ของ-virtual-box-แบบทำงานเบื้องหลัง-5v44hmt
 ---
 
 > สำหรับความสามารถนี้รองรับเฉพาะ **VirtualBox รุ่น 5.0** เป็นต้นไปนะครับ สามารถดูรายละเอียดเพิ่มเติมได้ที่[บล็อกของ oracle](https://blogs.oracle.com/virtualization/entry/oracle_vm_virtualbox_5_07) เลยครับ

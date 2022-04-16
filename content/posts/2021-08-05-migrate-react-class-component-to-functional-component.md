@@ -10,6 +10,9 @@ language: th
 toc: true
 uuid: a7ng95o
 unsplashImgCoverId: L8KQIPCODV8
+date: '2021-08-05'
+slug: >-
+  ย้ายจาก-react-class-component-มาเป็น-functional-component-ง่ายกว่าที่คิด-a7ng95o
 ---
 
 ใครที่ใช้ React แล้วเขียนด้วย Class Componentลองย้ายมาเขียน Functional Component (Hook) ดูน้า ไม่ยากเลย

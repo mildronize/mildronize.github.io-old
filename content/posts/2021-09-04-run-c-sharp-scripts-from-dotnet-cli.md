@@ -6,6 +6,8 @@ tags:
   - Dotnet5
   - Dotnet-script
 unsplashImgCoverId: EzUZqqp_yrc
+date: '2021-09-04'
+slug: run-c-scripts-ไฟล์เดียว-โดยใช้-net-cli-t2z614m
 ---
 
 วิธีการรัน C# ไฟล์เดียวโดยที่ไม่ต้องสร้างเป็นโปรเจ็คโดยใช้

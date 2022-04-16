@@ -10,6 +10,8 @@ categories:
   - th
 uuid: 8q0uj3s
 unsplashImgCoverId: Pyjp2zmxuLk
+date: '2015-07-01'
+slug: วิธีการทำให้-gnome-nautilus-แสดง-directory-ก่อนไฟล์-8q0uj3s
 ---
 
 พอดีผมใช้ Windows มาก่อนแล้วถนัดให้ แสดง folder ก่อนแสดงไฟล์ เลยไปหาวิธีการมาจาก [เว็บนี้](http://gexperts.com/wp/gnome-3-12-filesnautilus-sort-folders-before-files-issues/)

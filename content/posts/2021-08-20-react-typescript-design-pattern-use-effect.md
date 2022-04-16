@@ -9,6 +9,8 @@ tags:
 language: th
 uuid: wes5jlp
 unsplashImgCoverId: ZfczAO3uDzc
+date: '2021-08-20'
+slug: จัดการ-side-effects-ใน-react-ด้วย-hook-use-effect-wes5jlp
 ---
 
 Side effects เป็น function โดยส่วนใหญ่แล้ว เราจะจัดการกับ Side Effect ของ Component โดยมี 3 scenarios:

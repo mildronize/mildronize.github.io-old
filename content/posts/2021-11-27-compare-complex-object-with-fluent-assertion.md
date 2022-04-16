@@ -8,6 +8,9 @@ tags:
   - Dotnet
 uuid: qlh6tbh
 unsplashImgCoverId: SMxzEaidR20
+date: '2021-11-27'
+slug: >-
+  ชีวิตดีเมื่อใช้-fluent-assertions-ช่วยในเขียน-test-เพื่อเปรียบเทียบ-object-ที่ซับซ้อน-qlh6tbh
 ---
 
 สมมติว่าเรามี Data Structure ดังนี้ คำถามคือเราจะ Assert อย่างไร

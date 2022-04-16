@@ -7,6 +7,8 @@ import path from 'path';
 import { promisify } from 'util';
 import { createApi } from 'unsplash-js';
 import nodeFetch from 'isomorphic-fetch';
+import * as date from 'date-fns'
+import * as _ from 'lodash'
 import { getAllMarkdownPaths, retryNewUuid, stageChangeGit } from './utils';
 
 dotenv.config();
@@ -23,35 +25,35 @@ const writeFile = promisify(fs.writeFile);
 
 const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
 
-const targetPath = "content";
+const targetPath = "content/posts";
 const defaultUnicode = 'utf8';
 let isAddUnsplashCover = false;
 let isStageChangeMode = false;
 let unsplash;
 
 const firstArg = process.argv[2];
-if(firstArg === 'add-unsplash'){
+if (firstArg === 'add-unsplash') {
   isAddUnsplashCover = true;
   isStageChangeMode = true;
-} else if(firstArg === 'stage-changes'){
+} else if (firstArg === 'stage-changes') {
   isStageChangeMode = true;
 }
 
-if(isAddUnsplashCover){
+if (isAddUnsplashCover) {
   unsplash = createApi({
     accessKey: unsplashAccessKey,
     fetch: nodeFetch,
   });
 }
 
-async function checkUnsplashAccessToken(){
-   const result = await unsplash?.photos.getRandom({ count: 1 });
-    if(result?.type === 'error'){
-      throw Error(result.errors)
-    }
+async function checkUnsplashAccessToken() {
+  const result = await unsplash?.photos.getRandom({ count: 1 });
+  if (result?.type === 'error') {
+    throw Error(result.errors)
+  }
 }
 
-if(!unsplashAccessKey && isAddUnsplashCover){
+if (!unsplashAccessKey && isAddUnsplashCover) {
   console.log(`Running inject-uuid without Add Unsplash`);
 }
 
@@ -69,9 +71,9 @@ async function getRandomUnsplashImageId() {
   return randomResult.response[0].id;
 }
 
-async function getUnsplashImageId(limit: number, queries: string[]){
+async function getUnsplashImageId(limit: number, queries: string[]) {
   const imageIds = [];
-  if(queries.length === 0) return await getRandomUnsplashImageId();
+  if (queries.length === 0) return await getRandomUnsplashImageId();
   console.log(`Searching ${limit} photos with '${queries[0]}' keywords`);
   const result = await unsplash.search.getPhotos({
     query: queries[0],
@@ -82,12 +84,12 @@ async function getUnsplashImageId(limit: number, queries: string[]){
 
   // console.log(result);
 
-  if(result.response?.results.length === 0){
+  if (result.response?.results.length === 0) {
     // Remove first element
     return getUnsplashImageId(limit, queries.slice(1));
   }
 
-  result.response.results.forEach(result =>{
+  result.response.results.forEach(result => {
     imageIds.push(result.id)
   })
 
@@ -118,6 +120,50 @@ export const getUuidStore = async (markdownPaths: string[], targetPath: string) 
   };
 }
 
+function getParentDirectory(filePath: string): string {
+  const split = filePath.split("/");
+  if (split.length < 2) throw Error("Cannot find the parent directory");
+  return split[split.length - 2];
+}
+
+function getDateFromMarkdownFile(filePath: string): Date {
+  // Import from gatsby-node.js
+  // 2021-08-05-migrate-react-class-component-to-functional-component
+  /*
+  If structure markdown files as a directory
+    ```
+    ./2015-05-07-responsive-expanding-search-bar
+      └── readme.md (any file, use info from parent)
+    ```
+  Use info from dir name not file name , extract date and filename
+
+  Note: This allow only one markdown file per parent dir like /^(\d+-\d+-\d+)-([\w-]+)$/
+  */
+  const filenameRegex = /^(\d+-\d+-\d+)-([\w-]+)$/;
+  const _split = filePath.replace('.md', '').split('/');
+  let actualFilename = _split[_split.length - 1]
+  const parentDirectory = getParentDirectory(filePath);
+
+  if (filenameRegex.test(parentDirectory)) {
+    actualFilename = parentDirectory;
+  }
+  const nodeDate = actualFilename.split('-').slice(0, 3).join('-');
+  const postDate = new Date(nodeDate)
+  if (!date.isValid(postDate)) {
+    throw Error(`[Err] "${nodeDate}" is not date, please check ${filePath}`);
+  }
+  return postDate;
+}
+
+async function writeFrontmatter(markdownPath: string, frontmatter: matter.GrayMatterFile<any>, mode: string) {
+  await writeFile(markdownPath, matter.stringify(frontmatter.content, frontmatter.data), defaultUnicode);
+  if (isStageChangeMode) {
+    // Auto stage change in git
+    await stageChangeGit(markdownPath);
+  }
+  console.log(`[ADD ${mode}] of ${markdownPath}`);
+}
+
 async function main() {
   checkUnsplashAccessToken();
   console.time("inject-uuid");
@@ -130,43 +176,61 @@ async function main() {
   console.log(`Started running to inject uuid on Markdown ${markdownPaths.length} files`);
 
   console.time("addUuidToMarkdown");
-  for(let index = 0; index < markdownFiles.length; index++) {
+  for (let index = 0; index < markdownFiles.length; index++) {
     const readFile = markdownFiles[index];
     const mdPath = markdownPaths[index];
-    const absoluteMarkdownPath = path.resolve(targetPath, mdPath);
+    const markdownPath = path.join(targetPath, mdPath);
     // Get frontmatter
     const frontmatter = matter(readFile);
-    const uuid = retryNewUuid(uuidStore);
+    let uuid = retryNewUuid(uuidStore);
+
+    // Start Inject UUID
     if (!('uuid' in frontmatter.data)) {
       frontmatter.data.uuid = uuid;
-      await writeFile(absoluteMarkdownPath, matter.stringify(frontmatter.content, frontmatter.data), defaultUnicode);
-      if(isStageChangeMode){
-        // Auto stage change in git
-        await stageChangeGit(path.join(targetPath, mdPath));
-      }
-      console.log(`[ADD] uuid of ${mdPath}`);
+      await writeFrontmatter(markdownPath, frontmatter, "UUID");
+    } else {
+      uuid = frontmatter.data.uuid;
     }
 
+    // Start Inject Date
+    try {
+      const postDate = getDateFromMarkdownFile(mdPath);
+      if (!('date' in frontmatter.data)) {
+        frontmatter.data.date = date.format(postDate, "yyyy-MM-dd");
+        await writeFrontmatter(markdownPath, frontmatter, "Date");
+      }
+    } catch (e) {
+      console.warn(e.message);
+    }
+
+    // Start Inject slug
+    const disableAutoSlug = 'disableAutoSlug' in frontmatter.data ? frontmatter.data.disableAutoSlug as boolean : false;
+    if (typeof disableAutoSlug !== 'boolean') throw Error(`disableAutoSlug should be boolean`);
+
+    const slug = `${_.kebabCase(frontmatter.data.title)}-${uuid}`;
+    // if(slug.length > 255) throw Error(`Filename (slug) is too long, please rename title (${slug})`)
+    if (disableAutoSlug === false) {
+      frontmatter.data.slug = slug;
+      await writeFrontmatter(markdownPath, frontmatter, "slug");
+    } else if(disableAutoSlug == true){
+      console.log(`[SKIP] auto slug with "${mdPath}"`)
+    }
+
+    // Start Inject unsplashImgCoverId
     if (!('unsplashImgCoverId' in frontmatter.data) && isAddUnsplashCover && unsplashAccessKey) {
-      const tags = Array.isArray(frontmatter.data.tags) ? frontmatter.data.tags: [];
-      if(tags.length === 0) continue;
-      try{
+      const tags = Array.isArray(frontmatter.data.tags) ? frontmatter.data.tags : [];
+      if (tags.length === 0) continue;
+      try {
         frontmatter.data.unsplashImgCoverId = await getUnsplashImageId(3, tags);
-      } catch(error) {
+      } catch (error) {
         console.error('Cannot get unsplash', error)
       }
       console.log(frontmatter.data.title);
-      if(!frontmatter.data.unsplashImgCoverId) {
+      if (!frontmatter.data.unsplashImgCoverId) {
         console.warn(`unsplashImgCoverId is empty`)
         continue;
       }
-      await writeFile(absoluteMarkdownPath, matter.stringify(frontmatter.content, frontmatter.data), defaultUnicode);
-      if(isStageChangeMode){
-        // Auto stage change in git
-        await stageChangeGit(path.join(targetPath, mdPath));
-      }
-
-      console.log(`[ADD] unsplash image id of ${mdPath}`);
+      await writeFrontmatter(markdownPath, frontmatter, "unsplash");
     }
   }
   console.timeEnd("addUuidToMarkdown");
@@ -174,6 +238,3 @@ async function main() {
 }
 
 main();
-
-// getUnsplashImageId(3, '')
-// console.log(randomRange(1,1))

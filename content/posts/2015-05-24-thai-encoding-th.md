@@ -15,6 +15,8 @@ tags:
   - UTF-8
 uuid: 928lrr0
 unsplashImgCoverId: XoByiBymX20
+date: '2015-05-24'
+slug: การแทนตัวอักษรภาษาไทยในระบบการเข้ารหัสแบบต่างๆ-928lrr0
 ---
 
 ## ASCII

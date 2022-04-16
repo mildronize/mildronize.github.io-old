@@ -14,6 +14,8 @@ tags:
 featured_image: logo/docker.png
 uuid: deb407s
 unsplashImgCoverId: SInhLTQouEk
+date: '2016-02-27'
+slug: ทำไม-mount-volume-ของ-docker-บน-windows-แล้วมองไม่เห็นไฟล์-deb407s
 ---
 
 ## เกริ่นนำ สักนิด...

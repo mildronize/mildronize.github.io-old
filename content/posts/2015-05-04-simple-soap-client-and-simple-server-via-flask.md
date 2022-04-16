@@ -12,6 +12,8 @@ categories:
   - en
 uuid: 91bu9k0
 unsplashImgCoverId: DlZD4V2j9oM
+date: '2015-05-04'
+slug: simple-soap-client-and-simple-server-via-flask-91bu9k0
 ---
 
 ## Objective:

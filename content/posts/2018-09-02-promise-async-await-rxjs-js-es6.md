@@ -10,6 +10,8 @@ categories:
 image: 'https://www.dropbox.com/s/53ds3aqow09hl0g/cover.jpeg?raw=1'
 uuid: leu0374
 unsplashImgCoverId: hopnkQoC0dg
+date: '2018-09-02'
+slug: promise-async-await-ของ-js-es-6-ฉบับสั้นๆ-ไม่พูดเยอะ-เจ็บคอ-แถม-rx-js-leu0374
 ---
 
 > **อ่านฉันหน่อย**:  บทความนี้ใช้ javascript ES6 นะครับ ใครยังไม่ชินไปตามอ่านได้ใน Cheat sheet นี้เลย มีภาษาไทยด้วย
