@@ -1,53 +1,27 @@
 # My personal site
 
-Available  Field in frontmatter
+## Todo
+- [ ] POC , Hugo can be replaced Gatsby
+  - [X] Using images in subdirectory (Using [Page Bundle](https://gohugo.io/content-management/page-bundles/)) and Rename from `README.md` to `index.md`
+  - [ ] 404 Page should be automatically resolve missing page by UUID
+  - [X] Problem: Filename is too long (filename generate from title)
+    - [X] Quick solution - rename it to be more short.
+    - [X] This issue is also found in Gatsby, ignore it.
+  - [X] Field date is missing
+    - [ ] Solution: Using `Inject UUID` script to inject date from filename on every markdown file.
+  - [X] Short URL
+    - [ ] Solution: Add `aliases: [ '/s/z578nvw/']` in every markdown file using  `Inject UUID` script 
+  - [ ] Slug URL
+    - [ ] Solution: Add `slug: guideline-for-upgrading-jekyll-from-2.x-to-3.x-z578nvw`  in every markdown file using  `Inject UUID` script 
+  - [ ] SEO Support 
+    - [ ] Support `unsplashImgCoverId: jvtKm4Wjd0Q` field, automatically add cover from unsplash
+- [ ] Implement Theme using TypeScript and Webpack Setup (See example in https://github.com/mildronize/blog-jekyll/blob/jekyll/webpack.config.js)
+  - [ ] Modify: https://github.com/mildronize/mild-theme
+
+## Hugo 101
+
 ```
-- title
-- uuid
+# In-memory Mode
+hugo server -D  
+hugo server --renderToDisk
 ```
-
-Rendered Field
-```js
-// gatsby-node.js
-createNodeField({ node, name: "isDraft", value: isDraft });
-
-// Slug means uuid of the post
-createNodeField({ node, name: "slug", value: nodeSlug });  // No starting and trailing slash ex: whaab42
-
-// "Readable Slug" means title of the post (Slug and URL friendly)
-createNodeField({ node, name: "readableSlug", value: nodeReadableSlug });
-
-// "Rendered Slug" means the final pathname of the post
-createNodeField({ node, name: "renderedSlug", value: `/${draftSlug}${nodeReadableSlug}-${nodeSlug}` });
-```
-
-https://www.knutmelvaer.no/blog/2019/06/getting-started-with-webmentions-in-gatsby/
-# Todo
-- [ ] Migrate to TS
-- [ ] Search
-- [ ] SEO Support
-
-# Inspire Design
-https://www.happyhues.co/
-
-
-# Blog Inspire
-https://www.swyx.io/
-https://mxb.dev/
-
-# Run your GitHub Actions locally 🚀
-
-```bash
-# Install act
-curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
-
-# Run Act with secret https://githact -lub.com/nektos/act#secrets
-act -s PUBLIC_REPO_ACCESS_TOKEN=somevalue
-```
-
-https://sanderknape.com/2020/05/deploy-pull-requests-github-actions-deployments/
-
-
-# Based on Gatsby Advanced Starter
-
-A starter skeleton with advanced features for [Gatsby](https://github.com/gatsbyjs/gatsby/), author: Ruben Harutyunyan ([@Vagr9K](https://twitter.com/Vagr9K))
