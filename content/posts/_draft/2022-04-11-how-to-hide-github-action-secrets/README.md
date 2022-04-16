@@ -4,6 +4,8 @@ uuid: kauwjer
 date: '2022-04-11'
 slug: how-to-hide-github-action-secrets-kauwjer
 draft: true
+aliases:
+  - /s/kauwjer
 ---
 
 Thank you for mention about this issue. I'm stuck with same problem and thank you all for your answers.

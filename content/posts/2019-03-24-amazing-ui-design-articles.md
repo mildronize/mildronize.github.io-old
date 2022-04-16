@@ -10,6 +10,8 @@ uuid: 14liwiu
 unsplashImgCoverId: _t-l5FFH8VA
 date: '2019-03-24'
 slug: amazing-ui-design-articles-14liwiu
+aliases:
+  - /s/14liwiu
 ---
 
 

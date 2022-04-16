@@ -14,6 +14,8 @@ uuid: lo3mz9g
 unsplashImgCoverId: vPGGRXPvltE
 date: '2015-06-20'
 slug: git-hub-page-build-failure-solution-lo3mz9g
+aliases:
+  - /s/lo3mz9g
 ---
 > **Note:** This is a part of solutions for solving belowing problem message from GitHub Page. It may be other solutions for solving the problem.
 

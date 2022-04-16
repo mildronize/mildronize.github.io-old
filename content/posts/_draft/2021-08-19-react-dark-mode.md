@@ -16,6 +16,8 @@ unsplashImgCoverId: c8h0n7fSTqs
 date: '2021-08-19'
 slug: react-dark-mode-yvtxh9c
 draft: true
+aliases:
+  - /s/yvtxh9c
 ---
 
 # Use css

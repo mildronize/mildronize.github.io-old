@@ -7,6 +7,8 @@ unsplashImgCoverId: tNzrRqWLDh0
 date: '2022-04-07'
 slug: deploy-multiple-azure-app-services-using-git-hub-actions-matrix-tjd75q6
 draft: true
+aliases:
+  - /s/tjd75q6
 ---
 
 Source Code: https://github.com/mildronize/deploy-multiple-azure-app-services-using-github-actions-matrix

@@ -12,6 +12,8 @@ unsplashImgCoverId: oaU-E83yRPw
 date: '2015-06-25'
 slug: >-
   เวอร์ชั่นแต่ละเวอร์ชั่นของ-debian-คืออะไร-อะไรคือ-sid-testing-stable-โอ๊ยเยอะแยะไปหมด-612v702
+aliases:
+  - /s/612v702
 ---
 
 สวัสดีครับ คุณผู้อ่านทุกท่านที่สนใจใน Debian

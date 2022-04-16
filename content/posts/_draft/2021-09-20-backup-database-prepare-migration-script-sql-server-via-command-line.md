@@ -13,6 +13,8 @@ date: '2021-09-20'
 slug: >-
   วิธี-backup-database-และเตรียม-migration-script-บน-sql-server-ด้วย-command-line-h10x942
 draft: true
+aliases:
+  - /s/h10x942
 ---
 
 สวัสดีครับ เราคงคุ้นเคยกับโปรแกรม [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) ที่เป็นโปรแกรมที่ช่วยทำให้เราจัดการข้อมูล SQL Server ได้โดยง่ายโดยที่ไม่จำเป็นต้องใช้ command line ใดๆ เลย

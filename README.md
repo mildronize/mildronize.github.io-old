@@ -10,9 +10,9 @@
   - [X] Field date is missing
     - [X] Solution: Using `Inject UUID` script to inject date from filename on every markdown file.
   - [X] Short URL
-    - [ ] Solution: Add `aliases: [ '/s/z578nvw/']` in every markdown file using  `Inject UUID` script 
-  - [ ] Slug URL
-    - [ ] Solution: Add `slug: guideline-for-upgrading-jekyll-from-2.x-to-3.x-z578nvw`  in every markdown file using  `Inject UUID` script 
+    - [X] Solution: Add `aliases: [ '/s/z578nvw/']` in every markdown file using  `Inject UUID` script 
+  - [X] Slug URL
+    - [X] Solution: Add `slug: guideline-for-upgrading-jekyll-from-2.x-to-3.x-z578nvw`  in every markdown file using  `Inject UUID` script 
   - [ ] SEO Support 
     - [ ] Support `unsplashImgCoverId: jvtKm4Wjd0Q` field, automatically add cover from unsplash
 - [ ] Implement Theme using TypeScript and Webpack Setup (See example in https://github.com/mildronize/blog-jekyll/blob/jekyll/webpack.config.js)

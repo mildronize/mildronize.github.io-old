@@ -8,6 +8,8 @@ unsplashImgCoverId: oCm8nPkE40k
 date: '2021-08-22'
 slug: webpack-multiple-entry-points-j5trzrh
 draft: true
+aliases:
+  - /s/j5trzrh
 ---
 
 - Setup Webpack สำหรับ Multiple Endpoint สำหรับ React ([https://github.com/mildronize/react-typescript-guidebook](https://github.com/mildronize/react-typescript-guidebook))

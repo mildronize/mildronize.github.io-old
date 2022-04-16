@@ -16,6 +16,8 @@ unsplashImgCoverId: z0uPpx6DDcA
 date: '2018-08-28'
 slug: >-
   วิธีตั้งค่าการใช้งาน-github-แบบไม่ต้องกรอกรหัสผ่านทุกครั้ง-ผ่าน-ssh-บน-windows-mo4feik
+aliases:
+  - /s/mo4feik
 ---
 
 ขั้นตอนการตั้งค่าการใช้งาน Github  แบบไม่ต้องกรอกรหัสผ่านทุกครั้ง บน windows

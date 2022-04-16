@@ -13,6 +13,8 @@ uuid: lm28n32
 unsplashImgCoverId: ieic5Tq8YMk
 date: '2018-09-08'
 slug: getting-started-tdd-in-30-seconds-with-python-lm28n32
+aliases:
+  - /s/lm28n32
 ---
 
 Quick start to setup python script for Test Driven Development in 30 seconds

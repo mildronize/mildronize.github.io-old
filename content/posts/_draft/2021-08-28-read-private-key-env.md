@@ -4,6 +4,8 @@ uuid: zmpgpk8
 date: '2021-08-28'
 slug: read-private-key-from-env-file-zmpgpk8
 draft: true
+aliases:
+  - /s/zmpgpk8
 ---
 
 https://github.com/auth0/node-jsonwebtoken/issues/642#issuecomment-585173594

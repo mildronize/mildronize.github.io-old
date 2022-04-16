@@ -9,6 +9,8 @@ unsplashImgCoverId: KXkgOigCqj0
 date: '2021-09-05'
 slug: modern-javascript-es-6-ใน-react-ที่พบได้บ่อย-แถม-type-script-g4owyyw
 draft: true
+aliases:
+  - /s/g4owyyw
 ---
 
 สไตล์ของโพสนี่จะเริ่มจาก ES6+ เสมอนะครับ เพื่อให้เห็นอีกมุมนึง

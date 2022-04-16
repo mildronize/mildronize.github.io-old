@@ -15,6 +15,8 @@ uuid: e52fdze
 unsplashImgCoverId: raNIrcd39jY
 date: '2015-06-08'
 slug: มาอัพเดท-debian-จากเวอร์ชั่น-stable-มาเป็น-sid-กันเถอะ-e52fdze
+aliases:
+  - /s/e52fdze
 ---
 
 โดยปกติแล้ว เวลาลง Debian ใหม่ๆ จะไม่สามารถใช้ คำสั่ง sudo ได้ ไม่เหมือนกับ Ubuntu ที่ตอนติดตั้งจะให้ user แรกที่สร้างตอนติดตั้งสามารถใช้ คำสั่ง sudo ได้เลย

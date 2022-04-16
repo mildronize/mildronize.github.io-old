@@ -12,6 +12,8 @@ unsplashImgCoverId: cdMAU_x9mxY
 date: '2021-05-02'
 slug: >-
   ทำ-task-management-ด้วย-template-my-things-fully-inspired-by-things-3-application-p8c504z
+aliases:
+  - /s/p8c504z
 ---
 
 สวัสดีครับวันนี้มาแชร์ Template: My Things  📥 ( Fully inspired by [Things 3](https://culturedcode.com/things/) Application)

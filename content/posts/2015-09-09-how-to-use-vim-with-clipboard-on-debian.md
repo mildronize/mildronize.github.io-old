@@ -11,6 +11,8 @@ uuid: rfih9o0
 unsplashImgCoverId: TDV1i2f7rcc
 date: '2015-09-09'
 slug: how-to-use-vim-with-clipboard-on-debian-rfih9o0
+aliases:
+  - /s/rfih9o0
 ---
 
 ## Instructions

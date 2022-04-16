@@ -7,6 +7,8 @@ unsplashImgCoverId: TkZYCXmrKK4
 date: '2021-09-05'
 slug: offsetting-an-html-anchor-to-adjust-for-fixed-header-lygyofl
 draft: true
+aliases:
+  - /s/lygyofl
 ---
 
 

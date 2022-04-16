@@ -207,7 +207,6 @@ async function main() {
     // Start Inject slug
     const disableAutoSlug = 'disableAutoSlug' in frontmatter.data ? frontmatter.data.disableAutoSlug as boolean : false;
     if (typeof disableAutoSlug !== 'boolean') throw Error(`disableAutoSlug should be boolean`);
-
     const slug = `${_.kebabCase(frontmatter.data.title)}-${uuid}`;
     // if(slug.length > 255) throw Error(`Filename (slug) is too long, please rename title (${slug})`)
     if (!('slug' in frontmatter.data) && disableAutoSlug === false) {
@@ -215,6 +214,15 @@ async function main() {
       await writeFrontmatter(markdownPath, frontmatter, "slug");
     } else if(disableAutoSlug == true){
       console.log(`[SKIP] auto slug with "${mdPath}"`)
+    }
+
+    const shortUrl = `/s/${uuid}`;
+    // Add Alias 
+    if (!('aliases' in frontmatter.data)){
+      frontmatter.data.aliases = [ shortUrl ];
+      await writeFrontmatter(markdownPath, frontmatter, "aliases");
+    } else {
+      // TODO: Append Alias if exist
     }
 
     // Start Inject unsplashImgCoverId

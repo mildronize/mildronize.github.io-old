@@ -4,6 +4,8 @@ uuid: 6ecucle
 date: '2021-08-27'
 slug: type-script-6ecucle
 draft: true
+aliases:
+  - /s/6ecucle
 ---
 
 [https://tsh.io/blog/why-use-typescript/](https://tsh.io/blog/why-use-typescript/)

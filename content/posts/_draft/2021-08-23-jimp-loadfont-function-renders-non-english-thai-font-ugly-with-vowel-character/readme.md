@@ -14,6 +14,8 @@ date: '2021-08-23'
 slug: >-
   jimp-load-font-function-renders-non-english-thai-font-ugly-with-vowel-character-k9xf79y
 draft: true
+aliases:
+  - /s/k9xf79y
 ---
 
 

@@ -15,6 +15,8 @@ uuid: nbqw9e1
 unsplashImgCoverId: Uz0uQXvOtEY
 date: '2018-07-20'
 slug: เขียนบล็อกด้วยภาษา-markdown-ด้วยแอพจดโน๊ต-bear-บน-i-os-nbqw9e1
+aliases:
+  - /s/nbqw9e1
 ---
 
 > ย้าย blog กลับมาใช้ Jekyll เหมือนเดิมแล้วคับ

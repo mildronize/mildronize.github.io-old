@@ -10,6 +10,8 @@ uuid: whaab42
 unsplashImgCoverId: L8KQIPCODV8
 date: '2021-08-21'
 slug: react-import-export-component-pattern-whaab42
+aliases:
+  - /s/whaab42
 ---
 
 ## Default export

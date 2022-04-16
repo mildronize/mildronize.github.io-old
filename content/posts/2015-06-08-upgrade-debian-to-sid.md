@@ -14,6 +14,8 @@ uuid: l0ywmex
 unsplashImgCoverId: yGPxCYPS8H4
 date: '2015-06-08'
 slug: how-to-upgrade-debian-to-sid-l0ywmex
+aliases:
+  - /s/l0ywmex
 ---
 
 **Optional:** Add `sudo` into your user

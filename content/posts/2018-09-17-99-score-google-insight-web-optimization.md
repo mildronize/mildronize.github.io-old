@@ -14,6 +14,8 @@ uuid: i4kssit
 unsplashImgCoverId: a_PDPUPuNZ8
 date: '2018-09-17'
 slug: ได้-99-คะแนนจาก-google-insights-เรียนรู้การทำ-web-optimization-i4kssit
+aliases:
+  - /s/i4kssit
 ---
 
 

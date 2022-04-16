@@ -12,6 +12,8 @@ uuid: it3xlde
 unsplashImgCoverId: 9XngoIpxcEo
 date: '2015-06-26'
 slug: มือใหม่หัดใช้ลินุกซ์ครั้งแรก-it3xlde
+aliases:
+  - /s/it3xlde
 ---
 
 โพสนี้เป็นการรวมเรื่องราวกันหัดใช้ linux ครั้งแรกของผมโดย จะแบ่งเป็นข้อๆ และก็จะค่อยๆ ทยอยเขียน

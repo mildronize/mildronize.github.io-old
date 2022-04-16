@@ -9,6 +9,8 @@ unsplashImgCoverId: 842ofHC6MaI
 date: '2021-08-22'
 slug: git-cookbook-4vwhqae
 draft: true
+aliases:
+  - /s/4vwhqae
 ---
 
 [read this before](git-in-action-obu52c9)

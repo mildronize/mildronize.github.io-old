@@ -15,6 +15,8 @@ uuid: 0967oym
 unsplashImgCoverId: 4Mw7nkQDByk
 date: '2016-11-21'
 slug: a-very-short-ubuntu-debian-packages-installation-sheet-0967oym
+aliases:
+  - /s/0967oym
 ---
 
 ## Docker

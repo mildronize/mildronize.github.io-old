@@ -13,6 +13,8 @@ unsplashImgCoverId: 842ofHC6MaI
 date: '2021-12-08'
 slug: >-
   วิธีการตั้งค่า-ssh-สำหรับ-git-hub-เพื่อให้จำรหัสผ่านบน-windows-wsl-mac-os-และ-ubuntu-hzpnrnx
+aliases:
+  - /s/hzpnrnx
 ---
 
 ถ้าใครจะตั้งค่า SSH สำหรับ Remote Server อื่นๆ ก็ใช้หลักการเดียวกันได้ เพียงแต่ในบทความนี้ยกตัวอย่าง GitHub

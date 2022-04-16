@@ -8,6 +8,8 @@ unsplashImgCoverId: 2zhWNOQFlf4
 date: '2021-08-23'
 slug: gatsby-thai-font-sharing-social-p96v4ze
 draft: true
+aliases:
+  - /s/p96v4ze
 ---
 
 ![](hiero.png)

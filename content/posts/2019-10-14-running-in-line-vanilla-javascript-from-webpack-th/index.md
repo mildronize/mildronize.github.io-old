@@ -14,6 +14,8 @@ unsplashImgCoverId: EJSaEnVvZcg
 date: '2019-10-14'
 slug: >-
   วิธีการรัน-java-script-ข้างนอก-bundle-ของ-webpack-และการเรียกใช้-j-query-ภายใน-webpack-2kbbdkt
+aliases:
+  - /s/2kbbdkt
 ---
 
 สวัสดีครับ วันนี้ผมจะมาแบ่งปันเรื่องการตั้งค่าการใช้งาน Webpack เบื้องต้น และน่าจะเป็นคำถามและข้อสงสัยสำหรับคนที่หัดใช้ครับ

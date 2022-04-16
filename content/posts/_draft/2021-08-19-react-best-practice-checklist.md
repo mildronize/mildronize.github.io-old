@@ -11,6 +11,8 @@ unsplashImgCoverId: 1HCb2gPk3ik
 date: '2021-08-19'
 slug: react-best-practices-checklist-bulndnf
 draft: true
+aliases:
+  - /s/bulndnf
 ---
 
 # Performance Issue

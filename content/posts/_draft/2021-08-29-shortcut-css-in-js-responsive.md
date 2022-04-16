@@ -9,6 +9,8 @@ unsplashImgCoverId: iFSvn82XfGo
 date: '2021-08-29'
 slug: shortcut-css-in-js-responsive-ne5q3pt
 draft: true
+aliases:
+  - /s/ne5q3pt
 ---
 
 # Intro

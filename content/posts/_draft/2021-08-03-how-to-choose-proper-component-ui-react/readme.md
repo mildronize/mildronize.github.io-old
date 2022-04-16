@@ -9,6 +9,8 @@ unsplashImgCoverId: L8KQIPCODV8
 date: '2021-08-03'
 slug: เราควรเลือก-react-component-ui-อย่างไร-ให้เหมาะสมกับงานของเรา-55dtwqq
 draft: true
+aliases:
+  - /s/55dtwqq
 ---
 
 

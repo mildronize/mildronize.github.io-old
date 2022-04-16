@@ -13,6 +13,8 @@ uuid: uckstjz
 unsplashImgCoverId: FnKKF2bATEE
 date: '2015-06-22'
 slug: วิธีการติดตั้ง-google-chrome-บน-debian-uckstjz
+aliases:
+  - /s/uckstjz
 ---
 
 # *Deprecated post!

@@ -12,6 +12,8 @@ uuid: ho462dz
 unsplashImgCoverId: 1HCb2gPk3ik
 date: '2019-04-11'
 slug: react-design-patterns-ho462dz
+aliases:
+  - /s/ho462dz
 ---
 
 

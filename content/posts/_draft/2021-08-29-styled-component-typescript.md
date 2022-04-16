@@ -4,6 +4,8 @@ uuid: w5y3zzn
 date: '2021-08-29'
 slug: styled-component-type-script-w5y3zzn
 draft: true
+aliases:
+  - /s/w5y3zzn
 ---
 
 ```ts

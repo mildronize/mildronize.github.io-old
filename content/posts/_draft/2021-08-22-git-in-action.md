@@ -9,6 +9,8 @@ unsplashImgCoverId: wX2L8L-fGeA
 date: '2021-08-22'
 slug: git-in-action-obu52c9
 draft: true
+aliases:
+  - /s/obu52c9
 ---
 
 ```bash

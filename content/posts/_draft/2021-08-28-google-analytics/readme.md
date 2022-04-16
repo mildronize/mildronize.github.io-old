@@ -4,6 +4,8 @@ uuid: bqfiofl
 date: '2021-08-28'
 slug: get-page-view-from-google-analytics-by-page-path-bqfiofl
 draft: true
+aliases:
+  - /s/bqfiofl
 ---
 
 # Begin with GA

@@ -9,6 +9,8 @@ uuid: ptkagjo
 unsplashImgCoverId: LboV5Qpqm1E
 date: '2016-11-08'
 slug: titlesec-latex-package-doesnt-create-section-numbers-on-version-2-10-1-ptkagjo
+aliases:
+  - /s/ptkagjo
 ---
 
 I found this bug on yesterday.
