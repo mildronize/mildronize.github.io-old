@@ -1,0 +1,3 @@
+[submodule "themes/mild-theme"]
+	path = themes/mild-theme
+	url = git@github.com:mildronize/mild-theme.git
