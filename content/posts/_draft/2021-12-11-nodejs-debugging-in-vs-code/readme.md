@@ -7,6 +7,7 @@ unsplashImgCoverId: i25aqE_YUZs
 date: '2021-12-11'
 slug: >-
   how-to-debug-a-node-js-application-in-visual-studio-code-java-script-debugging-ulguf3h
+draft: true
 ---
 
 #  Ref

@@ -7,6 +7,7 @@ uuid: l2kc44e
 unsplashImgCoverId: YKXnz5vG8AA
 date: '2021-11-21'
 slug: introduction-to-git-hub-action-l2kc44e
+draft: true
 ---
 
 ## Outline

@@ -10,6 +10,7 @@ uuid: g3k2o1b
 unsplashImgCoverId: VUBAE-Bmugk
 date: '2021-10-05'
 slug: วิธีการ-build-asp-net-framework-และ-deploy-ไปยัง-azure-app-service-g3k2o1b
+draft: true
 ---
 
 

@@ -122,7 +122,7 @@ export const getUuidStore = async (markdownPaths: string[], targetPath: string) 
 
 function getParentDirectory(filePath: string): string {
   const split = filePath.split("/");
-  if (split.length < 2) throw Error("Cannot find the parent directory");
+  if (split.length < 2) return '';
   return split[split.length - 2];
 }
 
@@ -140,9 +140,10 @@ function getDateFromMarkdownFile(filePath: string): Date {
   Note: This allow only one markdown file per parent dir like /^(\d+-\d+-\d+)-([\w-]+)$/
   */
   const filenameRegex = /^(\d+-\d+-\d+)-([\w-]+)$/;
+  // let tmp = filePath;
+  const parentDirectory = getParentDirectory(filePath);
   const _split = filePath.replace('.md', '').split('/');
   let actualFilename = _split[_split.length - 1]
-  const parentDirectory = getParentDirectory(filePath);
 
   if (filenameRegex.test(parentDirectory)) {
     actualFilename = parentDirectory;
@@ -209,7 +210,7 @@ async function main() {
 
     const slug = `${_.kebabCase(frontmatter.data.title)}-${uuid}`;
     // if(slug.length > 255) throw Error(`Filename (slug) is too long, please rename title (${slug})`)
-    if (disableAutoSlug === false) {
+    if (!('slug' in frontmatter.data) && disableAutoSlug === false) {
       frontmatter.data.slug = slug;
       await writeFrontmatter(markdownPath, frontmatter, "slug");
     } else if(disableAutoSlug == true){

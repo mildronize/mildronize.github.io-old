@@ -3,6 +3,7 @@ title: Setup TypeScript
 uuid: hal2uva
 date: '2021-08-27'
 slug: setup-type-script-hal2uva
+draft: true
 ---
 
 # Setup in your Node.js project

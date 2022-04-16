@@ -11,6 +11,7 @@ unsplashImgCoverId: 4RK4-jjAdr0
 date: '2022-04-10'
 slug: >-
   3-เรื่อง-ที่ควรทำหลังติดตั้ง-wsl-บน-windows-เพื่อทำให้การใช้งานร่วมกับ-vs-code-สะดวกมากขึ้น-h3kmk3n
+draft: true
 ---
 
 **WSL (Windows Subsystem for Linux)** เป็นการรัน Linux บน Windows โดยที่เราสามารถใช้งาน Linux ได้จนไม่รู้สึกว่า Linux รันบน Virtual machine นี่คือความ Amazing อย่างหนึ่งของ WSL

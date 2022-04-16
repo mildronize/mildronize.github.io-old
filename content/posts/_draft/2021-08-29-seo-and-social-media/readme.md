@@ -9,6 +9,7 @@ uuid: e6zs48e
 unsplashImgCoverId: mr4JG4SYOF8
 date: '2021-08-29'
 slug: บันทึก-seo-และ-social-media-e6zs48e
+draft: true
 ---
 
 # บันทึก

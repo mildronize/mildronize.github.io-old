@@ -6,6 +6,7 @@ tags:
 date: '2022-04-11'
 slug: >-
   provider-azurerm-version-3-ออกมาแล้ว-มีอะไรเปลี่ยนไปบ้าง-มีอะไรที่-deprecated-9ahhltg
+draft: true
 ---
 
 

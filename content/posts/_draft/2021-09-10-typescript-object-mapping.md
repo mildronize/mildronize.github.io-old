@@ -3,6 +3,7 @@ title: TypeScript Object Mapping
 uuid: 7rwsbzv
 date: '2021-09-10'
 slug: type-script-object-mapping-7rwsbzv
+draft: true
 ---
 
 ```ts

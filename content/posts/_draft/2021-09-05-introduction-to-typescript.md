@@ -3,6 +3,7 @@ title: introduction to TypeScript
 uuid: abfn33i
 date: '2021-09-05'
 slug: introduction-to-type-script-abfn33i
+draft: true
 ---
 
 # Overview

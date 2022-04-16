@@ -7,6 +7,7 @@ uuid: 3s569jw
 unsplashImgCoverId: k4mEY-KBDnM
 date: '2021-12-11'
 slug: ทำไมเราควรติด-type-ภาษา-java-script-ด้วย-type-script-3s569jw
+draft: true
 ---
 
 

@@ -10,6 +10,7 @@ unsplashImgCoverId: VUBAE-Bmugk
 date: '2021-12-11'
 slug: >-
   นำพาโปรเจ็ค-asp-net-แบบ-web-site-project-อายุร่วม-8-ปี-เข้าสู่ยุค-automate-build-ด้วย-git-hub-actions-qdz8lz2
+draft: true
 ---
 
 # Outline

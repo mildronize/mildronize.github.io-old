@@ -3,6 +3,7 @@ title: Get Page View from Google Analytics by Page path
 uuid: bqfiofl
 date: '2021-08-28'
 slug: get-page-view-from-google-analytics-by-page-path-bqfiofl
+draft: true
 ---
 
 # Begin with GA
