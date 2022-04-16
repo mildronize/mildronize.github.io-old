@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 # Stage git and add unsplash
-npm run uuid add-unsplash
+# npm run uuid add-unsplash
