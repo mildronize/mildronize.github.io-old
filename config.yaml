@@ -1,6 +1,33 @@
 baseURL: '/'
 languageCode: en-us
 title: Thada W.
-theme: mild-theme
+theme: hugo-theme-mild
 permalinks:
   posts: /:slug/
+params:
+  lazyImage: true
+  enableMathJax: false
+  enableReadingTime: true
+menu:
+  main:
+    - name: Posts
+      url: posts/
+      weight: 1
+    - name: Talks
+      url: talks/
+      weight: 2
+  extend:
+    - name: Tags
+      url: tags/
+      weight: 3
+social:
+  github: https://github.com/mildronize
+  rss: index.xml
+taxonomies:
+  category: categories
+  tag: tags
+# A must config for remove all style from code highlight
+# To be use with Prism JS.
+markup:
+  highlight:
+    noClasses: false
