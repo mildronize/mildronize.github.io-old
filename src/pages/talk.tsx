@@ -13,6 +13,8 @@ const markdown = `
 ### Upcoming
 - May 7, 2022 - ***Dealing with more than 100 secrets on GitHub Actions using Mozilla SOPS and Azure Key Vault*** -- The problem we're facing with more than 100 secrets in our environment and how to we utilize implementation method and still provide acceptable security level. Lesson learn about how we manage secrets using Mozilla SOPS and Azure Key Vault on GitHub Actions deployment pipeline.
   - Event: Global Azure Thailand.
+  - [Demo Repo in Talk](https://github.com/mildronize/100-secrets-github-actions-sops-with-azure-key-vault)
+  - [SOPS for Azure Key Vault Boilerplate on GitHub](https://github.com/mildronize/sops-with-azure-keyvault-secrets)
 
 - May 12, 2022 - ***Create your own naming convention of resources with Terraform Module*** -- Cloud resource name is one of the most troublesome tasks. When it is created, it is hard to rename. Bad naming can cause such a chaotic management. Using other convention might not be compatible with your organization. Let’s define your own naming convention.
   - Event: Cloud Native Night bangkok
