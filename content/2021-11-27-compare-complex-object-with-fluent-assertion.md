@@ -49,7 +49,7 @@ public class TodoList
 
 ถ้าใช้ xUnit อย่างเดียว อาจจะยุ่งยาก ลองใช้ [FluentAssertions](https://www.nuget.org/packages/FluentAssertions)
 
-# Getting Started
+## Getting Started
 
 1. ติดตั้ง [FluentAssertions](https://www.nuget.org/packages/FluentAssertions)
 
@@ -96,7 +96,7 @@ public class TodoList
     }
     ```
 
-# Ref
+## Ref
 
 - https://fluentassertions.com/
 

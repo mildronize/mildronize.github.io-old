@@ -51,6 +51,6 @@ if(prop("Output") == prop("Expected"), "✅ PASS", "❌ FAILED")
 
 ![](02-pass-test.png)
 
-# Download TDD Template with Thousand Comma
+## Download TDD Template with Thousand Comma
 
 https://www.notion.so/TDD-Formula-Notion-using-Comma-Thousand-as-a-case-study-80199bc04990423c8e250e7d20fd8f6b

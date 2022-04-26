@@ -16,8 +16,8 @@ unsplashImgCoverId: LG8ToawE8WQ
 ![](preview.png)
 
 
-# วิธีการใช้
-## 1. ถ้ามีการเชื่อมต่อ Vercel กับ Github ให้ปิดการเชื่อมต่อก่อน
+## วิธีการใช้
+### 1. ถ้ามีการเชื่อมต่อ Vercel กับ Github ให้ปิดการเชื่อมต่อก่อน
 เพราะว่าเราต้องการให้ github actions build and deploy แทนที่ Vercel (ซึ่งโดยปกติ Vercel จะ build และ deploy ให้อัตโนมัติ) [Read More](https://github.com/marketplace/actions/vercel-action#disable-vercel-for-github)
 
   > The Vercel for GitHub integration automatically deploys your GitHub projects with Vercel, providing Preview Deployment URLs, and automatic Custom Domain updates. [link](https://vercel.com/docs/v2/git-integrations)
@@ -41,7 +41,7 @@ unsplashImgCoverId: LG8ToawE8WQ
   ```
   When set to false, Vercel for GitHub will not deploy the given project regardless of the GitHub app being installed.
 
-# 2. คุณควรเชื่อมต่อ Github กับ Vercel ที่เครื่องของคุณ
+## 2. คุณควรเชื่อมต่อ Github กับ Vercel ที่เครื่องของคุณ
 https://github.com/marketplace/actions/vercel-action#project-linking
 
 ```bash
@@ -62,12 +62,12 @@ Once set up, a new .vercel directory will be added to your directory. The .verce
 
 คุณสามารถเก็บ secret ได้ตาม [link](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
 
-## 3. กำหนด Github Actions
+### 3. กำหนด Github Actions
 
 > TL;DR: Combining `pull_request_target` workflow trigger with an explicit checkout of an untrusted PR is a dangerous practice that may lead to repository compromise. We use `pull_request` trigger. [Ref](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)
 
 ```yml
-# https://github.com/marketplace/actions/vercel-action
+## https://github.com/marketplace/actions/vercel-action
 name: Preview deploy
 on:
   pull_request:
@@ -90,7 +90,7 @@ jobs:
           echo ${{ steps.vercel-action.outputs.preview-url }}
 ```
 
-## 4. กำหนดค่าที่ต้องใช้ ทั้ง GitHub Secrets และ Vercel
+### 4. กำหนดค่าที่ต้องใช้ ทั้ง GitHub Secrets และ Vercel
 
   | Secret key               | Secret value                                                                                         |
   |--------------------------|------------------------------------------------------------------------------------------------------|
@@ -101,7 +101,7 @@ jobs:
 
 สำหรับการตั้งค่าอื่นๆ เพิ่มเติมที่ [Vercel Action - GitHub Action](https://github.com/amondnet/vercel-action)
 
-# Read More
+## Read More
 - [Deploy your pull requests with GitHub Actions and GitHub Deployments](https://sanderknape.com/2020/05/deploy-pull-requests-github-actions-deployments/)
 - [Keeping your GitHub Actions and workflows secure Part 1: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)
 ---

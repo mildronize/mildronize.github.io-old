@@ -17,7 +17,7 @@ unsplashImgCoverId: L8KQIPCODV8
 
 วันนี้เอาตัวอย่างที่ใช้บ่อยๆ ใน React TypeScript เทียบกันให้เห็น จะๆ เลย
 
-# Local State
+## Local State
 
 เราสามารถแปลงจาก [Class Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/class_components/) ด้านล่างนี้
 
@@ -68,7 +68,7 @@ export default App;
 
 ทำไมถึงไม่แนะนำ `React.FC` หรือ `React.FunctionComponent`/`React.VoidFunctionComponent` อ่านรายละเอียดใน [Functional Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components)
 
-# Handle Click Event
+## Handle Click Event
 
 เราสามารถแปลงจาก [Class Component](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/class_components) ด้านล่างนี้
 
@@ -136,7 +136,7 @@ export default App;
 ```
 
 
-# componentDidMount() in React Hook
+## componentDidMount() in React Hook
 
 หนึ่งใน React Lifecyle ที่ใช้บ่อยๆ มากๆ คือ [componentDidMount()](https://reactjs.org/docs/react-component.html#componentdidmount) ซึ่งจะทำครั้งแรก ครั้งเดียวเมื่อ Component โหลดเสร็จ
 
@@ -154,7 +154,7 @@ function FirstExecuteComponent() {
 
 ข้อสังเกตุ `useEffect` ต้องการรับ 2 parameters ถ้าอยากให้เหมือน `componentDidMount()` ให้ใส่ Array เปล่าๆ ใน parameters ตัวที่สอง `[]`
 
-# componentWillUnmount() in React Hook
+## componentWillUnmount() in React Hook
 
 อีกหนึ่งใน React Lifecyle ที่มีใช้บ้างคือคือ [componentWillUnmount()](https://reactjs.org/docs/react-component.html#componentwillunmount) ซึ่งจะทำงานครั้งสุดท้ายครั้งเดียวก่อนที่ Component ถูกเอาออก (Component is unmounted and destroyed)
 

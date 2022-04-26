@@ -13,7 +13,7 @@ uuid: uckstjz
 unsplashImgCoverId: FnKKF2bATEE
 ---
 
-# *Deprecated post!
+## *Deprecated post!
 
 Please go to [my new post](/a-very-short-ubuntu-debian-packages-installation-sheet-0967oym/)
 

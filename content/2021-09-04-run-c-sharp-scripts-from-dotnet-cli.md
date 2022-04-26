@@ -13,7 +13,7 @@ unsplashImgCoverId: EzUZqqp_yrc
 
 เนื่องจากได้รู้จักกับ [LeetCode](https://leetcode.com/) เว็บสำหรับฝึกฝนทักษะการเขียนโปรแกรม โดยที่มีหลายภาษามากๆ และแน่นอนมีภาษา C# ด้วย
 
-# 1. ติดตั้ง
+## 1. ติดตั้ง
 
 แค่ติดตั้ง dotnet-script โดยใช้คำสั่ง
 
@@ -69,7 +69,7 @@ $ dotnet-script .\HelloWorld.csx
 Hello World
 ```
 
-# Tip: สร้าง scripts เป็น folder
+## Tip: สร้าง scripts เป็น folder
 
 เราสามารถใช้ โดยการสร้าง Folder ไว้แล้ว รันคำสั่งใน Folder นั้นเลย
 
@@ -87,5 +87,5 @@ This will create `main.csx` along with the launch configuration needed to debug 
 └── omnisharp.json
 ```
 
-# Ref
+## Ref
 https://github.com/filipw/dotnet-script

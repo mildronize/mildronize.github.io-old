@@ -30,8 +30,8 @@ unsplashImgCoverId: 842ofHC6MaI
 
 ก่อนที่เข้าเรื่องในบทความนี้จะเป็นวิธีการใช้ OpenSSH ที่ใช้อยากแพร่หลายใน Linux และ Mac มาอย่างยาวนาน และแนะนำวิธีการตั้งค่า OpenSSH บน Windows (แทนที่จะเป็น Putty) โดยการใช้งาน OpenSSH จะมี `ssh-agent` ที่เป็น service ที่ทำงานหลังบ้าน เพื่อให้เราสามารถนำ key ของเราไปเชื่อมต่อกับ server ปลายทางได้
 
-# 1. Mac OS, Ubuntu, WSL
-## 1.1 วิธีการสร้าง SSH Keys และการใช้งาน
+## 1. Mac OS, Ubuntu, WSL
+### 1.1 วิธีการสร้าง SSH Keys และการใช้งาน
 
 สร้าง SSH key
 
@@ -73,7 +73,7 @@ $ git remote set-url origin git@github.com:username/your-repository.git
 Ref: [Finnian Anderson][4], [GitHub Official Doc](https://docs.github.com/en/github-ae@latest/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 
-# 2. Windows 10, 11
+## 2. Windows 10, 11
 
 เมื่อปี 2018 ผมได้เขียนบทความ [วิธีตั้งค่าการใช้งาน Github (แบบไม่ต้องกรอกรหัสผ่านทุกครั้ง) ผ่าน SSH บน Windows](/s/mo4feik/) ซึ่งได้แนะนำวิธีการใช้ Putty สำหรับทำงานเป็นเบื้องหลัง แต่เราจำเป็นต้องเปิดตัว agent ขึ้นมาทุกครั้ง หรือถ้าไม่อย่างนั้นก็ต้อง ตั้งค่า startup เอง
 
@@ -81,7 +81,7 @@ Ref: [Finnian Anderson][4], [GitHub Official Doc](https://docs.github.com/en/git
 
 ในหัวข้อนี้จะเน้นที่ Powershell เท่านั้นนะครับ ถ้าใครใช้ WSL หรือ Git Bash บน Windows แล้วแนะนำให้ใช้หัวข้อข้างบนแทน
 
-## 2.1 เตรียม SSH สำหรับ Windows 10
+### 2.1 เตรียม SSH สำหรับ Windows 10
 
 OpenSSH ได้ถูกปล่อยออกมาเป็นส่วนหนึ่งของ Windows 10 ทำให้เราสามารถใช้คำสั่ง SSH ผ่าน cmd หรือ powershell ได้ เพื่อให้สามารถใช้งาน OpenSSH ได้เราจำเป็นจะต้องติดตั้ง OpenSSH และสั่งให้ service `ssh-agent` ทำงานเบื้องหลังไว้
 
@@ -98,15 +98,15 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
 
 ถ้าใครไม่ถนัดการใช้ผ่าน command-line สามารถดูการตั้งค่าแบบ UI ได้ที่ [newbedev.com][1] หรือ [SSH keys on Windows 10][5] โดย Richard Ballard
 
-## 2.2 วิธีการสร้าง SSH Keys และการใช้งาน บน PowerShell
+### 2.2 วิธีการสร้าง SSH Keys และการใช้งาน บน PowerShell
 
 สามารถใช้วิธีการเดียวกันจาก Mac OS, Ubuntu, WSL ได้เลย ที่เขียนไว้แล้วข้างบน
 
-# 3. วิธีการที่ทำ SSH Agent จำ Key passphrase
+## 3. วิธีการที่ทำ SSH Agent จำ Key passphrase
 
 เราสามารถใช้งานทั้ง Mac OS, Ubuntu, WSL และ Windows เลย โดยมี 2 วิธี  ขอบคุณ [Daniel Dogeanu][2]
 
-## 3.1 ใช้ Command ssh-add
+### 3.1 ใช้ Command ssh-add
 
 1. Add your SSH key to the `ssh-agent` by issuing the `ssh-add` command and entering your passphrase:
 
@@ -116,7 +116,7 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
 
 > ถ้าใครจะใช้ SSH Key มากกว่าหนึ่ง แนะนำให้ใช้วิธีการที่ 2 ซึ่งเราสามารถ setup ชื่อของ Host ที่แตกต่างกันได้ เมื่อเราใช้คนละ account กัน แนะนำให้ดูเพิ่มใน หัวข้อที่ 4. การใช้งานหลาย Key ในเครื่องเดียวกัน
 
-## 3.2 ตั้งค่าไฟล์ใน `~/.ssh/config`
+### 3.2 ตั้งค่าไฟล์ใน `~/.ssh/config`
 
 1. ตั้งค่าให้ SSH สามารถที่จะเพิ่ม key ลงไปใน agent โดยการแก้ไขไฟล์ config ที่อยู่ใน `$HOME\.ssh\config`
 
@@ -137,7 +137,7 @@ OpenSSH ได้ถูกปล่อยออกมาเป็นส่วน
 
 2. เรียบร้อยแล้ว ถ้ายังใช้งานไม่ได้ให้ restart shell
 
-# 4. การใช้งานหลาย Key ในเครื่องเดียวกัน
+## 4. การใช้งานหลาย Key ในเครื่องเดียวกัน
 เราสามารถใช้งานทั้ง Mac OS, Ubuntu, WSL และ Windows เลย
 โดยการเข้าไปแก้ไขไฟล์ `~/.ssh/config` และเพิ่มหัวข้อ Host ใหม่ โดยในทีนี้ผมเลือกให้ `Host github.com` เป็นค่าเริ่มต้นของ account github ส่วนตัว และใช้ `Host work.github.com` เป็น host สำหรับ account github ที่ทำงาน
 
@@ -168,9 +168,9 @@ ssh-add -l
 ตัวอย่างวิธีการใช้ เราสามารถใช้
 
 ```bash
-# สำหรับเปลี่ยน Remote location ของบัญชีส่วนตัว
+## สำหรับเปลี่ยน Remote location ของบัญชีส่วนตัว
 git remote set-url origin git@work.github.com:your-username/your-repo.git
-# สำหรับเปลี่ยน Clone ของบัญชีส่วนตัว
+## สำหรับเปลี่ยน Clone ของบัญชีส่วนตัว
 git clone git@work.github.com:your-username/your-repo.git
 ```
 > ซึ่งตรงนี้จะเหมือนกับหน้าเว็บ GitHub แนะนำเลย
@@ -178,13 +178,13 @@ git clone git@work.github.com:your-username/your-repo.git
 แต่ถ้าเราจะใช้ `Host work.github.com` เป็น host สำหรับ account github ที่ทำงาน เพียงแค่เปลี่ยน host ใน URL เท่านั้นเอง
 
 ```bash
-# สำหรับเปลี่ยน Remote location ของบัญชีที่ทำงาน
+## สำหรับเปลี่ยน Remote location ของบัญชีที่ทำงาน
 git remote set-url origin git@github.com:your-username/your-repo.git
-# สำหรับเปลี่ยน Remote location ของบัญชีที่ทำงาน
+## สำหรับเปลี่ยน Remote location ของบัญชีที่ทำงาน
 git clone origin git@github.com:your-username/your-repo.git
 ```
 
-# 5. วิธีการแก้ปัญหา
+## 5. วิธีการแก้ปัญหา
 
 1. ถ้าเป็นแบบนี้ แสดงว่า SSH Agent ยังไม่ได้ทำงาน background ให้ใช้ คำสั่ง `eval "$(ssh-agent -s)"` เพื่อ Start Agent ขึ้นมา (เฉพาะ Mac, Linux, WSL)
 
@@ -208,7 +208,7 @@ git clone origin git@github.com:your-username/your-repo.git
 
 ถ้าลองทำแล้วได้ไม่ได้ยังไง มาแบ่งปันกันได้นะครับ
 
-## วิธีใช้งานร่วมกับ SourceTree
+### วิธีใช้งานร่วมกับ SourceTree
 
 ![](openssh-sourcetree.png)
 
@@ -223,7 +223,7 @@ git@work.github.com:your-username/your-repo.git
 ```
 
 
-# อ่านเพิ่มเติม
+## อ่านเพิ่มเติม
 
 - [4 Cryptography Concept ที่ Developer ทุกคนควรรู้][4-crypto] โดยคุณ Kittitorn Kanokwalai
 - [SSH keys on Windows 10][5] - Richard Ballard
@@ -232,7 +232,7 @@ git@work.github.com:your-username/your-repo.git
 - [Understand Basic SSH Agent](https://www.ssh.com/academy/ssh/agent)
 - [Using SSH agent forwarding](https://docs.github.com/en/enterprise-server@3.4/developers/overview/using-ssh-agent-forwarding) - GitHub Official Doc
 
-# อ้างอิง
+## อ้างอิง
 
 - [How to run ssh-add on windows?][1] - Newbedev.com
 - [How to make Powershell remember the SSH key passphrase.][2] - Daniel Dogeanu
