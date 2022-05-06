@@ -11,15 +11,13 @@ toc: true
 uuid: suzlta6
 ---
 
-May 7, 2022
-
-The problem we're facing with more than 100 secrets in our environment and how to we utilize implementation method and still provide acceptable security level. Lesson learn about how we manage secrets using Mozilla SOPS and Azure Key Vault on GitHub Actions deployment pipeline.
+## Talks Info
 
 - Event: Global Azure Thailand.
-- Demo Repo in Talk
+- [Demo Repo in Talk](https://github.com/mildronize/100-secrets-github-actions-sops-with-azure-key-vault)
 - [SOPS for Azure Key Vault Boilerplate on GitHub](https://github.com/mildronize/sops-with-azure-keyvault-secrets)
 
-# Better Secret Management with  Mozilla SOPS for GitHub Actions
+---
 
 ก่อนที่จะอ่านบทความนี้ควรที่จะเข้าใจการใช้งาน GitHub Actions เบื้องต้นก่อน
 
