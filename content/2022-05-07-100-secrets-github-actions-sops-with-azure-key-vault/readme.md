@@ -347,7 +347,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ matrix.app_name }}
+          app-name: ${{ matrix.name }}
           publish-profile: ${{ steps.sops.outputs.secret }}
           package: .
 ```
