@@ -11,6 +11,7 @@ import Hero from "../components/Hero";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 import { onMobile, onTablet, useResponsive } from "../themes/responsive";
+import Books from "../components/Books";
 
 function Landing({ data }) {
   const postEdges = data.allMarkdownRemark.edges;
@@ -27,6 +28,8 @@ function Landing({ data }) {
           <TwoColumnLayout>
             <TwoColumnItem main>
               {isMobile && <Hero />}
+              <Header>My Books (Thai)</Header>
+              <Books />
               <Header>Recent posts</Header>
               <HorizontalDivider/>
               <CoverPostListing postEdges={postEdges} />
@@ -108,7 +111,7 @@ export const pageQuery = graphql`
     allMarkdownRemark: allMarkdownRemark(
       sort: { fields: [fields___date], order: DESC }
       filter: { fields: { isDraft: { eq: false } } }
-      limit: 7
+      limit: 4
     ) {
       edges {
         node {
