@@ -4,6 +4,7 @@ tags:
   - TypeScript
   - Dependency Injection
 uuid: uxzmr8c
+unsplashImgCoverId: k4mEY-KBDnM
 ---
 
 ผมลืมไปว่า JS Module มันนับตัวเองเป็นหนึ่ง Component เลยถึงแม้ว่าเราเข้าถึง object จากคนละไฟล์ใน module

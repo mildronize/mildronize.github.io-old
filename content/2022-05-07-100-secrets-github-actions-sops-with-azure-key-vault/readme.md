@@ -9,6 +9,7 @@ tags:
 language: th
 toc: true
 uuid: suzlta6
+unsplashImgCoverId: NWmcp5fE_4M
 ---
 
 ## Talks Info

@@ -3,6 +3,7 @@ uuid: 9ahhltg
 title: Provider Azurerm Version 3 ออกมาแล้ว มีอะไรเปลี่ยนไปบ้าง มีอะไรที่ Deprecated
 tags:
   - Terraform
+unsplashImgCoverId: ns6YZqJxg08
 ---
 
 
