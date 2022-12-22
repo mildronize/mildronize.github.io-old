@@ -10,6 +10,7 @@ uuid: c2tcmvl
 unsplashImgCoverId: jOqJbvo1P9g
 ---
 
+เจ็บปวดกันมาเท่าไหร่กับ ขนาดของ project nodejs ที่ใหญ่มโหฬาร วันนี้ผมจะมาแชร์ประสบการณ์ Workaround ของผมว่าจะลด 80% ได้ยังไง ด้วย esbuild Bundle
 
 **Before**
 
@@ -234,10 +235,33 @@ remote-state-api      alpine-unused   907254a67d28   4 days ago    831MB
 
 ใน Step นี้จะใช้ dockerfile เดียวกันกับ step ที่แล้ว
 
-## Step 4: Bundle Nest.js โดยใช้ esbuild
+## Step 4: Bundle Nestjs โดยใช้ esbuild
 
-- [NestJS + esbuild workarounds](https://dev.to/antongolub/nestjs-esbuild-workarounds-99i)
+จริง ผมเคยมีความพยายามจะ Bundle Nestjs ด้วย esbuild หลายครั้งแล้ว ซึ่งเป็นวิธีเดียวกันกับเวลาเรา bundle JS เพื่อใช้ Browser เลย โดยที่เราไม่ต้องใส่ ืnode_modules ลงไปใน docker images เลย เย้ๆ จึงทำให้ขนาดของ Nestjs แอพที่ bundle แล้วจะอยู่ที่ 2.3 MB เท่านั้นเอง โอ้ว เล็กมากๆ
 
+แต่มัน build แบบ bundle ไม่ผ่านครับ เพราะมันจะบอกว่าเราไม่ได้ลง packages พวก `cache-manager`, `@nestjs/microservices`, `class-transformer/storage` ไว้ ทำให้มันหาไม่เจอ
+
+เพราะว่า Nestjs มีการเรียกหา packages พวกนั้นด้วย แต่เราไม่ได้ใช้งานนี่สิ ทำไมเราต้องลง ซึ่งใน esbuild เองเราสามารถเอา package ที่เราไม่ต้องการออกจาก bundle ให้ (ก็คือถ้าไม่อยู่ใน bundle มันจะไปหาใน node_modules แทน) โดยการใช้ config ประมาณนี้
+
+```ts
+import { build, BuildOptions } from 'esbuild';
+const buildConfig: BuildOptions = {
+   // ...
+    external: [
+      'cache-manager',
+      '@nestjs/microservices',
+      'class-transformer/storage',
+    ],
+    // ...
+  };
+await build(buildConfig);
+```
+
+แต่ว่าเราก็ไม่สามารถทำงานได้อีก รอบนี้ดูเหมือน Depedency Injection ของ Nestjs ไม่ทำงาน ต้องขอบคุณ คุณ Anton Golub ที่เขียน blog เรื่อง [NestJS + esbuild workarounds](https://dev.to/antongolub/nestjs-esbuild-workarounds-99i) ซึ่งเค้าได้อธิบายว่า esbuild จะไม่ได้ bundle พวก decorator ให้เรา ดังนั้นเค้าจึงเขียน plugin ใน esbuild ที่ชื่อ [@anatine/esbuild-decorators](https://github.com/anatine/esbuildnx) เพื่อมาจัดการตรงนี้
+
+และผมก็เจอปัญหาลักษณะเดียวกันกับ Prisma เช่นกัน ผมเลยจึงเอา `prisma` และ `@prisma/client` ออกจาก bundle ด้วย แล้วค่อยไปลงใหม่ใน docker build แทน
+
+ผมก็จะได้ Final Solution ประมาณนี้
 
 ## Final Solution
 
@@ -408,7 +432,19 @@ EXPOSE ${PORT}
 CMD [ "node", "main.js" ]
 ```
 
-## Ref
+## สรุป
+
+โดยในที่สุดก็จะได้ image ขนาด 376 MB หรือถ้าตัด base image ออก จะเหลือ 209 MB
+
+```
+REPOSITORY            TAG            IMAGE ID       CREATED       SIZE
+remote-state-api      alpine-bundle  022a0feda515   4 days ago    376MB
+```
+
+ป.ล. ได้มีการลองใช้ Distroless ของ Google ด้วยแต่ยังติดปัญหากับ Prisma ถ้าใครรู้วิธีก็มาแชร์กันได้น้าา
+
+## แหล่งอ้างอิง
+
 ### Docker
 
 - Multi-Stage: https://www.tomray.dev/nestjs-docker-production
