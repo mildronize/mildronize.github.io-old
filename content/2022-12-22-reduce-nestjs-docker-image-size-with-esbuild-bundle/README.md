@@ -46,7 +46,7 @@ du -sh ./node_modules
 ซึ่ง Nx จะมี mode ให้ใช้หลักๆ อยู่ 2 แบบ คือ
 
 1.  [Package-Based Repos](https://nx.dev/getting-started/package-based-repo-tutorial) อันนี้จะเป็นแนวเวลาเราใช้งาน monorepo ทั่วๆ ไป โดยที่แต่ละ project จะมี `package.json` แยกกันเลย จึงทำให้เราสามารถจัดการแต่ละ project แยกกันง่าย และเวลา deploy package แต่ละ Project จะไม่ปนกัน
-    - แต่ข้อเสียคือ เราสามารถใช้ความสามารถ Generator ของ Nx ได้ ที่สามารถเสก Template TypeScript Project ง่ายๆ
+    - แต่ข้อเสียคือ การ config ให้ tsconfig, eslint, jest ให้มีการใช้งานร่วมกันระหว่างโปรเจ็คได้ ค่อนข้างใช้เวลาเยอะ และ เราไม่สามารถใช้ความสามารถ Generator ของ Nx ได้ ที่สามารถเสก Template TypeScript Project ง่ายๆ
     - ตัวอย่าง Monorepo ที่ลักษณะคล้ายๆ กันก็คือจะมี [Yarn Workspace](https://yarnpkg.com/features/workspaces), [pnpm Workspace](https://pnpm.io/workspaces), [Lerna](https://github.com/lerna/lerna), [turborepo](https://turbo.build/repo)
 
 
@@ -204,7 +204,7 @@ EXPOSE ${PORT}
 CMD [ "node", "main.js" ]
 ```
 
-ถ้าสังเกตุใน dockerfile จะเห็นได้ว่าผมใช้ `prisma generate` เรา Alpine ซึ่งโดยปกติเราเวลาใช้ Alpine เรามักจะจัดการทุกอย่างให้เสร็จก่อนใน debian image แล้วค่อย copy file มาที่ Alpine
+ถ้าสังเกตุใน dockerfile จะเห็นได้ว่าผมใช้ `prisma generate` ใน Alpine ซึ่งโดยปกติเราเวลาใช้ Alpine เรามักจะจัดการทุกอย่างให้เสร็จก่อนใน debian image แล้วค่อย copy file มาที่ Alpine
 
 แต่ Prisma ไม่อนุญาตเรา build ไว้ก่อนใน debian เพราะ OS ไม่ตรงกับที่ runtime ผมเลยจำใจต้องมา build ใน Alpine แทน
 
