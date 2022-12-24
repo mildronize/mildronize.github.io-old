@@ -14,8 +14,8 @@ on:
       - static/**
 
   schedule:
-      # Nightly Build for Update Page view about 03:00 UTC+7
-      - cron: "0 20 * * *"
+      # Every Monday Build for Update Page view about 03:00 UTC+7
+      - cron: "0 20 * * 0"
 
 jobs:
   build:
