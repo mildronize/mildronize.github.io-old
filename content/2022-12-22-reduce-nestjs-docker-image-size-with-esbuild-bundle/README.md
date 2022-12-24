@@ -1,5 +1,5 @@
 ---
-title: ลดขนาด Docker Image ของ NestJS/Prisma กับ Nx Monorepo ประมาณ 80% ด้วย esbuild Bundle
+title: ลดขนาด Docker Image ของ NestJS/Prisma กับ Nx Monorepo ประมาณ 97% ด้วย esbuild Bundle
 tags:
   - Nest.js
   - Docker
@@ -9,6 +9,9 @@ tags:
 uuid: c2tcmvl
 unsplashImgCoverId: jOqJbvo1P9g
 ---
+
+> Update วันที่ 24 Dec 2022:
+> เพิ่ม Step ที่ 5 ใช้ Alpine เป็น base image และลบ Prisma ไฟล์บางอย่างที่ไม่ได้ใช้งานออก
 
 เจ็บปวดกันมาเท่าไหร่กับ ขนาดของ project nodejs ที่ใหญ่มโหฬาร วันนี้ผมจะมาแชร์ประสบการณ์ Workaround ของผมว่าจะลด 80% ได้ยังไง ด้วย esbuild Bundle
 
@@ -22,12 +25,12 @@ remote-state-api      debian        f42e4b8e75cb   4 days ago    2.64GB
 **After**
 
 ```
-REPOSITORY            TAG            IMAGE ID       CREATED       SIZE
-remote-state-api      alpine-bundle  022a0feda515   4 days ago    376MB
+REPOSITORY            TAG            IMAGE ID       CREATED           SIZE
+remote-state-api      alpine-unused  12b08b0bfc1f   8 seconds ago     77.8MB
 ```
 
 
-โดยสรุปลดจาก 2.64 GB เหลือ 376.48 MB โดยลดไปประมาณ 86%
+โดยสรุปลดจาก 2.64 GB เหลือ 77.8 MB โดยลดไปประมาณ 97%
 
 ## Stack ที่ใช้
 
@@ -261,9 +264,15 @@ await build(buildConfig);
 
 และผมก็เจอปัญหาลักษณะเดียวกันกับ Prisma เช่นกัน ผมเลยจึงเอา `prisma` และ `@prisma/client` ออกจาก bundle ด้วย แล้วค่อยไปลงใหม่ใน docker build แทน
 
-ผมก็จะได้ Final Solution ประมาณนี้
+โดยในที่สุดก็จะได้ image ขนาด 376 MB หรือถ้าตัด base image ออก จะเหลือ 209 MB
 
-## Final Solution
+```
+REPOSITORY            TAG            IMAGE ID       CREATED       SIZE
+remote-state-api      alpine-bundle  022a0feda515   4 days ago    376MB
+```
+
+
+## ตัวอย่าง Dockerfile
 
 custom esbuild config
 
@@ -434,14 +443,108 @@ EXPOSE ${PORT}
 CMD [ "node", "main.js" ]
 ```
 
+## Step 5: ใช้ Alpine เปล่าๆ และลบไฟล์ไม่จำเป็นออก
+
+ใน Step นี้ เปลี่ยนไปใช้ alpine base image แล้วก็ลง nodejs เอง ลบไฟล์ที่ไม่จำเป็นออกทั้งหมด แล้วก็ติดตั้ง Prisma version โดยอ่านจาก `package.json` ไฟล์ รวมถึง set user เป็น non root
+
+แล้วก็ใช้ [dive](https://github.com/wagoodman/dive) ในการวิเคราะห์ในแต่ละ Layer ว่ามีไฟล์อะไรอยู่บ้าง จะได้ลบไฟล์ที่ไม่ได้ใช้ออกไป
+
+```dockerfile
+###################
+# BUILD FOR PRODUCTION
+###################
+
+FROM node:18 As build
+RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+
+WORKDIR /app
+
+COPY --chown=node:node . .
+
+RUN pnpm install --frozen-lockfile
+
+RUN pnpx nx run remote-state-server:build-esbuild
+
+USER node
+
+###################
+# PRODUCTION
+###################
+
+# Not Natively support ARM64 (M1)
+FROM alpine:3.17 As production
+
+ENV PORT=3333
+ENV NODE_VERSION 18.12.1-r0
+ENV NPM_VERSION 9.1.2-r0
+ENV OPENSSL_COMPAT_VERSION 1.1.1s-r0
+
+WORKDIR /app
+COPY --chown=node:node package.json .
+COPY --chown=node:node apps/remote-state-server/prisma ./prisma/
+COPY --chown=node:node --from=build /app/dist/apps/remote-state-server .
+
+RUN apk add --update --no-cache nodejs=$NODE_VERSION
+
+RUN apk add --update --no-cache \
+  # For getting node-prune
+  curl \
+  # For Prisma client in Alpine
+  # Fix "Error: Unable to establish a connection to query-engine-node-api library. It seems there is a problem with your OpenSSL installation!"
+  # Ref: https://github.com/prisma/prisma/issues/14073
+  openssl1.1-compat=$OPENSSL_COMPAT_VERSION \
+  npm=$NPM_VERSION \
+  # npx will look the local node_modules first, if not it will install globally
+  # Ref: https://stackoverflow.com/questions/22420564/install-only-one-package-from-package-json
+  && PRISMA_CLIENT_VERSION=$(node -pe "require('./package').dependencies['@prisma/client']") \
+  && PRISMA_VERSION=$(node -pe "require('./package').dependencies['prisma']") \
+  # We don't need package.json anymore
+  && rm -rf package.json \
+  && npm install @prisma/client@$PRISMA_CLIENT_VERSION \
+  && npm install -D prisma@$PRISMA_VERSION \
+  # We don't have the existing sqlite file
+  # So, we will create a fresh sqlite every time when build
+  # This migration should be run every time when build
+  && npx prisma migrate deploy \
+  # Prepare prisma library
+  # If we don't have package.json, prisma will create for you, and create a local node_modules
+  && npx prisma generate \
+  # Prune non-used files
+  && npm prune --production \
+  # Clean Prisma non-used files https://github.com/prisma/prisma/issues/11577
+  && rm -rf node_modules/.cache/ \
+  && rm -rf node_modules/@prisma/engines/ \
+  && rm -rf node_modules/@prisma/engines-version \
+  && rm -rf node_modules/prisma \
+  # Remove cache
+  && rm -rf /root/.cache/ \
+  && rm -rf /root/.npm/ \
+  # Remove all unused dependecies
+  && apk del openssl1.1-compat npm curl
+
+EXPOSE ${PORT}
+
+# Create a group and user
+RUN addgroup -g 1000 node \
+    && adduser -u 1000 -G node -s /bin/sh -D node
+
+USER node
+
+CMD [ "node", "main.js" ]
+```
+
 ## สรุป
 
-โดยในที่สุดก็จะได้ image ขนาด 376 MB หรือถ้าตัด base image ออก จะเหลือ 209 MB
+โดยในที่สุดก็จะได้ image ขนาด 77 MB เมื่อตัด runtime ทุกอย่างออก ตัว node app จะเหลือที่ 25 MB (ดูใน dive)
 
 ```
-REPOSITORY            TAG            IMAGE ID       CREATED       SIZE
-remote-state-api      alpine-bundle  022a0feda515   4 days ago    376MB
+REPOSITORY            TAG            IMAGE ID       CREATED           SIZE
+remote-state-api      alpine-unused  12b08b0bfc1f   8 seconds ago     77.8MB
 ```
+
+พอได้ใช้ `dive` ส่องดูก็พบว่า ขนาดเล็กกำลังดีเลย
+
+![](final-image-with-dive.png)
 
 ป.ล. ได้มีการลองใช้ Distroless ของ Google ด้วยแต่ยังติดปัญหากับ Prisma ถ้าใครรู้วิธีก็มาแชร์กันได้น้าา
 

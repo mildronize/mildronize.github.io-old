@@ -108,7 +108,7 @@ export const getUuidStore = async (markdownPaths: string[], targetPath: string) 
     if (!Object.prototype.hasOwnProperty.call(frontmatter, "data")) return;
     if (!Object.prototype.hasOwnProperty.call(frontmatter.data, "uuid")) return;
     if (Object.prototype.hasOwnProperty.call(uuids, frontmatter.data.uuid))
-      throw new Error('The uuid is duplicating, please fix this issue before run this command again');
+      throw new Error(`The uuid is duplicating, please fix this issue before run this command again ${frontmatter.data.uuid}`);
     uuids[frontmatter.data.uuid] = markdownPaths[index];
   });
 
