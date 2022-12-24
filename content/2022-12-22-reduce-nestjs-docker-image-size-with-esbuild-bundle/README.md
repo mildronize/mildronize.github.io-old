@@ -548,6 +548,17 @@ remote-state-api      alpine-unused  12b08b0bfc1f   8 seconds ago     77.8MB
 
 ป.ล. ได้มีการลองใช้ Distroless ของ Google ด้วยแต่ยังติดปัญหากับ Prisma ถ้าใครรู้วิธีก็มาแชร์กันได้น้าา
 
+## Acknowledgement
+
+ขอบคุณคุณ [Neutron Soutmun](https://www.facebook.com/neutrons) ใน Facebook Group Docker in Thai มากๆ เลยคับ พอดีไม่ได้จับ Docker นาน [เลยสงสัยว่าทำไมลบไฟล์ใน Dockerfile ไปแล้ว ทำไมขนาดของ image ถึงไม่เล็กลง](https://www.facebook.com/photo?fbid=10230189576151414&set=gm.6041709002535607&idorvanity=858633044176588)
+
+> Docker image จะทำ RUN บน storage layer คนละ layer ครับ
+> layer ที่ทำผ่านไปแล้ว ด้วย RUN ก่อนหน้า จะคงอยู่อย่างนั้น เปลี่ยนแปลงไม่ได้ ด้วย RUN ที่ตามหลังมาครับ
+>
+> ถ้าคาดหวังจะให้ files ถูกลบ ต้องทำภายใน RUN หรือ layer เดียวกันกับ layer ที่ files นั้น ๆ ถูกเพิ่มเข้ามาครับ
+> RUN touch test.txt && rm -rf test.txt
+> By [Neutron Soutmun](https://www.facebook.com/neutrons)
+
 ## แหล่งอ้างอิง
 
 ### Docker
