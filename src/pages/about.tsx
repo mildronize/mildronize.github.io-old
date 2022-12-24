@@ -27,7 +27,9 @@ Hi, I'm Mild, Thada, Software Engineer & DevSecOps, Based in Hatyai, Thailand,  
 - Database: MongoDB, MySQL, OpenTSDB, Firebase & Firestore
 - Tools: Docker, Memcached, Notion
 
+**Thada’s Community Engagement**
 
+- https://thadaw.notion.site/Thada-s-Community-Engagement-064f79a8e85e4532a4ab39e7831f34aa
 `;
 
 function AboutPage(props: PageProps) {
