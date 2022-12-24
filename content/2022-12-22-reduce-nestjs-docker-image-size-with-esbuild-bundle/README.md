@@ -34,7 +34,7 @@ remote-state-api      alpine-unused  12b08b0bfc1f   8 seconds ago     77.8MB
 
 ## Stack ที่ใช้
 
-- [Prisma](https://www.prisma.io/) 4.7.1
+- [Prisma](https://www.prisma.io/) 4.8.0
 - [Nestjs](https://nestjs.com/) 9.0.0
 - [Nx](https://nx.dev/) (Monorepo Tools) 15.3.3
 
