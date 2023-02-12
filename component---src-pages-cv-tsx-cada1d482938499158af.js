@@ -1,0 +1,2 @@
+(self.webpackChunkgatsby_starter_advanced=self.webpackChunkgatsby_starter_advanced||[]).push([[834],{1942:function(t,e,n){"use strict";n.r(e);var a=n(7294),c=n(5414),i=n(7342),l=n(2797),r=n.n(l);e.default=function(t){return(0,a.useEffect)((function(){window&&(window.location.href="https://bit.ly/mildthada-notion-cv-v3")}),[]),a.createElement(i.Z,null,a.createElement("div",{className:"about-container"},a.createElement(c.q,{title:"About | "+r().siteTitle})))}}}]);
+//# sourceMappingURL=component---src-pages-cv-tsx-cada1d482938499158af.js.map
